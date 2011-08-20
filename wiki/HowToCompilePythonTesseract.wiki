@@ -1,0 +1,11 @@
+=How to compile python-tesseract (for Ubuntu Natty)=
+{{{
+sudo add-apt-repository ppa:nutznboltz/tesseract
+sudo apt-get update
+sudo apt-get install tesseract-ocr-dev python-all-dev swig
+tar zxvf python-tesseract-xxxx.tar.gz
+cd python-tesseract
+python setup.py build
+sudo python setup.py install
+ 
+}}}
