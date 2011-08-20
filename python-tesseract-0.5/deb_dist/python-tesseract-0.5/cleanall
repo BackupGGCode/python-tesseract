@@ -1,0 +1,9 @@
+#! /bin/bash
+rm *.o
+rm build -Rf
+rm *.cxx
+rm tesseract*.py*
+rm *wrap*
+rm *.so
+rm deb_dist -Rf
+

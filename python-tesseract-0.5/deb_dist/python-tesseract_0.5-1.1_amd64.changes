@@ -1,0 +1,29 @@
+Format: 1.8
+Date: Sat, 20 Aug 2011 13:45:53 +0800
+Source: python-tesseract
+Binary: python-tesseract
+Architecture: source amd64
+Version: 0.5-1.1
+Distribution: unstable
+Urgency: low
+Maintainer: FreeToGo Nowhere <FreeToGo@gmail.com>
+Changed-By: jc <jc@nowhere.com>
+Description: 
+ python-tesseract - ${python:Provides} Wrapper for Python-${python:Versions}
+Changes: 
+ python-tesseract (0.5-1.1) unstable; urgency=low
+ .
+   * Non-maintainer upload.
+   * cheers
+Checksums-Sha1: 
+ 77380cc5a4d74464b7e793ba73403160de9b8ebd 860 python-tesseract_0.5-1.1.dsc
+ c7278af73bf628f35b26ad3760c1ea88273beaca 2023 python-tesseract_0.5-1.1.debian.tar.gz
+ b41c7e8ae78d8303e91cce8aa1262dd17178ea54 44958 python-tesseract_0.5-1.1_amd64.deb
+Checksums-Sha256: 
+ 564d8a8b3aec64b8511ff039de9c160b40f0990641b5de1d81ef80cd39303ea3 860 python-tesseract_0.5-1.1.dsc
+ c3058a4598470c409c3b29203cfb03554f503559935aea6d80fe694179aabc57 2023 python-tesseract_0.5-1.1.debian.tar.gz
+ 0ddb4d05557115aae54715dcc4fcd11b64b5f487d8e941518104ab1e4855a6f3 44958 python-tesseract_0.5-1.1_amd64.deb
+Files: 
+ f1ad6063ab06eedf1433e9359c4de53f 860 python optional python-tesseract_0.5-1.1.dsc
+ 61cc07e419cb5c183bb9a961463bba89 2023 python optional python-tesseract_0.5-1.1.debian.tar.gz
+ 36776d1e4c8bdfc26b84d8b0f1ebba1b 44958 python optional python-tesseract_0.5-1.1_amd64.deb

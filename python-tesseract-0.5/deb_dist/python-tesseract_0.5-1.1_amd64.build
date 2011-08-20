@@ -1,0 +1,191 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: export CFLAGS from dpkg-buildflags (origin: vendor): -g -O2
+dpkg-buildpackage: export CPPFLAGS from dpkg-buildflags (origin: vendor): 
+dpkg-buildpackage: export CXXFLAGS from dpkg-buildflags (origin: vendor): -g -O2
+dpkg-buildpackage: export FFLAGS from dpkg-buildflags (origin: vendor): -g -O2
+dpkg-buildpackage: export LDFLAGS from dpkg-buildflags (origin: vendor): -Wl,-Bsymbolic-functions
+dpkg-buildpackage: source package python-tesseract
+dpkg-buildpackage: source version 0.5-1.1
+dpkg-buildpackage: source changed by jc <jc@nowhere.com>
+ dpkg-source --before-build python-tesseract-0.5
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+test -x debian/rules
+dh_testroot
+dh_clean 
+for buildver in 2.7; do \
+		cd /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5 && cd . && \
+			python$buildver setup.py clean \
+			-a; \
+	done
+Current Version : 0.5
+running clean
+'build/lib.linux-x86_64-2.7' does not exist -- can't clean it
+'build/bdist.linux-x86_64' does not exist -- can't clean it
+'build/scripts-2.7' does not exist -- can't clean it
+rm -rf debian/python-module-stampdir
+find "/home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5" -name '*.py[co]' -delete
+find "/home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5" -name __pycache__ -type d -empty -delete
+find "/home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5" -prune -name '*.egg-info' -exec rm -rf '{}' ';'
+rm -rf build build-stamp configure-stamp build/ MANIFEST
+dh_clean
+ dpkg-source -b python-tesseract-0.5
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building python-tesseract using existing ./python-tesseract_0.5.orig.tar.gz
+dpkg-source: info: building python-tesseract in python-tesseract_0.5-1.1.debian.tar.gz
+dpkg-source: info: building python-tesseract in python-tesseract_0.5-1.1.dsc
+ debian/rules build
+test -x debian/rules
+mkdir -p "."
+mkdir -p debian/python-module-stampdir
+set -e; for buildver in 2.7; do \
+		cd /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5 && cd . && \
+			python$buildver setup.py build \
+			--build-base="/home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/./build"; \
+	done
+Current Version : 0.5
+running build
+running build_py
+creating /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/build
+creating /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/build/lib.linux-x86_64-2.7
+copying tesseract.py -> /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/./build/lib.linux-x86_64-2.7
+running build_ext
+building '_tesseract' extension
+swigging tesseract.i to tesseract_wrap.cpp
+swig -python -c++ -I/usr/include/tesseract -I/usr/include -I/usr/include/leptonica -o tesseract_wrap.cpp tesseract.i
+/usr/include/tesseract/publictypes.h:73: Warning(462): Unable to set dimensionless array variable
+creating /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/build/temp.linux-x86_64-2.7
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -O2 -g -O2 -fPIC -I. -I/usr/include/tesseract -I/usr/include -I/usr/include/leptonica -I/usr/include/python2.7 -c tesseract_wrap.cpp -o /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/./build/temp.linux-x86_64-2.7/tesseract_wrap.o
+cc1plus: warning: command line option "-Wstrict-prototypes" is valid for Ada/C/ObjC but not for C++
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -O2 -g -O2 -fPIC -I. -I/usr/include/tesseract -I/usr/include -I/usr/include/leptonica -I/usr/include/python2.7 -c main_dummy.cpp -o /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/./build/temp.linux-x86_64-2.7/main_dummy.o
+cc1plus: warning: command line option "-Wstrict-prototypes" is valid for Ada/C/ObjC but not for C++
+main_dummy.cpp: In function ‘int readBuf(const char*, l_uint8*)’:
+main_dummy.cpp:49:21: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’, declared with attribute warn_unused_result
+g++ -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -fPIC,-Wl,--as-needed -g -O2 -g -O2 /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/./build/temp.linux-x86_64-2.7/tesseract_wrap.o /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/./build/temp.linux-x86_64-2.7/main_dummy.o -lstdc++ -ltesseract_api -llept -o /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/./build/lib.linux-x86_64-2.7/_tesseract.so
+touch debian/python-module-stampdir/python-tesseract
+ fakeroot debian/rules binary
+test -x debian/rules
+dh_testroot
+dh_prep 
+dh_installdirs -A 
+mkdir -p "."
+mkdir -p debian/python-module-stampdir
+set -e; for buildver in 2.7; do \
+		cd /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5 && cd . && \
+			python$buildver setup.py build \
+			--build-base="/home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/./build"; \
+	done
+Current Version : 0.5
+running build
+running build_py
+copying tesseract.py -> /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/./build/lib.linux-x86_64-2.7
+running build_ext
+touch debian/python-module-stampdir/python-tesseract
+Adding cdbs dependencies to debian/python-tesseract.substvars
+dh_installdirs -ppython-tesseract 
+set -e; for buildver in 2.7; do \
+		cd /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5 && cd . && \
+			python$buildver setup.py install \
+			--root="/home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/debian/python-tesseract/" \
+			--install-purelib=/usr/lib/python$buildver/site-packages/ \
+			--install-platlib=/usr/lib/python$buildver/site-packages/ \
+			--prefix=/usr --no-compile -O0 --install-layout=deb ; \
+	done
+Current Version : 0.5
+running install
+running build
+running build_py
+copying tesseract.py -> build/lib.linux-x86_64-2.7
+running build_ext
+running install_lib
+creating /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/debian/python-tesseract/usr
+creating /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/debian/python-tesseract/usr/lib
+creating /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/debian/python-tesseract/usr/lib/python2.7
+creating /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/debian/python-tesseract/usr/lib/python2.7/site-packages
+copying build/lib.linux-x86_64-2.7/_tesseract.so -> /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/debian/python-tesseract/usr/lib/python2.7/site-packages
+copying build/lib.linux-x86_64-2.7/tesseract.py -> /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/debian/python-tesseract/usr/lib/python2.7/site-packages
+running install_egg_info
+Writing /home/jc/Downloads/python-tesseract/python-tesseract-0.5/deb_dist/python-tesseract-0.5/debian/python-tesseract/usr/lib/python2.7/site-packages/python_tesseract-0.5.egg-info
+dh_installdocs -ppython-tesseract 
+dh_installexamples -ppython-tesseract 
+dh_installman -ppython-tesseract  
+dh_installinfo -ppython-tesseract  
+dh_installmenu -ppython-tesseract 
+dh_installcron -ppython-tesseract 
+dh_installinit -ppython-tesseract  
+Duplicate specification "O=s" for option "O"
+dh_installdebconf -ppython-tesseract 
+dh_installemacsen -ppython-tesseract   
+dh_installcatalogs -ppython-tesseract 
+dh_installpam -ppython-tesseract 
+dh_installlogrotate -ppython-tesseract 
+dh_installlogcheck -ppython-tesseract 
+dh_installchangelogs -ppython-tesseract  
+dh_installudev -ppython-tesseract 
+dh_lintian -ppython-tesseract 
+dh_bugfiles -ppython-tesseract 
+dh_install -ppython-tesseract  
+dh_link -ppython-tesseract  
+dh_buildinfo -ppython-tesseract 
+dh_installmime -ppython-tesseract 
+dh_pysupport -ppython-tesseract   
+dh_strip -ppython-tesseract  
+dh_compress -ppython-tesseract  
+dh_fixperms -ppython-tesseract  
+dh_makeshlibs -ppython-tesseract  
+dh_installdeb -ppython-tesseract 
+dh_perl -ppython-tesseract 
+dh_shlibdeps -ppython-tesseract    
+dpkg-shlibdeps: warning: dependency on libpthread.so.0 could be avoided if "debian/python-tesseract/usr/lib/pyshared/python2.7/_tesseract.so" were not uselessly linked against it (they use none of its symbols).
+dh_gencontrol -ppython-tesseract  
+dpkg-gencontrol: warning: Breaks field of package python-tesseract: unknown substitution variable ${python:Breaks}
+# only call dh_scour for packages in main
+if grep -q '^Component:[[:space:]]*main' /CurrentlyBuilding 2>/dev/null; then dh_scour -ppython-tesseract ; fi
+# symlink identical documentation to depending packages
+[ -n "$CDBS_NO_DOC_SYMLINKING" ] || \
+	[ -h debian/python-tesseract/usr/share/doc ] || \
+	[ -h debian/python-tesseract/usr/share/doc/python-tesseract ] || \
+	[ ! -d debian/python-tesseract/usr/share/doc ] || \
+	myarch=$(sed -n -e's/^Architecture: *//p' debian/python-tesseract/DEBIAN/control); \
+	for dep in `perl -ne 'if (/^(Pre-)?Depends:/) {s/^\w+://; foreach (split /,/) { split; print($_[0], "\n"); } }' debian/python-tesseract/DEBIAN/control`; do \
+	    if [ -d debian/$dep/usr/share/doc ]; then \
+	        thisarch=$(sed -n -e's/^Architecture: *//p' debian/$dep/DEBIAN/control 2>/dev/null); \
+	        if [ "x$myarch" != "x$thisarch" ] && [ "x$thisarch" = xall ]; then \
+	            continue; \
+	        fi; \
+	        if [ -L debian/python-tesseract/usr/share/doc/python-tesseract ]; then \
+	            continue; \
+	        fi; \
+                echo "Searching for duplicated docs in dependency $dep..."; \
+                rootdir=`pwd`; \
+                (cd debian/python-tesseract/usr/share/doc/python-tesseract; find -type f ! -name copyright | while read f; do \
+                    thisfile="$rootdir/debian/python-tesseract/usr/share/doc/python-tesseract/$f"; \
+                    depfile="$rootdir/debian/$dep/usr/share/doc/$dep/$f"; \
+                    if [ -f $depfile -o -L $depfile ] && zcmp $thisfile $depfile >/dev/null; then \
+                        echo "  symlinking $f in python-tesseract to file in $dep"; \
+                        rm $thisfile; ln -s /usr/share/doc/$dep/$f $thisfile; \
+                    fi; \
+                done ); \
+            fi; \
+	done
+# symlink identical Gnome help files within packages
+if [ -z "$CDBS_NO_GNOME_HELP_SYMLINKING" ] && [ -d debian/python-tesseract/usr/share/gnome/help ]; then \
+            cd debian/python-tesseract && LC_ALL=C fdupes -r1nq usr/share/gnome/help | while read s; do \
+                set -- $(echo $s | tr ' ' '\n' | sort); \
+                f=$1; shift; \
+                for d; do \
+                    echo "symlinking duplicate Gnome help file $d to $f"; \
+                    rm $d; ln -s /$f $d; \
+                done; \
+            done; \
+	fi
+dh_link -p python-tesseract
+dh_md5sums -ppython-tesseract 
+dh_builddeb -ppython-tesseract 
+dpkg-deb: building package `python-tesseract' in `../python-tesseract_0.5-1.1_amd64.deb'.
+ dpkg-genchanges  >../python-tesseract_0.5-1.1_amd64.changes
+dpkg-genchanges: not including original source code in upload
+ dpkg-source --after-build python-tesseract-0.5
+dpkg-buildpackage: binary and diff upload (original source NOT included)
+Now running lintian...
+Finished running lintian.
