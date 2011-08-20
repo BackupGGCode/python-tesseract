@@ -7,5 +7,6 @@ tar zxvf python-tesseract-xxxx.tar.gz
 cd python-tesseract
 python setup.py build
 sudo python setup.py install
- 
+
+
 }}}
