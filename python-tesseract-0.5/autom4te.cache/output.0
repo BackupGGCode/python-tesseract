@@ -599,8 +599,6 @@ LIB@&t@OBJS
 EGREP
 GREP
 CPP
-ARCH
-OSNAME
 ac_ct_CC
 CFLAGS
 CC
@@ -611,6 +609,18 @@ CPPFLAGS
 LDFLAGS
 CXXFLAGS
 CXX
+target_os
+target_vendor
+target_cpu
+target
+host_os
+host_vendor
+host_cpu
+host
+build_os
+build_vendor
+build_cpu
+build
 target_alias
 host_alias
 build_alias
@@ -1264,6 +1274,11 @@ Fine tuning of the installation directories:
 _ACEOF
 
   cat <<\_ACEOF
+
+System types:
+  --build=BUILD     configure for building on BUILD [guessed]
+  --host=HOST       cross-compile to build programs to run on HOST [BUILD]
+  --target=TARGET   configure for building compilers for TARGET [HOST]
 _ACEOF
 fi
 
@@ -2216,7 +2231,145 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 ac_config_headers="$ac_config_headers config.h"
 
+ac_aux_dir=
+for ac_dir in "$srcdir" "$srcdir/.." "$srcdir/../.."; do
+  if test -f "$ac_dir/install-sh"; then
+    ac_aux_dir=$ac_dir
+    ac_install_sh="$ac_aux_dir/install-sh -c"
+    break
+  elif test -f "$ac_dir/install.sh"; then
+    ac_aux_dir=$ac_dir
+    ac_install_sh="$ac_aux_dir/install.sh -c"
+    break
+  elif test -f "$ac_dir/shtool"; then
+    ac_aux_dir=$ac_dir
+    ac_install_sh="$ac_aux_dir/shtool install -c"
+    break
+  fi
+done
+if test -z "$ac_aux_dir"; then
+  as_fn_error $? "cannot find install-sh, install.sh, or shtool in \"$srcdir\" \"$srcdir/..\" \"$srcdir/../..\"" "$LINENO" 5 
+fi
 
+# These three variables are undocumented and unsupported,
+# and are intended to be withdrawn in a future Autoconf release.
+# They can cause serious problems if a builder's source tree is in a directory
+# whose full name contains unusual characters.
+ac_config_guess="$SHELL $ac_aux_dir/config.guess"  # Please don't use this var.
+ac_config_sub="$SHELL $ac_aux_dir/config.sub"  # Please don't use this var.
+ac_configure="$SHELL $ac_aux_dir/configure"  # Please don't use this var.
+
+
+# Make sure we can run config.sub.
+$SHELL "$ac_aux_dir/config.sub" sun4 >/dev/null 2>&1 ||
+  as_fn_error $? "cannot run $SHELL $ac_aux_dir/config.sub" "$LINENO" 5 
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking build system type" >&5
+$as_echo_n "checking build system type... " >&6; }
+if test "${ac_cv_build+set}" = set; then :
+  $as_echo_n "(cached) " >&6
+else
+  ac_build_alias=$build_alias
+test "x$ac_build_alias" = x &&
+  ac_build_alias=`$SHELL "$ac_aux_dir/config.guess"`
+test "x$ac_build_alias" = x &&
+  as_fn_error $? "cannot guess build type; you must specify one" "$LINENO" 5 
+ac_cv_build=`$SHELL "$ac_aux_dir/config.sub" $ac_build_alias` ||
+  as_fn_error $? "$SHELL $ac_aux_dir/config.sub $ac_build_alias failed" "$LINENO" 5 
+
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_build" >&5
+$as_echo "$ac_cv_build" >&6; }
+case $ac_cv_build in
+*-*-*) ;;
+*) as_fn_error $? "invalid value of canonical build" "$LINENO" 5 ;;
+esac
+build=$ac_cv_build
+ac_save_IFS=$IFS; IFS='-'
+set x $ac_cv_build
+shift
+build_cpu=$1
+build_vendor=$2
+shift; shift
+# Remember, the first character of IFS is used to create $*,
+# except with old shells:
+build_os=$*
+IFS=$ac_save_IFS
+case $build_os in *\ *) build_os=`echo "$build_os" | sed 's/ /-/g'`;; esac
+
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking host system type" >&5
+$as_echo_n "checking host system type... " >&6; }
+if test "${ac_cv_host+set}" = set; then :
+  $as_echo_n "(cached) " >&6
+else
+  if test "x$host_alias" = x; then
+  ac_cv_host=$ac_cv_build
+else
+  ac_cv_host=`$SHELL "$ac_aux_dir/config.sub" $host_alias` ||
+    as_fn_error $? "$SHELL $ac_aux_dir/config.sub $host_alias failed" "$LINENO" 5 
+fi
+
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_host" >&5
+$as_echo "$ac_cv_host" >&6; }
+case $ac_cv_host in
+*-*-*) ;;
+*) as_fn_error $? "invalid value of canonical host" "$LINENO" 5 ;;
+esac
+host=$ac_cv_host
+ac_save_IFS=$IFS; IFS='-'
+set x $ac_cv_host
+shift
+host_cpu=$1
+host_vendor=$2
+shift; shift
+# Remember, the first character of IFS is used to create $*,
+# except with old shells:
+host_os=$*
+IFS=$ac_save_IFS
+case $host_os in *\ *) host_os=`echo "$host_os" | sed 's/ /-/g'`;; esac
+
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking target system type" >&5
+$as_echo_n "checking target system type... " >&6; }
+if test "${ac_cv_target+set}" = set; then :
+  $as_echo_n "(cached) " >&6
+else
+  if test "x$target_alias" = x; then
+  ac_cv_target=$ac_cv_host
+else
+  ac_cv_target=`$SHELL "$ac_aux_dir/config.sub" $target_alias` ||
+    as_fn_error $? "$SHELL $ac_aux_dir/config.sub $target_alias failed" "$LINENO" 5 
+fi
+
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_target" >&5
+$as_echo "$ac_cv_target" >&6; }
+case $ac_cv_target in
+*-*-*) ;;
+*) as_fn_error $? "invalid value of canonical target" "$LINENO" 5 ;;
+esac
+target=$ac_cv_target
+ac_save_IFS=$IFS; IFS='-'
+set x $ac_cv_target
+shift
+target_cpu=$1
+target_vendor=$2
+shift; shift
+# Remember, the first character of IFS is used to create $*,
+# except with old shells:
+target_os=$*
+IFS=$ac_save_IFS
+case $target_os in *\ *) target_os=`echo "$target_os" | sed 's/ /-/g'`;; esac
+
+
+# The aliases save the names the user supplied, while $host etc.
+# will get canonicalized.
+test -n "$target_alias" &&
+  test "$program_prefix$program_suffix$program_transform_name" = \
+    NONENONEs,x,x, &&
+  program_prefix=${target_alias}-
 # Checks for programs.
 ac_ext=cpp
 ac_cpp='$CXXCPP $CPPFLAGS'
@@ -3267,81 +3420,61 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
 # autoheader templates
+# detect system type and define some specific settings
 
+case "$target_os" in
+   tiger*)
+     $as_echo "@%:@define __macos__ 1" >>confdefs.h
 
+     ;;
+   darwin*)
+     $as_echo "@%:@define __macos__ 1" >>confdefs.h
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-# Determine the operating system
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking uname -s for detecting host operating system" >&5
-$as_echo_n "checking uname -s for detecting host operating system... " >&6; }
-OSNAME=`uname -s`
-$as_echo "@%:@define OSNAME 1" >>confdefs.h
+     need_macos_dt=no
+     if test x"$MACOSX_DEPLOYMENT_TARGET" = x; then
+        { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: MACOSX_DEPLOYMENT_TARGET environment variable not set. Setting it to 10.3" >&5
+$as_echo "$as_me: WARNING: MACOSX_DEPLOYMENT_TARGET environment variable not set. Setting it to 10.3" >&2;}
+        need_macos_dt=yes
+     else
+        vermajor=`expr x"$MACOSX_DEPLOYMENT_TARGET" : 'x\([0-9][0-9]*\).[0-9][0-9]*'`
+        verminor=`expr x"$MACOSX_DEPLOYMENT_TARGET" : 'x[0-9][0-9]*.\([0-9][0-9]*\)'`
+        if test 0"$vermajor" -lt 10 ; then need_macos_dt=ok;
+        else if test 0"$vermajor" -eq 10 -a 0"$verminor" -lt 3; then need_macos_dt=failed;
+              fi
+        fi
 
-case "$OSNAME" in
-        FreeBSD*)
-                                { $as_echo "$as_me:${as_lineno-$LINENO}: result: FreeBSD Owns your hd" >&5
-$as_echo "FreeBSD Owns your hd" >&6; }
-                FREEBSD=yes
-        ;;
-        DragonFly*)
-                                { $as_echo "$as_me:${as_lineno-$LINENO}: result: DragonFlyBSD Rocks" >&5
-$as_echo "DragonFlyBSD Rocks" >&6; }
-                DRAGONFLY=yes
-        ;;
-        Linux*)
-                                { $as_echo "$as_me:${as_lineno-$LINENO}: result: Linux" >&5
-$as_echo "Linux" >&6; }
-                LINUX=yes
-                OSNAME="__linux__"
+        if test x"$need_macos_dt" = xfailed; then
+           as_fn_error $? "MACOSX_DEPLOYMENT_TARGET must be >= 10.3 (current value: $MACOSX_DEPLOYMENT_TARGET)" "$LINENO" 5 
+        fi
+     fi
+     ;;
+   apple*)
+     $as_echo "@%:@define __macos__ 1" >>confdefs.h
 
-        ;;
-        Darwin*)
-                                { $as_echo "$as_me:${as_lineno-$LINENO}: result: Darwin" >&5
-$as_echo "Darwin" >&6; }
-                FREEBSD=yes
-        ;;
-        *)
-                { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-        ;;
-esac
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking uname -m for detecting host operating system architecture" >&5
-$as_echo_n "checking uname -m for detecting host operating system architecture... " >&6; }
-ARCH=`uname -m`
-case "$ARCH" in
-        amd64*)
-                                { $as_echo "$as_me:${as_lineno-$LINENO}: result: x64 feel teh power" >&5
-$as_echo "x64 feel teh power" >&6; }
-                $as_echo "@%:@define X64 1" >>confdefs.h
+     ;;
+   linux*)
+     
+$as_echo "@%:@define __linux__ /**/" >>confdefs.h
 
-                ARCH=x64
+     if test -r /etc/redhat-release; then
+        # load the redhat linux default option settings
+        ACX_LOAD_DEFAULTS(config/ac_default_linux_rh)
+     fi
+     ;;
+   solaris*)
+     TARGET_OS=solaris
+     $as_echo "@%:@define __solaris__ 1" >>confdefs.h
 
-        ;;
-        x86_64*)
-                                { $as_echo "$as_me:${as_lineno-$LINENO}: result: x64 feel teh power" >&5
-$as_echo "x64 feel teh power" >&6; }
-                $as_echo "@%:@define X64 1" >>confdefs.h
-
-                ARCH=x64
-
-        ;;
-        *)
-                { $as_echo "$as_me:${as_lineno-$LINENO}: result: x86 oh noes i ran out of address space" >&5
-$as_echo "x86 oh noes i ran out of address space" >&6; }
-                $as_echo "@%:@define X86 1" >>confdefs.h
-
-                ARCH=x86
-
-        ;;
+     CC_PREFERENCE="cc gcc"
+     CXX_PREFERENCE="CC g++"
+     DFLT_OPT="-O2"
+     extra_inc_path_default="$extra_inc_path_default /usr/local/include"
+     extra_lib_path_default="$extra_lib_path_default /usr/local/lib"
+     ;;
+   *)
+     { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: untested operating system" >&5
+$as_echo "$as_me: WARNING: untested operating system" >&2;}
+   ;;
 esac
 
 # Checks for libraries.

@@ -3,11 +3,24 @@
 setup.py file for SWIG
 written by FreeToGo@gmail.com
 """
-from distutils.core import setup, Extension
+from distutils.core import setup, Extension, Command
 import sys,os
 incl=os.path.join(sys.prefix,"include")
 version_number=os.getcwd().split("-")[-1]
 print "Current Version : %s"%version_number
+
+
+class CleanCommand(Command):
+    description = "custom clean command that forcefully removes dist/build directories"
+    user_options = []
+    def initialize_options(self):
+        self.cwd = None
+    def finalize_options(self):
+        self.cwd = os.getcwd()
+    def run(self):
+        assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
+        os.system('rm -rf ./build ./dist')
+        
 
 def inclpath(mlib):
 	return os.path.join(incl,mlib)
@@ -30,6 +43,9 @@ setup (name = 'python-tesseract',
        description = """${python:Provides} Wrapper for Python-${python:Versions} """,
        ext_modules = [tesseract_module],
        py_modules = ["tesseract"],
+       cmdclass={
+        'clean': CleanCommand
+        }
   #     data_files=[('.',['test.py','eurotext.tif','eurotext.jpg']),],
        )
        

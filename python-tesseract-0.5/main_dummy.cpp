@@ -6,7 +6,7 @@
 
 // Include automatically generated configuration file if running autoconf
 #ifdef HAVE_CONFIG_H
-#include "config_auto.h"
+	#include "config_auto.h"
 #endif
 #ifdef USING_GETTEXT
 #include <libintl.h>
@@ -20,7 +20,10 @@
 #include "strngs.h"
 #include "tprintf.h"
 #include "tesseractmain.h"
-#include "fmemopen.h"
+#ifdef __macos__
+	#include "fmemopen.h"
+#endif
+
 bool isLibLept() {
 
 	#if defined(HAVE_LIBLEPT)

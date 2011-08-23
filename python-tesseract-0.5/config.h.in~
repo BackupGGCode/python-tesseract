@@ -123,6 +123,36 @@
    #define below would cause a syntax error. */
 #undef _UINT32_T
 
+/* for OmniORB on AIX */
+#undef __aix__
+
+/* for OmniORB on Darwin */
+#undef __darwin__
+
+/* for OmniORB on FreeBSD */
+#undef __freebsd__
+
+/* for OmniORB on HPUX */
+#undef __hpux__
+
+/* for OmniORB on IRIX */
+#undef __irix__
+
+/* for OmniORB on Linux, Cygwin */
+#undef __linux__
+
+/* for OmniORB on NextStep */
+#undef __nextstep__
+
+/* for OmniORB on OSF1 (Tru64) */
+#undef __osf1__
+
+/* for OmniORB on OSR5 */
+#undef __osr5__
+
+/* for OmniORB on SunOS (Solaris) */
+#undef __sunos__
+
 /* Define to rpl_malloc if the replacement function should be used. */
 #undef malloc
 
