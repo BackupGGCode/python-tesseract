@@ -20,9 +20,9 @@
 #include "strngs.h"
 #include "tprintf.h"
 #include "tesseractmain.h"
-#ifdef __macos__
+//#ifdef __darwin__
 	#include "fmemopen.h"
-#endif
+//#endif
 
 bool isLibLept() {
 

@@ -1,1 +1,1 @@
-#define __linux__
+#define __darwin__

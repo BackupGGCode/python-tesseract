@@ -4,8 +4,14 @@ setup.py file for SWIG
 written by FreeToGo@gmail.com
 """
 from distutils.core import setup, Extension, Command
-import sys,os
-incl=os.path.join(sys.prefix,"include")
+import sys,os,platform
+osname=platform.uname()[0]
+if osname=='Darwin':
+	prefix="/opt/local"
+else:
+	prefix=sys.prefix
+incl=os.path.join(prefix,"include")
+print "include path=%s"%incl
 version_number=os.getcwd().split("-")[-1]
 print "Current Version : %s"%version_number
 
