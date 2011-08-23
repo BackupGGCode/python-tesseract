@@ -13,7 +13,7 @@ def inclpath(mlib):
 	return os.path.join(incl,mlib)
 	
 tesseract_module = Extension('_tesseract',
-									sources=['tesseract.i', 'main_dummy.cpp',],
+									sources=['tesseract.i','' 'main_dummy.cpp','fmemopen.c'],
 									swig_opts=["-c++", "-I"+inclpath('tesseract'),
 													"-I"+incl,
 													"-I"+inclpath('leptonica')],
