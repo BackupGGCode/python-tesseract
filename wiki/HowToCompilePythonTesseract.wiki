@@ -5,8 +5,23 @@ sudo apt-get update
 sudo apt-get install tesseract-ocr-dev python-all-dev swig
 tar zxvf python-tesseract-xxxx.tar.gz
 cd python-tesseract
+python config.py
+python setup.py clean
 python setup.py build
 sudo python setup.py install
 
+}}}
 
+
+=How to compile python-tesseract (for Mac OS X Lion)=
+{{{
+install tesseract svn as suggested by mcradle
+http://mousecradle.wordpress.com/2011/05/17/compiling-svn-tesseract-on-osx/
+sudo port install leptonica swig
+tar zxvf python-tesseract-xxxx.tar.gz
+cd python-tesseract
+python config.py
+python setup.py clean
+python setup.py build
+sudo python setup.py install
 }}}
