@@ -20,6 +20,7 @@ First, install tesseract svn as suggested by mcradle<br>
 Then,<br> 
 {{{
 sudo port install leptonica swig
+export LDFLAGS="-L/opt/local/lib"
 tar zxvf python-tesseract-xxxx.tar.gz
 cd python-tesseract
 python config.py
