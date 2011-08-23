@@ -20,7 +20,7 @@
 #include "strngs.h"
 #include "tprintf.h"
 #include "tesseractmain.h"
-
+#include "fmemopen.h"
 bool isLibLept() {
 
 	#if defined(HAVE_LIBLEPT)
