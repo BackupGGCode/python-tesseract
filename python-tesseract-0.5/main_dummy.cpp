@@ -5,9 +5,8 @@
 #endif
 
 // Include automatically generated configuration file if running autoconf
-#ifdef HAVE_CONFIG_H
-	#include "config_auto.h"
-#endif
+#include "config.h"
+
 #ifdef USING_GETTEXT
 #include <libintl.h>
 #include <locale.h>
@@ -20,9 +19,9 @@
 #include "strngs.h"
 #include "tprintf.h"
 #include "tesseractmain.h"
-//#ifdef __darwin__
+#ifdef __darwin__
 	#include "fmemopen.h"
-//#endif
+#endif
 
 bool isLibLept() {
 
