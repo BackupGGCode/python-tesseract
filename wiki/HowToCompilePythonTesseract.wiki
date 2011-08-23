@@ -14,9 +14,11 @@ sudo python setup.py install
 
 
 =How to compile python-tesseract (for Mac OS X Lion)=
+
+First, install tesseract svn as suggested by mcradle
+[http://mousecradle.wordpress.com/2011/05/17/compiling-svn-tesseract-on-osx/]
+Then,
 {{{
-install tesseract svn as suggested by mcradle
-http://mousecradle.wordpress.com/2011/05/17/compiling-svn-tesseract-on-osx/
 sudo port install leptonica swig
 tar zxvf python-tesseract-xxxx.tar.gz
 cd python-tesseract
