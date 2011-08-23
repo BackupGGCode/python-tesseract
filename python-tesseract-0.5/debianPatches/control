@@ -2,7 +2,8 @@ Source: python-tesseract
 Maintainer: FreeToGo Nowhere <FreeToGo@gmail.com>
 Section: python
 Priority: optional
-Build-Depends: cdbs (>= 0.4.85),
+Build-Depends: autotools-dev,
+ cdbs (>= 0.4.85),
  debhelper (>= 7.0.1),
  dh-buildinfo,
  python-support,
