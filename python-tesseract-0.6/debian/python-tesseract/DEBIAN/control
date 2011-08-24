@@ -1,0 +1,10 @@
+Package: python-tesseract
+Version: 0.6-1
+Architecture: i386
+Maintainer: FreeToGo <FreeToGo@gmail.com>
+Installed-Size: 192
+Depends: python (<< 2.8), python (>= 2.7), python-support (>= 0.90.0), leptonica, libc6 (>= 2.4), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.1.1), tesseract-ocr
+Provides: python-tesseract
+Section: python
+Priority: optional
+Description: python2.7-tesseract Wrapper for Python-2.7
