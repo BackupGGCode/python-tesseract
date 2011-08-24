@@ -36,7 +36,7 @@ class CleanCommand(clean):
 	def run(self):
 		clean.run(self)
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
-		os.system('rm -rf ./build ./dist')
+		#os.system('rm -rf ./build ./dist')
 	
         
 
