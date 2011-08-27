@@ -37,8 +37,8 @@ sudo python setup.py install
 
 Still working on it.
 Cygwin is buggy on producing shared library. To make it work, you must modify the LDFLAGS as
-{{{
-~~./configure LDFLAGS="-Wl,--no-undefined  -Wl,--as-needed" --prefix=/usr --enale-shared --disable-static~~
-./configure LDFLAGS="-no-undefined  -Wl,--as-needed" --prefix=/usr --enale-shared --disable-static
 
+~~./configure LDFLAGS="-Wl,--no-undefined  -Wl,--as-needed" --prefix=/usr --enable-shared --disable-static~~
+{{{
+./configure LDFLAGS="-no-undefined  -Wl,--as-needed" --prefix=/usr --enable-shared --disable-static
 }}}
