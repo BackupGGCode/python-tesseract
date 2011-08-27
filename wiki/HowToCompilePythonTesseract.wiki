@@ -31,4 +31,15 @@ python config.py
 python setup.py clean
 python setup.py build
 sudo python setup.py install
+
+
+=How to compile python-tesseract (for Cygwin Windows 7)=
+
+Still working on it.
+Cygwin is buggy in producing shared library. To make it work, you must modify the LDFLAGS as
+ 
+
+./configure LDFLAGS="-Wl,--no-undefined  -Wl,--as-needed" --prefix=/usr --enale-shared --disable-static
+
+ 
 }}}
