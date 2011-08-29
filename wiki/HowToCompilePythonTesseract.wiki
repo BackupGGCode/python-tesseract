@@ -40,7 +40,7 @@ sudo python setup.py install
 {{{
 svn --force export http://apt-cyg.googlecode.com/svn/trunk/ /bin/
 chmod +x /bin/apt-cyg
-apt-cyg install nano make libtool gcc4-g++ libtiff-devel libpng14-devel libgif-devel
+apt-cyg install nano make libtool gcc4-g++ libtiff-devel libpng14-devel libgif-devel libSM-devel
 
 wget http://webp.googlecode.com/files/libwebp-0.1.2.tar.gz
 tar zxvf libwebp-0.1.2.tar.gz
@@ -54,6 +54,13 @@ wget http://leptonica.googlecode.com/files/leptonica-1.68.tar.gz
 tar zxvf leptonica-1.68.tar.gz
 cd leptonica-1.68
 ./autobuild
+./configure --prefix=/usr --disable-shared
+make clean && make -j 4 && make install
+cd ..
+
+svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
+cd tesseract-ocr-read-only
+./runautoconf
 ./configure --prefix=/usr --disable-shared
 make clean && make -j 4 && make install
 cd ..
