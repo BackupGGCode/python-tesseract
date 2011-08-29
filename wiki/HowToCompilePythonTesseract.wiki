@@ -53,6 +53,11 @@ cd ..
 wget http://leptonica.googlecode.com/files/leptonica-1.68.tar.gz
 tar zxvf leptonica-1.68.tar.gz
 cd leptonica-1.68
+./autobuild
+./configure --prefix=/usr --disable-shared
+make clean && make -j 4 && make install
+cd ..
+
 
 
 
