@@ -1,0 +1,12 @@
+include path=/usr/include
+Current Version : 0.6
+running build
+running build_py
+copying tesseract.py -> build/lib.cygwin-1.7.9-i686-2.6
+running build_ext
+building '_tesseract' extension
+swigging tesseract.i to tesseract_wrap.cpp
+swig -python -c++ -I/usr/include/tesseract -I/usr/include -I/usr/include/leptonica -o tesseract_wrap.cpp tesseract.i
+g++  -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -I. -I/usr/include/tesseract -I/usr/include -I/usr/include/leptonica -I/usr/include/python2.6 -c tesseract_wrap.cpp -o build/temp.cygwin-1.7.9-i686-2.6/tesseract_wrap.o
+g++  -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -I. -I/usr/include/tesseract -I/usr/include -I/usr/include/leptonica -I/usr/include/python2.6 -c main_dummy.cpp -o build/temp.cygwin-1.7.9-i686-2.6/main_dummy.o
+g++ -Wl,--enable-auto-image-base build/temp.cygwin-1.7.9-i686-2.6/tesseract_wrap.o build/temp.cygwin-1.7.9-i686-2.6/main_dummy.o  -L/usr/lib/python2.6/config -lstdc++ -ltesseract_api -llept -lpython2.6 -o build/lib.cygwin-1.7.9-i686-2.6/_tesseract.dll

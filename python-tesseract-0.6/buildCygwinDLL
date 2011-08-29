@@ -1,0 +1,6 @@
+python config.py
+python setup.py clean
+python setup.py build --static-link -cmingw32
+#equivalent to CFLAGS="-mno-cygwin" LDFLAGS="-mno-cygwin" ./configure 
+python setup.py install
+

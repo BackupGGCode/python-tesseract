@@ -5,12 +5,26 @@ written by FreeToGo@gmail.com
 """
 from distutils.core import setup, Extension
 from distutils.command.clean import clean
-import sys,os,platform
-osname=platform.uname()[0]
-if osname=='Darwin':
+import sys,os,platform,glob
+
+#osname=platform.uname()[0]
+osname=sys.platform
+extra_objects=" ".split()
+prefix=sys.prefix
+sources="tesseract.i main_dummy.cpp".split()
+extra_link_args=[]
+if osname=='darwin':
 	prefix="/opt/local"
-else:
-	prefix=sys.prefix
+	sources="tesseract.i main_dummy.cpp fmemopen.c".split()
+elif osname=="cygwin":
+	#extra_link_args = "/usr/lib/libtesseract_api.a /usr/lib/libtesseract_main.a /usr/lib/libtesseract_cube.a /usr/lib/libtesseract_neural.a /usr/lib/libtesseract_textord.a /usr/lib/libtesseract_classify.a /usr/lib/libtesseract_dict.a /usr/lib/libtesseract_ccstruct.a /usr/lib/libtesseract_image.a /usr/lib/libtesseract_cutil.a /usr/lib/libtesseract_viewer.a /usr/lib/libtesseract_ccutil.a /usr/lib/libtesseract_main.a /usr/lib/libtesseract_wordrec.a /usr/lib/libtesseract_textord.a /usr/lib/libtesseract_wordrec.a /usr/lib/libtesseract_classify.a /usr/lib/libtesseract_dict.a /usr/lib/libtesseract_ccstruct.a /usr/lib/libtesseract_image.a /usr/lib/libtesseract_cutil.a /usr/lib/libtesseract_viewer.a /usr/lib/libtesseract_ccutil.a".split()
+	extra_link_args = "/usr/lib/libtesseract_main.a /usr/lib/libtesseract_textord.a /usr/lib/libtesseract_wordrec.a".split()      #must come first but why?
+	extra_link_args += glob.glob(os.path.join(prefix,"lib/libtess*.a"))
+	extra_link_args +="/usr/lib/libwebp.a".split()
+	extra_link_args +="-lgif -ljpeg -lpng -ltiff".split()
+	extra_link_args +="-llept".split()
+	#extra_link_args +="-lstdc++ -llept -lSM -luuid -lintl -liconv -lICE -lX11 -lxcb -lXau -lXdmcp  -ljbig -lpthread -lz".split()
+	
 incl=os.path.join(prefix,"include")
 print "include path=%s"%incl
 version_number=os.getcwd().split("-")[-1]
@@ -44,15 +58,17 @@ def inclpath(mlib):
 	return os.path.join(incl,mlib)
 	
 tesseract_module = Extension('_tesseract',
-									sources=['tesseract.i','' 'main_dummy.cpp','fmemopen.c'],
+									sources=sources,
 									swig_opts=["-c++", "-I"+inclpath('tesseract'),
 													"-I"+incl,
 													"-I"+inclpath('leptonica')],
+									extra_objects=extra_objects,
 									include_dirs=['.',inclpath('tesseract'),
 													incl,
 													inclpath('leptonica')],
-									libraries=['stdc++','tesseract_api','lept'],
-								
+									#libraries=['stdc++','tesseract_api','lept'],
+									libraries=['tesseract_api'],
+									extra_link_args=extra_link_args
 									)
 									
 setup (name = 'python-tesseract',
