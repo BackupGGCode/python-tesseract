@@ -34,7 +34,7 @@ sudo python setup.py install
 }}}
 
 =How to compile python-tesseract (for Cygwin Windows 7)=
-==1. Install cygwin by starting setup.exe==
+==1. Install cygwin by starting setup.exe[http://cygwin.com/setup.exe]==
 ==2. then install subversion and wget== 
 ==3. start cygwin-bash-shell== 
 {{{
