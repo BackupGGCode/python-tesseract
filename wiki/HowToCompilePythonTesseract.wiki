@@ -43,11 +43,16 @@ chmod +x /bin/apt-cyg
 apt-cyg install nano make libtool gcc4-g++ libtiff-devel libpng14-devel libgif-devel
 
 wget http://webp.googlecode.com/files/libwebp-0.1.2.tar.gz
+tar zxvf libwebp-0.1.2.tar.gz
 cd libwebp-0.1.2
 ./autogen.sh
 ./configure --prefix=/usr --disable-shared
-make clean && make && make install
+make clean && make -j 4 && make install
 cd ..
+
+wget http://leptonica.googlecode.com/files/leptonica-1.68.tar.gz
+tar zxvf leptonica-1.68.tar.gz
+cd leptonica-1.68
 
 
 
