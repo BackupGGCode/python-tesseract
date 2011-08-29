@@ -40,8 +40,11 @@ sudo python setup.py install
 {{{
 svn --force export http://apt-cyg.googlecode.com/svn/trunk/ /bin/
 chmod +x /bin/apt-cyg
-apt-cyg install nano gcc4-g++ libtiff-devel libpng14-devel libgif-devel
+apt-cyg install nano libtool gcc4-g++ libtiff-devel libpng14-devel libgif-devel
 wget http://webp.googlecode.com/files/libwebp-0.1.2.tar.gz
+cd libwebp-0.1.2
+./autogen.sh
+./configure --prefix=/usr --disable-shared
 
 }}}
 
