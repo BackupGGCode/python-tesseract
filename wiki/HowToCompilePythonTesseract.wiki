@@ -1,3 +1,4 @@
+#summary How to compile python-tesseract for Ubuntu, Mac OSX and Cygwin
 =How to compile python-tesseract (for Ubuntu Natty)=
 {{{
 sudo add-apt-repository ppa:nutznboltz/tesseract
