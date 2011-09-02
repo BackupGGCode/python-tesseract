@@ -1,3 +1,5 @@
+#summary How to install deb version of Python-tesseract in Ubuntu
+=How to install deb version of Python-tesseract in Ubuntu=
 {{{
 sudo add-apt-repository ppa:nutznboltz/tesseract
 sudo apt-get update
