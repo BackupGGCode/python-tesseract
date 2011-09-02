@@ -80,3 +80,9 @@ make clean && make "USING_MULTIPLELIBS=1" && make install
 }}}
 
 ===5. Make python-tesseract ==
+{{{
+svn checkout http://python-tesseract.googlecode.com/svn/trunk python-tesseract
+cd python-tesseract
+python setup.py build
+python setup.py install
+}}}
