@@ -37,7 +37,7 @@ sudo python setup.py install
 ==1. Install cygwin by starting [http://cygwin.com/setup.exe setup.exe]==
 ==2. then install subversion and wget== 
 ==3. start cygwin-bash-shell== 
-==4. compile and link webp, leptonica and tesseract-ocr===
+==4. compile and link webp and leptonica===
 {{{
 svn --force export http://apt-cyg.googlecode.com/svn/trunk/ /bin/
 chmod +x /bin/apt-cyg
@@ -60,8 +60,8 @@ make clean && make -j 4 && make install
 cd ..
 
 }}}
-===Tesseract-ocr ===
-_either_ Static Build(easy)<br>
+===5. compile and link tesseract-ocr===
+*Static Build(easy)
 {{{
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
 cd tesseract-ocr-read-only
@@ -71,10 +71,9 @@ make clean && make -j 4 && make install
 cd ..
 }}}
 
-__or__Shared Build(difficult)<br>
-Cygwin is buggy on producing shared library. To make it work, you must modify the LDFLAGS as
-
-~~./configure LDFLAGS="-Wl,--no-undefined  -Wl,--as-needed" --prefix=/usr --enable-shared --disable-static~~
+*Shared Build(difficult)
+_Cygwin is buggy on producing shared library. To make it work, you must modify the LDFLAGS as
+~~./configure LDFLAGS="-Wl,--no-undefined  -Wl,--as-needed" --prefix=/usr --enable-shared --disable-static~~_
 {{{
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
 cd tesseract-ocr-read-only
