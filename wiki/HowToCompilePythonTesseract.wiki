@@ -37,6 +37,7 @@ sudo python setup.py install
 ==1. Install cygwin by starting [http://cygwin.com/setup.exe setup.exe]==
 ==2. then install subversion and wget== 
 ==3. start cygwin-bash-shell== 
+==4. compile and link webp, leptonica and tesseract-ocr===
 {{{
 svn --force export http://apt-cyg.googlecode.com/svn/trunk/ /bin/
 chmod +x /bin/apt-cyg
@@ -64,15 +65,7 @@ cd tesseract-ocr-read-only
 ./configure --prefix=/usr --disable-shared
 make clean && make -j 4 && make install
 cd ..
-
-
-
-
 }}}
-
-
-
-
 
 Cygwin is buggy on producing shared library. To make it work, you must modify the LDFLAGS as
 
@@ -85,3 +78,5 @@ patch -p0 -i fix_ugly_cygwin_bug.diff
 ./configure LDFLAGS="-no-undefined  -Wl,--as-needed" --prefix=/usr
 make clean && make "USING_MULTIPLELIBS=1" && make install 
 }}}
+
+===5. Make python-tesseract ==
