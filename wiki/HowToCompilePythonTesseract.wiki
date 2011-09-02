@@ -59,6 +59,9 @@ cd leptonica-1.68
 make clean && make -j 4 && make install
 cd ..
 
+}}}
+===Tesseract-ocr (Static Build - skill required : easy)===
+{{{
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
 cd tesseract-ocr-read-only
 ./runautoconf
@@ -67,6 +70,7 @@ make clean && make -j 4 && make install
 cd ..
 }}}
 
+===Tesseract-ocr (Shared Library Build - skill required : difficult)===
 Cygwin is buggy on producing shared library. To make it work, you must modify the LDFLAGS as
 
 ~~./configure LDFLAGS="-Wl,--no-undefined  -Wl,--as-needed" --prefix=/usr --enable-shared --disable-static~~
