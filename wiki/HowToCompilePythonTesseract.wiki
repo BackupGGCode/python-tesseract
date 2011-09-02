@@ -78,5 +78,9 @@ Cygwin is buggy on producing shared library. To make it work, you must modify th
 
 ~~./configure LDFLAGS="-Wl,--no-undefined  -Wl,--as-needed" --prefix=/usr --enable-shared --disable-static~~
 {{{
-./configure LDFLAGS="-no-undefined  -Wl,--as-needed" --prefix=/usr --enable-shared --disable-static
+svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
+cd tesseract-ocr-read-only
+patch -p0 -i fix_ugly_cygwin_bug.diff
+./configure LDFLAGS="-no-undefined  -Wl,--as-needed" --prefix=/usr
+make clean && make "USING_MULTIPLELIBS=1" && make install 
 }}}
