@@ -1,3 +1,4 @@
+#How to install compiled python-tesseract (for Cygwin Windows 7)
 =How to install compiled python-tesseract (for Cygwin Windows 7)=
 ==1. Install cygwin by starting [http://cygwin.com/setup.exe setup.exe]==
 ==2. then install subversion and wget== 
