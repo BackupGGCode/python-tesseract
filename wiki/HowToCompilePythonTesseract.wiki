@@ -45,8 +45,8 @@ chmod +x /bin/apt-cyg
 apt-cyg install nano make libtool libiconv gcc4-g++ libtiff-devel libpng14-devel libgif-devel libSM-devel libjbig-devel
 }}}
 
-===For both  Natty and Cygwin===
-==1. compile and link webp and leptonica===
+==For both  Natty and Cygwin==
+===1. compile and link webp and leptonica===
 {{{
 wget http://webp.googlecode.com/files/libwebp-0.1.2.tar.gz
 tar zxvf libwebp-0.1.2.tar.gz
@@ -65,7 +65,7 @@ make clean && make -j 4 && make install
 cd ..
 
 }}}
-===5. compile and link tesseract-ocr===
+===2. compile and link tesseract-ocr===
 *Static Build(easy)
 {{{
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
@@ -87,7 +87,7 @@ patch -p0 -i fix_ugly_cygwin_bug.diff
 make clean && make "USING_MULTIPLELIBS=1" && make install 
 }}}
 
-===2. Make python-tesseract ==
+===3. Make python-tesseract ==
 {{{
 svn checkout http://python-tesseract.googlecode.com/svn/trunk python-tesseract
 cd python-tesseract
