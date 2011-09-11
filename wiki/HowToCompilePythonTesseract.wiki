@@ -34,8 +34,7 @@ python setup.py build
 sudo python setup.py install
 }}}
 
-=How to compile python-tesseract (for Ubuntu Natty and 
-Cygwin Windows 7)=
+=How to compile python-tesseract from svn version of tesseract-ocr=
 ==For cygwin Only ==
 ==1. Install cygwin by starting [http://cygwin.com/setup.exe setup.exe]==
 ==2. then install subversion and wget== 
