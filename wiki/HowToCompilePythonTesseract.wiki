@@ -3,7 +3,7 @@
 {{{
 sudo add-apt-repository ppa:nutznboltz/tesseract
 sudo apt-get update
-sudo apt-get install tesseract-ocr-dev python-all-dev swig
+sudo apt-get install tesseract-ocr-dev leptonica python-all-dev swig
 tar zxvf python-tesseract-xxxx.tar.gz
 cd python-tesseract
 python config.py
