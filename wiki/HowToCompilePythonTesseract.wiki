@@ -12,7 +12,7 @@ python setup.py build
 sudo python setup.py install
 
 ==to make deb==
-sudo apt-get install cdbs
+sudo apt-get install cdbs dh-buildinfo
 ./buildDeb
 
 }}}
