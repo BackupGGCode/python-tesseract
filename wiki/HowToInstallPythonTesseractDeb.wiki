@@ -3,6 +3,8 @@
 {{{
 sudo add-apt-repository ppa:nutznboltz/tesseract
 sudo apt-get update
+wget http://python-tesseract.googlecode.com/files/tesseract-ocr_3.0.1_svn625-1~ppa2~natty1_amd64.deb
+
 sudo apt-get install tesseract-ocr-dev
 wget http://python-tesseract.googlecode.com/files/python-tesseract_0.6-1.1_amd64.deb
 sudo dpkg -i python-tesseract_0.6-1.1_amd64.deb
