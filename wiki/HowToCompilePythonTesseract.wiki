@@ -69,6 +69,9 @@ cd ..
 
 }}}
 ===2. compile and link tesseract-ocr===
+{{{
+apt-get install libtiff-dev libjpeg-dev libpng-dev
+}}}
 *Static Build(easy)
 {{{
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
