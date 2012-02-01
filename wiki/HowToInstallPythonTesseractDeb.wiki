@@ -19,7 +19,6 @@ sudo rm /usr/local/lib/python2.7/dist-packages/python_tesseract*
 sudo rm /usr/local/lib/python2.7/dist-packages/tesseract* 
 }}}
 
-#summary How to install deb version of Python-tesseract in Ubuntu
 =How to install deb version of Python-tesseract in Ubuntu(Natty)=
 {{{
 wget http://python-tesseract.googlecode.com/files/tesseract-ocr_3.0.1%2Bsvn625-1~ppa2~natty1_amd64.deb
