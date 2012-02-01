@@ -11,12 +11,13 @@ sudo dpkg -i python-tesseract*.deb
 
 }}}
 
-#manual uninstall of non-deb version of python-tesseract
+=manual uninstall of non-deb version of python-tesseract=
 Deb version install python-tesseract in pyshared rather than 
 dis-packages!!!
+{{{
 sudo rm /usr/local/lib/python2.7/dist-packages/python_tesseract* 
 sudo rm /usr/local/lib/python2.7/dist-packages/tesseract* 
-
+}}}
 
 #summary How to install deb version of Python-tesseract in Ubuntu
 =How to install deb version of Python-tesseract in Ubuntu(Natty)=
