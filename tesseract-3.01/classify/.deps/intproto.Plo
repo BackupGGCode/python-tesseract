@@ -1,0 +1,386 @@
+intproto.lo: intproto.cpp ../ccutil/helpers.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/bits/predefs.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6.1/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6.1/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/string.h \
+ /usr/include/xlocale.h intproto.h ../ccutil/genericvector.h \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
+ ../ccutil/tesscallback.h ../ccutil/host.h ../ccutil/platform.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6.1/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6.1/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h ../ccutil/errcode.h \
+ ../ccutil/helpers.h ../ccutil/ndminx.h ../dict/matchdefs.h \
+ ../ccutil/host.h ../ccutil/unichar.h /usr/include/memory.h mfoutline.h \
+ ../cutil/oldlist.h ../cutil/cutil.h ../ccutil/tprintf.h \
+ ../ccutil/params.h ../ccutil/genericvector.h ../ccutil/strngs.h \
+ ../ccutil/memry.h ../ccutil/serialis.h ../ccutil/fileerr.h \
+ ../cutil/cutil_class.h ../ccutil/ccutil.h ../ccutil/ambigs.h \
+ ../ccutil/elst.h ../ccutil/lsterr.h ../ccutil/tprintf.h \
+ ../ccutil/unichar.h ../ccutil/unicharset.h /usr/include/assert.h \
+ ../ccutil/unicharmap.h ../ccutil/tessdatamanager.h \
+ /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/semaphore.h \
+ /usr/include/x86_64-linux-gnu/bits/semaphore.h ../cutil/const.h \
+ ../ccutil/strngs.h ../ccutil/tesscallback.h fpoint.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_val.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
+ /usr/include/x86_64-linux-gnu/bits/inf.h \
+ /usr/include/x86_64-linux-gnu/bits/nan.h \
+ /usr/include/x86_64-linux-gnu/bits/mathdef.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h baseline.h \
+ ../ccstruct/blobs.h ../ccstruct/rect.h ../ccstruct/points.h \
+ ../ccutil/elst.h ../ccstruct/ipoints.h ../ccutil/ndminx.h \
+ ../viewer/scrollview.h ../ccstruct/vecfuncs.h ../ccstruct/blobs.h \
+ ../ccutil/params.h protos.h ../cutil/bitvec.h ../cutil/cutil.h \
+ ../ccutil/unicity_table.h ../cutil/callcpp.h ../ccutil/unicharset.h \
+ picofeat.h ocrfeatures.h ../cutil/emalloc.h ../cutil/callcpp.h \
+ ../cutil/const.h ../viewer/svmnode.h ../cutil/globals.h classify.h \
+ adaptive.h ../ccstruct/ccstruct.h ../image/image.h ../dict/dict.h \
+ ../ccutil/ambigs.h ../dict/dawg.h ../ccstruct/ratngs.h ../ccutil/clst.h \
+ ../ccutil/notdll.h ../ccstruct/werd.h ../ccutil/bits16.h \
+ ../ccutil/elst2.h ../ccstruct/blckerr.h ../ccutil/errcode.h \
+ ../ccstruct/stepblob.h ../ccstruct/coutln.h ../ccstruct/crakedge.h \
+ ../ccstruct/mod128.h ../ccstruct/ocrrow.h ../ccstruct/quspline.h \
+ ../ccstruct/quadratc.h ../ccutil/serialis.h ../ccutil/memry.h \
+ ../dict/stopper.h ../dict/states.h ../dict/trie.h ../dict/permute.h \
+ featdefs.h intfx.h intmatcher.h cutoffs.h ../ccstruct/normalis.h \
+ /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ ../config_auto.h
+
+../ccutil/helpers.h:
+
+/usr/include/stdio.h:
+
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/bits/predefs.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6.1/include/stddef.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6.1/include/stdarg.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/string.h:
+
+/usr/include/xlocale.h:
+
+intproto.h:
+
+../ccutil/genericvector.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigset.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/x86_64-linux-gnu/sys/sysmacros.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+../ccutil/tesscallback.h:
+
+../ccutil/host.h:
+
+../ccutil/platform.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6.1/include-fixed/limits.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6.1/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+../ccutil/errcode.h:
+
+../ccutil/helpers.h:
+
+../ccutil/ndminx.h:
+
+../dict/matchdefs.h:
+
+../ccutil/host.h:
+
+../ccutil/unichar.h:
+
+/usr/include/memory.h:
+
+mfoutline.h:
+
+../cutil/oldlist.h:
+
+../cutil/cutil.h:
+
+../ccutil/tprintf.h:
+
+../ccutil/params.h:
+
+../ccutil/genericvector.h:
+
+../ccutil/strngs.h:
+
+../ccutil/memry.h:
+
+../ccutil/serialis.h:
+
+../ccutil/fileerr.h:
+
+../cutil/cutil_class.h:
+
+../ccutil/ccutil.h:
+
+../ccutil/ambigs.h:
+
+../ccutil/elst.h:
+
+../ccutil/lsterr.h:
+
+../ccutil/tprintf.h:
+
+../ccutil/unichar.h:
+
+../ccutil/unicharset.h:
+
+/usr/include/assert.h:
+
+../ccutil/unicharmap.h:
+
+../ccutil/tessdatamanager.h:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/usr/include/semaphore.h:
+
+/usr/include/x86_64-linux-gnu/bits/semaphore.h:
+
+../cutil/const.h:
+
+../ccutil/strngs.h:
+
+../ccutil/tesscallback.h:
+
+fpoint.h:
+
+/usr/include/math.h:
+
+/usr/include/x86_64-linux-gnu/bits/huge_val.h:
+
+/usr/include/x86_64-linux-gnu/bits/huge_valf.h:
+
+/usr/include/x86_64-linux-gnu/bits/huge_vall.h:
+
+/usr/include/x86_64-linux-gnu/bits/inf.h:
+
+/usr/include/x86_64-linux-gnu/bits/nan.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathdef.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+baseline.h:
+
+../ccstruct/blobs.h:
+
+../ccstruct/rect.h:
+
+../ccstruct/points.h:
+
+../ccutil/elst.h:
+
+../ccstruct/ipoints.h:
+
+../ccutil/ndminx.h:
+
+../viewer/scrollview.h:
+
+../ccstruct/vecfuncs.h:
+
+../ccstruct/blobs.h:
+
+../ccutil/params.h:
+
+protos.h:
+
+../cutil/bitvec.h:
+
+../cutil/cutil.h:
+
+../ccutil/unicity_table.h:
+
+../cutil/callcpp.h:
+
+../ccutil/unicharset.h:
+
+picofeat.h:
+
+ocrfeatures.h:
+
+../cutil/emalloc.h:
+
+../cutil/callcpp.h:
+
+../cutil/const.h:
+
+../viewer/svmnode.h:
+
+../cutil/globals.h:
+
+classify.h:
+
+adaptive.h:
+
+../ccstruct/ccstruct.h:
+
+../image/image.h:
+
+../dict/dict.h:
+
+../ccutil/ambigs.h:
+
+../dict/dawg.h:
+
+../ccstruct/ratngs.h:
+
+../ccutil/clst.h:
+
+../ccutil/notdll.h:
+
+../ccstruct/werd.h:
+
+../ccutil/bits16.h:
+
+../ccutil/elst2.h:
+
+../ccstruct/blckerr.h:
+
+../ccutil/errcode.h:
+
+../ccstruct/stepblob.h:
+
+../ccstruct/coutln.h:
+
+../ccstruct/crakedge.h:
+
+../ccstruct/mod128.h:
+
+../ccstruct/ocrrow.h:
+
+../ccstruct/quspline.h:
+
+../ccstruct/quadratc.h:
+
+../ccutil/serialis.h:
+
+../ccutil/memry.h:
+
+../dict/stopper.h:
+
+../dict/states.h:
+
+../dict/trie.h:
+
+../dict/permute.h:
+
+featdefs.h:
+
+intfx.h:
+
+intmatcher.h:
+
+cutoffs.h:
+
+../ccstruct/normalis.h:
+
+/usr/include/unistd.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/getopt.h:
+
+../config_auto.h:

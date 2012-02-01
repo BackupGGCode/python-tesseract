@@ -1,0 +1,16 @@
+Source: tesseract-osd
+Section: graphics
+Priority: optional
+Maintainer: Jeffrey Ratcliffe <Jeffrey.Ratcliffe@gmail.com>
+Uploaders: Jeff Breidenbach <jab@debian.org>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.8.4
+
+Package: tesseract-ocr-osd
+Architecture: all
+Replaces: tesseract-ocr-data (<< 2)
+Description: tesseract-ocr language files for orientation and script
+ A commercial quality OCR engine originally developed at HP between 1985
+ and 1995. In 1995, this engine was among the top 3 evaluated by UNLV. It
+ was open-sourced by HP and UNLV in 2005. This package contains the data
+ needed for determining orientation and script.

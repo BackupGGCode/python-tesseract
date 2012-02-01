@@ -1,0 +1,17 @@
+tesseract-osd (3.01-2ubuntu1) oneiric; urgency=low
+
+  * built for ubuntu 
+
+ -- eli <eli@eli-aomc>  Wed, 01 Feb 2012 14:17:28 +0800
+
+tesseract-osd (3.01-2) unstable; urgency=low
+
+  * Break dependency loop
+
+ -- Jeff Breidenbach <jab@debian.org>  Tue, 31 Jan 2012 16:14:15 -0800
+
+tesseract-osd (3.01-1) unstable; urgency=low
+
+  * Initial release of 3.01
+
+ -- Jeff Breidenbach <jab@debian.org>  Tue, 31 Jan 2012 16:14:11 -0800

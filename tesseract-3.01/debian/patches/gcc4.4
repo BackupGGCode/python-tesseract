@@ -1,0 +1,14 @@
+# Description: Fixes FTBFS for gcc4.4
+# Origin:      From #504885
+Index: tesseract-2.04/viewer/svutil.cpp
+===================================================================
+--- tesseract-2.04.orig/viewer/svutil.cpp	2009-06-03 18:29:38.000000000 +0200
++++ tesseract-2.04/viewer/svutil.cpp	2009-12-17 17:38:10.865904977 +0100
+@@ -43,6 +43,7 @@
+ #endif
+ 
+ #include <iostream>
++#include <cstdio>
+ 
+ const int kBufferSize = 65536;
+ const int kMaxMsgSize = 4096;

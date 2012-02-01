@@ -1,0 +1,20 @@
+Package: tesseract-ocr
+Source: tesseract
+Version: 3.01-2ubuntu1
+Architecture: amd64
+Maintainer: Jeffrey Ratcliffe <Jeffrey.Ratcliffe@gmail.com>
+Installed-Size: 3584
+Depends: leptonica, libc6 (>= 2.4), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.1.1), tesseract-ocr-eng (>= 3.01~) | tesseract-ocr-language (>= 3.01~), tesseract-ocr-osd
+Replaces: tesseract-ocr-data
+Section: graphics
+Priority: optional
+Homepage: http://code.google.com/p/tesseract-ocr/
+Description: Command line OCR tool
+ The Tesseract OCR engine was originally developed at HP between 1985 and 1995.
+ It was open-sourced by HP and UNLV in 2005 and Google has lead further
+ development.
+ .
+ The Tesseract OCR engine was one of the top 3 engines in the 1995 UNLV
+ Accuracy test.  Between 1995 and 2006 it had little work done on it, but it
+ is probably one of the most accurate open source OCR engines available.  It
+ will read a binary, grey or color image and output text.
