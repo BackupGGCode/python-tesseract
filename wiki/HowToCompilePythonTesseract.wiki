@@ -70,7 +70,7 @@ cd ..
 }}}
 ===2. compile and link tesseract-ocr===
 {{{
-sudo apt-get install libtiff-dev libjpeg-dev libpng-dev
+sudo apt-get install libtiff-dev libjpeg-dev libpng-dev subversion devscripts build-essentials
 }}}
 *Static Build(easy)
 {{{
