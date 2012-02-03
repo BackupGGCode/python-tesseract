@@ -13,7 +13,7 @@ sudo dpkg -i python-tesseract*.deb
 
 =Manually uninstall non-deb version of python-tesseract=
 Deb version install python-tesseract in pyshared rather than 
-dis-packages!!!
+dist-packages!!!
 {{{
 sudo rm /usr/local/lib/python2.7/dist-packages/python_tesseract* 
 sudo rm /usr/local/lib/python2.7/dist-packages/tesseract* 
