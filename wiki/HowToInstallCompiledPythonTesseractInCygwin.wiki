@@ -3,7 +3,7 @@
 ==1. Install cygwin by starting [http://cygwin.com/setup.exe setup.exe]==
 ==2. then install subversion and wget== 
 ==3. start cygwin-bash-shell== 
-==4. install the minimal===
+==4. copy and paste the following lines onto the cygwin shell===
 {{{
 svn --force export http://apt-cyg.googlecode.com/svn/trunk/ /bin
 chmod +x /bin/apt-cyg
