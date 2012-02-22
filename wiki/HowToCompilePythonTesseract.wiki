@@ -88,7 +88,7 @@ cd ..
 }}}
 ===2. compile and link tesseract-ocr===
 {{{
-sudo apt-get install libtiff-dev libjpeg-dev libpng-dev subversion devscripts build-essentials debhelper autoconf automake libtool libleptonica-dev
+sudo apt-get install libtiff-dev libjpeg-dev libpng-dev subversion devscripts build-essential debhelper autoconf automake libtool libleptonica-dev
 }}}
 *Static Build(easy)
 {{{
