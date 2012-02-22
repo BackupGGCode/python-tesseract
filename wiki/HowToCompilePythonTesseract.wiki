@@ -76,7 +76,7 @@ sudo apt-get install libtiff-dev libjpeg-dev libpng-dev subversion devscripts bu
 {{{
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
 cd tesseract-ocr-read-only
- ./autogen.sh --prefix=/usr
+./autogen.sh --prefix=/usr
 ./configure --prefix=/usr --disable-shared
 make clean && make -j 4 && make install
 cd ..
@@ -89,6 +89,7 @@ svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-o
 cd tesseract-ocr-read-only
 #wget http://python-tesseract.googlecode.com/files/fix_ugly_cygwin_bug.diff
 #patch -p0 -i fix_ugly_cygwin_bug.diff
+./autogen.sh --prefix=/usr
 ./configure LDFLAGS="-no-undefined  -Wl,--as-needed" --prefix=/usr
 make clean && make "USING_MULTIPLELIBS=1" && make install 
 }}}
