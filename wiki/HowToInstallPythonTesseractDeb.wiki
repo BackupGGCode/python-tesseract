@@ -1,7 +1,9 @@
 #summary How to install deb version of Python-tesseract in Ubuntu
 =How to install deb version of Python-tesseract in Ubuntu(Oneiric)=
 {{{
-
+sudo add-apt-repository ppa:nutznboltz/tesseract
+sudo apt-get update
+sudo apt-get install leptonica
 wget http://python-tesseract.googlecode.com/files/tesseract-ocr_3.01-2ubuntu1_amd64.deb
 wget http://python-tesseract.googlecode.com/files/tesseract-ocr-eng_3.01-1ubuntu1_all.deb
 wget http://python-tesseract.googlecode.com/files/tesseract-ocr-osd_3.01-2ubuntu1_all.deb
