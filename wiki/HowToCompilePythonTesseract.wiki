@@ -1,5 +1,21 @@
 #summary How to compile python-tesseract for Ubuntu, Mac OSX and Cygwin
 
+=How to compile python-tesseract (for Ubuntu Precise)=
+{{{
+sudo apt-get install libtesseract-dev libleptonica-dev python-all-dev swig
+tar zxvf python-tesseract-xxxx.tar.gz
+cd python-tesseract
+python config.py
+python setup.py clean
+python setup.py build
+sudo python setup.py install
+
+==to make deb==
+sudo apt-get install cdbs dh-buildinfo
+./buildDeb
+
+}}}
+
 =How to compile python-tesseract (for Ubuntu Oneiric)=
 {{{
 sudo apt-get install tesseract-ocr-dev libleptonica-dev python-all-dev swig
