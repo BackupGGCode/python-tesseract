@@ -1,0 +1,26 @@
+python-tesseract (0.7-1.3) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * opencv bundled
+
+ -- eli <eli@nowhere.com>  Thu, 12 Apr 2012 23:36:12 +0800
+
+python-tesseract (0.7-1.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * For Precise 
+
+ -- eli <eli@nowhere.com>  Thu, 12 Apr 2012 11:30:51 +0800
+
+python-tesseract (0.7-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * For Precise
+
+ -- eli <eli@nowhere.com>  Thu, 12 Apr 2012 11:28:02 +0800
+
+python-tesseract (0.7-1) unstable; urgency=low
+
+  * source package automatically created by stdeb 0.6.0+git
+
+ -- FreeToGo <FreeToGo@gmail.com>  Thu, 02 Feb 2012 00:53:05 +0800
