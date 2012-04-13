@@ -19,13 +19,13 @@
 
 #ifndef TESSERACT_API_BASEAPI_H__
 #define TESSERACT_API_BASEAPI_H__
-
+#include "config.h"
 #include <stdio.h>
 // To avoid collision with other typenames include the ABSOLUTE MINIMUM
 // complexity of includes here. Use forward declarations wherever possible
 // and hide includes of complex types in baseapi.cpp.
 #include "apitypes.h"
-#include "thresholder.h"
+#include "thresholder.h"    
 #include "unichar.h"
 #include "tesscallback.h"
 #include "publictypes.h"
@@ -298,6 +298,7 @@ class TESSDLL_API TessBaseAPI {
    * full image, so it may be followed immediately by a GetUTF8Text, and it
    * will automatically perform recognition.
    */
+
   void SetImage(const unsigned char* imagedata, int width, int height,
                 int bytes_per_pixel, int bytes_per_line);
 
@@ -311,6 +312,7 @@ class TESSDLL_API TessBaseAPI {
    * Because of that, an implementation that sources and targets Pix may end up
    * with less copies than an implementation that does not.
    */
+
   void SetImage(const Pix* pix);
 
   /**
@@ -333,6 +335,8 @@ class TESSDLL_API TessBaseAPI {
    * Note that Tesseract takes ownership of the Thresholder and will
    * delete it when it it is replaced or the API is destructed.
    */
+
+#if !defined(__windows__)
   void SetThresholder(ImageThresholder* thresholder) {
     if (thresholder_ != NULL)
       delete thresholder_;
@@ -340,6 +344,7 @@ class TESSDLL_API TessBaseAPI {
     ClearResults();
   }
 
+#endif
   /**
    * Get a copy of the internal thresholded image from Tesseract.
    * Caller takes ownership of the Pix and must pixDestroy it.
@@ -352,6 +357,7 @@ class TESSDLL_API TessBaseAPI {
    * Boxa, Pixa pair, in reading order.
    * Can be called before or after Recognize.
    */
+
   Boxa* GetRegions(Pixa** pixa);
 
   /**
@@ -402,6 +408,7 @@ class TESSDLL_API TessBaseAPI {
   // GetThresholdedImage() and the various GetX() methods that call
   // GetComponentImages().
   // Returns 0 if no thresholder has been set.
+
   int GetThresholdedImageScaleFactor() const;
 
   /**
@@ -409,6 +416,7 @@ class TESSDLL_API TessBaseAPI {
    * @deprecated Use GetThresholdedImage and write the image using pixWrite
    * instead if possible.
    */
+
   void DumpPGM(const char* filename);
 
   // Runs page layout analysis in the mode set by SetPageSegMode.
@@ -493,6 +501,7 @@ class TESSDLL_API TessBaseAPI {
    * The recognized text is returned as a char* which is coded
    * as UTF8 and must be freed with the delete [] operator.
    */
+
   char* GetUTF8Text();
 
   /**
@@ -570,10 +579,10 @@ class TESSDLL_API TessBaseAPI {
    * function.
    */
   //void SetProbabilityInContextFunc(ProbabilityInContextFunc f);
-
+#if !defined(__windows__)
   /** Sets Wordrec::fill_lattice_ function to point to the given function. */
   void SetFillLatticeFunc(FillLatticeFunc f);
-
+#endif
   /**
    * Estimates the Orientation And Script of the image.
    * @return true if the image was processed successfully.
@@ -662,6 +671,7 @@ class TESSDLL_API TessBaseAPI {
    * Run the thresholder to make the thresholded image. If pix is not NULL,
    * the source is thresholded to pix instead of the internal IMAGE.
    */
+
   virtual void Threshold(Pix** pix);
 
   /**

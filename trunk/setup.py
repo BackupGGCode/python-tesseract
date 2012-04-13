@@ -3,15 +3,32 @@
 setup.py file for SWIG
 written by FreeToGo@gmail.com
 """
+
 from distutils.core import setup, Extension, Command
 import sys,os,platform
 osname=platform.uname()[0]
+prefix=sys.prefix
+
+incls = ['/usr/include', '/usr/local/include']
+
+rmCmd='rm -rf ./build ./dist'
+libraries=['stdc++','tesseract','lept','opencv_core']
+sources=['tesseract.i','main_dummy.cpp','fmemopen.c']
+
+
 if osname=='Darwin':
 	prefix="/opt/local"
-else:
-	prefix=sys.prefix
-incl=os.path.join(prefix,"include")
-incls = ['/usr/include', '/usr/local/include']
+	incls=[os.path.join(prefix,"include")]
+	libraries=['stdc++','tesseract','lept']
+elif osname=='Windows':
+	prefix=os.path.join(os.getcwd(),"../vs2008")
+	incls=[os.path.join(prefix,"include")]
+	rmCmd='rmdir /S /Q build dist'
+	libraries=['libtesseract302','liblept']
+	sources=['tesseract.i','main_dummy.cpp','util-fmemopen.cpp']
+
+incl=os.path.join(prefix,"include")	
+
 print "include path=%s"%incl
 version_number=os.getcwd().split("-")[-1]
 print "Current Version : %s"%version_number
@@ -26,7 +43,7 @@ class CleanCommand(Command):
         self.cwd = os.getcwd()
     def run(self):
         assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
-        os.system('rm -rf ./build ./dist')
+        os.system(rmCmd)
         
 
 def inclpath(mlib):
@@ -37,7 +54,7 @@ def inclpath(mlib):
     assert False, 'Include directory %s was not found' % mlib
 	
 tesseract_module = Extension('_tesseract',
-									sources=['tesseract.i','' 'main_dummy.cpp','fmemopen.c'],
+									sources=sources,
 									#extra_compile_args=["-DEBUG -O1 -pg "],
 									swig_opts=["-c++", "-I"+inclpath('tesseract'),
 													"-I"+incl,
@@ -45,7 +62,7 @@ tesseract_module = Extension('_tesseract',
 									include_dirs=['.',inclpath('tesseract'),
 													incl,
 													inclpath('leptonica')],
-									libraries=['stdc++','tesseract','lept','opencv_core'],
+									libraries=libraries,
 								
 									)
 									

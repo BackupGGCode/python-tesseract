@@ -2939,43 +2939,40 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void swig_types[0]
-#define SWIGTYPE_p_BLOCK_LIST swig_types[1]
-#define SWIGTYPE_p_Boxa swig_types[2]
-#define SWIGTYPE_p_DENORM swig_types[3]
-#define SWIGTYPE_p_ETEXT_DESC swig_types[4]
-#define SWIGTYPE_p_FILE swig_types[5]
-#define SWIGTYPE_p_GenericVectorT_STRING_t swig_types[6]
-#define SWIGTYPE_p_INT_FEATURE_STRUCT swig_types[7]
-#define SWIGTYPE_p_OSResults swig_types[8]
-#define SWIGTYPE_p_Pix swig_types[9]
-#define SWIGTYPE_p_ROW swig_types[10]
-#define SWIGTYPE_p_STRING swig_types[11]
-#define SWIGTYPE_p_TBLOB swig_types[12]
-#define SWIGTYPE_p_TessCallback3T_UNICHARSET_const_R_int_PAGE_RES_p_t swig_types[13]
-#define SWIGTYPE_p_a_512__INT_FEATURE_STRUCT swig_types[14]
-#define SWIGTYPE_p_bool swig_types[15]
-#define SWIGTYPE_p_char swig_types[16]
-#define SWIGTYPE_p_double swig_types[17]
-#define SWIGTYPE_p_float swig_types[18]
-#define SWIGTYPE_p_int swig_types[19]
-#define SWIGTYPE_p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void swig_types[20]
-#define SWIGTYPE_p_p_Pix swig_types[21]
-#define SWIGTYPE_p_p_Pixa swig_types[22]
-#define SWIGTYPE_p_p_bool swig_types[23]
-#define SWIGTYPE_p_p_char swig_types[24]
-#define SWIGTYPE_p_p_int swig_types[25]
-#define SWIGTYPE_p_tesseract__CubeRecoContext swig_types[26]
-#define SWIGTYPE_p_tesseract__Dawg swig_types[27]
-#define SWIGTYPE_p_tesseract__ImageThresholder swig_types[28]
-#define SWIGTYPE_p_tesseract__MutableIterator swig_types[29]
-#define SWIGTYPE_p_tesseract__PageIterator swig_types[30]
-#define SWIGTYPE_p_tesseract__ResultIterator swig_types[31]
-#define SWIGTYPE_p_tesseract__TessBaseAPI swig_types[32]
-#define SWIGTYPE_p_tesseract__Tesseract swig_types[33]
-#define SWIGTYPE_p_unsigned_char swig_types[34]
-static swig_type_info *swig_types[36];
-static swig_module_info swig_module = {swig_types, 35, 0, 0, 0, 0};
+#define SWIGTYPE_p_BLOCK_LIST swig_types[0]
+#define SWIGTYPE_p_Boxa swig_types[1]
+#define SWIGTYPE_p_DENORM swig_types[2]
+#define SWIGTYPE_p_ETEXT_DESC swig_types[3]
+#define SWIGTYPE_p_FILE swig_types[4]
+#define SWIGTYPE_p_GenericVectorT_STRING_t swig_types[5]
+#define SWIGTYPE_p_INT_FEATURE_STRUCT swig_types[6]
+#define SWIGTYPE_p_OSResults swig_types[7]
+#define SWIGTYPE_p_Pix swig_types[8]
+#define SWIGTYPE_p_ROW swig_types[9]
+#define SWIGTYPE_p_STRING swig_types[10]
+#define SWIGTYPE_p_TBLOB swig_types[11]
+#define SWIGTYPE_p_TessCallback3T_UNICHARSET_const_R_int_PAGE_RES_p_t swig_types[12]
+#define SWIGTYPE_p_a_512__INT_FEATURE_STRUCT swig_types[13]
+#define SWIGTYPE_p_bool swig_types[14]
+#define SWIGTYPE_p_char swig_types[15]
+#define SWIGTYPE_p_double swig_types[16]
+#define SWIGTYPE_p_float swig_types[17]
+#define SWIGTYPE_p_int swig_types[18]
+#define SWIGTYPE_p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void swig_types[19]
+#define SWIGTYPE_p_p_Pixa swig_types[20]
+#define SWIGTYPE_p_p_bool swig_types[21]
+#define SWIGTYPE_p_p_char swig_types[22]
+#define SWIGTYPE_p_p_int swig_types[23]
+#define SWIGTYPE_p_tesseract__CubeRecoContext swig_types[24]
+#define SWIGTYPE_p_tesseract__Dawg swig_types[25]
+#define SWIGTYPE_p_tesseract__MutableIterator swig_types[26]
+#define SWIGTYPE_p_tesseract__PageIterator swig_types[27]
+#define SWIGTYPE_p_tesseract__ResultIterator swig_types[28]
+#define SWIGTYPE_p_tesseract__TessBaseAPI swig_types[29]
+#define SWIGTYPE_p_tesseract__Tesseract swig_types[30]
+#define SWIGTYPE_p_unsigned_char swig_types[31]
+static swig_type_info *swig_types[33];
+static swig_module_info swig_module = {swig_types, 32, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3072,8 +3069,9 @@ namespace swig {
 }
 
 
+#include "config.h"
 #include "publictypes.h"
-#include "thresholder.h"
+//#include "thresholder.h"
 #include "baseapi_mini.h"
 #include "main_dummy.h"
 
@@ -3469,672 +3467,6 @@ fail:
   return NULL;
 }
 
-
-SWIGINTERN int Swig_var_kPolyBlockNames_set(PyObject *_val) {
-  SWIG_exception_fail(SWIG_ArgError(SWIG_AttributeError), "in variable '""read-only kPolyBlockNames""' of type '""char const *[]""'");
-  return 0;
-fail:
-  return 1;
-}
-
-
-SWIGINTERN PyObject *Swig_var_kPolyBlockNames_get(void) {
-  PyObject *pyobj = 0;
-  
-  pyobj = SWIG_NewPointerObj(SWIG_as_voidptr(kPolyBlockNames), SWIGTYPE_p_p_char,  0 );
-  return pyobj;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_ImageThresholder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)":new_ImageThresholder")) SWIG_fail;
-  result = (tesseract::ImageThresholder *)new tesseract::ImageThresholder();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_tesseract__ImageThresholder, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_ImageThresholder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_ImageThresholder",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ImageThresholder" "', argument " "1"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  delete arg1;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_Clear(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ImageThresholder_Clear",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_Clear" "', argument " "1"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  (arg1)->Clear();
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_IsEmpty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  bool result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ImageThresholder_IsEmpty",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_IsEmpty" "', argument " "1"" of type '" "tesseract::ImageThresholder const *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  result = (bool)((tesseract::ImageThresholder const *)arg1)->IsEmpty();
-  resultobj = SWIG_From_bool(static_cast< bool >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_SetImage__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  unsigned char *arg2 = (unsigned char *) 0 ;
-  int arg3 ;
-  int arg4 ;
-  int arg5 ;
-  int arg6 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  int val4 ;
-  int ecode4 = 0 ;
-  int val5 ;
-  int ecode5 = 0 ;
-  int val6 ;
-  int ecode6 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  PyObject * obj5 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOOOO:ImageThresholder_SetImage",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_SetImage" "', argument " "1"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_char, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ImageThresholder_SetImage" "', argument " "2"" of type '" "unsigned char const *""'"); 
-  }
-  arg2 = reinterpret_cast< unsigned char * >(argp2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "ImageThresholder_SetImage" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  ecode4 = SWIG_AsVal_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "ImageThresholder_SetImage" "', argument " "4"" of type '" "int""'");
-  } 
-  arg4 = static_cast< int >(val4);
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "ImageThresholder_SetImage" "', argument " "5"" of type '" "int""'");
-  } 
-  arg5 = static_cast< int >(val5);
-  ecode6 = SWIG_AsVal_int(obj5, &val6);
-  if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "ImageThresholder_SetImage" "', argument " "6"" of type '" "int""'");
-  } 
-  arg6 = static_cast< int >(val6);
-  (arg1)->SetImage((unsigned char const *)arg2,arg3,arg4,arg5,arg6);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_SetRectangle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  int arg4 ;
-  int arg5 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  int val4 ;
-  int ecode4 = 0 ;
-  int val5 ;
-  int ecode5 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOOO:ImageThresholder_SetRectangle",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_SetRectangle" "', argument " "1"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ImageThresholder_SetRectangle" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "ImageThresholder_SetRectangle" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  ecode4 = SWIG_AsVal_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "ImageThresholder_SetRectangle" "', argument " "4"" of type '" "int""'");
-  } 
-  arg4 = static_cast< int >(val4);
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "ImageThresholder_SetRectangle" "', argument " "5"" of type '" "int""'");
-  } 
-  arg5 = static_cast< int >(val5);
-  (arg1)->SetRectangle(arg2,arg3,arg4,arg5);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_GetImageSizes(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  int *arg2 = (int *) 0 ;
-  int *arg3 = (int *) 0 ;
-  int *arg4 = (int *) 0 ;
-  int *arg5 = (int *) 0 ;
-  int *arg6 = (int *) 0 ;
-  int *arg7 = (int *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  void *argp5 = 0 ;
-  int res5 = 0 ;
-  void *argp6 = 0 ;
-  int res6 = 0 ;
-  void *argp7 = 0 ;
-  int res7 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  PyObject * obj5 = 0 ;
-  PyObject * obj6 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOOOOO:ImageThresholder_GetImageSizes",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_GetImageSizes" "', argument " "1"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ImageThresholder_GetImageSizes" "', argument " "2"" of type '" "int *""'"); 
-  }
-  arg2 = reinterpret_cast< int * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ImageThresholder_GetImageSizes" "', argument " "3"" of type '" "int *""'"); 
-  }
-  arg3 = reinterpret_cast< int * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "ImageThresholder_GetImageSizes" "', argument " "4"" of type '" "int *""'"); 
-  }
-  arg4 = reinterpret_cast< int * >(argp4);
-  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res5)) {
-    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "ImageThresholder_GetImageSizes" "', argument " "5"" of type '" "int *""'"); 
-  }
-  arg5 = reinterpret_cast< int * >(argp5);
-  res6 = SWIG_ConvertPtr(obj5, &argp6,SWIGTYPE_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res6)) {
-    SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "ImageThresholder_GetImageSizes" "', argument " "6"" of type '" "int *""'"); 
-  }
-  arg6 = reinterpret_cast< int * >(argp6);
-  res7 = SWIG_ConvertPtr(obj6, &argp7,SWIGTYPE_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res7)) {
-    SWIG_exception_fail(SWIG_ArgError(res7), "in method '" "ImageThresholder_GetImageSizes" "', argument " "7"" of type '" "int *""'"); 
-  }
-  arg7 = reinterpret_cast< int * >(argp7);
-  (arg1)->GetImageSizes(arg2,arg3,arg4,arg5,arg6,arg7);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_IsColor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  bool result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ImageThresholder_IsColor",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_IsColor" "', argument " "1"" of type '" "tesseract::ImageThresholder const *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  result = (bool)((tesseract::ImageThresholder const *)arg1)->IsColor();
-  resultobj = SWIG_From_bool(static_cast< bool >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_IsBinary(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  bool result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ImageThresholder_IsBinary",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_IsBinary" "', argument " "1"" of type '" "tesseract::ImageThresholder const *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  result = (bool)((tesseract::ImageThresholder const *)arg1)->IsBinary();
-  resultobj = SWIG_From_bool(static_cast< bool >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_GetScaleFactor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ImageThresholder_GetScaleFactor",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_GetScaleFactor" "', argument " "1"" of type '" "tesseract::ImageThresholder const *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  result = (int)((tesseract::ImageThresholder const *)arg1)->GetScaleFactor();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_SetSourceYResolution(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:ImageThresholder_SetSourceYResolution",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_SetSourceYResolution" "', argument " "1"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ImageThresholder_SetSourceYResolution" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  (arg1)->SetSourceYResolution(arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_GetSourceYResolution(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ImageThresholder_GetSourceYResolution",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_GetSourceYResolution" "', argument " "1"" of type '" "tesseract::ImageThresholder const *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  result = (int)((tesseract::ImageThresholder const *)arg1)->GetSourceYResolution();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_GetScaledYResolution(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ImageThresholder_GetScaledYResolution",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_GetScaledYResolution" "', argument " "1"" of type '" "tesseract::ImageThresholder const *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  result = (int)((tesseract::ImageThresholder const *)arg1)->GetScaledYResolution();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_SetEstimatedResolution(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:ImageThresholder_SetEstimatedResolution",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_SetEstimatedResolution" "', argument " "1"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ImageThresholder_SetEstimatedResolution" "', argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  (arg1)->SetEstimatedResolution(arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_GetScaledEstimatedResolution(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ImageThresholder_GetScaledEstimatedResolution",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_GetScaledEstimatedResolution" "', argument " "1"" of type '" "tesseract::ImageThresholder const *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  result = (int)((tesseract::ImageThresholder const *)arg1)->GetScaledEstimatedResolution();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_SetImage__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  Pix *arg2 = (Pix *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:ImageThresholder_SetImage",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_SetImage" "', argument " "1"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_Pix, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ImageThresholder_SetImage" "', argument " "2"" of type '" "Pix const *""'"); 
-  }
-  arg2 = reinterpret_cast< Pix * >(argp2);
-  (arg1)->SetImage((Pix const *)arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_SetImage(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[7];
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 6) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 2) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_tesseract__ImageThresholder, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_Pix, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap_ImageThresholder_SetImage__SWIG_1(self, args);
-      }
-    }
-  }
-  if (argc == 6) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_tesseract__ImageThresholder, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_unsigned_char, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        {
-          int res = SWIG_AsVal_int(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          {
-            int res = SWIG_AsVal_int(argv[3], NULL);
-            _v = SWIG_CheckState(res);
-          }
-          if (_v) {
-            {
-              int res = SWIG_AsVal_int(argv[4], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v) {
-              {
-                int res = SWIG_AsVal_int(argv[5], NULL);
-                _v = SWIG_CheckState(res);
-              }
-              if (_v) {
-                return _wrap_ImageThresholder_SetImage__SWIG_0(self, args);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'ImageThresholder_SetImage'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    tesseract::ImageThresholder::SetImage(unsigned char const *,int,int,int,int)\n"
-    "    tesseract::ImageThresholder::SetImage(Pix const *)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_ThresholdToPix(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  Pix **arg2 = (Pix **) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:ImageThresholder_ThresholdToPix",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_ThresholdToPix" "', argument " "1"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_p_Pix, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ImageThresholder_ThresholdToPix" "', argument " "2"" of type '" "Pix **""'"); 
-  }
-  arg2 = reinterpret_cast< Pix ** >(argp2);
-  (arg1)->ThresholdToPix(arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_GetPixRect(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  Pix *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ImageThresholder_GetPixRect",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_GetPixRect" "', argument " "1"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  result = (Pix *)(arg1)->GetPixRect();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Pix, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ImageThresholder_GetPixRectGrey(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::ImageThresholder *arg1 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  Pix *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ImageThresholder_GetPixRectGrey",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageThresholder_GetPixRectGrey" "', argument " "1"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::ImageThresholder * >(argp1);
-  result = (Pix *)(arg1)->GetPixRectGrey();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Pix, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *ImageThresholder_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_tesseract__ImageThresholder, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
 
 SWIGINTERN PyObject *_wrap_new_TessBaseAPI(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
@@ -5487,36 +4819,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TessBaseAPI_SetThresholder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
-  tesseract::ImageThresholder *arg2 = (tesseract::ImageThresholder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:TessBaseAPI_SetThresholder",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TessBaseAPI_SetThresholder" "', argument " "1"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::TessBaseAPI * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_tesseract__ImageThresholder, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TessBaseAPI_SetThresholder" "', argument " "2"" of type '" "tesseract::ImageThresholder *""'"); 
-  }
-  arg2 = reinterpret_cast< tesseract::ImageThresholder * >(argp2);
-  (arg1)->SetThresholder(arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_TessBaseAPI_GetThresholdedImage(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
@@ -6408,35 +5710,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TessBaseAPI_SetFillLatticeFunc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
-  tesseract::FillLatticeFunc arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:TessBaseAPI_SetFillLatticeFunc",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TessBaseAPI_SetFillLatticeFunc" "', argument " "1"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::TessBaseAPI * >(argp1);
-  {
-    int res = SWIG_ConvertMember(obj1, SWIG_as_voidptr(&arg2), sizeof(tesseract::FillLatticeFunc),SWIGTYPE_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void);
-    if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "TessBaseAPI_SetFillLatticeFunc" "', argument " "2"" of type '" "tesseract::FillLatticeFunc""'"); 
-    }
-  }
-  (arg1)->SetFillLatticeFunc(arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_TessBaseAPI_DetectOS(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
@@ -7296,122 +6569,11 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SetCvImage(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  PyObject *arg1 = (PyObject *) 0 ;
-  tesseract::TessBaseAPI *arg2 = (tesseract::TessBaseAPI *) 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:SetCvImage",&obj0,&obj1)) SWIG_fail;
-  arg1 = obj0;
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SetCvImage" "', argument " "2"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg2 = reinterpret_cast< tesseract::TessBaseAPI * >(argp2);
-  SetCvImage(arg1,arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_SetVariable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  char *arg1 = (char *) 0 ;
-  char *arg2 = (char *) 0 ;
-  tesseract::TessBaseAPI *arg3 = (tesseract::TessBaseAPI *) 0 ;
-  int res1 ;
-  char *buf1 = 0 ;
-  int alloc1 = 0 ;
-  int res2 ;
-  char *buf2 = 0 ;
-  int alloc2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  bool result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:SetVariable",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_AsCharPtrAndSize(obj0, &buf1, NULL, &alloc1);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SetVariable" "', argument " "1"" of type '" "char const *""'");
-  }
-  arg1 = reinterpret_cast< char * >(buf1);
-  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SetVariable" "', argument " "2"" of type '" "char const *""'");
-  }
-  arg2 = reinterpret_cast< char * >(buf2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "SetVariable" "', argument " "3"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg3 = reinterpret_cast< tesseract::TessBaseAPI * >(argp3);
-  result = (bool)SetVariable((char const *)arg1,(char const *)arg2,arg3);
-  resultobj = SWIG_From_bool(static_cast< bool >(result));
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
-  return resultobj;
-fail:
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_GetUTF8Text(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  char *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:GetUTF8Text",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GetUTF8Text" "', argument " "1"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::TessBaseAPI * >(argp1);
-  result = (char *)GetUTF8Text(arg1);
-  resultobj = SWIG_FromCharPtr((const char *)result);
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
 	 { (char *)"PTIsLineType", _wrap_PTIsLineType, METH_VARARGS, NULL},
 	 { (char *)"PTIsImageType", _wrap_PTIsImageType, METH_VARARGS, NULL},
 	 { (char *)"PTIsTextType", _wrap_PTIsTextType, METH_VARARGS, NULL},
-	 { (char *)"new_ImageThresholder", _wrap_new_ImageThresholder, METH_VARARGS, NULL},
-	 { (char *)"delete_ImageThresholder", _wrap_delete_ImageThresholder, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_Clear", _wrap_ImageThresholder_Clear, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_IsEmpty", _wrap_ImageThresholder_IsEmpty, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_SetRectangle", _wrap_ImageThresholder_SetRectangle, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_GetImageSizes", _wrap_ImageThresholder_GetImageSizes, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_IsColor", _wrap_ImageThresholder_IsColor, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_IsBinary", _wrap_ImageThresholder_IsBinary, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_GetScaleFactor", _wrap_ImageThresholder_GetScaleFactor, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_SetSourceYResolution", _wrap_ImageThresholder_SetSourceYResolution, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_GetSourceYResolution", _wrap_ImageThresholder_GetSourceYResolution, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_GetScaledYResolution", _wrap_ImageThresholder_GetScaledYResolution, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_SetEstimatedResolution", _wrap_ImageThresholder_SetEstimatedResolution, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_GetScaledEstimatedResolution", _wrap_ImageThresholder_GetScaledEstimatedResolution, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_SetImage", _wrap_ImageThresholder_SetImage, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_ThresholdToPix", _wrap_ImageThresholder_ThresholdToPix, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_GetPixRect", _wrap_ImageThresholder_GetPixRect, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_GetPixRectGrey", _wrap_ImageThresholder_GetPixRectGrey, METH_VARARGS, NULL},
-	 { (char *)"ImageThresholder_swigregister", ImageThresholder_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_TessBaseAPI", _wrap_new_TessBaseAPI, METH_VARARGS, NULL},
 	 { (char *)"delete_TessBaseAPI", _wrap_delete_TessBaseAPI, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_Version", _wrap_TessBaseAPI_Version, METH_VARARGS, NULL},
@@ -7439,7 +6601,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TessBaseAPI_SetImage", _wrap_TessBaseAPI_SetImage, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_SetSourceResolution", _wrap_TessBaseAPI_SetSourceResolution, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_SetRectangle", _wrap_TessBaseAPI_SetRectangle, METH_VARARGS, NULL},
-	 { (char *)"TessBaseAPI_SetThresholder", _wrap_TessBaseAPI_SetThresholder, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetThresholdedImage", _wrap_TessBaseAPI_GetThresholdedImage, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetRegions", _wrap_TessBaseAPI_GetRegions, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetTextlines", _wrap_TessBaseAPI_GetTextlines, METH_VARARGS, NULL},
@@ -7467,7 +6628,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TessBaseAPI_End", _wrap_TessBaseAPI_End, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_IsValidWord", _wrap_TessBaseAPI_IsValidWord, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetTextDirection", _wrap_TessBaseAPI_GetTextDirection, METH_VARARGS, NULL},
-	 { (char *)"TessBaseAPI_SetFillLatticeFunc", _wrap_TessBaseAPI_SetFillLatticeFunc, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_DetectOS", _wrap_TessBaseAPI_DetectOS, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetFeaturesForBlob", _wrap_TessBaseAPI_GetFeaturesForBlob, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_FindRowForBox", _wrap_TessBaseAPI_FindRowForBox, METH_VARARGS, NULL},
@@ -7494,16 +6654,12 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ProcessPagesFileStream", _wrap_ProcessPagesFileStream, METH_VARARGS, NULL},
 	 { (char *)"ProcessPagesBuffer", _wrap_ProcessPagesBuffer, METH_VARARGS, NULL},
 	 { (char *)"ProcessPagesRaw", _wrap_ProcessPagesRaw, METH_VARARGS, NULL},
-	 { (char *)"SetCvImage", _wrap_SetCvImage, METH_VARARGS, NULL},
-	 { (char *)"SetVariable", _wrap_SetVariable, METH_VARARGS, NULL},
-	 { (char *)"GetUTF8Text", _wrap_GetUTF8Text, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
-static swig_type_info _swigt__m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void = {"_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void", "tesseract::FillLatticeFunc|void (Wordrec::*)(MATRIX const &,list_rec *const &,UNICHARSET const &,BlamerBundle *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_BLOCK_LIST = {"_p_BLOCK_LIST", "BLOCK_LIST *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Boxa = {"_p_Boxa", "Boxa *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DENORM = {"_p_DENORM", "DENORM *", 0, 0, (void*)0, 0};
@@ -7524,14 +6680,12 @@ static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)
 static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void = {"_p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void", "tesseract::FillLatticeFunc *|void (Wordrec::**)(MATRIX const &,list_rec *const &,UNICHARSET const &,BlamerBundle *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_p_Pix = {"_p_p_Pix", "Pix **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_Pixa = {"_p_p_Pixa", "Pixa **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_bool = {"_p_p_bool", "bool **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_char = {"_p_p_char", "char **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_int = {"_p_p_int", "int **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__CubeRecoContext = {"_p_tesseract__CubeRecoContext", "tesseract::CubeRecoContext *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__Dawg = {"_p_tesseract__Dawg", "tesseract::Dawg *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_tesseract__ImageThresholder = {"_p_tesseract__ImageThresholder", "tesseract::ImageThresholder *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__MutableIterator = {"_p_tesseract__MutableIterator", "tesseract::MutableIterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__PageIterator = {"_p_tesseract__PageIterator", "tesseract::PageIterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__ResultIterator = {"_p_tesseract__ResultIterator", "tesseract::ResultIterator *", 0, 0, (void*)0, 0};
@@ -7540,7 +6694,6 @@ static swig_type_info _swigt__p_tesseract__Tesseract = {"_p_tesseract__Tesseract
 static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
-  &_swigt__m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void,
   &_swigt__p_BLOCK_LIST,
   &_swigt__p_Boxa,
   &_swigt__p_DENORM,
@@ -7561,14 +6714,12 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_float,
   &_swigt__p_int,
   &_swigt__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void,
-  &_swigt__p_p_Pix,
   &_swigt__p_p_Pixa,
   &_swigt__p_p_bool,
   &_swigt__p_p_char,
   &_swigt__p_p_int,
   &_swigt__p_tesseract__CubeRecoContext,
   &_swigt__p_tesseract__Dawg,
-  &_swigt__p_tesseract__ImageThresholder,
   &_swigt__p_tesseract__MutableIterator,
   &_swigt__p_tesseract__PageIterator,
   &_swigt__p_tesseract__ResultIterator,
@@ -7577,7 +6728,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_unsigned_char,
 };
 
-static swig_cast_info _swigc__m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void[] = {  {&_swigt__m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_BLOCK_LIST[] = {  {&_swigt__p_BLOCK_LIST, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Boxa[] = {  {&_swigt__p_Boxa, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DENORM[] = {  {&_swigt__p_DENORM, 0, 0, 0},{0, 0, 0, 0}};
@@ -7598,14 +6748,12 @@ static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0
 static swig_cast_info _swigc__p_float[] = {  {&_swigt__p_float, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void[] = {  {&_swigt__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_Pix[] = {  {&_swigt__p_p_Pix, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_Pixa[] = {  {&_swigt__p_p_Pixa, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_bool[] = {  {&_swigt__p_p_bool, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_char[] = {  {&_swigt__p_p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_int[] = {  {&_swigt__p_p_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__CubeRecoContext[] = {  {&_swigt__p_tesseract__CubeRecoContext, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__Dawg[] = {  {&_swigt__p_tesseract__Dawg, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_tesseract__ImageThresholder[] = {  {&_swigt__p_tesseract__ImageThresholder, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__MutableIterator[] = {  {&_swigt__p_tesseract__MutableIterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__PageIterator[] = {  {&_swigt__p_tesseract__PageIterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__ResultIterator[] = {  {&_swigt__p_tesseract__ResultIterator, 0, 0, 0},{0, 0, 0, 0}};
@@ -7614,7 +6762,6 @@ static swig_cast_info _swigc__p_tesseract__Tesseract[] = {  {&_swigt__p_tesserac
 static swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
-  _swigc__m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void,
   _swigc__p_BLOCK_LIST,
   _swigc__p_Boxa,
   _swigc__p_DENORM,
@@ -7635,14 +6782,12 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_float,
   _swigc__p_int,
   _swigc__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void,
-  _swigc__p_p_Pix,
   _swigc__p_p_Pixa,
   _swigc__p_p_bool,
   _swigc__p_p_char,
   _swigc__p_p_int,
   _swigc__p_tesseract__CubeRecoContext,
   _swigc__p_tesseract__Dawg,
-  _swigc__p_tesseract__ImageThresholder,
   _swigc__p_tesseract__MutableIterator,
   _swigc__p_tesseract__PageIterator,
   _swigc__p_tesseract__ResultIterator,
@@ -8352,7 +7497,6 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PT_VERT_LINE",SWIG_From_int(static_cast< int >(PT_VERT_LINE)));
   SWIG_Python_SetConstant(d, "PT_NOISE",SWIG_From_int(static_cast< int >(PT_NOISE)));
   SWIG_Python_SetConstant(d, "PT_COUNT",SWIG_From_int(static_cast< int >(PT_COUNT)));
-  SWIG_addvarlink(SWIG_globals(),(char*)"kPolyBlockNames",Swig_var_kPolyBlockNames_get, Swig_var_kPolyBlockNames_set);
   SWIG_Python_SetConstant(d, "ORIENTATION_PAGE_UP",SWIG_From_int(static_cast< int >(tesseract::ORIENTATION_PAGE_UP)));
   SWIG_Python_SetConstant(d, "ORIENTATION_PAGE_RIGHT",SWIG_From_int(static_cast< int >(tesseract::ORIENTATION_PAGE_RIGHT)));
   SWIG_Python_SetConstant(d, "ORIENTATION_PAGE_DOWN",SWIG_From_int(static_cast< int >(tesseract::ORIENTATION_PAGE_DOWN)));
