@@ -3,7 +3,7 @@ import platform,os
 
 def paths_exists(hfile) :
 	if osname == 'linux' :
-		return os.path.exists(os.path.join("/usr/local/include",hfile)) || os.path.existsos.path.join("/usr/include",hfile))
+		return os.path.exists(os.path.join("/usr/local/include",hfile)) || os.path.exists(os.path.join("/usr/include",hfile))
 
 	
 def idefine(fp,name):
