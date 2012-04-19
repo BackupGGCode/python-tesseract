@@ -2,7 +2,7 @@
 
 =How to compile python-tesseract (for Ubuntu Precise)=
 {{{
-sudo apt-get install libtesseract-dev libleptonica-dev python-all-dev swig
+sudo apt-get install libtesseract-dev libleptonica-dev python-all-dev swig libcv-dev
 tar zxvf python-tesseract-xxxx.tar.gz
 cd python-tesseract
 python config.py
@@ -18,7 +18,7 @@ sudo apt-get install cdbs dh-buildinfo devscripts python-stdeb
 
 =How to compile python-tesseract (for Ubuntu Oneiric)=
 {{{
-sudo apt-get install tesseract-ocr-dev libleptonica-dev python-all-dev swig
+sudo apt-get install tesseract-ocr-dev libleptonica-dev python-all-dev swig libcv-dev
 tar zxvf python-tesseract-xxxx.tar.gz
 cd python-tesseract
 python config.py
