@@ -1,6 +1,5 @@
 import platform,os
 #osname=platform.uname()[0].lower()
-libs=
 
 def paths_exists(hfile) :
 	if osname == 'linux' :
