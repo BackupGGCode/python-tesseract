@@ -60,7 +60,7 @@ if osname=="darwin" or osname=="linux" :
 		libs=['/usr/lib', '/usr/local/lib']
 
 #	incl=os.path.join(prefix,"include")
-	print "include path=%s"%incl
+#	print "include path=%s"%incl
 	
 
 	
