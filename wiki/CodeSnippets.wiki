@@ -1,5 +1,4 @@
-
-# Reusable Code Snippets
+#summary Reusable Code Snippets
 
 = Code Snippets =
 
