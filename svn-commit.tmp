@@ -1,0 +1,8 @@
+
+--This line, and those below, will be ignored--
+
+M    trunk/setup.py
+A    trunk/test2.py
+D    trunk/build
+M    trunk/main_dummy.cpp
+AM   trunk/tesseract.pyc
