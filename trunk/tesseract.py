@@ -196,6 +196,7 @@ class TessBaseAPI(_object):
     def End(self): return _tesseract.TessBaseAPI_End(self)
     def IsValidWord(self, *args): return _tesseract.TessBaseAPI_IsValidWord(self, *args)
     def GetTextDirection(self, *args): return _tesseract.TessBaseAPI_GetTextDirection(self, *args)
+    def SetFillLatticeFunc(self, *args): return _tesseract.TessBaseAPI_SetFillLatticeFunc(self, *args)
     def DetectOS(self, *args): return _tesseract.TessBaseAPI_DetectOS(self, *args)
     def GetFeaturesForBlob(self, *args): return _tesseract.TessBaseAPI_GetFeaturesForBlob(self, *args)
     __swig_getmethods__["FindRowForBox"] = lambda x: _tesseract.TessBaseAPI_FindRowForBox
@@ -276,6 +277,18 @@ ProcessPagesBuffer = _tesseract.ProcessPagesBuffer
 def ProcessPagesRaw(*args):
   return _tesseract.ProcessPagesRaw(*args)
 ProcessPagesRaw = _tesseract.ProcessPagesRaw
+
+def SetCvImage(*args):
+  return _tesseract.SetCvImage(*args)
+SetCvImage = _tesseract.SetCvImage
+
+def SetVariable(*args):
+  return _tesseract.SetVariable(*args)
+SetVariable = _tesseract.SetVariable
+
+def GetUTF8Text(*args):
+  return _tesseract.GetUTF8Text(*args)
+GetUTF8Text = _tesseract.GetUTF8Text
 suck = _tesseract.suck
 # This file is compatible with both classic and new-style classes.
 

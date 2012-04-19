@@ -335,7 +335,7 @@ class TESSDLL_API TessBaseAPI {
    * Note that Tesseract takes ownership of the Thresholder and will
    * delete it when it it is replaced or the API is destructed.
    */
-
+/*
 #if !defined(__windows__)
   void SetThresholder(ImageThresholder* thresholder) {
     if (thresholder_ != NULL)
@@ -345,6 +345,7 @@ class TESSDLL_API TessBaseAPI {
   }
 
 #endif
+*/
   /**
    * Get a copy of the internal thresholded image from Tesseract.
    * Caller takes ownership of the Pix and must pixDestroy it.
@@ -739,7 +740,7 @@ class TESSDLL_API TessBaseAPI {
   Tesseract*        tesseract_;       ///< The underlying data object.
   Tesseract*        osd_tesseract_;   ///< For orientation & script detection.
   EquationDetect*   equ_detect_;      ///<The equation detector.
-  ImageThresholder* thresholder_;     ///< Image thresholding module.
+  //ImageThresholder* thresholder_;     ///< Image thresholding module.
   GenericVector<ParagraphModel *>* paragraph_models_;
   BLOCK_LIST*       block_list_;      ///< The page layout.
   PAGE_RES*         page_res_;        ///< The page-level data.

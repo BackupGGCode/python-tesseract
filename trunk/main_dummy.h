@@ -1,7 +1,4 @@
 #include "config.h"
-#if !defined(__windows__) && !defined(__darwin__)
-	#include <opencv/cv.h>
-#endif 
 
 #include <Python.h>
 
