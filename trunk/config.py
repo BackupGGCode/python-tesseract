@@ -1,9 +1,9 @@
 import platform,os
-#osname=platform.uname()[0].lower()
+osname=platform.uname()[0].lower()
 
 def paths_exists(hfile) :
 	if osname == 'linux' :
-		return os.path.exists(os.path.join("/usr/local/include",hfile)) || os.path.exists(os.path.join("/usr/include",hfile))
+		return os.path.exists(os.path.join("/usr/local/include",hfile)) or os.path.exists(os.path.join("/usr/include",hfile))
 
 	
 def idefine(fp,name):
@@ -13,10 +13,10 @@ def idefine(fp,name):
 
 
 fp=open("config.h","w")
-idefine(osname)
+idefine(fp,osname)
 
 if paths_exists("opencv/cv.h")  :
-	idefine("opencv")
+	idefine(fp,"opencv")
 
 	  
 fp.close()
