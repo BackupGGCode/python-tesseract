@@ -6,5 +6,5 @@ cd leptonica-1.6.8
 yum install giflib-devel libtiff-devel zlib-devel libpng-devel libjpeg-turbo-devel -y 
 ./configure --prefix=/usr
 make
-make install
+sudo make install
 }}}
