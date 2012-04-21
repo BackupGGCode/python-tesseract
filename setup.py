@@ -6,7 +6,7 @@ written by FreeToGo@gmail.com
 #from distutils.core import setup, Extension, Command, find_packages
 from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform
-import config
+
 osname=platform.uname()[0].lower()
 
 sources=['tesseract.i','' 'main_dummy.cpp']
@@ -129,7 +129,7 @@ tesseract_module = Extension('_tesseract',
 									sources=sources,
 									#extra_compile_args=["-DEBUG -O1 -pg "],
 									swig_opts=["-c++", "-I"+inclpath('tesseract'),
-													"-I"+os.path.dirname(config.__file__),
+									#				"-I"+os.path.dirname(config.__file__),
 													"-I"+inclpath('leptonica')],
 									include_dirs=['.',inclpath('tesseract'),
 									#				incl,
