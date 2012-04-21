@@ -9,3 +9,14 @@ yum install giflib-devel libtiff-devel zlib-devel libpng-devel libjpeg-turbo-dev
 make
 sudo make install
 }}}
+
+
+==Compile Tesseract OCR==
+{{{
+svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
+./configure --prefix=/usr
+make
+make install
+}}}
+
+==Compile Python-Tesseract==
