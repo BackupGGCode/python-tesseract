@@ -1,4 +1,4 @@
-#How to compile python-tesseract for Fedora
+#How to compile python-tesseract for Fedora#
 =How to compile python-tesseract for Fedora=
 ==Compile leptonica==
 {{{
