@@ -6,7 +6,7 @@
 wget http://www.leptonica.com/source/leptonica-1.68.tar.gz
 tar zxvf leptonica-1.68.tar.gz
 cd leptonica-1.6.8
-yum install giflib-devel libtiff-devel zlib-devel libpng-devel libjpeg-turbo-devel -y 
+yum install giflib-devel libtiff-devel zlib-devel libpng-devel libjpeg-turbo-devel python-devel -y 
 ./configure --prefix=/usr
 make
 sudo make install
