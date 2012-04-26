@@ -1,6 +1,7 @@
-#include "mfcpch.h"
+//#include "mfcpch.h"
 // #define USE_VLD //Uncomment for Visual Leak Detector.
 #if (defined _MSC_VER && defined USE_VLD)
+#include "mfcpch.h"
 #include <vld.h>
 #endif
 
