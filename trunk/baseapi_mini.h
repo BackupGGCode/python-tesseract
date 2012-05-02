@@ -580,10 +580,10 @@ class TESSDLL_API TessBaseAPI {
    * function.
    */
   //void SetProbabilityInContextFunc(ProbabilityInContextFunc f);
-#if !defined(__windows__)
+//#if !defined(__windows__)
   /** Sets Wordrec::fill_lattice_ function to point to the given function. */
-  void SetFillLatticeFunc(FillLatticeFunc f);
-#endif
+//  void SetFillLatticeFunc(FillLatticeFunc f);
+//#endif
   /**
    * Estimates the Orientation And Script of the image.
    * @return true if the image was processed successfully.
