@@ -401,9 +401,9 @@ class TESSDLL_API TessBaseAPI {
   // If blockids is not NULL, the block-id of each component is also returned
   // as an array of one element per component. delete [] after use.
   // If text_only is true, then only text components are returned.
-  Boxa* GetComponentImages(PageIteratorLevel level,
-                           bool text_only,
-                           Pixa** pixa, int** blockids);
+  //Boxa* GetComponentImages(PageIteratorLevel level,
+  //                         bool text_only,
+  //                         Pixa** pixa, int** blockids);
 
   // Returns the scale factor of the thresholded image that would be returned by
   // GetThresholdedImage() and the various GetX() methods that call
