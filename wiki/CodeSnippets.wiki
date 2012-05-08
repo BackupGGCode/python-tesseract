@@ -2,7 +2,7 @@
 
 = Code Snippets =
 
-contributed by Ali Ghorashi aghoras@gmail.com
+contributed by Ali Ghorashi
 12:26 AM (11 hours ago)
 
 {{{
