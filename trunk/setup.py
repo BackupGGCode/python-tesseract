@@ -8,9 +8,10 @@ from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform
 
 osname=platform.uname()[0].lower()
-
+print "os=%s"%osname
 sources=['tesseract.i','' 'main_dummy.cpp']
-
+name = 'python-tesseract'
+description = """${python:Provides} Wrapper for Python-${python:Versions} """,
 version_number=os.getcwd().split("-")[-1]
 print "Current Version : %s"%version_number
 fp=open("config.h","w")
@@ -45,10 +46,14 @@ class CleanCommand(Command):
 			os.system('del /S /Q build dist deb_dist')
 
 def inclpath(mlib):
-	return checkPath(incls,mlib)
+	ipath=checkPath(incls,mlib)
+	if ipath:
+		return ipath
+	else:
+		return ""
 	assert False, 'Include directory %s was not found' % mlib		
 	
-if osname=="darwin" or osname=="linux" :
+if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 	data_files=[]
 	sources.append('fmemopen.c')
 	if osname=='darwin':
@@ -97,7 +102,8 @@ if osname=="darwin" or osname=="linux" :
 		libraries.append('opencv_core')
 
 elif osname=="windows":
-	
+	name='python'
+	description = """Python Wrapper for Tesseract-OCR """
 	fp.write('#include "util-fmemopen.h"\n')
 	sources.append('util-fmemopen.cpp')
 	
@@ -121,7 +127,8 @@ elif osname=="windows":
 	
 	
 	data_files=[("DLLs", listFiles("../pyds")),
-					(".", listFiles("../dlls"))]
+					("Lib\site-packages", listFiles("../dlls"))]
+					
 
 fp.close()
 print "===========%s==========="%libraries
@@ -138,17 +145,19 @@ tesseract_module = Extension('_tesseract',
 								
 									)
 									
-setup (name = 'python-tesseract',
+setup (name = name,
 		version = version_number,
 		author	  = "FreeToGo Nowhere",
-		description = """${python:Provides} Wrapper for Python-${python:Versions} """,
+		description = description,
 		ext_modules = [tesseract_module],
 		py_modules = ["tesseract"],
 		cmdclass={
 		'clean': CleanCommand
 		},
 		packages = find_packages(exclude=['distribute_setup']),
-		#	 data_files=[('.',['test.py','eurotext.tif','eurotext.jpg']),],
 		data_files=data_files
+		#	 data_files=[('.',['test.py','eurotext.tif','eurotext.jpg']),],
+		#data_files=data_files
 	   )
 	   
+
