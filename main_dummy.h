@@ -1,6 +1,6 @@
-#include "config.h"
+//#include "config.h"
 
-#include <Python.h>
+//#include <Python.h>
 
 bool isLibTiff(); 
 bool isLibLept(); 

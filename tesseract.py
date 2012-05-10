@@ -275,18 +275,6 @@ ProcessPagesBuffer = _tesseract.ProcessPagesBuffer
 def ProcessPagesRaw(*args):
   return _tesseract.ProcessPagesRaw(*args)
 ProcessPagesRaw = _tesseract.ProcessPagesRaw
-
-def SetCvImage(*args):
-  return _tesseract.SetCvImage(*args)
-SetCvImage = _tesseract.SetCvImage
-
-def SetVariable(*args):
-  return _tesseract.SetVariable(*args)
-SetVariable = _tesseract.SetVariable
-
-def GetUTF8Text(*args):
-  return _tesseract.GetUTF8Text(*args)
-GetUTF8Text = _tesseract.GetUTF8Text
 suck = _tesseract.suck
 # This file is compatible with both classic and new-style classes.
 
