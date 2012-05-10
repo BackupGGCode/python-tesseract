@@ -15,6 +15,9 @@ description = """${python:Provides} Wrapper for Python-${python:Versions} """,
 version_number=os.getcwd().split("-")[-1]
 print "Current Version : %s"%version_number
 fp=open("config.h","w")
+fp.write("#pragma once\n")
+#fp.write("#ifndef __CONFIG_H__\n")
+#fp.write("#define __CONFIG_H__\n")
 
 
 def listFiles(mdir):
@@ -25,9 +28,12 @@ def listFiles(mdir):
 	return list_files
 
 def idefine(fp,name):
-	fp.write("#ifndef __%s__\n"%name)
-	fp.write("\t#define __%s__\n"%name)
-	fp.write("#endif\n")
+	if osname=="windows":
+		fp.write("#define __%s__\n\n"%name)
+	else:
+		fp.write("#ifndef __%s__\n"%name)
+		fp.write("\t#define __%s__\n"%name)
+		fp.write("#endif\n")
 
 idefine(fp,osname)
 
@@ -43,7 +49,7 @@ class CleanCommand(Command):
 		if osname != "windows":
 			os.system('rm -rf ./build ./dist ./deb_dist')
 		else:
-			os.system('del /S /Q build dist deb_dist')
+			os.system('del /S /Q build dist')
 
 def inclpath(mlib):
 	ipath=checkPath(incls,mlib)
@@ -104,7 +110,6 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 elif osname=="windows":
 	name='python'
 	description = """Python Wrapper for Tesseract-OCR """
-	fp.write('#include "util-fmemopen.h"\n')
 	sources.append('util-fmemopen.cpp')
 	
 	pathOffset="../vs2008"
@@ -125,11 +130,12 @@ elif osname=="windows":
 		fp.write("#include <Python.h>\n")
 		libraries.append('opencv_core240')
 	
-	
+	fp.write('#include "util-fmemopen.h"\n')
 	data_files=[("DLLs", listFiles("../pyds")),
-					("Lib\site-packages", listFiles("../dlls"))]
+					#("Lib\site-packages", listFiles("../dlls"))]
+					(".", listFiles("../dlls"))]
 					
-
+#fp.write("#endif // __CONFIG_H__\n")
 fp.close()
 print "===========%s==========="%libraries
 tesseract_module = Extension('_tesseract',

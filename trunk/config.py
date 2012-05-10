@@ -18,5 +18,6 @@ idefine(fp,osname)
 if paths_exists("opencv/cv.h")  :
 	idefine(fp,"opencv")
 
-	  
+if osname =='windows':
+	idefine(fp,"opencv2")	  
 fp.close()
