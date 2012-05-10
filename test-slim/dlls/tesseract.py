@@ -175,7 +175,6 @@ class TessBaseAPI(_object):
     def GetStrips(self, *args): return _tesseract.TessBaseAPI_GetStrips(self, *args)
     def GetWords(self, *args): return _tesseract.TessBaseAPI_GetWords(self, *args)
     def GetConnectedComponents(self, *args): return _tesseract.TessBaseAPI_GetConnectedComponents(self, *args)
-    def GetComponentImages(self, *args): return _tesseract.TessBaseAPI_GetComponentImages(self, *args)
     def GetThresholdedImageScaleFactor(self): return _tesseract.TessBaseAPI_GetThresholdedImageScaleFactor(self)
     def DumpPGM(self, *args): return _tesseract.TessBaseAPI_DumpPGM(self, *args)
     def AnalyseLayout(self): return _tesseract.TessBaseAPI_AnalyseLayout(self)
