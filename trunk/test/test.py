@@ -27,6 +27,7 @@ print "result(ProcessPagesRaw)",result
 f=open(mImgFile,"rb")
 mBuffer=f.read()
 f.close()
+print "len=%d"%len(mBuffer)
 result = tesseract.ProcessPagesBuffer(mBuffer,len(mBuffer),api)
 mBuffer=None
 print "result(ProcessPagesBuffer)=",result

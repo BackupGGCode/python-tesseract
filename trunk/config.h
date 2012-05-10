@@ -1,9 +1,8 @@
-#ifndef __windows__
-	#define __windows__
+#ifndef __linux__
+	#define __linux__
 #endif
-#include "util-fmemopen.h"
-#ifndef __opencv2__
-	#define __opencv2__
+#ifndef __opencv__
+	#define __opencv__
 #endif
-#include "opencv2/core/core_c.h"
+#include <opencv/cv.h>
 #include <Python.h>
