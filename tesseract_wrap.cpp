@@ -5014,64 +5014,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TessBaseAPI_GetComponentImages(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
-  tesseract::PageIteratorLevel arg2 ;
-  bool arg3 ;
-  Pixa **arg4 = (Pixa **) 0 ;
-  int **arg5 = (int **) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  bool val3 ;
-  int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  void *argp5 = 0 ;
-  int res5 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  Boxa *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOOO:TessBaseAPI_GetComponentImages",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TessBaseAPI_GetComponentImages" "', argument " "1"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::TessBaseAPI * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TessBaseAPI_GetComponentImages" "', argument " "2"" of type '" "tesseract::PageIteratorLevel""'");
-  } 
-  arg2 = static_cast< tesseract::PageIteratorLevel >(val2);
-  ecode3 = SWIG_AsVal_bool(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TessBaseAPI_GetComponentImages" "', argument " "3"" of type '" "bool""'");
-  } 
-  arg3 = static_cast< bool >(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_p_Pixa, 0 |  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "TessBaseAPI_GetComponentImages" "', argument " "4"" of type '" "Pixa **""'"); 
-  }
-  arg4 = reinterpret_cast< Pixa ** >(argp4);
-  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res5)) {
-    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "TessBaseAPI_GetComponentImages" "', argument " "5"" of type '" "int **""'"); 
-  }
-  arg5 = reinterpret_cast< int ** >(argp5);
-  result = (Boxa *)(arg1)->GetComponentImages(arg2,arg3,arg4,arg5);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Boxa, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_TessBaseAPI_GetThresholdedImageScaleFactor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
@@ -6699,7 +6641,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TessBaseAPI_GetStrips", _wrap_TessBaseAPI_GetStrips, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetWords", _wrap_TessBaseAPI_GetWords, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetConnectedComponents", _wrap_TessBaseAPI_GetConnectedComponents, METH_VARARGS, NULL},
-	 { (char *)"TessBaseAPI_GetComponentImages", _wrap_TessBaseAPI_GetComponentImages, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetThresholdedImageScaleFactor", _wrap_TessBaseAPI_GetThresholdedImageScaleFactor, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_DumpPGM", _wrap_TessBaseAPI_DumpPGM, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_AnalyseLayout", _wrap_TessBaseAPI_AnalyseLayout, METH_VARARGS, NULL},

@@ -175,7 +175,6 @@ class TessBaseAPI(_object):
     def GetStrips(self, *args): return _tesseract.TessBaseAPI_GetStrips(self, *args)
     def GetWords(self, *args): return _tesseract.TessBaseAPI_GetWords(self, *args)
     def GetConnectedComponents(self, *args): return _tesseract.TessBaseAPI_GetConnectedComponents(self, *args)
-    def GetComponentImages(self, *args): return _tesseract.TessBaseAPI_GetComponentImages(self, *args)
     def GetThresholdedImageScaleFactor(self): return _tesseract.TessBaseAPI_GetThresholdedImageScaleFactor(self)
     def DumpPGM(self, *args): return _tesseract.TessBaseAPI_DumpPGM(self, *args)
     def AnalyseLayout(self): return _tesseract.TessBaseAPI_AnalyseLayout(self)
@@ -276,18 +275,6 @@ ProcessPagesBuffer = _tesseract.ProcessPagesBuffer
 def ProcessPagesRaw(*args):
   return _tesseract.ProcessPagesRaw(*args)
 ProcessPagesRaw = _tesseract.ProcessPagesRaw
-
-def SetCvImage(*args):
-  return _tesseract.SetCvImage(*args)
-SetCvImage = _tesseract.SetCvImage
-
-def SetVariable(*args):
-  return _tesseract.SetVariable(*args)
-SetVariable = _tesseract.SetVariable
-
-def GetUTF8Text(*args):
-  return _tesseract.GetUTF8Text(*args)
-GetUTF8Text = _tesseract.GetUTF8Text
 suck = _tesseract.suck
 # This file is compatible with both classic and new-style classes.
 

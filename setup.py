@@ -3,7 +3,7 @@
 setup.py file for SWIG
 written by FreeToGo@gmail.com
 """
-#from distutils.core import setup, Extension, Command, find_packages
+
 from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform
 
