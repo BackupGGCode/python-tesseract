@@ -3468,22 +3468,6 @@ fail:
 }
 
 
-SWIGINTERN int Swig_var_kPolyBlockNames_set(PyObject *_val) {
-  SWIG_exception_fail(SWIG_ArgError(SWIG_AttributeError), "in variable '""read-only kPolyBlockNames""' of type '""char const *[]""'");
-  return 0;
-fail:
-  return 1;
-}
-
-
-SWIGINTERN PyObject *Swig_var_kPolyBlockNames_get(void) {
-  PyObject *pyobj = 0;
-  
-  pyobj = SWIG_NewPointerObj(SWIG_as_voidptr(kPolyBlockNames), SWIGTYPE_p_p_char,  0 );
-  return pyobj;
-}
-
-
 SWIGINTERN PyObject *_wrap_new_TessBaseAPI(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   tesseract::TessBaseAPI *result = 0 ;
@@ -7454,7 +7438,6 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PT_VERT_LINE",SWIG_From_int(static_cast< int >(PT_VERT_LINE)));
   SWIG_Python_SetConstant(d, "PT_NOISE",SWIG_From_int(static_cast< int >(PT_NOISE)));
   SWIG_Python_SetConstant(d, "PT_COUNT",SWIG_From_int(static_cast< int >(PT_COUNT)));
-  SWIG_addvarlink(SWIG_globals(),(char*)"kPolyBlockNames",Swig_var_kPolyBlockNames_get, Swig_var_kPolyBlockNames_set);
   SWIG_Python_SetConstant(d, "ORIENTATION_PAGE_UP",SWIG_From_int(static_cast< int >(tesseract::ORIENTATION_PAGE_UP)));
   SWIG_Python_SetConstant(d, "ORIENTATION_PAGE_RIGHT",SWIG_From_int(static_cast< int >(tesseract::ORIENTATION_PAGE_RIGHT)));
   SWIG_Python_SetConstant(d, "ORIENTATION_PAGE_DOWN",SWIG_From_int(static_cast< int >(tesseract::ORIENTATION_PAGE_DOWN)));
