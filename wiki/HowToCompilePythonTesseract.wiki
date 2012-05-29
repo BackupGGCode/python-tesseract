@@ -59,7 +59,7 @@ First, install tesseract svn as suggested by mcradle<br>
 Then,<br> 
 {{{
 sudo port uninstall opencv
-sudo port install numpy
+sudo port install py27-numpy
 sudo port install opencv +python27
 sudo port install leptonica swig swig-python 
 export LDFLAGS="-L/opt/local/lib"
