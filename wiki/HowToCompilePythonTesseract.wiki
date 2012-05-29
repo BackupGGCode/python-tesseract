@@ -58,6 +58,7 @@ First, install tesseract svn as suggested by mcradle<br>
 [http://mousecradle.wordpress.com/2011/05/17/compiling-svn-tesseract-on-osx/]<br>
 Then,<br> 
 {{{
+sudo port select python python27
 sudo port uninstall opencv
 sudo port install py27-numpy
 sudo port install opencv +python27
