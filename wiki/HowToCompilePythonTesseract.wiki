@@ -58,7 +58,7 @@ First, install tesseract svn as suggested by mcradle<br>
 [http://mousecradle.wordpress.com/2011/05/17/compiling-svn-tesseract-on-osx/]<br>
 Then,<br> 
 {{{
-sudo port install leptonica swig
+sudo port install leptonica swig opencv
 export LDFLAGS="-L/opt/local/lib"
 tar zxvf python-tesseract-xxxx.tar.gz
 cd python-tesseract
