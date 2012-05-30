@@ -71,7 +71,7 @@ python setup.py clean
 python setup.py build
 sudo python setup.py install
 }}}
-_If you  ran into "Segmentation fault 11" then following the steps suggested by Solem_
+_If you  ran into "Segmentation fault 11" then following the steps suggested by Solem_<br>
 http://www.janeriksolem.net/2011/12/installing-opencv-python-interface-on.html
 
 =How to compile python-tesseract from svn version of tesseract-ocr=
