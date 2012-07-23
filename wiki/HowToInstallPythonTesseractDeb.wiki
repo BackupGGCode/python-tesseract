@@ -2,11 +2,11 @@
 
 =How to install deb version of Python-tesseract in Ubuntu(Precise)=
 {{{
-apt-get install tesseract-ocr
 wget http://python-tesseract.googlecode.com/files/python-tesseract_0.7-1.4_amd64.deb
 wget http://python-tesseract.googlecode.com/files/python-tesseract_0.7-1.4_i386.deb
+sudo apt-get install tesseract-ocr
 sudo dpkg -i python-tesseract*.deb
-
+sudo apt-get -f install
 }}}
 
 
