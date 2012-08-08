@@ -5,10 +5,11 @@
 launch xCode, then go to Preferences -> Downloads and install "Command Line Tools". 
 Restart Terminal and you will be able to use Make.
 
-Install MacPorts
+1. Install MacPorts
 wget https://distfiles.macports.org/MacPorts/MacPorts-2.1.2-10.8-MountainLion.pkg
 sudo port install subversion wget axel cmake automake autoconf libtool swig swig-python
 
+2. Install Leptonica
 wget http://www.leptonica.com/source/leptonica-1.69.tar.gz
 tar zxvf leptonica-1.69.tar.gz
 cd leptonica-1.69
@@ -16,6 +17,10 @@ cd leptonica-1.69
 make
 sudo make install
 
+
+3. Install opencv
+sudo port install opencv +python27
+or
 wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.2/OpenCV-2.4.2.tar.bz2
 tar jxvf OpenCV-2.4.2.tar.bz2
 mkdir release
@@ -24,6 +29,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/opt/local -D BUILD_PY
 make
 sudo make install
 
+4. Install tesseract-ocr
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
 sudo port install gcc gcc-c++ make python27
 cd tesseract-ocr/
@@ -34,6 +40,7 @@ sed -i '.bak'  's|usr/local|opt/local|g' autogen.sh
 make
 sudo make install
 
+5.
 svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
 cd python-tesseract
 python setup.py build
