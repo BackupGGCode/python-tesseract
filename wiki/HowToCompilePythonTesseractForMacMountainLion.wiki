@@ -34,7 +34,7 @@ sudo make install
 
 5.
 wget http://python-tesseract.googlecode.com/files/python-tesseract.macosx-10.8-intel.tar.gz
-tar zxvf python-tesseract.macosx-10.8-intel.tar.gz -C /opt/local
+sudo tar zxvf python-tesseract.macosx-10.8-intel.tar.gz -C /opt/local
 
 or 
 svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
