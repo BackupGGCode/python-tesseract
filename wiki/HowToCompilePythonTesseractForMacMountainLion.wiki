@@ -20,14 +20,6 @@ sudo make install
 
 3. Install opencv
 sudo port install opencv +python27
-or
-wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.2/OpenCV-2.4.2.tar.bz2
-tar jxvf OpenCV-2.4.2.tar.bz2
-mkdir release
-cd release
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/opt/local -D BUILD_PYTHON_SUPPORT=ON ..
-make
-sudo make install
 
 4. Install tesseract-ocr
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
