@@ -8,14 +8,15 @@ tar zxvf leptonica-1.69.tar.gz
 cd leptonica-1.69
 ./configure --prefix=/usr
 make
-make install
+sudo make install
 
 wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.2/OpenCV-2.4.2.tar.bz2
 tar jxvf OpenCV-2.4.2.tar.bz2
 mkdir release
 cd release
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_PYTHON_SUPPORT=ON ..
-
+make
+sudo make install
 
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
 yum install libjpeg-devel libpng-devel libtiff-devel zlib-devel
@@ -24,6 +25,8 @@ cd tesseract-ocr/
 ./autogen.sh
 ./configure --prefix=/usr
 make
-make install
+sudo make install
+
+
 
 }}}
