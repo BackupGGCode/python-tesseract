@@ -12,7 +12,7 @@ sudo port install subversion wget axel cmake automake autoconf libtool swig swig
 wget http://www.leptonica.com/source/leptonica-1.69.tar.gz
 tar zxvf leptonica-1.69.tar.gz
 cd leptonica-1.69
-./configure
+./configure --prefix=/opt/local
 make
 sudo make install
 
@@ -20,7 +20,7 @@ wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.2/Op
 tar jxvf OpenCV-2.4.2.tar.bz2
 mkdir release
 cd release
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr -D BUILD_PYTHON_SUPPORT=ON ..
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/opt/local -D BUILD_PYTHON_SUPPORT=ON ..
 make
 sudo make install
 
@@ -29,7 +29,7 @@ sudo port install gcc gcc-c++ make python27
 cd tesseract-ocr/
 sed -i 's/libtoolize/glibtoolize/g' autogen.sh
 ./autogen.sh
-./configure
+./configure --prefix=/opt/local
 make
 sudo make install
 
