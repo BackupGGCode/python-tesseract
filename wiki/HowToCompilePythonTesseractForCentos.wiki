@@ -1,4 +1,4 @@
-#summary How to compile python-tesseract for Ubuntu, Mac OSX and Cygwin
+#summary How to compile python-tesseract for Centos
 
 =How to compile python-tesseract (for Ubuntu Precise)=
 {{{
@@ -10,6 +10,11 @@ cd leptonica-1.69
 make
 make install
 
+wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.2/OpenCV-2.4.2.tar.bz2
+tar jxvf OpenCV-2.4.2.tar.bz2
+mkdir release
+cd release
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_PYTHON_SUPPORT=ON ..
 
 
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
