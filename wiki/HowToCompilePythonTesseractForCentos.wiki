@@ -27,6 +27,10 @@ cd tesseract-ocr/
 make
 sudo make install
 
+svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
+cd python-tesseract
+python setup.py build
+python setup.py install
 
 
 }}}
