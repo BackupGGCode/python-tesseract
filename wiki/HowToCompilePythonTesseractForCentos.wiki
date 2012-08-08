@@ -27,6 +27,10 @@ cd tesseract-ocr/
 make
 sudo make install
 
+cd /usr/lib
+cp -Rf *opencv* /usr/lib64
+cp -Rf *tess* /usr/lib64
+
 svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
 cd python-tesseract
 python setup.py build
