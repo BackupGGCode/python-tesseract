@@ -1,0 +1,24 @@
+#summary How to compile python-tesseract for Ubuntu, Mac OSX and Cygwin
+
+=How to compile python-tesseract (for Ubuntu Precise)=
+{{{
+yum groupinstall "Development Tools"
+wget http://www.leptonica.com/source/leptonica-1.69.tar.gz
+tar zxvf leptonica-1.69.tar.gz
+cd leptonica-1.69
+./configure --prefix=/usr
+make
+make install
+
+
+
+svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
+yum install libjpeg-devel libpng-devel libtiff-devel zlib-devel
+yum install gcc gcc-c++ make
+cd tesseract-ocr/
+./autogen.sh
+./configure --prefix=/usr
+make
+make install
+
+}}}
