@@ -34,8 +34,8 @@ svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
 sudo port install gcc gcc-c++ make python27
 cd tesseract-ocr/
 sed -i '.bak'  's/^libtoolize/glibtoolize/g' autogen.sh
-./autogen.sh
 sed -i '.bak'  's|usr/local|opt/local|g' configure.ac
+./autogen.sh
 ./configure --prefix=/opt/local
 make
 sudo make install
