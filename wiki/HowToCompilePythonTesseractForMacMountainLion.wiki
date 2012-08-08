@@ -28,6 +28,7 @@ svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
 sudo port install libjpeg-devel libpng-devel libtiff-devel zlib-devel
 sudo port install gcc gcc-c++ make
 cd tesseract-ocr/
+sed -i 's/libtoolize/glibtoolize/g' autogen.sh
 ./autogen.sh
 ./configure
 make
