@@ -7,7 +7,7 @@ Restart Terminal and you will be able to use Make.
 
 Install MacPorts
 wget https://distfiles.macports.org/MacPorts/MacPorts-2.1.2-10.8-MountainLion.pkg
-sudo port install subversion wget axel cmake
+sudo port install subversion wget axel cmake automake autoconf
 
 wget http://www.leptonica.com/source/leptonica-1.69.tar.gz
 tar zxvf leptonica-1.69.tar.gz
