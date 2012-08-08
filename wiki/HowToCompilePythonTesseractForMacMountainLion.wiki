@@ -35,6 +35,8 @@ sudo make install
 5.
 svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
 cd python-tesseract
+sudo port install py27-coverage
+python setup.py clean
 python setup.py build
 python setup.py install
 
