@@ -33,6 +33,8 @@ make
 sudo make install
 
 5.
+tar zxvf http://python-tesseract.googlecode.com/files/python-tesseract.macosx-10.8-intel.tar.gz
+or 
 svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
 cd python-tesseract
 sudo port install py27-coverage
