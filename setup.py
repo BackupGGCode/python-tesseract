@@ -92,19 +92,23 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 	
 	if osname=='darwin':
 		fp.write('#include "fmemopen.h"\n')
-		
-	if inclpath("opencv/cv.h")  :
 		idefine(fp,"opencv")
-		fp.write("#include <opencv/cv.h>\n")
+		fp.write("#include <cv.h>\n")
 		fp.write("#include <Python.h>\n")
-	elif inclpath("opencv2/core/core_c.h"):
-		idefine(fp,"opencv2")
-		fp.write("#include <opencv2/core/core_c.h>\n")
-		fp.write("#include <Python.h>\n")
+		name="python"
+	else:	
+		if inclpath("opencv/cv.h")  :
+			idefine(fp,"opencv")
+			fp.write("#include <opencv/cv.h>\n")
+			fp.write("#include <Python.h>\n")
+		elif inclpath("opencv2/core/core_c.h"):
+			idefine(fp,"opencv2")
+			fp.write("#include <opencv2/core/core_c.h>\n")
+			fp.write("#include <Python.h>\n")
 
 
 	libraries=['stdc++','tesseract','lept']
-	if libpath('libopencv_core.so'):
+	if libpath('libopencv_core.so') or libpath('libopencv_core.dylib'):
 		libraries.append('opencv_core')
 
 elif osname=="windows":
@@ -146,7 +150,9 @@ tesseract_module = Extension('_tesseract',
 													"-I"+inclpath('leptonica')],
 									include_dirs=['.',inclpath('tesseract'),
 									#				incl,
-													inclpath('leptonica')],
+													inclpath('leptonica'),
+													inclpath('opencv'),
+													],
 									libraries=libraries,
 								
 									)
