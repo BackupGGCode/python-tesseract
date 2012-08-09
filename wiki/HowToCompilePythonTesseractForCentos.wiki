@@ -13,6 +13,8 @@ sudo make install
 
 wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.2/OpenCV-2.4.2.tar.bz2
 tar jxvf OpenCV-2.4.2.tar.bz2
+wget http://python-tesseract.googlecode.com/files/opencv-2.4.0-fix-pkgconfig.patch
+patch -p1 < opencv-2.4.0-fix-pkgconfig.patch
 mkdir release
 cd release
 sed -i.bak 's|libdir=|libdir=/usr/lib64|g' unix-install/opencv.pc
