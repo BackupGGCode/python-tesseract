@@ -1,4 +1,4 @@
-#summary How to compile python-tesseract for Centos
+#summary How to compile python-tesseract for Centos 86_64
 
 =How to compile python-tesseract (for Centos 6 )=
 {{{
@@ -15,6 +15,7 @@ wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.2/Op
 tar jxvf OpenCV-2.4.2.tar.bz2
 mkdir release
 cd release
+sed -i.bak 's|libdir=|libdir=/usr/lib64|g' opencv.pc
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr  -D CMAKE_LIBRARY_PATH=/usr/lib64 -D BUILD_PYTHON_SUPPORT=ON ..
 make
 sudo make install
