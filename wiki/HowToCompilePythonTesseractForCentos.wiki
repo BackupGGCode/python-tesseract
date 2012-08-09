@@ -32,6 +32,10 @@ cd /usr/lib
 cp -Rf *opencv* /usr/lib64
 cp -Rf *tess* /usr/lib64
 
+wget http://peak.telecommunity.com/dist/ez_setup.py
+python ez_setup.py 
+easy_install pip
+
 svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
 cd python-tesseract
 python setup.py build
