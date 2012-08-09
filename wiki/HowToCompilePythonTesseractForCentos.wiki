@@ -35,6 +35,7 @@ sudo make install
 cd /usr/lib
 cp -Rf *opencv* /usr/lib64
 cp -Rf *tess* /usr/lib64
+cp -Rf *lept* /usr/lib64
 
 wget http://peak.telecommunity.com/dist/ez_setup.py
 python ez_setup.py 
