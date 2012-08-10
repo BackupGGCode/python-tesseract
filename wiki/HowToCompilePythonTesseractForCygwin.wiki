@@ -10,9 +10,11 @@ chmod +x /bin/apt-cyg
 apt-cyg install nano make autobuild libtool libiconv gcc4 libtiff-devel libpng14-devel libgif-devel libSM-devel libjbig-devel
 apt-cyg -m http://fd0.x0.to/cygwin install liblept-devel
 apt-cyg -m ftp://ftp.cygwinports.org/pub/cygwinports/ install libwepb-devel 
-wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.0/OpenCV-2.4.0.tar.bz2/download
-tar jxvf OpenCV-2.4.0
-cd OpenCV-2,4,0
+wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.2/OpenCV-2.4.2.tar.bz2/download
+tar jxvf OpenCV-2.4.2
+cd OpenCV-2.4.2
+wget http://python-tesseract.googlecode.com/files/opencv-2.4.2-cygwin-patch-20120807.txt
+patch -p1 < opencv-2.4.2-cygwin-patch-20120807.txt
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr -D BUILD_PYTHON_SUPPORT=ON ..
 make && make install 
 
