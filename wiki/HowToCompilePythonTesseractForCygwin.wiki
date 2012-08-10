@@ -21,7 +21,7 @@ make clean && make -j 10 && make install
 {{{
 svn checkout http://python-tesseract.googlecode.com/svn/trunk python-tesseract
 cd python-tesseract
-apt-cyg install swig python 
+apt-cyg install swig python libcurl-devel cmake
 python setup.py build
 python setup.py install
 }}}
