@@ -1,3 +1,4 @@
+#summary How to compile python-tesseract for Cygwin
 =How to compile python-tesseract from svn version of tesseract-ocr=
 ==For cygwin Only ==
 ===1. Install cygwin by starting [http://cygwin.com/setup.exe setup.exe]===
