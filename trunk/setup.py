@@ -57,8 +57,8 @@ def inclpath(mlib):
 		return ipath
 	else:
 		return ""
-	assert False, 'Include directory %s was not found' % mlib		
-	
+	assert False, 'Include directory %s was not found' % mlib
+
 if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 	data_files=[]
 	sources.append('fmemopen.c')
@@ -73,30 +73,30 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 
 #	incl=os.path.join(prefix,"include")
 #	print "include path=%s"%incl
-	
 
-	
+
+
 
 	def checkPath(paths,mlib):
 		for pref in paths:
 			path_to = os.path.join(pref, mlib)
 			if os.path.exists(path_to):
 				return path_to
-	 
-	
+
+
 
 	def libpath(mlib):
 		return checkPath(libs,mlib)
-		
 
-	
+
+
 	if osname=='darwin':
 		fp.write('#include "fmemopen.h"\n')
 		idefine(fp,"opencv")
 		fp.write("#include <cv.h>\n")
 		fp.write("#include <Python.h>\n")
 		name="python"
-	else:	
+	else:
 		if inclpath("opencv/cv.h")  :
 			idefine(fp,"opencv")
 			fp.write("#include <opencv/cv.h>\n")
@@ -115,30 +115,32 @@ elif osname=="windows":
 	name='python'
 	description = """Python Wrapper for Tesseract-OCR """
 	sources.append('util-fmemopen.cpp')
-	
-	pathOffset="../vs2008"
-	inclPath=os.path.join(pathOffset,"include")
-	libPath=os.path.join(pathOffset,"lib")
+
+	pathOffset="vs2008"
+	inclPath=os.path.join(pathOffset,"includes")
+	libPath=os.path.join(os.getcwd(),pathOffset,"libs")
+	dllPath=os.path.join(pathOffset,"dlls")
+	pydPath=os.path.join(pathOffset,"pyds")
 	def inclpath(name):
 		return os.path.join(inclPath,name)
 	def libpath(name):
-		return os.path.join(libPath,'lib%s.lib'%name)
-		
-	
-	libraries=['libtesseract302','liblept']
+		return os.path.join(libPath, name)
+
+
+	libraries=[libpath('libtesseract302'),libpath('liblept')]
 	incl="."
 	cv2IncPath=inclpath("opencv2/core/core_c.h")
 	if  cv2IncPath:
 		idefine(fp,"opencv2")
 		fp.write('#include "opencv2/core/core_c.h"\n')
 		fp.write("#include <Python.h>\n")
-		libraries.append('opencv_core240')
-	
+		libraries.append(libpath('opencv_core240'))
+
 	fp.write('#include "util-fmemopen.h"\n')
-	data_files=[("DLLs", listFiles("../pyds")),
+	data_files=[("DLLS", listFiles(pydPath)),
 					#("Lib\site-packages", listFiles("../dlls"))]
-					(".", listFiles("../dlls"))]
-					
+					(".", listFiles(dllPath))]
+
 #fp.write("#endif // __CONFIG_H__\n")
 fp.close()
 print "===========%s==========="%libraries
@@ -154,9 +156,9 @@ tesseract_module = Extension('_tesseract',
 													inclpath('opencv'),
 													],
 									libraries=libraries,
-								
+
 									)
-									
+
 setup (name = name,
 		version = version_number,
 		author	  = "FreeToGo Nowhere",
@@ -171,5 +173,5 @@ setup (name = name,
 		#	 data_files=[('.',['test.py','eurotext.tif','eurotext.jpg']),],
 		#data_files=data_files
 	   )
-	   
+
 
