@@ -12,7 +12,7 @@ apt-cyg -m ftp://ftp.cygwinports.org/pub/cygwinports/ install libwepb-devel
 wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.0/OpenCV-2.4.0.tar.bz2/download
 tar jxvf OpenCV-2.4.0
 cd OpenCV-2,4,0
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_PYTHON_SUPPORT=ON ..
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr -D BUILD_PYTHON_SUPPORT=ON ..
 make && make install 
 
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
