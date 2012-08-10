@@ -10,7 +10,7 @@ chmod +x /bin/apt-cyg
 apt-cyg install nano make autobuild libtool libiconv gcc4 libtiff-devel libpng14-devel libgif-devel libSM-devel libjbig-devel
 apt-cyg -m http://fd0.x0.to/cygwin install liblept-devel
 apt-cyg -m ftp://ftp.cygwinports.org/pub/cygwinports/ install libwepb-devel
-apt-cyg -m ftp://ftp.jaist.ac.jp/pub/cygwin/ install patch
+apt-cyg -m ftp://ftp.jaist.ac.jp/pub/cygwin/ install patch libjasper-devel zlib-devel libbz2-devel 
 wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.2/OpenCV-2.4.2.tar.bz2/download
 tar jxvf OpenCV-2.4.2
 cd OpenCV-2.4.2
