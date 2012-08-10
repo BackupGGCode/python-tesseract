@@ -1,0 +1,27 @@
+=How to compile python-tesseract from svn version of tesseract-ocr=
+==For cygwin Only ==
+===1. Install cygwin by starting [http://cygwin.com/setup.exe setup.exe]===
+===2. then install subversion and wget=== 
+===3. start cygwin-bash-shell=== 
+{{{
+svn --force export http://apt-cyg.googlecode.com/svn/trunk/ /bin/
+chmod +x /bin/apt-cyg
+apt-cyg install nano make autobuild libtool libiconv gcc4 libtiff-devel libpng14-devel libgif-devel libSM-devel libjbig-devel
+apt-cyg -m http://fd0.x0.to/cygwin install liblept-devel
+apt-cyg -m ftp://ftp.cygwinports.org/pub/cygwinports/ install libwepb-devel libopencv-devel
+
+svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
+cd tesseract-ocr
+./autogen.sh --prefix=/usr
+./configure --prefix=/usr
+make clean && make -j 10 && make install 
+}}}
+
+===3. Make python-tesseract ==
+{{{
+svn checkout http://python-tesseract.googlecode.com/svn/trunk python-tesseract
+cd python-tesseract
+apt-cyg install swig python 
+python setup.py build
+python setup.py install
+}}}
