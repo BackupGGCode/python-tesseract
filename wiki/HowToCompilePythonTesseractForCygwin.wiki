@@ -15,6 +15,8 @@ tar jxvf OpenCV-2.4.2
 cd OpenCV-2.4.2
 wget http://python-tesseract.googlecode.com/files/opencv-2.4.2-cygwin-patch-20120807.txt
 patch -p1 < opencv-2.4.2-cygwin-patch-20120807.txt
+mkdir release
+cd release
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr -D BUILD_PYTHON_SUPPORT=ON ..
 make && make install 
 
