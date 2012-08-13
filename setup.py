@@ -7,6 +7,11 @@ written by FreeToGo@gmail.com
 from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform
 
+def writeIncludeLines(fp,lines) :
+	for line in lines:
+		fp.write(line+"\n");
+
+
 osname=platform.uname()[0].lower()
 print "os=%s"%osname
 sources=['tesseract.i','' 'main_dummy.cpp']
@@ -18,7 +23,22 @@ fp=open("config.h","w")
 fp.write("#pragma once\n")
 #fp.write("#ifndef __CONFIG_H__\n")
 #fp.write("#define __CONFIG_H__\n")
+clang_incls=['tesseract','leptonica']
+fp2=open("main_dummy.h","w")
 
+IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
+			"char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api);"]
+
+
+cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);", 
+				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);",
+				"char* GetUTF8Text(tesseract::TessBaseAPI* api);"]
+writeIncludeLines(fp2,IncludeLines)				
+				
 
 def listFiles(mdir):
 	files=os.listdir(mdir);
@@ -83,7 +103,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 	def checkPath(paths,mlib):
 		for pref in paths:
 			path_to = os.path.join(pref, mlib)
-			print "path_to=%s\n"%repr(path_to)
+			#print "path_to=%s\n"%repr(path_to)
 			if os.path.exists(path_to):
 				return path_to
 
@@ -102,14 +122,16 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 		#name="python"
 	
 	
-	if inclpath("opencv/cv.h")  :
-		idefine(fp,"opencv")
-		fp.write("#include <opencv/cv.h>\n")
-		
-	elif inclpath("opencv2/core/core_c.h"):
+	if inclpath("opencv2/core/core_c.h"):
 		idefine(fp,"opencv2")
 		fp.write("#include <opencv2/core/core_c.h>\n")
-	
+		clang_incls.append('opencv2')
+		writeIncludeLines(fp2,cvIncludeLines)
+	elif inclpath("opencv/cv.h")  :
+		idefine(fp,"opencv")
+		fp.write("#include <opencv/cv.h>\n")
+		clang_incls.append('opencv')
+		writeIncludeLines(fp2,cvIncludeLines)
 	fp.write("#include <Python.h>\n")	
 
 
@@ -141,7 +163,11 @@ elif osname=="windows":
 		fp.write('#include "opencv2/core/core_c.h"\n')
 		fp.write("#include <Python.h>\n")
 		libraries.append(libpath('opencv_core240'))
-
+		clang_incls.append('opencv2')
+		writeIncludeLines(fp2,cvIncludeLines)
+	else:
+		clang_incls.append('opencv')
+		writeIncludeLines(fp2,cvIncludeLines)
 	fp.write('#include "util-fmemopen.h"\n')
 	data_files=[("DLLS", listFiles(pydPath)),
 					#("Lib\site-packages", listFiles("../dlls"))]
@@ -149,14 +175,15 @@ elif osname=="windows":
 
 #fp.write("#endif // __CONFIG_H__\n")
 fp.close()
+fp2.close()
 print "===========%s==========="%libraries
 include_dirs=['.']
-clang_incls=['tesseract','leptonica','opencv']
+
 for incl in clang_incls:
 	mincl=inclpath(incl)
-	print "mincl=%s\n"%repr(mincl)
+	#print "mincl=%s\n"%repr(mincl)
 	if mincl:
-		print "what the fuck"
+		#print "what the fuck"
 		include_dirs.append(mincl)
 
 tesseract_module = Extension('_tesseract',

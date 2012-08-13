@@ -154,7 +154,7 @@ char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
 	int n;
 	n = fread(buffer,fileLen, 1, fp);
 	fclose(fp);
-	//printf("n=%d\n",n);
+	printf("n=%d\n",n);
 	//dump_buffer(buffer,fileLen);
 	char* retStr;
 	retStr=ProcessPagesBuffer(buffer,fileLen, api);
