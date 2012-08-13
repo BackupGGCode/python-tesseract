@@ -56,16 +56,19 @@ def inclpath(mlib):
 	if ipath:
 		return ipath
 	else:
-		return ""
+		return None
 	assert False, 'Include directory %s was not found' % mlib
 
 if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 	data_files=[]
 	sources.append('fmemopen.c')
 	if osname=='darwin':
-		prefix="/opt/local"
-		incls = ['/opt/local/include']
-		libs=['/opt/local/lib']
+		if os.path.exists("/usr/local/Cellar"):
+			prefix="/usr/local"
+		else:
+			prefix="/opt/local"
+		incls = [os.path.join(prefix,'include')]
+		libs=[os.path.join(prefix,'lib')]
 	else:
 		prefix=sys.prefix
 		incls = ['/usr/include', '/usr/local/include']
@@ -80,6 +83,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 	def checkPath(paths,mlib):
 		for pref in paths:
 			path_to = os.path.join(pref, mlib)
+			print "path_to=%s\n"%repr(path_to)
 			if os.path.exists(path_to):
 				return path_to
 
@@ -92,19 +96,21 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 
 	if osname=='darwin':
 		fp.write('#include "fmemopen.h"\n')
+		#idefine(fp,"opencv")
+		#fp.write("#include <cv.h>\n")
+		#fp.write("#include <Python.h>\n")
+		#name="python"
+	
+	
+	if inclpath("opencv/cv.h")  :
 		idefine(fp,"opencv")
-		fp.write("#include <cv.h>\n")
-		fp.write("#include <Python.h>\n")
-		name="python"
-	else:
-		if inclpath("opencv/cv.h")  :
-			idefine(fp,"opencv")
-			fp.write("#include <opencv/cv.h>\n")
-			fp.write("#include <Python.h>\n")
-		elif inclpath("opencv2/core/core_c.h"):
-			idefine(fp,"opencv2")
-			fp.write("#include <opencv2/core/core_c.h>\n")
-			fp.write("#include <Python.h>\n")
+		fp.write("#include <opencv/cv.h>\n")
+		
+	elif inclpath("opencv2/core/core_c.h"):
+		idefine(fp,"opencv2")
+		fp.write("#include <opencv2/core/core_c.h>\n")
+	
+	fp.write("#include <Python.h>\n")	
 
 
 	libraries=['stdc++','tesseract','lept']
@@ -144,17 +150,22 @@ elif osname=="windows":
 #fp.write("#endif // __CONFIG_H__\n")
 fp.close()
 print "===========%s==========="%libraries
+include_dirs=['.']
+clang_incls=['tesseract','leptonica','opencv']
+for incl in clang_incls:
+	mincl=inclpath(incl)
+	print "mincl=%s\n"%repr(mincl)
+	if mincl:
+		print "what the fuck"
+		include_dirs.append(mincl)
+
 tesseract_module = Extension('_tesseract',
 									sources=sources,
 									#extra_compile_args=["-DEBUG -O1 -pg "],
 									swig_opts=["-c++", "-I"+inclpath('tesseract'),
 									#				"-I"+os.path.dirname(config.__file__),
 													"-I"+inclpath('leptonica')],
-									include_dirs=['.',inclpath('tesseract'),
-									#				incl,
-													inclpath('leptonica'),
-													inclpath('opencv'),
-													],
+									include_dirs=include_dirs,
 									libraries=libraries,
 
 									)

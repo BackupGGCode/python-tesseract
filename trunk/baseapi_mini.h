@@ -143,7 +143,7 @@ class TESSDLL_API TessBaseAPI {
    * (init variables should be passed to Init()).
    */
   bool SetVariable(const char* name, const char* value);
-  bool SetDebugVariable(const char* name, const char* value);
+//  bool SetDebugVariable(const char* name, const char* value);
 
   // Returns true if the parameter was found among Tesseract parameters.
   // Fills in value with the value of the parameter.
@@ -215,12 +215,12 @@ class TESSDLL_API TessBaseAPI {
   // not be included in this list. To find the languages actually
   // loaded use GetLoadedLanguagesAsVector.
   // The returned string should NOT be deleted.
-  const char* GetInitLanguagesAsString() const;
+//  const char* GetInitLanguagesAsString() const;
 
   // Returns the loaded languages in the vector of STRINGs.
   // Includes all languages loaded by the last Init, including those loaded
   // as dependencies of other loaded languages.
-  void GetLoadedLanguagesAsVector(GenericVector<STRING>* langs) const;
+//  void GetLoadedLanguagesAsVector(GenericVector<STRING>* langs) const;
 
   /**
    * Init only the lang model component of Tesseract. The only functions
@@ -240,9 +240,9 @@ class TESSDLL_API TessBaseAPI {
    * and also accepts a relative or absolute path name.
    * Note: only non-init params will be set (init params are set by Init()).
    */
-  void ReadConfigFile(const char* filename);
+//  void ReadConfigFile(const char* filename);
   /** Same as above, but only set debug params from the given config file. */
-  void ReadDebugConfigFile(const char* filename);
+//  void ReadDebugConfigFile(const char* filename);
 
   /**
    * Set the current page segmentation mode. Defaults to PSM_SINGLE_BLOCK.
@@ -319,7 +319,7 @@ class TESSDLL_API TessBaseAPI {
    * Set the resolution of the source image in pixels per inch so font size
    * information can be calculated in results.  Call this after SetImage().
    */
-  void SetSourceResolution(int ppi);
+//  void SetSourceResolution(int ppi);
 
   /**
    * Restrict recognition to a sub-rectangle of the image. Call after SetImage.
@@ -378,7 +378,7 @@ class TESSDLL_API TessBaseAPI {
    * If blockids is not NULL, the block-id of each line is also returned as an
    * array of one element per line. delete [] after use.
    */
-  Boxa* GetStrips(Pixa** pixa, int** blockids);
+//  Boxa* GetStrips(Pixa** pixa, int** blockids);
 
   /**
    * Get the words as a leptonica-style
@@ -410,7 +410,7 @@ class TESSDLL_API TessBaseAPI {
   // GetComponentImages().
   // Returns 0 if no thresholder has been set.
 
-  int GetThresholdedImageScaleFactor() const;
+//  int GetThresholdedImageScaleFactor() const;
 
   /**
    * Dump the internal binary image to a PGM file.
@@ -496,7 +496,7 @@ class TESSDLL_API TessBaseAPI {
   // therefore can only be used while the TessBaseAPI class still exists and
   // has not been subjected to a call of Init, SetImage, Recognize, Clear, End
   // DetectOS, or anything else that changes the internal PAGE_RES.
-  MutableIterator* GetMutableIterator();
+//  MutableIterator* GetMutableIterator();
 
   /**
    * The recognized text is returned as a char* which is coded
