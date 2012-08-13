@@ -2,7 +2,7 @@
 
 =How to compile python-tesseract (for Ubuntu Precise)=
 {{{
-sudo apt-get install tesseract-ocr-eng libtesseract-dev libleptonica-dev python-all-dev swig libcv-dev 
+sudo apt-get install tesseract-ocr-eng libtesseract-dev libleptonica-dev python-all-dev swig libcv-dev python-opencv python-numpy python-setuptools 
 tar zxvf python-tesseract-xxxx.tar.gz
 cd python-tesseract
 python config.py
