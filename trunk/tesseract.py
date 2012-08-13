@@ -71,8 +71,6 @@ PT_UNKNOWN = _tesseract.PT_UNKNOWN
 PT_FLOWING_TEXT = _tesseract.PT_FLOWING_TEXT
 PT_HEADING_TEXT = _tesseract.PT_HEADING_TEXT
 PT_PULLOUT_TEXT = _tesseract.PT_PULLOUT_TEXT
-PT_EQUATION = _tesseract.PT_EQUATION
-PT_INLINE_EQUATION = _tesseract.PT_INLINE_EQUATION
 PT_TABLE = _tesseract.PT_TABLE
 PT_VERTICAL_TEXT = _tesseract.PT_VERTICAL_TEXT
 PT_CAPTION_TEXT = _tesseract.PT_CAPTION_TEXT
@@ -122,10 +120,6 @@ RIL_PARA = _tesseract.RIL_PARA
 RIL_TEXTLINE = _tesseract.RIL_TEXTLINE
 RIL_WORD = _tesseract.RIL_WORD
 RIL_SYMBOL = _tesseract.RIL_SYMBOL
-JUSTIFICATION_UNKNOWN = _tesseract.JUSTIFICATION_UNKNOWN
-JUSTIFICATION_LEFT = _tesseract.JUSTIFICATION_LEFT
-JUSTIFICATION_CENTER = _tesseract.JUSTIFICATION_CENTER
-JUSTIFICATION_RIGHT = _tesseract.JUSTIFICATION_RIGHT
 OEM_TESSERACT_ONLY = _tesseract.OEM_TESSERACT_ONLY
 OEM_CUBE_ONLY = _tesseract.OEM_CUBE_ONLY
 OEM_TESSERACT_CUBE_COMBINED = _tesseract.OEM_TESSERACT_CUBE_COMBINED
@@ -148,7 +142,6 @@ class TessBaseAPI(_object):
     def SetInputName(self, *args): return _tesseract.TessBaseAPI_SetInputName(self, *args)
     def SetOutputName(self, *args): return _tesseract.TessBaseAPI_SetOutputName(self, *args)
     def SetVariable(self, *args): return _tesseract.TessBaseAPI_SetVariable(self, *args)
-    def SetDebugVariable(self, *args): return _tesseract.TessBaseAPI_SetDebugVariable(self, *args)
     def GetIntVariable(self, *args): return _tesseract.TessBaseAPI_GetIntVariable(self, *args)
     def GetBoolVariable(self, *args): return _tesseract.TessBaseAPI_GetBoolVariable(self, *args)
     def GetDoubleVariable(self, *args): return _tesseract.TessBaseAPI_GetDoubleVariable(self, *args)
@@ -156,26 +149,19 @@ class TessBaseAPI(_object):
     def PrintVariables(self, *args): return _tesseract.TessBaseAPI_PrintVariables(self, *args)
     def GetVariableAsString(self, *args): return _tesseract.TessBaseAPI_GetVariableAsString(self, *args)
     def Init(self, *args): return _tesseract.TessBaseAPI_Init(self, *args)
-    def GetInitLanguagesAsString(self): return _tesseract.TessBaseAPI_GetInitLanguagesAsString(self)
-    def GetLoadedLanguagesAsVector(self, *args): return _tesseract.TessBaseAPI_GetLoadedLanguagesAsVector(self, *args)
     def InitLangMod(self, *args): return _tesseract.TessBaseAPI_InitLangMod(self, *args)
     def InitForAnalysePage(self): return _tesseract.TessBaseAPI_InitForAnalysePage(self)
-    def ReadConfigFile(self, *args): return _tesseract.TessBaseAPI_ReadConfigFile(self, *args)
-    def ReadDebugConfigFile(self, *args): return _tesseract.TessBaseAPI_ReadDebugConfigFile(self, *args)
     def SetPageSegMode(self, *args): return _tesseract.TessBaseAPI_SetPageSegMode(self, *args)
     def GetPageSegMode(self): return _tesseract.TessBaseAPI_GetPageSegMode(self)
     def TesseractRect(self, *args): return _tesseract.TessBaseAPI_TesseractRect(self, *args)
     def ClearAdaptiveClassifier(self): return _tesseract.TessBaseAPI_ClearAdaptiveClassifier(self)
     def SetImage(self, *args): return _tesseract.TessBaseAPI_SetImage(self, *args)
-    def SetSourceResolution(self, *args): return _tesseract.TessBaseAPI_SetSourceResolution(self, *args)
     def SetRectangle(self, *args): return _tesseract.TessBaseAPI_SetRectangle(self, *args)
     def GetThresholdedImage(self): return _tesseract.TessBaseAPI_GetThresholdedImage(self)
     def GetRegions(self, *args): return _tesseract.TessBaseAPI_GetRegions(self, *args)
     def GetTextlines(self, *args): return _tesseract.TessBaseAPI_GetTextlines(self, *args)
-    def GetStrips(self, *args): return _tesseract.TessBaseAPI_GetStrips(self, *args)
     def GetWords(self, *args): return _tesseract.TessBaseAPI_GetWords(self, *args)
     def GetConnectedComponents(self, *args): return _tesseract.TessBaseAPI_GetConnectedComponents(self, *args)
-    def GetThresholdedImageScaleFactor(self): return _tesseract.TessBaseAPI_GetThresholdedImageScaleFactor(self)
     def DumpPGM(self, *args): return _tesseract.TessBaseAPI_DumpPGM(self, *args)
     def AnalyseLayout(self): return _tesseract.TessBaseAPI_AnalyseLayout(self)
     def Recognize(self, *args): return _tesseract.TessBaseAPI_Recognize(self, *args)
@@ -183,7 +169,6 @@ class TessBaseAPI(_object):
     def ProcessPages(self, *args): return _tesseract.TessBaseAPI_ProcessPages(self, *args)
     def ProcessPage(self, *args): return _tesseract.TessBaseAPI_ProcessPage(self, *args)
     def GetIterator(self): return _tesseract.TessBaseAPI_GetIterator(self)
-    def GetMutableIterator(self): return _tesseract.TessBaseAPI_GetMutableIterator(self)
     def GetUTF8Text(self): return _tesseract.TessBaseAPI_GetUTF8Text(self)
     def GetHOCRText(self, *args): return _tesseract.TessBaseAPI_GetHOCRText(self, *args)
     def GetBoxText(self, *args): return _tesseract.TessBaseAPI_GetBoxText(self, *args)
