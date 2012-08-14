@@ -81,7 +81,7 @@ def inclpath(mlib):
 
 if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 	data_files=[]
-	sources.append('fmemopen.c')
+	sources.append('ag5_fmemopen.c')
 	if osname=='darwin':
 		if os.path.exists("/usr/local/Cellar"):
 			prefix="/usr/local"
