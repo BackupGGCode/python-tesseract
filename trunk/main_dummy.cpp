@@ -48,7 +48,11 @@ const char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api) {
 	//printf("ok->%s",text_out);
 	STRING mstr;
 	api->ProcessPages(image, NULL, 0, &mstr);
-	return mstr.string();
+	//return mstr.string();
+	const char *tmpStr=mstr.string();
+	char *retStr = new char[strlen(tmpStr) + 1];
+	strcpy (retStr,tmpStr);
+	return retStr;
  }
 
 
@@ -60,7 +64,11 @@ const char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api) {
 	api->ProcessPage(pix, page, NULL, NULL, 0, &mstr);
 	free(pix->data);
 	free(pix->text);
-	return mstr.string();
+	//return mstr.string();
+	const char *tmpStr=mstr.string();
+	char *retStr = new char[strlen(tmpStr) + 1];
+	strcpy (retStr,tmpStr);
+	return retStr;
 
 }
 
@@ -76,7 +84,11 @@ const char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api
 	api->ProcessPage(pix, page, NULL, NULL, 0, &mstr);
 	free(pix->data);
 	free(pix->text);
-	return mstr.string();
+	//return mstr.string();
+	const char *tmpStr=mstr.string();
+	char *retStr = new char[strlen(tmpStr) + 1];
+	strcpy (retStr,tmpStr);
+	return retStr;
  }
 void dump_buffer(void *buffer, int buffer_size)
 {
@@ -103,7 +115,11 @@ const char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI
 	api->ProcessPage(pix, page, NULL, NULL, 0, &mstr);
 	free(pix->data);
 	free(pix->text);
-	return mstr.string();
+	//return mstr.string();
+	const char *tmpStr=mstr.string();
+	char *retStr = new char[strlen(tmpStr) + 1];
+	strcpy (retStr,tmpStr);
+	return retStr;
 
  }
 
