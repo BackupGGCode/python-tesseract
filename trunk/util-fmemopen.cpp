@@ -40,7 +40,6 @@
 #ifdef USE_FMEM_WRAPPER
 
 #ifdef OS_WIN32
-
 /**
  * \brief portable version of SCFmemopen for Windows works on top of real temp files
  * \param buffer that holds the file content
@@ -60,14 +59,27 @@ FILE *SCFmemopen(void *buf, size_t size, const char *mode) {
         return NULL;
     }
 	printf("file::%s\n",filename);
-    FILE *f = fopen(filename, "wb");
-    if (NULL == f)
+    /* FILE *f = fopen(filename, "wb");
+      if (NULL == f)
         return NULL;
+	*/
+    FILE *f;
+    errno_t err;
+
+	if( (err  = fopen_s( &f, filename, "wb" )) !=0 )
+      printf( "The file '%s' was not opened\n", filename );
 
     fwrite(buf, size, 1, f);
     fclose(f);
 
-    return fopen(filename, mode);
+
+
+    /* return fopen(filename, mode); */
+	FILE *f2;
+	if( (err  = fopen_s( &f2, filename, mode )) !=0 )
+		return f2;
+
+
 }
 
 #else
