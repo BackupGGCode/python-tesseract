@@ -27,18 +27,19 @@ clang_incls=['tesseract','leptonica']
 fp2=open("main_dummy.h","w")
 
 IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
-			"char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
-			"char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api);",
-			"char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api);",
-			"char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api);",
-			"char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api);"]
+			"const char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
+			"const char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api);",
+			"const char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api);",
+			"const char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api);",
+			"const char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api);",
+			"const char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api);"]
 
 
-cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);", 
+cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
 				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);",
 				"char* GetUTF8Text(tesseract::TessBaseAPI* api);"]
-writeIncludeLines(fp2,IncludeLines)				
-				
+writeIncludeLines(fp2,IncludeLines)
+
 
 def listFiles(mdir):
 	files=os.listdir(mdir);
@@ -81,7 +82,7 @@ def inclpath(mlib):
 
 if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 	data_files=[]
-	
+
 	if osname=='darwin':
 		sources.append('ag5_fmemopen.c')
 		if os.path.exists("/usr/local/Cellar"):
@@ -90,11 +91,14 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 			prefix="/opt/local"
 		incls = [os.path.join(prefix,'include')]
 		libs=[os.path.join(prefix,'lib')]
+		fp.write('#include "fmemopen.h"\n')
 	else:
 		prefix=sys.prefix
 		incls = ['/usr/include', '/usr/local/include']
 		libs=['/usr/lib', '/usr/local/lib']
-
+		if osname=="cygwin":
+			pathOffset="vs2008"
+			inclPath=os.path.join(pathOffset,"includes")
 #	incl=os.path.join(prefix,"include")
 #	print "include path=%s"%incl
 
@@ -105,21 +109,9 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 			if os.path.exists(path_to):
 				return path_to
 
-
-
 	def libpath(mlib):
 		return checkPath(libs,mlib)
 
-
-
-	if osname=='darwin':
-		fp.write('#include "fmemopen.h"\n')
-		#idefine(fp,"opencv")
-		#fp.write("#include <cv.h>\n")
-		#fp.write("#include <Python.h>\n")
-		#name="python"
-	
-	
 	if inclpath("opencv2/core/core_c.h"):
 		idefine(fp,"opencv2")
 		fp.write("#include <opencv2/core/core_c.h>\n")
@@ -130,7 +122,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 		fp.write("#include <opencv/cv.h>\n")
 		clang_incls.append('opencv')
 		writeIncludeLines(fp2,cvIncludeLines)
-	fp.write("#include <Python.h>\n")	
+	fp.write("#include <Python.h>\n")
 
 
 	libraries=['stdc++','tesseract','lept']
@@ -140,7 +132,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 elif osname=="windows":
 	name='python'
 	description = """Python Wrapper for Tesseract-OCR """
-	sources.append('util-fmemopen.cpp')
+	sources.append('ms_fmemopen.c')
 
 	pathOffset="vs2008"
 	inclPath=os.path.join(pathOffset,"includes")
@@ -166,7 +158,7 @@ elif osname=="windows":
 	else:
 		clang_incls.append('opencv')
 		writeIncludeLines(fp2,cvIncludeLines)
-	fp.write('#include "util-fmemopen.h"\n')
+	fp.write('#include "fmemopen.h"\n')
 	data_files=[("DLLS", listFiles(pydPath)),
 					#("Lib\site-packages", listFiles("../dlls"))]
 					(".", listFiles(dllPath))]
