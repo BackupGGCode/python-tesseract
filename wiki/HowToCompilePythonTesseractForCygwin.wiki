@@ -23,7 +23,7 @@ cd release
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_LEGACY_CYGWIN_WIN32=0 -D CMAKE_INSTALL_PREFIX=/usr -D BUILD_SHARED_LIBS=ON -D BUILD_PYTHON_SUPPORT=ON ..
 make && make install 
 
-*Compile Tesseract*
+===4. Compile Tesseract ===
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
 cd tesseract-ocr
 ./autogen.sh --prefix=/usr
@@ -32,7 +32,7 @@ make clean && make -j 10 && make install
 }}}
 
 
-*3. Make python-tesseract*
+===5. Make python-tesseract ===
 {{{
 svn checkout http://python-tesseract.googlecode.com/svn/trunk python-tesseract
 cd python-tesseract
