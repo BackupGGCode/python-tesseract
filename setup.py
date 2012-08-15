@@ -27,12 +27,12 @@ clang_incls=['tesseract','leptonica']
 fp2=open("main_dummy.h","w")
 
 IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
-			"const char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
-			"const char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api);",
-			"const char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api);",
-			"const char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api);",
-			"const char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api);",
-			"const char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api);"]
+			"char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api);"]
 
 
 cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
