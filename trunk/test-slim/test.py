@@ -17,8 +17,6 @@ mImgFile = "eurotext.jpg"
 print "Test ProcessPagesWrapper"
 result = tesseract.ProcessPagesWrapper(mImgFile,api)
 print "result(ProcessPagesWrapper)=",result
-#api.ProcessPages(mImgFile,None, 0, result)
-#print "abc"
 
 print "Test ProcessPagesFileStream"
 result = tesseract.ProcessPagesFileStream(mImgFile,api)
@@ -28,9 +26,9 @@ print "Test ProcessPagesRaw"
 result = tesseract.ProcessPagesRaw(mImgFile,api)
 print "result(ProcessPagesRaw)",result
 
-print "Test ProcessPagesRaw2"
-result = tesseract.ProcessPagesRaw2(mImgFile,api)
-print "result(ProcessPagesRaw2)",result
+#print "Test ProcessPagesRaw2"
+#result = tesseract.ProcessPagesRaw2(mImgFile,api)
+#print "result(ProcessPagesRaw2)",result
 
 print "Test ProcessPagesBuffer"
 f=open(mImgFile,"rb")
