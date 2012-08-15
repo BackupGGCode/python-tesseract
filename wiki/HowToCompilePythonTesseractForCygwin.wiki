@@ -9,7 +9,7 @@ svn --force export http://apt-cyg.googlecode.com/svn/trunk/ /bin/
 chmod +x /bin/apt-cyg
 apt-cyg install nano make autobuild libtool libiconv gcc4 libtiff-devel libpng14-devel libgif-devel libSM-devel libjbig-devel
 apt-cyg -m http://fd0.x0.to/cygwin install liblept-devel
-apt-cyg -m ftp://ftp.cygwinports.org/pub/cygwinports/ install libwebp-devel libopencv-devel
+apt-cyg -m ftp://ftp.cygwinports.org/pub/cygwinports/ install libwebp-devel libopencv-devel python-cv
 apt-cyg -m ftp://ftp.jaist.ac.jp/pub/cygwin/ install patch libjasper-devel zlib-devel libbz2-devel 
 
 *Optional*
