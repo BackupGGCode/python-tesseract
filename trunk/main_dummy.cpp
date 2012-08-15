@@ -44,19 +44,22 @@ bool isLibTiff() {
 	}
 
 
+char* retParser(const char* a) {
+	int mlen=strlen(a);
+	char *retStr=new char[mlen+1];
+	retStr[mlen]=0;
+	memcpy(retStr,a,mlen);
+	//strcpy (retStr,a);
+	return retStr;
+}
+
 
 char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api) {
 	//printf("ok->%s",text_out);
 	STRING mstr;
 	api->ProcessPages(image, NULL, 0, &mstr);
 	//return mstr.string();
-	char *tmpStr=(char *)mstr.string();
-	int mlen=strlen(tmpStr);
-	char *retStr = new char[mlen + 1];
-	retStr[mlen]=0;
-	memcpy(retStr,mstr.string(),mlen);
-	//strcpy (retStr,tmpStr);
-	return retStr;
+	return retParser(mstr.string());
  }
 
 
@@ -68,11 +71,7 @@ char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api) {
 	api->ProcessPage(pix, page, NULL, NULL, 0, &mstr);
 	free(pix->data);
 	free(pix->text);
-	//return mstr.string();
-	const char *tmpStr=mstr.string();
-	char *retStr = new char[strlen(tmpStr) + 1];
-	strcpy (retStr,tmpStr);
-	return retStr;
+	return retParser(mstr.string());
 
 }
 
@@ -88,12 +87,9 @@ char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api) {
 	api->ProcessPage(pix, page, NULL, NULL, 0, &mstr);
 	free(pix->data);
 	free(pix->text);
-	//return mstr.string();
-	const char *tmpStr=mstr.string();
-	char *retStr = new char[strlen(tmpStr) + 1];
-	strcpy (retStr,tmpStr);
-	return retStr;
+	return retParser(mstr.string());
  }
+ 
 void dump_buffer(void *buffer, int buffer_size)
 {
   int i;
@@ -119,11 +115,7 @@ char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api)
 	api->ProcessPage(pix, page, NULL, NULL, 0, &mstr);
 	free(pix->data);
 	free(pix->text);
-	//return mstr.string();
-	const char *tmpStr=mstr.string();
-	char *retStr = new char[strlen(tmpStr) + 1];
-	strcpy (retStr,tmpStr);
-	return retStr;
+	return retParser(mstr.string());
 
  }
 
@@ -187,7 +179,7 @@ char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
 	char* retStr;
 	retStr=ProcessPagesBuffer(buffer,fileLen, api);
 	//Free memory
-	//free(buffer);
+	free(buffer);
 	return retStr;
  }
 #if defined(__opencv__) || defined(__opencv2__)
