@@ -34,7 +34,7 @@ bool isLibLept() {
 		return false;
 	#endif
 	}
-  
+
 bool isLibTiff() {
 	#if defined(HAVE_LIBLEPT)
 		return true;
@@ -59,23 +59,23 @@ int readBuf(const char *fname,l_uint8 *buf) {
 
 char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api) {
 	//printf("ok->%s",text_out);
-	STRING mstr; 
+	STRING mstr;
 	api->ProcessPages(image, NULL, 0, &mstr);
 	const char *tmpStr=mstr.string();
 	char *retStr = new char[strlen(tmpStr) + 1];
 	strcpy (retStr,tmpStr);
 	return retStr;
- }                
+ }
 
 
 char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api) {
-	STRING mstr; 
+	STRING mstr;
 	int page=0;
 	Pix *pix;
 	pix = pixRead(image);
 	//l_uint8 buf[10000];
 	//int len=readBuf(image,buf);
-	//if (len < 0) 
+	//if (len < 0)
 	//	puts("Cannot Read Buffer");
 	api->ProcessPage(pix, page, NULL, NULL, 0, &mstr);
 	const char *tmpStr=mstr.string();
@@ -84,10 +84,10 @@ char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api) {
 	//printf("ok->%s",retStr);
 	return retStr;
  }
- 
-     
+
+
 char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api) {
-	
+
 	Pix *pix;
 	STRING mstr;
 	int page=0;
@@ -109,7 +109,7 @@ void dump_buffer(void *buffer, int buffer_size)
 }
 
 char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api) {
-	
+
 	FILE *stream;
 	//int ch;
 	stream=fmemopen((void*)buffer,fileLen,"rb");
@@ -118,11 +118,11 @@ char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api)
 	//	printf ("Got %d:%c\n", count++,ch);
 	//fclose (stream);
 	//puts("''''''''''''''''''");
-	
+
 	Pix *pix;
 	int page=0;
 	STRING mstr;
-	
+
 	pix=pixReadStream(stream,0);
 	api->ProcessPage(pix, page, NULL, NULL, 0, &mstr);
 	const char *tmpStr=mstr.string();
@@ -132,9 +132,9 @@ char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api)
 
 	return retStr;
  }
- 
+
 char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
-	
+
 
 	FILE *fp=fopen(image,"rb");
 	//Get file length
@@ -164,7 +164,7 @@ char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
  }
 #if defined(__opencv__) || defined(__opencv2__)
 //#ifdef __opencv2__
- /* from PyBLOB project 
+ /* from PyBLOB project
   http://code.google.com/p/pyblobs/issues/attachmentText?id=2&aid=4459562154860045232&name=iplimage_t.h&token=ed989cead6fe486664a024d538bccc2b
   */
 struct iplimage_t {
@@ -172,8 +172,8 @@ struct iplimage_t {
     IplImage *a;
     PyObject *data;
     size_t offset;
-}; 
-  
+};
+
 static PyTypeObject iplimage_Type = {
   PyObject_HEAD_INIT(&PyType_Type)
   0,                                      /*size*/
@@ -214,7 +214,7 @@ static int convert_to_IplImage(PyObject *o, IplImage **dst)
 	cvSetData(ipl->a, (void*)((char*)buffer + ipl->offset), ipl->a->widthStep);
 	assert(cvGetErrStatus() == 0);
 	*dst = ipl->a;
-	return 1; 
+	return 1;
     } else {
 	return -1;// failmsg("IplImage argument has no data");
     }
@@ -222,12 +222,12 @@ static int convert_to_IplImage(PyObject *o, IplImage **dst)
 
 void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api)
 {
-    IplImage* img, *grayImg, *blackWhiteImg;
+    IplImage* img;
     int res =  convert_to_IplImage(o, &img);
 
     //if succesfull
     if ( res == 1 )
-    {   
+    {
       api->SetImage( (unsigned char*) img->imageData,  img->width, img->height, img->nChannels, img->widthStep);
     }
 
@@ -239,20 +239,20 @@ char* GetUTF8Text(tesseract::TessBaseAPI* api)
   bool failed = api->Recognize(NULL) < 0;
   //printf("failed=%s",(failed)?"true":"false");
   if ( failed) return 0;
-  
+
   STRING mstr = api->GetUTF8Text();
   const char *tmpStr=mstr.string();
   //printf("tmpStr->%s",tmpStr);
   char *retStr = new char[strlen(tmpStr) + 1];
   strcpy (retStr,tmpStr);
   //printf("retStr->%s",retStr);
-  return retStr;  
+  return retStr;
 }
 
 bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api)
 {
   bool res = api->SetVariable(var, value);
-  printf ("set variable %s result %d\n", var, res); 
+  printf ("set variable %s result %d\n", var, res);
   return res;
 }
 
