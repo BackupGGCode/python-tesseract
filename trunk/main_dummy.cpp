@@ -44,19 +44,23 @@ bool isLibTiff() {
 	}
 
 
-const char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api) {
+
+char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api) {
 	//printf("ok->%s",text_out);
 	STRING mstr;
 	api->ProcessPages(image, NULL, 0, &mstr);
 	//return mstr.string();
-	const char *tmpStr=mstr.string();
-	char *retStr = new char[strlen(tmpStr) + 1];
-	strcpy (retStr,tmpStr);
+	char *tmpStr=(char *)mstr.string();
+	int mlen=strlen(tmpStr);
+	char *retStr = new char[mlen + 1];
+	retStr[mlen]=0;
+	memcpy(retStr,mstr.string(),mlen);
+	//strcpy (retStr,tmpStr);
 	return retStr;
  }
 
 
-const char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api) {
+char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api) {
 	STRING mstr;
 	int page=0;
 	Pix *pix;
@@ -73,7 +77,7 @@ const char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api) {
 }
 
 
-const char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api) {
+char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api) {
 
 	Pix *pix;
 	STRING mstr;
@@ -97,7 +101,7 @@ void dump_buffer(void *buffer, int buffer_size)
      printf("%c", ((char *)buffer)[i]);
 }
 
-const char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api) {
+char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api) {
 
 	FILE *stream;
 	//int ch;
@@ -126,14 +130,14 @@ const char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI
 #include <iostream>
 #include <fstream>
 using namespace std;
-const char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
+char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
 	char *buffer;
 	puts(image);
 	ifstream fs(image, ios::in|ios::binary|ios::ate);
 	if ( !fs.is_open()) {
 		char msg[200];
 		sprintf(msg,"Cannot Open File:%s\n",image);
-		return (const char*)msg;
+		return (char*)msg;
 	}
 	int size =(int) fs.tellg()  ;
 	buffer = new char [size+1];
@@ -150,7 +154,7 @@ const char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
 	}
 
 	//dump_buffer(buffer,size);
-	const char* retStr;
+	char* retStr;
 	printf("size=%d\n",size);
 	retStr=ProcessPagesBuffer(buffer,size, api);
 	delete[] buffer;
@@ -158,7 +162,7 @@ const char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
 	return retStr;
  }
 
-const char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
+char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
 
 	FILE *fp=fopen(image,"rb");
 	//Get file length
@@ -180,7 +184,7 @@ const char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
 	fclose(fp);
 	printf("n=%d\n",n);
 	//dump_buffer(buffer,fileLen);
-	const char* retStr;
+	char* retStr;
 	retStr=ProcessPagesBuffer(buffer,fileLen, api);
 	//Free memory
 	//free(buffer);
