@@ -89,7 +89,7 @@ char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api) {
 	free(pix->text);
 	return retParser(mstr.string());
  }
- 
+
 void dump_buffer(void *buffer, int buffer_size)
 {
   int i;
@@ -123,8 +123,7 @@ char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api)
 #include <fstream>
 using namespace std;
 char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
-	
-	puts(image);
+	//puts(image);
 	ifstream fs(image, ios::in|ios::binary|ios::ate);
 	if ( !fs.is_open()) {
 		char msg[200];
@@ -147,7 +146,7 @@ char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
 
 	//dump_buffer(buffer,size);
 	char* retStr;
-	printf("size=%d\n",size);
+	//printf("size=%d\n",size);
 	retStr=ProcessPagesBuffer(buffer,size, api);
 	delete[] buffer;
 	//free(buffer);
@@ -155,16 +154,15 @@ char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
  }
 
 char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
-
+	/* no good, it will crash in M$ ???not thread-safe ????*/
 	FILE *fp=fopen(image,"rb");
 	//Get file length
 	fseek(fp, 0, SEEK_END);
-	int fileLen=ftell(fp);
+	int size=ftell(fp);
 	fseek(fp, 0, SEEK_SET);
-	//printf("fileLen=%d\n",fileLen);
 	//Allocate memory
-	//buffer=(char *)malloc(fileLen+1);
-	char *buffer = new char [fileLen+1];
+	//buffer=(char *)malloc(size+1);
+	char *buffer = new char [size+1];
 	if (!buffer)
 	{
 		fprintf(stderr, "Memory error!");
@@ -172,14 +170,15 @@ char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
 		return NULL ;
 	}
 	int n;
-	n = fread(buffer,fileLen, 1, fp);
+	n = fread(buffer,size, 1, fp);
 	fclose(fp);
-	printf("n=%d\n",n);
-	//dump_buffer(buffer,fileLen);
+	//printf("n=%d\n",n);
+	//dump_buffer(buffer,size);
 	char* retStr;
-	retStr=ProcessPagesBuffer(buffer,fileLen, api);
-	//Free memory
-	free(buffer);
+	//printf("size=%d\n",size);
+	retStr=ProcessPagesBuffer(buffer,size, api);
+	delete[] buffer;
+	//free(buffer);
 	return retStr;
  }
 #if defined(__opencv__) || defined(__opencv2__)
