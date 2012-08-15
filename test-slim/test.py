@@ -24,14 +24,14 @@ print "Test ProcessPagesFileStream"
 result = tesseract.ProcessPagesFileStream(mImgFile,api)
 print "result(ProcessPagesFileStream)=",result
 
-#print "Test ProcessPagesRaw"
-#result = tesseract.ProcessPagesRaw(mImgFile,api)
-#print "result(ProcessPagesRaw)",result
+print "Test ProcessPagesRaw"
+result = tesseract.ProcessPagesRaw(mImgFile,api)
+print "result(ProcessPagesRaw)",result
 
-#print "Test ProcessPagesBuffer"
-#f=open(mImgFile,"rb")
-#mBuffer=f.read()
-#f.close()
-#result = tesseract.ProcessPagesBuffer(mBuffer,len(mBuffer),api)
-#mBuffer=None
-#print "result(ProcessPagesBuffer)=",result
+print "Test ProcessPagesBuffer"
+f=open(mImgFile,"rb")
+mBuffer=f.read()
+f.close()
+result = tesseract.ProcessPagesBuffer(mBuffer,len(mBuffer),api)
+mBuffer=None
+print "result(ProcessPagesBuffer)=",result
