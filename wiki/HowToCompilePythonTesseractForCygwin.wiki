@@ -35,4 +35,8 @@ cd python-tesseract
 apt-cyg install swig python libcurl-devel cmake
 python setup.py build
 python setup.py install
+cd test-slim
+export TESSDATA_PREFIX="./"
+python test.py
+
 }}}
