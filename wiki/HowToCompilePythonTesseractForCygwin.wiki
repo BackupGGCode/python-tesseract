@@ -22,8 +22,9 @@ mkdir release
 cd release
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_LEGACY_CYGWIN_WIN32=0 -D CMAKE_INSTALL_PREFIX=/usr -D BUILD_SHARED_LIBS=ON -D BUILD_PYTHON_SUPPORT=ON ..
 make && make install 
-
+}}}
 ===4. Compile Tesseract ===
+{{{
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
 cd tesseract-ocr
 ./autogen.sh --prefix=/usr
