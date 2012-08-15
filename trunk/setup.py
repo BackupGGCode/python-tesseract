@@ -19,6 +19,8 @@ name = 'python-tesseract'
 description = """${python:Provides} Wrapper for Python-${python:Versions} """,
 version_number=os.getcwd().split("-")[-1]
 print "Current Version : %s"%version_number
+include_dirs=['.']
+
 fp=open("config.h","w")
 fp.write("#pragma once\n")
 #fp.write("#ifndef __CONFIG_H__\n")
@@ -96,9 +98,8 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 		prefix=sys.prefix
 		incls = ['/usr/include', '/usr/local/include']
 		libs=['/usr/lib', '/usr/local/lib']
-		if osname=="cygwin":
-			pathOffset="vs2008"
-			inclPath=os.path.join(pathOffset,"includes")
+		if "cygwin" in osname:
+			include_dirs.append(os.path.join(".","cygwin","includes"))
 #	incl=os.path.join(prefix,"include")
 #	print "include path=%s"%incl
 
@@ -126,7 +127,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 
 
 	libraries=['stdc++','tesseract','lept']
-	if libpath('libopencv_core.so') or libpath('libopencv_core.dylib'):
+	if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a'):
 		libraries.append('opencv_core')
 
 elif osname=="windows":
@@ -167,7 +168,7 @@ elif osname=="windows":
 fp.close()
 fp2.close()
 print "===========%s==========="%libraries
-include_dirs=['.']
+
 
 for incl in clang_incls:
 	mincl=inclpath(incl)
@@ -175,7 +176,8 @@ for incl in clang_incls:
 	if mincl:
 		#print "what the fuck"
 		include_dirs.append(mincl)
-
+print "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+print repr(include_dirs)
 tesseract_module = Extension('_tesseract',
 									sources=sources,
 									#extra_compile_args=["-DEBUG -O1 -pg "],
