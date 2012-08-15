@@ -28,6 +28,10 @@ print "Test ProcessPagesRaw"
 result = tesseract.ProcessPagesRaw(mImgFile,api)
 print "result(ProcessPagesRaw)",result
 
+print "Test ProcessPagesRaw2"
+result = tesseract.ProcessPagesRaw2(mImgFile,api)
+print "result(ProcessPagesRaw2)",result
+
 print "Test ProcessPagesBuffer"
 f=open(mImgFile,"rb")
 mBuffer=f.read()

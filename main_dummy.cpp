@@ -123,7 +123,7 @@ char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api)
 #include <fstream>
 using namespace std;
 char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
-	char *buffer;
+	
 	puts(image);
 	ifstream fs(image, ios::in|ios::binary|ios::ate);
 	if ( !fs.is_open()) {
@@ -132,7 +132,7 @@ char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
 		return (char*)msg;
 	}
 	int size =(int) fs.tellg()  ;
-	buffer = new char [size+1];
+	char *buffer = new char [size+1];
 	fs.seekg (0, ios::beg);
 	fs.read (buffer, size);
 	fs.close();
@@ -162,9 +162,9 @@ char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
 	int fileLen=ftell(fp);
 	fseek(fp, 0, SEEK_SET);
 	//printf("fileLen=%d\n",fileLen);
-	char *buffer;
 	//Allocate memory
-	buffer=(char *)malloc(fileLen+1);
+	//buffer=(char *)malloc(fileLen+1);
+	char *buffer = new char [fileLen+1];
 	if (!buffer)
 	{
 		fprintf(stderr, "Memory error!");
