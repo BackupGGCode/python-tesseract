@@ -1,0 +1,51 @@
+--- python-tesseract-0.7-patch/tesseract.i	2012-07-16 18:39:06.000000000 +0200
++++ python-tesseract-read-only/tesseract.i	2012-08-24 11:03:07.000000000 +0200
+@@ -2,42 +2,17 @@
+ 
+ %module tesseract
+ %{
+-#include "leptonica/allheaders.h"
++//#include "config.h"
+ #include "publictypes.h"
+-#include "thresholder.h"
+-#include "baseapi.h"
+-#include "pageiterator.h"
+-#include "resultiterator.h"
++//#include "thresholder.h"
++#include "baseapi_mini.h"
+ #include "main_dummy.h"
+ 
+ %}
+-%include "typemaps.i"
+-%include "cpointer.i"
+-%typemap(in) unsigned char *
+-{
+-	$1 = (unsigned char *)PyString_AsString($input);
+-}
+-%typemap(typecheck) unsigned char * {
+-   $1 = PyString_Check($input) ? 1 : 0;
+-}
+-%typemap(in) l_uint32 *
+-{
+-	$1 = (l_uint32 *)PyString_AsString($input);
+-}
+-%typemap(in) l_uint32
+-{
+-	$1 = (l_uint32)PyInt_AsLong($input);
+-}
+-%typemap(in) l_int32
+-{
+-	$1 = (l_int32)PyInt_AsLong($input);
+-}
+-%include "pix.h"
++//%include "config.h"
+ %include "publictypes.h"
+-%include "thresholder.h"
+-%include "baseapi.h"
+-%include "pageiterator.h"
+-%include "resultiterator.h"
++//%include "thresholder.h"
++%include "baseapi_mini.h"
+ %include "main_dummy.h"
+ 
+ 
