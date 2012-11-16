@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
-export LDFLAGS="-fPIC,-Wl,--as-needed"
+#export LDFLAGS="-fPIC,-Wl,--as-needed"
 #DEB_AUTO_UPDATE_DEBIAN_CONTROL = yes   #disable when finalizing the package
 DEB_PYTHON_SYSTEM := pysupport
 
