@@ -5,7 +5,7 @@
 yum groupinstall "Development Tools" -y
 yum install axel wget cmake -y 
 yum -y install libjpeg-devel libpng-devel libtiff-devel zlib-devel
-yum -y install gcc gcc-c++ make
+yum -y install gcc gcc-c++ make numpy
 wget http://www.leptonica.com/source/leptonica-1.69.tar.gz
 tar zxvf leptonica-1.69.tar.gz
 cd leptonica-1.69
@@ -14,9 +14,9 @@ make
 make install
 
 cd ..
-
 wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.3/OpenCV-2.4.3.tar.bz2
 tar jxvf OpenCV-2.4.3.tar.bz2
+cd OpenCV-2.4.3
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr -D BUILD_PYTHON_SUPPORT=ON .
 make
 make install
@@ -26,14 +26,9 @@ svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
 cd tesseract-ocr/
 ./autogen.sh
 ./configure --prefix=/usr
-
 make
 make install
-
-cd /usr/lib
-cp -Rf *opencv* /usr/lib64
-cp -Rf *tess* /usr/lib64
-cp -Rf *lept* /usr/lib64
+cp tessdata/eng* /usr/share/tessdata
 
 wget http://peak.telecommunity.com/dist/ez_setup.py
 python ez_setup.py 
@@ -43,8 +38,10 @@ svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
 cd python-tesseract
 python setup.py build
 python setup.py install
-
-
+cd test
+rm *.pyc
+rm *.pyd
+python test.py
 }}}
 
 
