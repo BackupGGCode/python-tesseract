@@ -38,7 +38,7 @@ svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
 cd python-tesseract
 python setup.py build
 python setup.py install
-cd test
+cd test-slim
 rm *.pyc
 rm *.pyd
 python test.py
