@@ -27,7 +27,7 @@ cd tesseract-ocr/
 ./configure --prefix=/usr
 
 make
-sudo make install
+make install
 
 cd /usr/lib
 cp -Rf *opencv* /usr/lib64
