@@ -4,6 +4,8 @@
 {{{
 yum groupinstall "Development Tools" -y
 yum install axel wget cmake -y 
+yum -y install libjpeg-devel libpng-devel libtiff-devel zlib-devel
+yum -y install gcc gcc-c++ make
 wget http://www.leptonica.com/source/leptonica-1.69.tar.gz
 tar zxvf leptonica-1.69.tar.gz
 cd leptonica-1.69
@@ -20,8 +22,7 @@ make
 make install
 
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
-yum -y install libjpeg-devel libpng-devel libtiff-devel zlib-devel
-yum -y install gcc gcc-c++ make
+
 cd tesseract-ocr/
 ./autogen.sh
 ./configure --prefix=/usr
@@ -51,6 +52,8 @@ python setup.py install
 {{{
 yum groupinstall "Development Tools" -y
 yum install axel wget cmake -y 
+yum -y install libjpeg-devel libpng-devel libtiff-devel zlib-devel
+yum -y install gcc gcc-c++ make
 wget http://www.leptonica.com/source/leptonica-1.69.tar.gz
 tar zxvf leptonica-1.69.tar.gz
 cd leptonica-1.69
@@ -70,8 +73,7 @@ make
 sudo make install
 
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
-yum install libjpeg-devel libpng-devel libtiff-devel zlib-devel
-yum install gcc gcc-c++ make
+
 cd tesseract-ocr/
 ./autogen.sh
 ./configure --prefix=/usr --with-libdir=lib64
