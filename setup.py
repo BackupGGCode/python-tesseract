@@ -100,6 +100,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 		libs=['/usr/lib', '/usr/local/lib']
 		if "cygwin" in osname:
 			include_dirs.append(os.path.join(".","cygwin","includes"))
+			include_dirs.append(os.path.join("cygwin/includes/"))
 #	incl=os.path.join(prefix,"include")
 #	print "include path=%s"%incl
 

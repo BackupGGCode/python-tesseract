@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __linux__
-	#define __linux__
+#ifndef __cygwin_nt-6.1-wow64__
+	#define __cygwin_nt-6.1-wow64__
 #endif
 #ifndef __opencv2__
 	#define __opencv2__
