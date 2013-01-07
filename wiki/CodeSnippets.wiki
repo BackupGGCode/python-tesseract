@@ -3,7 +3,7 @@
 = Code Snippets =
 
 contributed by Ali Ghorashi
-12:26 AM (11 hours ago)
+
 
 {{{
 import cv2.cv as cv
