@@ -5,7 +5,7 @@ written by FreeToGo@gmail.com
 """
 
 from setuptools import setup, Extension, Command, find_packages
-import sys,os,platform
+import sys,os,platform,glob
 
 def writeIncludeLines(fp,lines) :
 	for line in lines:
@@ -140,20 +140,35 @@ elif osname=="windows":
 	libPath=os.path.join(os.getcwd(),pathOffset,"libs")
 	dllPath=os.path.join(pathOffset,"dlls")
 	pydPath=os.path.join(pathOffset,"pyds")
+	def checkOnePath(mpath,mlib,mext):
+		path_to = os.path.join(mpath,mlib)
+		print "****************path_to=%s %s\n"%(repr(path_to),os.path.exists(path_to+"."+mext))
+		if os.path.exists(path_to+"."+mext):
+			return path_to
+		else:
+			files=glob.glob(path_to+"*")
+			print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			print files
+			if files and len(files) > 0:
+				print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>%s"%files[0]
+				
+				return files[0][:-4]
+
+	
 	def inclpath(name):
-		return os.path.join(inclPath,name)
+		return checkOnePath(inclPath,name,"")
 	def libpath(name):
-		return os.path.join(libPath, name)
+		return checkOnePath(libPath, name,"lib")
 
 
-	libraries=[libpath('libtesseract302'),libpath('liblept')]
+	libraries=[libpath('libtesseract'),libpath('liblept')]
 	incl="."
-	cv2IncPath=inclpath("opencv2/core/core_c.h")
+	cv2IncPath="opencv2/core/core_c.h"
 	if  cv2IncPath:
 		idefine(fp,"opencv2")
 		fp.write('#include "opencv2/core/core_c.h"\n')
 		fp.write("#include <Python.h>\n")
-		libraries.append(libpath('opencv_core240'))
+		libraries.append(libpath('opencv_core'))
 		clang_incls.append('opencv2')
 		writeIncludeLines(fp2,cvIncludeLines)
 	else:
