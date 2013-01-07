@@ -1,8 +1,7 @@
 #pragma once
-#ifndef __darwin__
-	#define __darwin__
+#ifndef __cygwin_nt-6.1-wow64__
+	#define __cygwin_nt-6.1-wow64__
 #endif
-#include "fmemopen.h"
 #ifndef __opencv2__
 	#define __opencv2__
 #endif
