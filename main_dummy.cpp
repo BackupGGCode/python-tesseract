@@ -97,6 +97,7 @@ void dump_buffer(void *buffer, int buffer_size)
      printf("%c", ((char *)buffer)[i]);
 }
 
+
 char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api) {
 
 	FILE *stream;
