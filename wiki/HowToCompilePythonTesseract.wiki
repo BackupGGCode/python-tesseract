@@ -2,8 +2,8 @@
 
 =How to compile python-tesseract (for Ubuntu Precise & Quantal)=
 {{{
-sudo apt-get install python-distutils-extra tesseract-ocr tesseract-ocr-eng libtesseract-dev libleptonica-dev python-all-dev swig libcv-dev python-opencv python-numpy python-setuptools build-essential
-tar zxvf python-tesseract-xxxx.tar.gz
+sudo apt-get install python-distutils-extra tesseract-ocr tesseract-ocr-eng libtesseract-dev libleptonica-dev python-all-dev swig libcv-dev python-opencv python-numpy python-setuptools build-essential subversion
+svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
 cd python-tesseract
 python config.py
 python setup.py clean
