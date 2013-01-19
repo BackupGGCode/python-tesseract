@@ -8,7 +8,7 @@ cd python-tesseract
 python config.py
 python setup.py clean
 python setup.py build
-sudo python setup.py install --user
+python setup.py install --user
 
 ==to make deb==
 sudo apt-get install cdbs dh-buildinfo devscripts python-stdeb
