@@ -108,4 +108,4 @@ print "..............."
 print "Ocred Text: %s"%text
 print "Cofidence Level: %d %%"%conf
 }}}
-[https://python-tesseract.googlecode.com/files/an91cut.jpg an91cut.jpg]https://python-tesseract.googlecode.com/files/an91cut.jpg 
+[https://python-tesseract.googlecode.com/files/an91cut.jpg https://python-tesseract.googlecode.com/files/an91cut.jpg ]
