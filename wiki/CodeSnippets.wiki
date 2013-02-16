@@ -2,9 +2,7 @@
 
 = Code Snippets =
 
-contributed by Ali Ghorashi
-
-
+Example 1
 {{{
 import cv2.cv as cv
 import tesseract
@@ -21,7 +19,7 @@ conf=api.MeanTextConf()
 }}}
 
 
-
+Example 2
 {{{
 import tesseract
 api = tesseract.TessBaseAPI()
@@ -42,7 +40,8 @@ print pyPtr
 tesseract.delete_intp(intPtr) 
 }}}
 
-
+Example 3
+*How to do image edge enhancing and tesseract ocr 
 {{{
 import tesseract
 import cv2
