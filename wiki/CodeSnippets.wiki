@@ -97,8 +97,7 @@ api = tesseract.TessBaseAPI()
 api.Init(".","eng",tesseract.OEM_DEFAULT)
 #api.SetPageSegMode(tesseract.PSM_AUTO)
 #as suggested by zdenko podobny <zdenop@gmail.com>, 
-#using PSM_SINGLE_BLOCK will be more reliable for ocr-ing a line 
-of word 
+#using PSM_SINGLE_BLOCK will be more reliable for ocr-ing a line of word. 
 api.SetPageSegMode(tesseract.PSM_SINGLE_BLOCK)
 height1,width1 = image1.shape
 channel1=1
