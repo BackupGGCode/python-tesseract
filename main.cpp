@@ -22,7 +22,7 @@
 #include "tprintf.h"
 #include "tesseractmain.h"
 
-#include "main_dummy.h"
+#include "main.h"
 #include "stdio.h"
 #include "stdlib.h"
 
@@ -187,86 +187,39 @@ char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
  /* from PyBLOB project
   http://code.google.com/p/pyblobs/issues/attachmentText?id=2&aid=4459562154860045232&name=iplimage_t.h&token=ed989cead6fe486664a024d538bccc2b
   */
-struct iplimage_t {
-    PyObject_HEAD
-    IplImage *a;
-    PyObject *data;
-    size_t offset;
-};
-
-static PyTypeObject iplimage_Type = {
-  PyObject_HEAD_INIT(&PyType_Type)
-  0,                                      /*size*/
-  "cv.iplimage",                          /*name*/
-  sizeof(iplimage_t),                        /*basicsize*/
-};
-
-static int is_none(PyObject *o)
-{
-  //printf("is_none: %d\n", Py_None == o);
-  return Py_None == o;
-}
-
-static int is_iplimage(PyObject *o)
-{
-  PyObject* to = PyObject_Type(o);
-  const char* tp_name = ((PyTypeObject*) to)->tp_name;
-  //printf("is_iplimage: %s, %d\n", tp_name, strcmp(tp_name, "cv.iplimage") == 0);
-  return strcmp(tp_name, "cv.iplimage") >= 0;
-}
-
-/* convert_to_IplImage(): convert a PyObject* to IplImage*/
-/* Note: this has been copied verbatim from <opencv_root>/interfaces/python/cv.cpp */
-static int convert_to_IplImage(PyObject *o, IplImage **dst)
-{
-    iplimage_t *ipl = (iplimage_t*)o;
-    void *buffer;
-    Py_ssize_t buffer_len;
-
-    if (!is_iplimage(o)) {
-	return -1; //failmsg("Argument must be IplImage");
-    } else if (PyString_Check(ipl->data)) {
-	cvSetData(ipl->a, PyString_AsString(ipl->data) + ipl->offset, ipl->a->widthStep);
-	assert(cvGetErrStatus() == 0);
-	*dst = ipl->a;
-	return 1;
-    } else if (ipl->data && PyObject_AsWriteBuffer(ipl->data, &buffer, &buffer_len) == 0) {
-	cvSetData(ipl->a, (void*)((char*)buffer + ipl->offset), ipl->a->widthStep);
-	assert(cvGetErrStatus() == 0);
-	*dst = ipl->a;
-	return 1;
-    } else {
-	return -1;// failmsg("IplImage argument has no data");
-    }
-}
+#include "cv_original.h"
 
 void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api)
 {
     IplImage* img;
     int res =  convert_to_IplImage(o, &img);
-
-    //if succesfull
+	printf("res=%d\n",res);
+    //if successfull
     if ( res == 1 )
     {
       api->SetImage( (unsigned char*) img->imageData,  img->width, img->height, img->nChannels, img->widthStep);
     }
 
 }
+/*
+namespace bp = boost::python;
+void SetMat(PyObject* o, tesseract::TessBaseAPI* api)
+{
+	CvMat *img0;
+    int res =  convert_to_CvMat(o, &img0);
+	IplImage objImg, *img;
+	objImg=(IplImage)*img0;
+	img=&objImg;
+    //if successfull
+    api->SetImage( (unsigned char*) img->imageData,  img->width, img->height, img->nChannels, img->widthStep);
 
+}
+*/
+
+/*
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
-void SetCvMat(PyObject* o, tesseract::TessBaseAPI* api)
-{
-	cv::Mat image1 = (cv::Mat)o;
-	int width1 = image1.cols;
-    int height1 = image1.rows;
-    int channels = image1.channels();
-    int elemSize = image1.elemSize();
-	//printf("w:%d\t h:%d \t ch:%d\t eSize:%d\n",width1,height1,channels,elemSize);
-	IplImage *image = cvCreateImageHeader(cvSize(width1,height1),IPL_DEPTH_8U, channels );
-	cvSetData(image, image1.data, channels * (width1));
-}
-
+*/
 char* GetUTF8Text(tesseract::TessBaseAPI* api)
 {
   //puts("GetUTF8Text");

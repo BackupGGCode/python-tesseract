@@ -2972,19 +2972,23 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_float swig_types[17]
 #define SWIGTYPE_p_int swig_types[18]
 #define SWIGTYPE_p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void swig_types[19]
-#define SWIGTYPE_p_p_Pixa swig_types[20]
-#define SWIGTYPE_p_p_bool swig_types[21]
-#define SWIGTYPE_p_p_char swig_types[22]
-#define SWIGTYPE_p_p_int swig_types[23]
-#define SWIGTYPE_p_tesseract__CubeRecoContext swig_types[24]
-#define SWIGTYPE_p_tesseract__Dawg swig_types[25]
-#define SWIGTYPE_p_tesseract__PageIterator swig_types[26]
-#define SWIGTYPE_p_tesseract__ResultIterator swig_types[27]
-#define SWIGTYPE_p_tesseract__TessBaseAPI swig_types[28]
-#define SWIGTYPE_p_tesseract__Tesseract swig_types[29]
-#define SWIGTYPE_p_unsigned_char swig_types[30]
-static swig_type_info *swig_types[32];
-static swig_module_info swig_module = {swig_types, 31, 0, 0, 0, 0};
+#define SWIGTYPE_p_p_CvArr swig_types[20]
+#define SWIGTYPE_p_p_CvMat swig_types[21]
+#define SWIGTYPE_p_p_CvMatND swig_types[22]
+#define SWIGTYPE_p_p_IplImage swig_types[23]
+#define SWIGTYPE_p_p_Pixa swig_types[24]
+#define SWIGTYPE_p_p_bool swig_types[25]
+#define SWIGTYPE_p_p_char swig_types[26]
+#define SWIGTYPE_p_p_int swig_types[27]
+#define SWIGTYPE_p_tesseract__CubeRecoContext swig_types[28]
+#define SWIGTYPE_p_tesseract__Dawg swig_types[29]
+#define SWIGTYPE_p_tesseract__PageIterator swig_types[30]
+#define SWIGTYPE_p_tesseract__ResultIterator swig_types[31]
+#define SWIGTYPE_p_tesseract__TessBaseAPI swig_types[32]
+#define SWIGTYPE_p_tesseract__Tesseract swig_types[33]
+#define SWIGTYPE_p_unsigned_char swig_types[34]
+static swig_type_info *swig_types[36];
+static swig_module_info swig_module = {swig_types, 35, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3451,7 +3455,9 @@ SWIG_AsCharPtrAndSize(PyObject *obj, char** cptr, size_t* psize, int *alloc)
 #include "publictypes.h"
 //#include "thresholder.h"
 #include "baseapi_mini.h"
-#include "main_dummy.h"
+#include "cv_original.h"
+#include "main.h"
+
 
 
 
@@ -6328,6 +6334,510 @@ SWIGINTERN PyObject *TessBaseAPI_swigregister(PyObject *SWIGUNUSEDPARM(self), Py
   return SWIG_Py_Void();
 }
 
+SWIGINTERN PyObject *_wrap_is_iplimage(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:is_iplimage",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  result = (int)is_iplimage(arg1);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_is_cvmat(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:is_cvmat",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  result = (int)is_cvmat(arg1);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_is_cvmatnd(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:is_cvmatnd",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  result = (int)is_cvmatnd(arg1);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_CvArr__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  CvArr **arg2 = (CvArr **) 0 ;
+  char *arg3 = (char *) 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:convert_to_CvArr",&obj0,&obj1,&obj2)) SWIG_fail;
+  arg1 = obj0;
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_p_CvArr, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "convert_to_CvArr" "', argument " "2"" of type '" "CvArr **""'"); 
+  }
+  arg2 = reinterpret_cast< CvArr ** >(argp2);
+  res3 = SWIG_AsCharPtrAndSize(obj2, &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "convert_to_CvArr" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = reinterpret_cast< char * >(buf3);
+  result = (int)convert_to_CvArr(arg1,arg2,(char const *)arg3);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return resultobj;
+fail:
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_CvArr__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  CvArr **arg2 = (CvArr **) 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:convert_to_CvArr",&obj0,&obj1)) SWIG_fail;
+  arg1 = obj0;
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_p_CvArr, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "convert_to_CvArr" "', argument " "2"" of type '" "CvArr **""'"); 
+  }
+  arg2 = reinterpret_cast< CvArr ** >(argp2);
+  result = (int)convert_to_CvArr(arg1,arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_CvArr(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 2) {
+    int _v;
+    _v = (argv[0] != 0);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_CvArr, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_convert_to_CvArr__SWIG_1(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    _v = (argv[0] != 0);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_CvArr, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsCharPtrAndSize(argv[2], 0, NULL, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_convert_to_CvArr__SWIG_0(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'convert_to_CvArr'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    convert_to_CvArr(PyObject *,CvArr **,char const *)\n"
+    "    convert_to_CvArr(PyObject *,CvArr **)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_IplImage__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  IplImage **arg2 = (IplImage **) 0 ;
+  char *arg3 = (char *) 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:convert_to_IplImage",&obj0,&obj1,&obj2)) SWIG_fail;
+  arg1 = obj0;
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_p_IplImage, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "convert_to_IplImage" "', argument " "2"" of type '" "IplImage **""'"); 
+  }
+  arg2 = reinterpret_cast< IplImage ** >(argp2);
+  res3 = SWIG_AsCharPtrAndSize(obj2, &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "convert_to_IplImage" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = reinterpret_cast< char * >(buf3);
+  result = (int)convert_to_IplImage(arg1,arg2,(char const *)arg3);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return resultobj;
+fail:
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_IplImage__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  IplImage **arg2 = (IplImage **) 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:convert_to_IplImage",&obj0,&obj1)) SWIG_fail;
+  arg1 = obj0;
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_p_IplImage, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "convert_to_IplImage" "', argument " "2"" of type '" "IplImage **""'"); 
+  }
+  arg2 = reinterpret_cast< IplImage ** >(argp2);
+  result = (int)convert_to_IplImage(arg1,arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_IplImage(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 2) {
+    int _v;
+    _v = (argv[0] != 0);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_IplImage, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_convert_to_IplImage__SWIG_1(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    _v = (argv[0] != 0);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_IplImage, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsCharPtrAndSize(argv[2], 0, NULL, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_convert_to_IplImage__SWIG_0(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'convert_to_IplImage'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    convert_to_IplImage(PyObject *,IplImage **,char const *)\n"
+    "    convert_to_IplImage(PyObject *,IplImage **)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_CvMat__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  CvMat **arg2 = (CvMat **) 0 ;
+  char *arg3 = (char *) 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:convert_to_CvMat",&obj0,&obj1,&obj2)) SWIG_fail;
+  arg1 = obj0;
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_p_CvMat, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "convert_to_CvMat" "', argument " "2"" of type '" "CvMat **""'"); 
+  }
+  arg2 = reinterpret_cast< CvMat ** >(argp2);
+  res3 = SWIG_AsCharPtrAndSize(obj2, &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "convert_to_CvMat" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = reinterpret_cast< char * >(buf3);
+  result = (int)convert_to_CvMat(arg1,arg2,(char const *)arg3);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return resultobj;
+fail:
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_CvMat__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  CvMat **arg2 = (CvMat **) 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:convert_to_CvMat",&obj0,&obj1)) SWIG_fail;
+  arg1 = obj0;
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_p_CvMat, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "convert_to_CvMat" "', argument " "2"" of type '" "CvMat **""'"); 
+  }
+  arg2 = reinterpret_cast< CvMat ** >(argp2);
+  result = (int)convert_to_CvMat(arg1,arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_CvMat(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 2) {
+    int _v;
+    _v = (argv[0] != 0);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_CvMat, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_convert_to_CvMat__SWIG_1(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    _v = (argv[0] != 0);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_CvMat, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsCharPtrAndSize(argv[2], 0, NULL, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_convert_to_CvMat__SWIG_0(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'convert_to_CvMat'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    convert_to_CvMat(PyObject *,CvMat **,char const *)\n"
+    "    convert_to_CvMat(PyObject *,CvMat **)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_CvMatND__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  CvMatND **arg2 = (CvMatND **) 0 ;
+  char *arg3 = (char *) 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:convert_to_CvMatND",&obj0,&obj1,&obj2)) SWIG_fail;
+  arg1 = obj0;
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_p_CvMatND, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "convert_to_CvMatND" "', argument " "2"" of type '" "CvMatND **""'"); 
+  }
+  arg2 = reinterpret_cast< CvMatND ** >(argp2);
+  res3 = SWIG_AsCharPtrAndSize(obj2, &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "convert_to_CvMatND" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = reinterpret_cast< char * >(buf3);
+  result = (int)convert_to_CvMatND(arg1,arg2,(char const *)arg3);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return resultobj;
+fail:
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_CvMatND__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  CvMatND **arg2 = (CvMatND **) 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:convert_to_CvMatND",&obj0,&obj1)) SWIG_fail;
+  arg1 = obj0;
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_p_CvMatND, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "convert_to_CvMatND" "', argument " "2"" of type '" "CvMatND **""'"); 
+  }
+  arg2 = reinterpret_cast< CvMatND ** >(argp2);
+  result = (int)convert_to_CvMatND(arg1,arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_convert_to_CvMatND(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 2) {
+    int _v;
+    _v = (argv[0] != 0);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_CvMatND, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_convert_to_CvMatND__SWIG_1(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    _v = (argv[0] != 0);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_CvMatND, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsCharPtrAndSize(argv[2], 0, NULL, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_convert_to_CvMatND__SWIG_0(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'convert_to_CvMatND'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    convert_to_CvMatND(PyObject *,CvMatND **,char const *)\n"
+    "    convert_to_CvMatND(PyObject *,CvMatND **)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_what_data(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:what_data",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  result = (PyObject *)what_data(arg1);
+  resultobj = result;
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_isLibTiff(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   bool result;
@@ -6734,6 +7244,14 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TessBaseAPI_FindLinesCreateBlockList", _wrap_TessBaseAPI_FindLinesCreateBlockList, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_DeleteBlockList", _wrap_TessBaseAPI_DeleteBlockList, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_swigregister", TessBaseAPI_swigregister, METH_VARARGS, NULL},
+	 { (char *)"is_iplimage", _wrap_is_iplimage, METH_VARARGS, NULL},
+	 { (char *)"is_cvmat", _wrap_is_cvmat, METH_VARARGS, NULL},
+	 { (char *)"is_cvmatnd", _wrap_is_cvmatnd, METH_VARARGS, NULL},
+	 { (char *)"convert_to_CvArr", _wrap_convert_to_CvArr, METH_VARARGS, NULL},
+	 { (char *)"convert_to_IplImage", _wrap_convert_to_IplImage, METH_VARARGS, NULL},
+	 { (char *)"convert_to_CvMat", _wrap_convert_to_CvMat, METH_VARARGS, NULL},
+	 { (char *)"convert_to_CvMatND", _wrap_convert_to_CvMatND, METH_VARARGS, NULL},
+	 { (char *)"what_data", _wrap_what_data, METH_VARARGS, NULL},
 	 { (char *)"isLibTiff", _wrap_isLibTiff, METH_VARARGS, NULL},
 	 { (char *)"isLibLept", _wrap_isLibLept, METH_VARARGS, NULL},
 	 { (char *)"ProcessPagesWrapper", _wrap_ProcessPagesWrapper, METH_VARARGS, NULL},
@@ -6771,6 +7289,10 @@ static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)
 static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void = {"_p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void", "tesseract::FillLatticeFunc *|void (Wordrec::**)(MATRIX const &,list_rec *const &,UNICHARSET const &,BlamerBundle *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_p_CvArr = {"_p_p_CvArr", "CvArr **", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_p_CvMat = {"_p_p_CvMat", "CvMat **", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_p_CvMatND = {"_p_p_CvMatND", "CvMatND **", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_p_IplImage = {"_p_p_IplImage", "IplImage **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_Pixa = {"_p_p_Pixa", "Pixa **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_bool = {"_p_p_bool", "bool **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_char = {"_p_p_char", "char **", 0, 0, (void*)0, 0};
@@ -6804,6 +7326,10 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_float,
   &_swigt__p_int,
   &_swigt__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void,
+  &_swigt__p_p_CvArr,
+  &_swigt__p_p_CvMat,
+  &_swigt__p_p_CvMatND,
+  &_swigt__p_p_IplImage,
   &_swigt__p_p_Pixa,
   &_swigt__p_p_bool,
   &_swigt__p_p_char,
@@ -6837,6 +7363,10 @@ static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0
 static swig_cast_info _swigc__p_float[] = {  {&_swigt__p_float, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void[] = {  {&_swigt__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_CvArr[] = {  {&_swigt__p_p_CvArr, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_CvMat[] = {  {&_swigt__p_p_CvMat, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_CvMatND[] = {  {&_swigt__p_p_CvMatND, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_IplImage[] = {  {&_swigt__p_p_IplImage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_Pixa[] = {  {&_swigt__p_p_Pixa, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_bool[] = {  {&_swigt__p_p_bool, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_char[] = {  {&_swigt__p_p_char, 0, 0, 0},{0, 0, 0, 0}};
@@ -6870,6 +7400,10 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_float,
   _swigc__p_int,
   _swigc__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void,
+  _swigc__p_p_CvArr,
+  _swigc__p_p_CvMat,
+  _swigc__p_p_CvMatND,
+  _swigc__p_p_IplImage,
   _swigc__p_p_Pixa,
   _swigc__p_p_bool,
   _swigc__p_p_char,
