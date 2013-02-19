@@ -5,16 +5,27 @@ written by FreeToGo@gmail.com
 """
 
 from setuptools import setup, Extension, Command, find_packages
-import sys,os,platform,glob
+import sys,os,platform,glob,commands
 
 def writeIncludeLines(fp,lines) :
 	for line in lines:
 		fp.write(line+"\n");
 
+def pkgconfig(*packages, **kw):
+	flag_map = {'-I': 'include_dirs', '-L': 'library_dirs', '-l': 'libraries'}
+	for token in commands.getoutput("pkg-config --libs --cflags %s" % ' '.join(packages)).split():
+		if flag_map.has_key(token[:2]):
+			kw.setdefault(flag_map.get(token[:2]), []).append(token[2:])
+		else: # throw others to extra_link_args
+			kw.setdefault('extra_link_args', []).append(token)
+
+	for k, v in kw.iteritems(): # remove duplicated
+		kw[k] = list(set(v))
+	return kw
 
 osname=platform.uname()[0].lower()
 print "os=%s"%osname
-sources=['tesseract.i','' 'main_dummy.cpp']
+sources=['tesseract.i','cv_original.cpp','main.cpp']
 name = 'python-tesseract'
 description = """${python:Provides} Wrapper for Python-${python:Versions} """,
 version_number=os.getcwd().split("-")[-1]
@@ -26,7 +37,7 @@ fp.write("#pragma once\n")
 #fp.write("#ifndef __CONFIG_H__\n")
 #fp.write("#define __CONFIG_H__\n")
 clang_incls=['tesseract','leptonica']
-fp2=open("main_dummy.h","w")
+fp2=open("main.h","w")
 
 IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
 			"char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
@@ -38,6 +49,7 @@ IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
 
 
 cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
+			#	"void SetMat(PyObject* o, tesseract::TessBaseAPI* api);",
 				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);",
 				"char* GetUTF8Text(tesseract::TessBaseAPI* api);"]
 writeIncludeLines(fp2,IncludeLines)
@@ -103,7 +115,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 			include_dirs.append(os.path.join("cygwin/includes/"))
 #	incl=os.path.join(prefix,"include")
 #	print "include path=%s"%incl
-
+	
 	def checkPath(paths,mlib):
 		for pref in paths:
 			path_to = os.path.join(pref, mlib)
@@ -113,23 +125,29 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 
 	def libpath(mlib):
 		return checkPath(libs,mlib)
-
+	hasOpenCV = 0
 	if inclpath("opencv2/core/core_c.h"):
 		idefine(fp,"opencv2")
 		fp.write("#include <opencv2/core/core_c.h>\n")
 		clang_incls.append('opencv2')
 		writeIncludeLines(fp2,cvIncludeLines)
-	elif inclpath("opencv/cv.h")  :
+		hasOpenCV = 1
+		
+	if inclpath("opencv/cv.h")  :
 		idefine(fp,"opencv")
 		fp.write("#include <opencv/cv.h>\n")
 		clang_incls.append('opencv')
 		writeIncludeLines(fp2,cvIncludeLines)
+		hasOpenCV = 1
+		
 	fp.write("#include <Python.h>\n")
 
-
+	
 	libraries=['stdc++','tesseract','lept']
-	if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a'):
-		libraries.append('opencv_core')
+	libraries= libraries + pkgconfig("opencv")['libraries']
+	if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
+		if 'opencv_core' not in libraries:
+			libraries.append('opencv_core')
 
 elif osname=="windows":
 	name='python'
@@ -201,8 +219,7 @@ tesseract_module = Extension('_tesseract',
 									#				"-I"+os.path.dirname(config.__file__),
 													"-I"+inclpath('leptonica')],
 									include_dirs=include_dirs,
-									libraries=libraries,
-
+									libraries=libraries
 									)
 
 setup (name = name,

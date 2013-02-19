@@ -267,6 +267,38 @@ def TessBaseAPI_DeleteBlockList(*args):
 TessBaseAPI_DeleteBlockList = _tesseract.TessBaseAPI_DeleteBlockList
 
 
+def is_iplimage(*args):
+  return _tesseract.is_iplimage(*args)
+is_iplimage = _tesseract.is_iplimage
+
+def is_cvmat(*args):
+  return _tesseract.is_cvmat(*args)
+is_cvmat = _tesseract.is_cvmat
+
+def is_cvmatnd(*args):
+  return _tesseract.is_cvmatnd(*args)
+is_cvmatnd = _tesseract.is_cvmatnd
+
+def convert_to_CvArr(*args):
+  return _tesseract.convert_to_CvArr(*args)
+convert_to_CvArr = _tesseract.convert_to_CvArr
+
+def convert_to_IplImage(*args):
+  return _tesseract.convert_to_IplImage(*args)
+convert_to_IplImage = _tesseract.convert_to_IplImage
+
+def convert_to_CvMat(*args):
+  return _tesseract.convert_to_CvMat(*args)
+convert_to_CvMat = _tesseract.convert_to_CvMat
+
+def convert_to_CvMatND(*args):
+  return _tesseract.convert_to_CvMatND(*args)
+convert_to_CvMatND = _tesseract.convert_to_CvMatND
+
+def what_data(*args):
+  return _tesseract.what_data(*args)
+what_data = _tesseract.what_data
+
 def isLibTiff():
   return _tesseract.isLibTiff()
 isLibTiff = _tesseract.isLibTiff
