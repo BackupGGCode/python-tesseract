@@ -1,4 +1,3 @@
-cv2_original.cpp
 cv_original.cpp
 main.cpp
 main_dummy.cpp
