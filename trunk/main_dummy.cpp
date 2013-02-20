@@ -8,19 +8,10 @@
 // Include automatically generated configuration file if running autoconf
 #include "config.h"
 
-#ifdef USING_GETTEXT
-#include <libintl.h>
-#include <locale.h>
-#define _(x) gettext(x)
-#else
-#define _(x) (x)
-#endif
 #include "allheaders.h"
 #include "baseapi.h"
 #include "img.h"
 #include "strngs.h"
-#include "tprintf.h"
-#include "tesseractmain.h"
 
 #include "main_dummy.h"
 #include "stdio.h"
