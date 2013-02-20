@@ -144,10 +144,23 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 
 	
 	libraries=['stdc++','tesseract','lept']
-	libraries= libraries + pkgconfig("opencv")['libraries']
+	## print pkgconfig("opencv"):
+	## {'extra_link_args': ['/usr/lib64/libopencv_contrib.so', '/usr/lib64/libopencv_highgui.so', '/usr/lib64/libopencv_calib3d.so', '/usr/lib64/libopencv_stitching.so', '/usr/lib64/libopencv_ts.so', '/usr/lib64/libopencv_imgproc.so', '/usr/lib64/libopencv_nonfree.so', '/usr/lib64/libopencv_flann.so', '/usr/lib64/libopencv_gpu.so', '/usr/lib64/libopencv_features2d.so', '/usr/lib64/libopencv_video.so', '/usr/lib64/libopencv_photo.so', '/usr/lib64/libopencv_objdetect.so', '/usr/lib64/libopencv_core.so', '/usr/lib64/libopencv_ml.so', '/usr/lib64/libopencv_legacy.so', '/usr/lib64/libopencv_videostab.so'], 'include_dirs': ['/usr/include/opencv']}
+	#libraries= libraries + pkgconfig("opencv")['libraries']
 	if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
 		if 'opencv_core' not in libraries:
+			libraries.append('opencv_contrib')
+			libraries.append('opencv_highgui')
+			libraries.append('opencv_calib3d')
+			libraries.append('opencv_nonfree')
+			libraries.append('opencv_flann')
+			libraries.append('opencv_gpu')
+			libraries.append('opencv_features2d')
+			libraries.append('opencv_video')
+			libraries.append('opencv_objdetect')
 			libraries.append('opencv_core')
+			libraries.append('opencv_ml')
+			libraries.append('opencv_legacy')
 
 elif osname=="windows":
 	name='python'
