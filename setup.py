@@ -44,7 +44,7 @@ IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
 			"char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api);",
-			"char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api);",
+#			"char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api);"]
 
 
@@ -151,7 +151,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 	else:
 		if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
 			if 'opencv_core' not in libraries:
-				print "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+#				print "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 				libraries.append('opencv_contrib')
 				libraries.append('opencv_highgui')
 				libraries.append('opencv_calib3d')
@@ -226,7 +226,7 @@ for incl in clang_incls:
 	if mincl:
 		#print "what the fuck"
 		include_dirs.append(mincl)
-print "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+#print "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
 print repr(include_dirs)
 tesseract_module = Extension('_tesseract',
 									sources=sources,

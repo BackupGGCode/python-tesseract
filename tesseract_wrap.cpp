@@ -7009,40 +7009,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_ProcessPagesRaw2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  char *arg1 = (char *) 0 ;
-  tesseract::TessBaseAPI *arg2 = (tesseract::TessBaseAPI *) 0 ;
-  int res1 ;
-  char *buf1 = 0 ;
-  int alloc1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:ProcessPagesRaw2",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_AsCharPtrAndSize(obj0, &buf1, NULL, &alloc1);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProcessPagesRaw2" "', argument " "1"" of type '" "char const *""'");
-  }
-  arg1 = reinterpret_cast< char * >(buf1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProcessPagesRaw2" "', argument " "2"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg2 = reinterpret_cast< tesseract::TessBaseAPI * >(argp2);
-  result = (char *)ProcessPagesRaw2((char const *)arg1,arg2);
-  resultobj = SWIG_FromCharPtr((const char *)result);
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
-  return resultobj;
-fail:
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_ProcessPagesRaw(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   char *arg1 = (char *) 0 ;
@@ -7258,7 +7224,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ProcessPagesPix", _wrap_ProcessPagesPix, METH_VARARGS, NULL},
 	 { (char *)"ProcessPagesFileStream", _wrap_ProcessPagesFileStream, METH_VARARGS, NULL},
 	 { (char *)"ProcessPagesBuffer", _wrap_ProcessPagesBuffer, METH_VARARGS, NULL},
-	 { (char *)"ProcessPagesRaw2", _wrap_ProcessPagesRaw2, METH_VARARGS, NULL},
 	 { (char *)"ProcessPagesRaw", _wrap_ProcessPagesRaw, METH_VARARGS, NULL},
 	 { (char *)"SetCvImage", _wrap_SetCvImage, METH_VARARGS, NULL},
 	 { (char *)"SetVariable", _wrap_SetVariable, METH_VARARGS, NULL},

@@ -96,7 +96,7 @@ char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api)
 
 	stream=fmemopen((void*)buffer,fileLen,"rb");
 	if (stream == NULL)
-		return "Error";
+		return (char*)"Error";
 	Pix *pix;
 	int page=0;
 	STRING mstr;
@@ -114,11 +114,11 @@ char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api)
 #include <iostream>
 #include <fstream>
 using namespace std;
+char msg[200];
 char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
 	//puts(image);
 	ifstream fs(image, ios::in|ios::binary|ios::ate);
 	if ( !fs.is_open()) {
-		char msg[200];
 		sprintf(msg,"Cannot Open File:%s\n",image);
 		return (char*)msg;
 	}
@@ -144,9 +144,9 @@ char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
 	//free(buffer);
 	return retStr;
  }
-
+/*
 char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
-	/* no good, it will crash in M$ ???not thread-safe ????*/
+	// no good, it will crash in M$ ???not thread-safe ????
 	FILE *fp=fopen(image,"rb");
 	//Get file length
 	fseek(fp, 0, SEEK_END);
@@ -161,18 +161,21 @@ char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
         fclose(fp);
 		return NULL ;
 	}
-	int n;
-	n = fread(buffer,size, 1, fp);
+	//int n=0;
+	size_t n = fread(buffer,size, 1, fp);
+	fread(buffer,size, 1, fp);
 	fclose(fp);
-	//printf("n=%d\n",n);
+	printf("n=%ld\n",n);
 	//dump_buffer(buffer,size);
 	char* retStr;
-	//printf("size=%d\n",size);
+	printf("size=%d\n",size);
 	retStr=ProcessPagesBuffer(buffer,size, api);
 	delete[] buffer;
 	//free(buffer);
 	return retStr;
  }
+*/
+
 #if defined(__opencv__) || defined(__opencv2__)
 //#ifdef __opencv2__
  /* from PyBLOB project
