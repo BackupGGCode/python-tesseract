@@ -323,10 +323,6 @@ def ProcessPagesBuffer(*args):
   return _tesseract.ProcessPagesBuffer(*args)
 ProcessPagesBuffer = _tesseract.ProcessPagesBuffer
 
-def ProcessPagesRaw2(*args):
-  return _tesseract.ProcessPagesRaw2(*args)
-ProcessPagesRaw2 = _tesseract.ProcessPagesRaw2
-
 def ProcessPagesRaw(*args):
   return _tesseract.ProcessPagesRaw(*args)
 ProcessPagesRaw = _tesseract.ProcessPagesRaw
