@@ -144,7 +144,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 
 	
 	libraries=['stdc++','tesseract','lept']
-	print "xxxxxxxxxxxxxxxxx[",pkgconfig("opencv9"),"]xxxxxxxxxxxxxxxxx"
+
 	cv_pc=pkgconfig("opencv")
 	if hasattr(cv_pc,'libraries'):
 		libraries= libraries + cv_pc['libraries']
