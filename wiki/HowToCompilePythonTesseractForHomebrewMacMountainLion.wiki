@@ -31,8 +31,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 }}}
 3. Install misc
 {{{
-brew update && brew upgrade
-brew install wget axel swig leptonica tesseract opencv subversion
+brew -v update && brew -v upgrade
+brew -v install wget axel swig leptonica tesseract opencv subversion
 }}}
 4.
 Either
