@@ -29,11 +29,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 3. Install misc
 brew install wget axel swig leptonica tesseract opencv subversion
 4.
-     ~~ http://python-tesseract.googlecode.com/files/python-tesseract.0.7.4.homebrew.macosx-10.8-x86_64.tar.gz~~
-     ~~sudo tar zxvf python-tesseract.0.7.4.homebrew.macosx-10.8-x86_64.tar.gz -C /~~
-    <--- obsolete ~~strikeout~~
-
- or 
      svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
      cd python-tesseract
      python setup.py clean
