@@ -8,9 +8,27 @@ Restart Terminal and you will be able to use Make.
 1. Install HomeBrew
 ruby <(curl -fsSk https://raw.github.com/mxcl/homebrew/go)
 
-2. Install misc
+2. remove old python (optional)
+brew rm python
+brew install python
+pip install numpy
+brew uninstall opencv
+brew install -vd --tbb opencv
+export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+
+### testing ###
+>which python
+/usr/local/bin/python
+>python
+Python 2.7.3 (default, Mar  5 2013, 00:02:42) 
+[GCC 4.2.1 Compatible Apple LLVM 4.2 (clang-425.0.24)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import cv2
+>>> quit()
+
+3. Install misc
 brew install wget axel swig leptonica tesseract opencv subversion
-3.
+4.
      wget http://python-tesseract.googlecode.com/files/python-   tesseract.0.7.4.homebrew.macosx-10.8-x86_64.tar.gz
      sudo tar zxvf python-tesseract.0.7.4.homebrew.macosx-10.8-x86_64.tar.gz -C /
 
