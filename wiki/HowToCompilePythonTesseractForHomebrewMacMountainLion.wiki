@@ -37,7 +37,8 @@ brew install wget axel swig leptonica tesseract opencv subversion
      cd python-tesseract
      python setup.py clean
      python setup.py build
-     python setup.py install
-
+     python setup.py install --user
+     export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+     python test.py
 
 }}}
