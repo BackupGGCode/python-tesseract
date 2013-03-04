@@ -25,6 +25,7 @@ def pkgconfig(*packages, **kw):
 
 osname=platform.uname()[0].lower()
 print "os=%s"%osname
+library_dirs=[]
 sources=['tesseract.i','cv_original.cpp','main.cpp']
 name = 'python-tesseract'
 description = """${python:Provides} Wrapper for Python-${python:Versions} """,
@@ -146,12 +147,24 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 	libraries=['stdc++','tesseract','lept']
 
 	cv_pc=pkgconfig("opencv")
-	if hasattr(cv_pc,'libraries'):
+	cv_pc_keys=cv_pc.keys()
+	print "~~~cv_pc~~~"
+	print cv_pc
+	print cv_pc_keys
+	if 'libraries' in cv_pc_keys:
 		libraries= libraries + cv_pc['libraries']
+	elif 'extra_link_args' in cv_pc_keys:
+		for item in cv_pc['extra_link_args']:
+			libname="open"+item.split("libopen")[1].split(".")[0]
+			print "add lib: %s"%libname
+			libraries.append(libname)
+			#mdir=os.path.dirname(item)
+			#if mdir not in library_dirs:
+			#	library_dirs.append(mdir)
 	else:
+		print "No pkg-config support!"
 		if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
 			if 'opencv_core' not in libraries:
-#				print "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 				libraries.append('opencv_contrib')
 				libraries.append('opencv_highgui')
 				libraries.append('opencv_calib3d')
@@ -235,8 +248,10 @@ tesseract_module = Extension('_tesseract',
 									#				"-I"+os.path.dirname(config.__file__),
 													"-I"+inclpath('leptonica')],
 									include_dirs=include_dirs,
-									libraries=libraries
+									library_dirs=library_dirs,									
+									libraries=libraries,
 									)
+									
 
 setup (name = name,
 		version = version_number,
