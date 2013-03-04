@@ -19,6 +19,7 @@ brew install -vd --tbb opencv
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 }}}
 ### testing ###
+{{{
 >which python
 /usr/local/bin/python
 >python
@@ -27,7 +28,7 @@ Python 2.7.3 (default, Mar  5 2013, 00:02:42)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import cv2
 >>> quit()
-
+}}}
 3. Install misc
 {{{
 brew install wget axel swig leptonica tesseract opencv subversion
@@ -40,11 +41,11 @@ tar zxvf python-tesseract_0.8-1.6.homebrew.macosx-10.8-x86_64.tar.gz -C /
 }}}
 or 
 {{{
-     svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
-     cd python-tesseract
-     python setup.py clean
-     python setup.py build
-     python setup.py install --user
-     export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-     python test.py
+svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
+cd python-tesseract
+python setup.py clean
+python setup.py build
+python setup.py install --user
+export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+python test.py
 }}}
