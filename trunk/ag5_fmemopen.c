@@ -9,6 +9,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <string.h>
+#include <unistd.h>
 #define NUL 0
 #define false 0
 #define true 1
