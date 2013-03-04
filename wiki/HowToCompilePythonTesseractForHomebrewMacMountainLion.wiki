@@ -1,21 +1,23 @@
 #summary How to compile python-tesseract for Homebrew(Mac Mountain Lion)
 
 =How to compile python-tesseract (for Mac Mountain Lion )=
-{{{
+
 launch xCode, then go to Preferences -> Downloads and install "Command Line Tools". 
 Restart Terminal and you will be able to use Make.
 
 1. Install HomeBrew
+{{{
 ruby <(curl -fsSk https://raw.github.com/mxcl/homebrew/go)
-
+}}}
 2. remove old python (optional)
+{{{
 brew rm python
 brew install python
 pip install numpy
 brew uninstall opencv
 brew install -vd --tbb opencv
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-
+}}}
 ### testing ###
 >which python
 /usr/local/bin/python
@@ -27,8 +29,17 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> quit()
 
 3. Install misc
+{{{
 brew install wget axel swig leptonica tesseract opencv subversion
+}}}
 4.
+Either
+{{{
+wget https://python-tesseract.googlecode.com/files/python-tesseract_0.8-1.6.homebrew.macosx-10.8-x86_64.tar.gz
+tar zxvf python-tesseract_0.8-1.6.homebrew.macosx-10.8-x86_64.tar.gz -C /
+}}}
+or 
+{{{
      svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
      cd python-tesseract
      python setup.py clean
@@ -36,5 +47,4 @@ brew install wget axel swig leptonica tesseract opencv subversion
      python setup.py install --user
      export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
      python test.py
-
 }}}
