@@ -37,6 +37,8 @@ bool isLibTiff() {
 
 char* retParser(const char* a) {
 	int mlen=strlen(a);
+	if (mlen==0) 
+		return '\0';
 	char *retStr=new char[mlen+1];
 	retStr[mlen]=0;
 	memcpy(retStr,a,mlen);

@@ -1,11 +1,11 @@
-ccb48d5389d47c7746c381fca1cb26c9  usr/lib/pyshared/python2.7/_tesseract.so
-5fbc89124c17a285aa9554288859e25b  usr/share/doc/python-tesseract/buildinfo_amd64.gz
-9e9606a231aec69074b51ba7789ad07b  usr/share/doc/python-tesseract/changelog.Debian.gz
+95875a6248f2e6dadbb8da9f7fd43248  usr/lib/pyshared/python2.7/_tesseract.so
+2286fbb67bed633b6acf80df5e973849  usr/share/doc/python-tesseract/buildinfo_amd64.gz
+d7a25356ebc9e926955a0db722130c4d  usr/share/doc/python-tesseract/changelog.Debian.gz
 065f7ae80a683c927bc7f8090eb58f8b  usr/share/doc/python-tesseract/changelog.gz
 b3855b821953917992b33fbf042023a4  usr/share/doc/python-tesseract/copyright
 6b56e7e0f719abc565e47009313e0084  usr/share/pyshared/python_tesseract-tesseract.egg-info/PKG-INFO
-3c709c3b5fdeacf5cb075923842257ce  usr/share/pyshared/python_tesseract-tesseract.egg-info/SOURCES.txt
+b62785c2c79ed425908e735cd153275c  usr/share/pyshared/python_tesseract-tesseract.egg-info/SOURCES.txt
 68b329da9893e34099c7d8ad5cb9c940  usr/share/pyshared/python_tesseract-tesseract.egg-info/dependency_links.txt
 fe2b77c11ed15fcebebb09b40e5bd606  usr/share/pyshared/python_tesseract-tesseract.egg-info/top_level.txt
-0ccc562fbc0cc201c1e3e7aa083706e5  usr/share/pyshared/tesseract.py
+d138fc48230c22debd891ded6fc49d6c  usr/share/pyshared/tesseract.py
 b26554daabc1d5f8eb0929ee47c02366  usr/share/python-support/python-tesseract.public

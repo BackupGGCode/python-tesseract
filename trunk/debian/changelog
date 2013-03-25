@@ -1,3 +1,17 @@
+python-tesseract (0.8-1.7) UNRELEASED; urgency=low
+
+  * Non-maintainer upload.
+  * 
+
+ -- eli <eli@nowhere.com>  Mon, 25 Mar 2013 10:03:58 +0800
+
+python-tesseract (0.8-0.1) UNRELEASED; urgency=low
+
+  * Non-maintainer upload.
+  * 
+
+ -- eli <eli@nowhere.com>  Mon, 25 Mar 2013 10:02:32 +0800
+
 python-tesseract (0.7-1.4) unstable; urgency=low
 
   * Non-maintainer upload.
