@@ -12,8 +12,8 @@ api.SetOutputName("outputName");
 #api.Init(".","eng")
 api.Init(".","eng",tesseract.OEM_DEFAULT)
 api.SetPageSegMode(tesseract.PSM_AUTO)
-mImgFile = "eurotext.jpg"
-#mImgFile = "bad.png"
+#mImgFile = "eurotext.jpg"
+mImgFile = "bad.png"
 
 result = tesseract.ProcessPagesWrapper(mImgFile,api)
 print "result(ProcessPagesWrapper)=",result
