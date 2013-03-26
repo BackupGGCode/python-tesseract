@@ -16,6 +16,7 @@ api.SetPageSegMode(tesseract.PSM_AUTO)
 tesseract.SetCvImage(image,api)
 text=api.GetUTF8Text()
 conf=api.MeanTextConf()
+print text
 }}}
 
 
