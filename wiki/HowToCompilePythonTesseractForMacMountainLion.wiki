@@ -1,5 +1,5 @@
 #summary How to compile python-tesseract for MacPorts(Mac Mountain Lion) [obsolete!! use homebrew pls]
-
+[https://code.google.com/p/python-tesseract/wiki/HowToCompilePythonTesseractForHomebrewMacMountainLion Compile for HomeBrew] 
 
 =How to compile python-tesseract (for Mac Mountain Lion )=
 {{{
