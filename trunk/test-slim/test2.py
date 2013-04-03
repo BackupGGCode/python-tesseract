@@ -3,8 +3,8 @@ import cv2
 import cv2.cv as cv
 
 #image0=cv.LoadImage("p.bmp", cv.CV_LOAD_IMAGE_UNCHANGED )     #cv.CV_LOAD_IMAGE_UNCHANGED // cv.CV_LOAD_IMAGE_GRAYSCALE
-image0=cv2.imread("p.bmp")
-#print image0
+image0=cv2.imread("eurotext.jpg")
+print image0
 print image0.shape
 #### you may need to thicken the border in order to make tesseract feel happy to ocr your image #####
 offset=20

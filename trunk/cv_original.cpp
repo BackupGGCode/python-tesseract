@@ -1,12 +1,12 @@
 #include <Python.h>
-
+#include "config.h"
 #include <assert.h>
-
-#include <opencv/cxcore.h>
 #include <opencv/cv.h>
+#include <opencv/cxcore.h>
 #include <opencv/cvaux.h>
 #include <opencv/cvwimage.h>
 #include <opencv/highgui.h>
+#include <opencv/cxmisc.h>
 
 #define MODULESTR "cv"
 
@@ -978,7 +978,8 @@ PyBufferProcs memtrack_as_buffer = {
 }
 
 /************************************************************************/
-
+//#if !defined(__windows__)
+/************************************************************************/
 /* cvseq */
 
  void cvseq_dealloc(PyObject *self)
@@ -1018,11 +1019,13 @@ PyBufferProcs memtrack_as_buffer = {
   CvPoint2D32f *pt2;
   CvPoint3D32f *pt3;
 
+
   if (i < (Py_ssize_t)(ps->a->total)) {
     switch (CV_SEQ_ELTYPE(ps->a)) {
 
     case CV_SEQ_ELTYPE_POINT:
-      pt = CV_GET_SEQ_ELEM(CvPoint, ps->a, i);
+      //pt = CV_GET_SEQ_ELEM(CvPoint*, ps->a, i);
+      pt =CV_GET_SEQ_ELEM(CvPoint*, ps->a , i);
       return Py_BuildValue("ii", pt->x, pt->y);
 
     case CV_SEQ_ELTYPE_GENERIC:
@@ -3573,7 +3576,10 @@ void OnChange(int pos, void *param)
 }
 
 #define MKTYPE(NAME)  do { NAME##_specials(); if (!to_ok(&NAME##_Type)) return; } while (0)
-
+/************************************************************************/
+//#if !defined(__windows__)
+//#endif
+/************************************************************************/
 //extern "C"
 //#if defined WIN32 || defined _WIN32
 //__declspec(dllexport)

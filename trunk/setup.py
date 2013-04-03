@@ -26,7 +26,8 @@ def pkgconfig(*packages, **kw):
 osname=platform.uname()[0].lower()
 print "os=%s"%osname
 library_dirs=[]
-sources=['tesseract.i','cv_original.cpp','main.cpp']
+#sources=['tesseract.i','cv_original.cpp','main.cpp']
+sources=['tesseract.i','main.cpp']
 name = 'python-tesseract'
 description = """${python:Provides} Wrapper for Python-${python:Versions} """,
 version_number=os.getcwd().split("-")[-1]
@@ -194,9 +195,10 @@ elif osname=="windows":
 		if os.path.exists(path_to+"."+mext):
 			return path_to
 		else:
-			files=glob.glob(path_to+"*")
+			files=glob.glob(path_to+"*"+"."+mext)
 			print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 			print files
+			print mext
 			if files and len(files) > 0:
 				print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>%s"%files[0]
 				
@@ -218,6 +220,7 @@ elif osname=="windows":
 		fp.write("#include <Python.h>\n")
 		libraries.append(libpath('opencv_core'))
 		clang_incls.append('opencv2')
+		clang_incls.append('.')
 		writeIncludeLines(fp2,cvIncludeLines)
 	else:
 		clang_incls.append('opencv')
