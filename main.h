@@ -9,6 +9,3 @@ char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api);
 void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);
 bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);
 char* GetUTF8Text(tesseract::TessBaseAPI* api);
-void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);
-bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);
-char* GetUTF8Text(tesseract::TessBaseAPI* api);

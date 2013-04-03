@@ -10,7 +10,7 @@
 #include "publictypes.h"
 //#include "thresholder.h"
 #include "baseapi_mini.h"
-#include "cv_original.h"
+//#include "cv_original.h"
 #include "main.h"
 
 
@@ -32,7 +32,7 @@
 %include "publictypes.h"
 //%include "thresholder.h"
 %include "baseapi_mini.h"
-%include "cv_original.h"
+//%include "cv_original.h"
 %include "main.h"
 
 

@@ -183,20 +183,72 @@ char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
  /* from PyBLOB project
   http://code.google.com/p/pyblobs/issues/attachmentText?id=2&aid=4459562154860045232&name=iplimage_t.h&token=ed989cead6fe486664a024d538bccc2b
   */
-#include "cv_original.h"
+struct iplimage_t {
+    PyObject_HEAD
+    IplImage *a;
+    PyObject *data;
+    size_t offset;
+};
+
+static PyTypeObject iplimage_Type = {
+  PyObject_HEAD_INIT(&PyType_Type)
+  0,                                      /*size*/
+  "cv.iplimage",                          /*name*/
+  sizeof(iplimage_t),                        /*basicsize*/
+};
+
+static int is_none(PyObject *o)
+{
+  //printf("is_none: %d\n", Py_None == o);
+  return Py_None == o;
+}
+
+static int is_iplimage(PyObject *o)
+{
+  PyObject* to = PyObject_Type(o);
+  const char* tp_name = ((PyTypeObject*) to)->tp_name;
+  //printf("is_iplimage: %s, %d\n", tp_name, strcmp(tp_name, "cv.iplimage") == 0);
+  return strcmp(tp_name, "cv.iplimage") >= 0;
+}
+
+/* convert_to_IplImage(): convert a PyObject* to IplImage*/
+/* Note: this has been copied verbatim from <opencv_root>/interfaces/python/cv.cpp */
+static int convert_to_IplImage(PyObject *o, IplImage **dst)
+{
+    iplimage_t *ipl = (iplimage_t*)o;
+    void *buffer;
+    Py_ssize_t buffer_len;
+
+    if (!is_iplimage(o)) {
+	return -1; //failmsg("Argument must be IplImage");
+    } else if (PyString_Check(ipl->data)) {
+	cvSetData(ipl->a, PyString_AsString(ipl->data) + ipl->offset, ipl->a->widthStep);
+	assert(cvGetErrStatus() == 0);
+	*dst = ipl->a;
+	return 1;
+    } else if (ipl->data && PyObject_AsWriteBuffer(ipl->data, &buffer, &buffer_len) == 0) {
+	cvSetData(ipl->a, (void*)((char*)buffer + ipl->offset), ipl->a->widthStep);
+	assert(cvGetErrStatus() == 0);
+	*dst = ipl->a;
+	return 1;
+    } else {
+	return -1;// failmsg("IplImage argument has no data");
+    }
+}
 
 void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api)
 {
     IplImage* img;
     int res =  convert_to_IplImage(o, &img);
-	printf("res=%d\n",res);
-    //if successfull
+
+    //if succesfull
     if ( res == 1 )
     {
       api->SetImage( (unsigned char*) img->imageData,  img->width, img->height, img->nChannels, img->widthStep);
     }
 
 }
+
 /*
 namespace bp = boost::python;
 void SetMat(PyObject* o, tesseract::TessBaseAPI* api)
