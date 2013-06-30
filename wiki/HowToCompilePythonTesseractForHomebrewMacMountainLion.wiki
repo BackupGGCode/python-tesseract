@@ -46,6 +46,7 @@ Either
 {{{
 svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
 cd python-tesseract
+export ARCHFLAGS="-arch x86_64"
 python setup.py clean
 python setup.py build
 python setup.py install --user
