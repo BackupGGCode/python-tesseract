@@ -16,7 +16,8 @@ brew install python
 pip install numpy
 brew uninstall opencv
 brew install -vd --tbb opencv
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"}}}
+export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+}}}
 
 3. Install misc
 {{{
