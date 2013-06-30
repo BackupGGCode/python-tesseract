@@ -18,6 +18,14 @@ brew uninstall opencv
 brew install -vd --tbb opencv
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 }}}
+
+3. Install misc
+{{{
+brew -v update && brew -v upgrade
+brew tap homebrew/science                       #needed for the time being only (30 June 2013)
+brew install wget axel swig leptonica tesseract opencv subversion
+}}}
+
 ### testing ###
 {{{
 >which python
@@ -29,12 +37,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> import cv2
 >>> quit()
 }}}
-3. Install misc
-{{{
-brew -v update && brew -v upgrade
-brew tap homebrew/science                       #needed for the time being only (30 June 2013)
-brew install wget axel swig leptonica tesseract opencv subversion
-}}}
+
 4.
 Either
 {{{
