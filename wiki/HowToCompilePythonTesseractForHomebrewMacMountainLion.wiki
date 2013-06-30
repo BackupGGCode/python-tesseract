@@ -41,6 +41,17 @@ Type "help", "copyright", "credits" or "license" for more information.
 4.
 Either
 {{{
+svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
+cd python-tesseract
+python setup.py clean
+python setup.py build
+python setup.py install --user
+export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+python test.py
+}}}
+
+or 
+{{{
 wget https://python-tesseract.googlecode.com/files/python-tesseract-0.8-1.7_20130612_.macosx-10.8-x86_64.tar.gz
 sudo tar zxvf python-tesseract-0.8-1.7_20130612_.macosx-10.8-x86_64.tar.gz -C /
 wget https://python-tesseract.googlecode.com/files/test-slim.7z
@@ -49,14 +60,4 @@ brew install p7zip
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 python test.py
 
-}}}
-or 
-{{{
-svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
-cd python-tesseract
-python setup.py clean
-python setup.py build
-python setup.py install --user
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-python test.py
 }}}
