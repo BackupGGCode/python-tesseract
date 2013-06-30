@@ -29,7 +29,8 @@ brew install leptonica tesseract opencv
 
 ### testing ###
 {{{
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH">which python
+>export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+>which python
 /usr/local/bin/python
 >python
 Python 2.7.3 (default, Mar  5 2013, 00:02:42) 
