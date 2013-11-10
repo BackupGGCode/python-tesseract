@@ -15,7 +15,7 @@ brew rm python
 brew install python
 pip install numpy
 brew uninstall opencv
-brew install -vd --tbb opencv
+
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 }}}
 
@@ -24,6 +24,7 @@ export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 
 brew -v update && brew -v upgrade
 brew tap homebrew/science                       #needed for the time being only (30 June 2013)
+brew install -vd --tbb opencv
 brew install wget axel swig subversion
 brew install leptonica opencv tesseract  
 }}}
