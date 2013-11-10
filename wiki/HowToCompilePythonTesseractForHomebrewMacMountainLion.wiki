@@ -25,6 +25,7 @@ export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 brew -v update && brew -v upgrade
 brew tap homebrew/science                       #needed for the time being only (30 June 2013)
 brew install -vd --tbb opencv
+#brew install homebrew/science/opencv    # enable it if the above command line don't install opencv
 brew install wget axel swig subversion
 brew install leptonica opencv tesseract  
 }}}
