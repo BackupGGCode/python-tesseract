@@ -19,5 +19,6 @@ if paths_exists("opencv/cv.h")  :
 	idefine(fp,"opencv")
 
 if osname =='windows':
+	fp.write('#define HAVE_LIBLEPT\n')
 	idefine(fp,"opencv2")	  
 fp.close()

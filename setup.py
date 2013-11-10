@@ -108,6 +108,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 		incls = [os.path.join(prefix,'include')]
 		libs=[os.path.join(prefix,'lib')]
 		fp.write('#include "fmemopen.h"\n')
+		fp.write('#define HAVE_LIBLEPT\n')
 	else:
 		prefix=sys.prefix
 		incls = ['/usr/include', '/usr/local/include']
