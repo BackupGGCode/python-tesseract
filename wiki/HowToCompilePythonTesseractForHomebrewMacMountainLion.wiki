@@ -58,8 +58,12 @@ python test.py
 
 or 
 {{{
-wget https://python-tesseract.googlecode.com/files/python-tesseract_0.8-1.8.homebrew.macosx-10.9-intel.tar.gzsudo tar zxvf python-tesseract-0.8-1.7_20130612_.macosx-10.8-x86_64.tar.gz -C /
-wget https://python-tesseract.googlecode.com/files/test-slim.7z
+pyfileHttp=https://python-tesseract.googlecode.com/files
+ptzip=python-tesseract_0.8-1.8.homebrew.macosx-10.9-intel.tar.gz   #<--- for ios 10.9
+#ptzip=python-tesseract_0.8-1.8.homebrew.macosx-10.8-x86_64.tar.gz      #<---- for ios 10.8.5
+wget $pyfileHttp/$ptzip
+sudo tar zxvf $ptzip -C /
+wget $pyfileHttp/test-slim.7z
 brew install p7zip
 7z x test-slim.7z
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
