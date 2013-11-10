@@ -1,6 +1,6 @@
-#summary How to compile python-tesseract for Homebrew(Mac Mountain Lion)
+#summary How to compile python-tesseract for Homebrew(Mac Mountain Lion/Maverick)
 
-=How to compile python-tesseract (for Mac Mountain Lion )=
+=How to compile python-tesseract (for Mac Mountain Lion/Maverick )=
 
 launch xCode, then go to Preferences -> Downloads and install "Command Line Tools". 
 Restart Terminal and you will be able to use Make.
@@ -58,8 +58,7 @@ python test.py
 
 or 
 {{{
-wget https://python-tesseract.googlecode.com/files/python-tesseract-0.8-1.7_20130612_.macosx-10.8-x86_64.tar.gz
-sudo tar zxvf python-tesseract-0.8-1.7_20130612_.macosx-10.8-x86_64.tar.gz -C /
+wget https://python-tesseract.googlecode.com/files/python-tesseract_0.8-1.8.homebrew.macosx-10.9-intel.tar.gzsudo tar zxvf python-tesseract-0.8-1.7_20130612_.macosx-10.8-x86_64.tar.gz -C /
 wget https://python-tesseract.googlecode.com/files/test-slim.7z
 brew install p7zip
 7z x test-slim.7z
