@@ -4,7 +4,8 @@
 ==Compile leptonica==
 {{{
 yum groupinstall "Development Tools" -y
-yum install swig gcc-c++ leptonica giflib-devel libtiff-devel zlib-devel libpng-devel libjpeg-turbo-devel python-devel tesseract-devel opencv-devel -y 
+yum install swig gcc-c++ leptonica -y
+yum install giflib-devel libtiff-devel zlib-devel libpng-devel libjpeg-turbo-devel python-devel tesseract-devel opencv-devel -y 
 
 }}}
 
