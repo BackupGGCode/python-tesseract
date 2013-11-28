@@ -1,24 +1,13 @@
-#summary How to compile python tesseract for Fedora
+#summary How to compile python tesseract for Fedora19
 
 =How to compile python-tesseract for Fedora=
 ==Compile leptonica==
 {{{
-wget http://www.leptonica.com/source/leptonica-1.68.tar.gz
-tar zxvf leptonica-1.68.tar.gz
-cd leptonica-1.6.8
-yum install giflib-devel libtiff-devel zlib-devel libpng-devel libjpeg-turbo-devel python-devel -y 
-./configure --prefix=/usr
-make
-sudo make install
-}}}
+yum groupinstall "Development Tools" -y
+yum install swig gcc-c++ leptonica giflib-devel libtiff-devel zlib-devel libpng-devel libjpeg-turbo-devel python-devel tesseract-devel opencv-devel -y 
 
-
-==Compile Tesseract OCR==
-{{{
-svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
-./configure --prefix=/usr
-make
-make install
 }}}
 
 ==Compile Python-Tesseract==
+{{{
+}}}
