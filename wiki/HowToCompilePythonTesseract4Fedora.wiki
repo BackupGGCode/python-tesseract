@@ -18,6 +18,7 @@ easy_install pip
 yum install python-devel -y
 svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
 cd python-tesseract
+python setup.py clean
 python setup.py build
 python setup.py install --user
 python setup.py bdist_rpm
