@@ -1,7 +1,7 @@
 #summary How to compile python tesseract for Fedora19
 
 =How to compile python-tesseract for Fedora=
-==Compile leptonica==
+==Install Basics==
 {{{
 yum groupinstall "Development Tools" -y
 yum install swig gcc-c++ leptonica rpm-build numpy opencv* -y
