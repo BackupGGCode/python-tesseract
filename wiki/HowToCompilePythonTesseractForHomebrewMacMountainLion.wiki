@@ -7,7 +7,7 @@ Restart Terminal and you will be able to use Make.
 
 1. Install HomeBrew
 {{{
-ruby <(curl -fsSk https://raw.github.com/mxcl/homebrew/go)
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 }}}
 2. remove old python (optional)
 {{{
