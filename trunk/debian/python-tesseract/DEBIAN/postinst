@@ -1,7 +1,9 @@
 #!/bin/sh
 set -e
-# Automatically added by dh_pysupport
-if which update-python-modules >/dev/null 2>&1; then
-	update-python-modules  python-tesseract.public
+
+# Automatically added by dh_python2:
+if which pycompile >/dev/null 2>&1; then
+	pycompile -p python-tesseract 
 fi
+
 # End automatically added section
