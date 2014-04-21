@@ -118,7 +118,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 			include_dirs.append(os.path.join("cygwin/includes/"))
 #	incl=os.path.join(prefix,"include")
 #	print "include path=%s"%incl
-	
+
 	def checkPath(paths,mlib):
 		for pref in paths:
 			path_to = os.path.join(pref, mlib)
@@ -135,17 +135,17 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 		clang_incls.append('opencv2')
 		writeIncludeLines(fp2,cvIncludeLines)
 		hasOpenCV = 1
-		
+
 	if inclpath("opencv/cv.h")  :
 		idefine(fp,"opencv")
 		fp.write("#include <opencv/cv.h>\n")
 		clang_incls.append('opencv')
 		writeIncludeLines(fp2,cvIncludeLines)
 		hasOpenCV = 1
-		
+
 	fp.write("#include <Python.h>\n")
 
-	
+
 	libraries=['stdc++','tesseract','lept']
 
 	cv_pc=pkgconfig("opencv")
@@ -202,10 +202,10 @@ elif osname=="windows":
 			print mext
 			if files and len(files) > 0:
 				print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>%s"%files[0]
-				
+
 				return files[0][:-4]
 
-	
+
 	def inclpath(name):
 		return checkOnePath(inclPath,name,"")
 	def libpath(name):
@@ -247,15 +247,17 @@ for incl in clang_incls:
 print repr(include_dirs)
 tesseract_module = Extension('_tesseract',
 									sources=sources,
-									#extra_compile_args=["-DEBUG -O1 -pg "],
+									#extra_compile_args=["-DEBUG -O0 -pg "],
+									#extra_compile_args=["-O0","-g"],
+									extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
 									swig_opts=["-c++", "-I"+inclpath('tesseract'),
 									#				"-I"+os.path.dirname(config.__file__),
 													"-I"+inclpath('leptonica')],
 									include_dirs=include_dirs,
-									library_dirs=library_dirs,									
+									library_dirs=library_dirs,
 									libraries=libraries,
 									)
-									
+
 
 setup (name = name,
 		version = version_number,

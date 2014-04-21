@@ -23,7 +23,6 @@ dh_link
 dh_buildinfo
 dh_installmime
 dh_installgsettings
-dh_pysupport
 dh_strip
 dh_compress
 dh_fixperms
