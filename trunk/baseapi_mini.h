@@ -25,7 +25,7 @@
 // complexity of includes here. Use forward declarations wherever possible
 // and hide includes of complex types in baseapi.cpp.
 #include "apitypes.h"
-#include "thresholder.h"    
+#include "thresholder.h"
 #include "unichar.h"
 #include "tesscallback.h"
 #include "publictypes.h"
@@ -365,10 +365,22 @@ class TESSDLL_API TessBaseAPI {
    * Get the textlines as a leptonica-style
    * Boxa, Pixa pair, in reading order.
    * Can be called before or after Recognize.
-   * If blockids is not NULL, the block-id of each line is also returned
-   * as an array of one element per line. delete [] after use.
+   * If raw_image is true, then extract from the original image instead of the
+   * thresholded image and pad by raw_padding pixels.
+   * If blockids is not NULL, the block-id of each line is also returned as an
+   * array of one element per line. delete [] after use.
+   * If paraids is not NULL, the paragraph-id of each line within its block is
+   * also returned as an array of one element per line. delete [] after use.
    */
-  Boxa* GetTextlines(Pixa** pixa, int** blockids);
+  Boxa* GetTextlines(const bool raw_image, const int raw_padding,
+                     Pixa** pixa, int** blockids, int** paraids);
+  /*
+     Helper method to extract from the thresholded image. (most common usage)
+  */
+  Boxa* GetTextlines(Pixa** pixa, int** blockids) {
+    return GetTextlines(false, 0, pixa, blockids, NULL);
+  }
+
 
   /**
    * Get textlines and strips of image regions as a leptonica-style Boxa, Pixa
@@ -591,9 +603,9 @@ class TESSDLL_API TessBaseAPI {
   bool DetectOS(OSResults*);
 
   /** This method returns the features associated with the input image. */
-  void GetFeaturesForBlob(TBLOB* blob, const DENORM& denorm,
-                          INT_FEATURE_ARRAY int_features,
-                          int* num_features, int* FeatureOutlineIndex);
+  //void GetFeaturesForBlob(TBLOB* blob, const DENORM& denorm,
+  //                        INT_FEATURE_ARRAY int_features,
+  //                        int* num_features, int* FeatureOutlineIndex);
 
   // This method returns the row to which a box of specified dimensions would
   // belong. If no good match is found, it returns NULL.
@@ -602,12 +614,13 @@ class TESSDLL_API TessBaseAPI {
 
   // Method to run adaptive classifier on a blob.
   // It returns at max num_max_matches results.
+  /*
   void RunAdaptiveClassifier(TBLOB* blob, const DENORM& denorm,
                              int num_max_matches,
                              int* unichar_ids,
                              float* ratings,
                              int* num_matches_returned);
-
+*/
   // This method returns the string form of the specified unichar.
   const char* GetUnichar(int unichar_id);
 
@@ -627,11 +640,14 @@ class TESSDLL_API TessBaseAPI {
   // Returns a TBLOB corresponding to the entire input image.
   static TBLOB *MakeTBLOB(Pix *pix);
 
-  // This method baseline normalizes a TBLOB in-place. The input row is used
-  // for normalization. The denorm is an optional parameter in which the
-  // normalization-antidote is returned.
-  static void NormalizeTBLOB(TBLOB *tblob, ROW *row,
-                             bool numeric_mode, DENORM *denorm);
+
+ /**
+   * This method baseline normalizes a TBLOB in-place. The input row is used
+   * for normalization. The denorm is an optional parameter in which the
+   * normalization-antidote is returned.
+   */
+  static void NormalizeTBLOB(TBLOB *tblob, ROW *row, bool numeric_mode);
+
 
   Tesseract* const tesseract() const {
     return tesseract_;
@@ -764,6 +780,8 @@ class TESSDLL_API TessBaseAPI {
   int image_width_;
   int image_height_;
   /* @} */
+
+
 };
 
 }  // namespace tesseract.
