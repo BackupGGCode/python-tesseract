@@ -4,6 +4,8 @@
 import tesseract
 import ctypes
 import os
+import gc
+import pprint
 #print "HAVE_LIBLEPT=",tesseract.isLibLept()
 #print dir("tesseract")
 #print tesseract.MAX_NUM_INT_FEATURES
@@ -37,3 +39,11 @@ f.close()
 result = tesseract.ProcessPagesBuffer(mBuffer,len(mBuffer),api)
 mBuffer=None
 print "result(ProcessPagesBuffer)=",result
+#for r in gc.get_referents(api):
+#    pprint.pprint(r)
+n = gc.collect()
+print 'Unreachable objects:', n
+print 'Remaining Garbage:', 
+pprint.pprint(gc.garbage)
+print
+
