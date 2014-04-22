@@ -1,6 +1,6 @@
 #summary How to compile python-tesseract for Ubuntu, Mac OSX and Cygwin
 
-=How to compile python-tesseract (for Ubuntu Precise & Quantal)=
+=How to compile python-tesseract (for Ubuntu Raring & Saucy & Trusty )=
 {{{
 sudo apt-get install python-distutils-extra tesseract-ocr tesseract-ocr-eng libopencv-dev libtesseract-dev libleptonica-dev python-all-dev swig libcv-dev python-opencv python-numpy python-setuptools build-essential subversion
 svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
