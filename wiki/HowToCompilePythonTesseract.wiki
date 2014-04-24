@@ -3,7 +3,16 @@
 =How to compile python-tesseract (for Ubuntu Raring & Saucy & Trusty )=
 {{{
 sudo apt-get install python-distutils-extra tesseract-ocr tesseract-ocr-eng libopencv-dev libtesseract-dev libleptonica-dev python-all-dev swig libcv-dev python-opencv python-numpy python-setuptools build-essential subversion
+}}}
+For Trusty,
+{{{
 svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
+}}}
+For Other,
+{{{
+svn checkout http://python-tesseract.googlecode.com/svn/trunk/400 python-tesseract
+}}}
+{{{
 cd python-tesseract
 python config.py
 python setup.py clean
