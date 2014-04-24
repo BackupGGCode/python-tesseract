@@ -10,7 +10,7 @@ svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
 }}}
 For Other,
 {{{
-svn checkout http://python-tesseract.googlecode.com/svn/trunk/400 python-tesseract
+svn checkout http://python-tesseract.googlecode.com/svn/trunk@400 python-tesseract
 }}}
 {{{
 cd python-tesseract
