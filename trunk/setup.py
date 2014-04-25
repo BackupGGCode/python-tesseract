@@ -183,6 +183,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 elif osname=="windows":
 	name='python'
 	description = """Python Wrapper for Tesseract-OCR """
+	print "@"*100
 	sources.append('ms_fmemopen.c')
 	pathOffset="vs2008"
 	if "32" in sys.version:
