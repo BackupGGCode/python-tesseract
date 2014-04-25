@@ -24,10 +24,6 @@ print "Test ProcessPagesFileStream"
 result = tesseract.ProcessPagesFileStream(mImgFile,api)
 print "result(ProcessPagesFileStream)=",result
 
-print "Test ProcessPagesRaw"
-result = tesseract.ProcessPagesRaw(mImgFile,api)
-print "result(ProcessPagesRaw)",result
-
 #print "Test ProcessPagesRaw2"
 #result = tesseract.ProcessPagesRaw2(mImgFile,api)
 #print "result(ProcessPagesRaw2)",result
@@ -39,8 +35,15 @@ f.close()
 result = tesseract.ProcessPagesBuffer(mBuffer,len(mBuffer),api)
 mBuffer=None
 print "result(ProcessPagesBuffer)=",result
-#for r in gc.get_referents(api):
-#    pprint.pprint(r)
+
+
+
+print "Test ProcessPagesRaw"
+result = tesseract.ProcessPagesRaw(mImgFile,api)
+print "result(ProcessPagesRaw)",result
+
+for r in gc.get_referents(api):
+    pprint.pprint(r)
 n = gc.collect()
 print 'Unreachable objects:', n
 print 'Remaining Garbage:', 

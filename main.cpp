@@ -97,8 +97,10 @@ char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api)
 	//int ch;
 
 	stream=fmemopen((void*)buffer,fileLen,"rb");
-	if (stream == NULL)
+	if (stream == NULL) {
+		puts("cant't open stream using fmemopen");
 		return (char*)"Error";
+	}
 	Pix *pix;
 	int page=0;
 	STRING mstr;
@@ -140,8 +142,9 @@ char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
 
 	//dump_buffer(buffer,size);
 	char* retStr;
-	//printf("size=%d\n",size);
+	printf("size=%d\n",size);
 	retStr=ProcessPagesBuffer(buffer,size, api);
+	printf("retStr length=%d\n",strlen(retStr));
 	delete[] buffer;
 	//free(buffer);
 	return retStr;

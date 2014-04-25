@@ -75,7 +75,7 @@ inline bool PTIsTextType(PolyBlockType type) {
 }
 
 /** String name for each block type. Keep in sync with PolyBlockType. */
-/* extern const char** kPolyBlockNames; */
+/* extern const char* kPolyBlockNames[]; */
 
 namespace tesseract {
 /**
