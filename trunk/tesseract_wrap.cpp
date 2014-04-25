@@ -5019,188 +5019,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TessBaseAPI_GetTextlines__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
-  bool arg2 ;
-  int arg3 ;
-  Pixa **arg4 = (Pixa **) 0 ;
-  int **arg5 = (int **) 0 ;
-  int **arg6 = (int **) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  void *argp5 = 0 ;
-  int res5 = 0 ;
-  void *argp6 = 0 ;
-  int res6 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  PyObject * obj5 = 0 ;
-  Boxa *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOOOO:TessBaseAPI_GetTextlines",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TessBaseAPI_GetTextlines" "', argument " "1"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::TessBaseAPI * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TessBaseAPI_GetTextlines" "', argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TessBaseAPI_GetTextlines" "', argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_p_Pixa, 0 |  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "TessBaseAPI_GetTextlines" "', argument " "4"" of type '" "Pixa **""'"); 
-  }
-  arg4 = reinterpret_cast< Pixa ** >(argp4);
-  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res5)) {
-    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "TessBaseAPI_GetTextlines" "', argument " "5"" of type '" "int **""'"); 
-  }
-  arg5 = reinterpret_cast< int ** >(argp5);
-  res6 = SWIG_ConvertPtr(obj5, &argp6,SWIGTYPE_p_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res6)) {
-    SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "TessBaseAPI_GetTextlines" "', argument " "6"" of type '" "int **""'"); 
-  }
-  arg6 = reinterpret_cast< int ** >(argp6);
-  result = (Boxa *)(arg1)->GetTextlines(arg2,arg3,arg4,arg5,arg6);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Boxa, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TessBaseAPI_GetTextlines__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
-  Pixa **arg2 = (Pixa **) 0 ;
-  int **arg3 = (int **) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  Boxa *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:TessBaseAPI_GetTextlines",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TessBaseAPI_GetTextlines" "', argument " "1"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::TessBaseAPI * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_p_Pixa, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TessBaseAPI_GetTextlines" "', argument " "2"" of type '" "Pixa **""'"); 
-  }
-  arg2 = reinterpret_cast< Pixa ** >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_p_int, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "TessBaseAPI_GetTextlines" "', argument " "3"" of type '" "int **""'"); 
-  }
-  arg3 = reinterpret_cast< int ** >(argp3);
-  result = (Boxa *)(arg1)->GetTextlines(arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Boxa, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TessBaseAPI_GetTextlines(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[7];
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 6) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 3) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_tesseract__TessBaseAPI, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_Pixa, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_p_int, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          return _wrap_TessBaseAPI_GetTextlines__SWIG_1(self, args);
-        }
-      }
-    }
-  }
-  if (argc == 6) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_tesseract__TessBaseAPI, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_bool(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        {
-          int res = SWIG_AsVal_int(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_p_Pixa, 0);
-          _v = SWIG_CheckState(res);
-          if (_v) {
-            void *vptr = 0;
-            int res = SWIG_ConvertPtr(argv[4], &vptr, SWIGTYPE_p_p_int, 0);
-            _v = SWIG_CheckState(res);
-            if (_v) {
-              void *vptr = 0;
-              int res = SWIG_ConvertPtr(argv[5], &vptr, SWIGTYPE_p_p_int, 0);
-              _v = SWIG_CheckState(res);
-              if (_v) {
-                return _wrap_TessBaseAPI_GetTextlines__SWIG_0(self, args);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'TessBaseAPI_GetTextlines'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    tesseract::TessBaseAPI::GetTextlines(bool const,int const,Pixa **,int **,int **)\n"
-    "    tesseract::TessBaseAPI::GetTextlines(Pixa **,int **)\n");
-  return 0;
-}
-
-
 SWIGINTERN PyObject *_wrap_TessBaseAPI_GetWords(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
@@ -6101,45 +5919,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TessBaseAPI_NormalizeTBLOB(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  TBLOB *arg1 = (TBLOB *) 0 ;
-  ROW *arg2 = (ROW *) 0 ;
-  bool arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  bool val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:TessBaseAPI_NormalizeTBLOB",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_TBLOB, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TessBaseAPI_NormalizeTBLOB" "', argument " "1"" of type '" "TBLOB *""'"); 
-  }
-  arg1 = reinterpret_cast< TBLOB * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_ROW, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TessBaseAPI_NormalizeTBLOB" "', argument " "2"" of type '" "ROW *""'"); 
-  }
-  arg2 = reinterpret_cast< ROW * >(argp2);
-  ecode3 = SWIG_AsVal_bool(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TessBaseAPI_NormalizeTBLOB" "', argument " "3"" of type '" "bool""'");
-  } 
-  arg3 = static_cast< bool >(val3);
-  tesseract::TessBaseAPI::NormalizeTBLOB(arg1,arg2,arg3);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_TessBaseAPI_tesseract(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
@@ -6688,7 +6467,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TessBaseAPI_SetRectangle", _wrap_TessBaseAPI_SetRectangle, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetThresholdedImage", _wrap_TessBaseAPI_GetThresholdedImage, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetRegions", _wrap_TessBaseAPI_GetRegions, METH_VARARGS, NULL},
-	 { (char *)"TessBaseAPI_GetTextlines", _wrap_TessBaseAPI_GetTextlines, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetWords", _wrap_TessBaseAPI_GetWords, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_GetConnectedComponents", _wrap_TessBaseAPI_GetConnectedComponents, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_DumpPGM", _wrap_TessBaseAPI_DumpPGM, METH_VARARGS, NULL},
@@ -6716,7 +6494,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TessBaseAPI_NumDawgs", _wrap_TessBaseAPI_NumDawgs, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_MakeTessOCRRow", _wrap_TessBaseAPI_MakeTessOCRRow, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_MakeTBLOB", _wrap_TessBaseAPI_MakeTBLOB, METH_VARARGS, NULL},
-	 { (char *)"TessBaseAPI_NormalizeTBLOB", _wrap_TessBaseAPI_NormalizeTBLOB, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_tesseract", _wrap_TessBaseAPI_tesseract, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_oem", _wrap_TessBaseAPI_oem, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_InitTruthCallback", _wrap_TessBaseAPI_InitTruthCallback, METH_VARARGS, NULL},

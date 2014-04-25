@@ -9,5 +9,5 @@
 #ifndef __opencv__
 	#define __opencv__
 #endif
-#include <opencv/cv.h>
+#include <cv.h>
 #include <Python.h>

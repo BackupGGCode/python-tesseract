@@ -372,16 +372,16 @@ class TESSDLL_API TessBaseAPI {
    * If paraids is not NULL, the paragraph-id of each line within its block is
    * also returned as an array of one element per line. delete [] after use.
    */
-  Boxa* GetTextlines(const bool raw_image, const int raw_padding,
-                     Pixa** pixa, int** blockids, int** paraids);
   /*
-     Helper method to extract from the thresholded image. (most common usage)
-  */
-  Boxa* GetTextlines(Pixa** pixa, int** blockids) {
-    return GetTextlines(false, 0, pixa, blockids, NULL);
-  }
+   Boxa* GetTextlines(Pixa** pixa, int** blockids);
 
+   Boxa* GetTextlines(const bool raw_image, const int raw_padding,
+                      Pixa** pixa, int** blockids, int** paraids);
+   Boxa* GetTextlines(Pixa** pixa, int** blockids) {
+     return GetTextlines(false, 0, pixa, blockids, NULL);
+   }
 
+*/
   /**
    * Get textlines and strips of image regions as a leptonica-style Boxa, Pixa
    * pair, in reading order. Enables downstream handling of non-rectangular
@@ -646,7 +646,8 @@ class TESSDLL_API TessBaseAPI {
    * for normalization. The denorm is an optional parameter in which the
    * normalization-antidote is returned.
    */
-  static void NormalizeTBLOB(TBLOB *tblob, ROW *row, bool numeric_mode);
+ //static void NormalizeTBLOB(TBLOB *tblob, ROW *row, bool numeric_mode, DENORM *denorm);
+ //static void NormalizeTBLOB(TBLOB *tblob, ROW *row, bool numeric_mode);
 
 
   Tesseract* const tesseract() const {
