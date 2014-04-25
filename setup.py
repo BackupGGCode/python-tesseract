@@ -138,7 +138,7 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 
 	if inclpath("opencv/cv.h")  :
 		idefine(fp,"opencv")
-		fp.write("#include <opencv/cv.h>\n")
+		fp.write("#include <cv.h>\n")
 		clang_incls.append('opencv')
 		writeIncludeLines(fp2,cvIncludeLines)
 		hasOpenCV = 1

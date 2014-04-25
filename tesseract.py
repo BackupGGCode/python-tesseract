@@ -201,7 +201,6 @@ class TessBaseAPI(_object):
     def SetRectangle(self, *args): return _tesseract.TessBaseAPI_SetRectangle(self, *args)
     def GetThresholdedImage(self): return _tesseract.TessBaseAPI_GetThresholdedImage(self)
     def GetRegions(self, *args): return _tesseract.TessBaseAPI_GetRegions(self, *args)
-    def GetTextlines(self, *args): return _tesseract.TessBaseAPI_GetTextlines(self, *args)
     def GetWords(self, *args): return _tesseract.TessBaseAPI_GetWords(self, *args)
     def GetConnectedComponents(self, *args): return _tesseract.TessBaseAPI_GetConnectedComponents(self, *args)
     def DumpPGM(self, *args): return _tesseract.TessBaseAPI_DumpPGM(self, *args)
@@ -232,8 +231,6 @@ class TessBaseAPI(_object):
     if _newclass:MakeTessOCRRow = staticmethod(_tesseract.TessBaseAPI_MakeTessOCRRow)
     __swig_getmethods__["MakeTBLOB"] = lambda x: _tesseract.TessBaseAPI_MakeTBLOB
     if _newclass:MakeTBLOB = staticmethod(_tesseract.TessBaseAPI_MakeTBLOB)
-    __swig_getmethods__["NormalizeTBLOB"] = lambda x: _tesseract.TessBaseAPI_NormalizeTBLOB
-    if _newclass:NormalizeTBLOB = staticmethod(_tesseract.TessBaseAPI_NormalizeTBLOB)
     def tesseract(self): return _tesseract.TessBaseAPI_tesseract(self)
     def oem(self): return _tesseract.TessBaseAPI_oem(self)
     def InitTruthCallback(self, *args): return _tesseract.TessBaseAPI_InitTruthCallback(self, *args)
@@ -263,10 +260,6 @@ TessBaseAPI_MakeTessOCRRow = _tesseract.TessBaseAPI_MakeTessOCRRow
 def TessBaseAPI_MakeTBLOB(*args):
   return _tesseract.TessBaseAPI_MakeTBLOB(*args)
 TessBaseAPI_MakeTBLOB = _tesseract.TessBaseAPI_MakeTBLOB
-
-def TessBaseAPI_NormalizeTBLOB(*args):
-  return _tesseract.TessBaseAPI_NormalizeTBLOB(*args)
-TessBaseAPI_NormalizeTBLOB = _tesseract.TessBaseAPI_NormalizeTBLOB
 
 def TessBaseAPI_DeleteBlockList(*args):
   return _tesseract.TessBaseAPI_DeleteBlockList(*args)
