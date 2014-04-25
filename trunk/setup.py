@@ -5,7 +5,7 @@ written by FreeToGo@gmail.com
 """
 
 from setuptools import setup, Extension, Command, find_packages
-import sys,os,platform,glob,commands
+import sys,os,platform,glob,commands,sys
 
 def writeIncludeLines(fp,lines) :
 	for line in lines:
@@ -184,11 +184,14 @@ elif osname=="windows":
 	name='python'
 	description = """Python Wrapper for Tesseract-OCR """
 	sources.append('ms_fmemopen.c')
-
 	pathOffset="vs2008"
+	if "32" in sys.version:
+		dllDir="x86"
+	else:
+		dllDir="x64"
 	inclPath=os.path.join(pathOffset,"includes")
 	libPath=os.path.join(os.getcwd(),pathOffset,"libs")
-	dllPath=os.path.join(pathOffset,"dlls")
+	dllPath=os.path.join(pathOffset,dllDir,"dlls")
 	pydPath=os.path.join(pathOffset,"pyds")
 	def checkOnePath(mpath,mlib,mext):
 		path_to = os.path.join(mpath,mlib)
@@ -249,7 +252,8 @@ tesseract_module = Extension('_tesseract',
 									sources=sources,
 									#extra_compile_args=["-DEBUG -O0 -pg "],
 									#extra_compile_args=["-O0","-g"],
-									extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
+									#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
+									extra_compile_args = ["-Wall", "-O0", '-funroll-loops','-g'],
 									swig_opts=["-c++", "-I"+inclpath('tesseract'),
 									#				"-I"+os.path.dirname(config.__file__),
 													"-I"+inclpath('leptonica')],
