@@ -183,17 +183,17 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 elif osname=="windows":
 	name='python'
 	description = """Python Wrapper for Tesseract-OCR """
-	print "@"*100
+
 	sources.append('ms_fmemopen.c')
 	pathOffset="vs2008"
 	if "32" in sys.version:
-		dllDir="x86"
+		xDir="x86"
 	else:
-		dllDir="x64"
+		xDir="x64"
 	inclPath=os.path.join(pathOffset,"includes")
-	libPath=os.path.join(os.getcwd(),pathOffset,"libs")
-	dllPath=os.path.join(pathOffset,dllDir,"dlls")
-	pydPath=os.path.join(pathOffset,"pyds")
+	libPath=os.path.join(pathOffset,xDir,"libs")
+	dllPath=os.path.join(pathOffset,xDir,"dlls")
+	pydPath=os.path.join(pathOffset,xDir,"pyds")
 	def checkOnePath(mpath,mlib,mext):
 		path_to = os.path.join(mpath,mlib)
 		print "****************path_to=%s %s\n"%(repr(path_to),os.path.exists(path_to+"."+mext))
