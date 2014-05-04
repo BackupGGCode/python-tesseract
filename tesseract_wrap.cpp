@@ -2951,20 +2951,22 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_double swig_types[14]
 #define SWIGTYPE_p_float swig_types[15]
 #define SWIGTYPE_p_int swig_types[16]
-#define SWIGTYPE_p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void swig_types[17]
-#define SWIGTYPE_p_p_Pixa swig_types[18]
-#define SWIGTYPE_p_p_bool swig_types[19]
-#define SWIGTYPE_p_p_char swig_types[20]
-#define SWIGTYPE_p_p_int swig_types[21]
-#define SWIGTYPE_p_tesseract__CubeRecoContext swig_types[22]
-#define SWIGTYPE_p_tesseract__Dawg swig_types[23]
-#define SWIGTYPE_p_tesseract__PageIterator swig_types[24]
-#define SWIGTYPE_p_tesseract__ResultIterator swig_types[25]
-#define SWIGTYPE_p_tesseract__TessBaseAPI swig_types[26]
-#define SWIGTYPE_p_tesseract__Tesseract swig_types[27]
-#define SWIGTYPE_p_unsigned_char swig_types[28]
-static swig_type_info *swig_types[30];
-static swig_module_info swig_module = {swig_types, 29, 0, 0, 0, 0};
+#define SWIGTYPE_p_intArray swig_types[17]
+#define SWIGTYPE_p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void swig_types[18]
+#define SWIGTYPE_p_p_Pixa swig_types[19]
+#define SWIGTYPE_p_p_bool swig_types[20]
+#define SWIGTYPE_p_p_char swig_types[21]
+#define SWIGTYPE_p_p_int swig_types[22]
+#define SWIGTYPE_p_p_intArray swig_types[23]
+#define SWIGTYPE_p_tesseract__CubeRecoContext swig_types[24]
+#define SWIGTYPE_p_tesseract__Dawg swig_types[25]
+#define SWIGTYPE_p_tesseract__PageIterator swig_types[26]
+#define SWIGTYPE_p_tesseract__ResultIterator swig_types[27]
+#define SWIGTYPE_p_tesseract__TessBaseAPI swig_types[28]
+#define SWIGTYPE_p_tesseract__Tesseract swig_types[29]
+#define SWIGTYPE_p_unsigned_char swig_types[30]
+static swig_type_info *swig_types[32];
+static swig_module_info swig_module = {swig_types, 31, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3442,6 +3444,27 @@ SWIG_AsCharPtrAndSize(PyObject *obj, char** cptr, size_t* psize, int *alloc)
 }
 
 
+typedef int intArray;
+
+SWIGINTERN intArray *new_intArray(size_t nelements){
+    return (new int[nelements]);
+  }
+SWIGINTERN void delete_intArray(intArray *self){
+    delete[] self;
+  }
+SWIGINTERN int intArray___getitem__(intArray *self,size_t index){
+    return self[index];
+  }
+SWIGINTERN void intArray___setitem__(intArray *self,size_t index,int value){
+    self[index] = value;
+  }
+SWIGINTERN int *intArray_cast(intArray *self){
+    return self;
+  }
+SWIGINTERN intArray *intArray_frompointer(int *t){
+    return static_cast< intArray * >(t);
+  }
+
 #include "config.h"
 #include "publictypes.h"
 //#include "thresholder.h"
@@ -3694,6 +3717,170 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_new_intArray(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  size_t arg1 ;
+  size_t val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  intArray *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_intArray",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_size_t(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_intArray" "', argument " "1"" of type '" "size_t""'");
+  } 
+  arg1 = static_cast< size_t >(val1);
+  result = (intArray *)new_intArray(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_intArray, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_intArray(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  intArray *arg1 = (intArray *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_intArray",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_intArray, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_intArray" "', argument " "1"" of type '" "intArray *""'"); 
+  }
+  arg1 = reinterpret_cast< intArray * >(argp1);
+  delete_intArray(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_intArray___getitem__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  intArray *arg1 = (intArray *) 0 ;
+  size_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:intArray___getitem__",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_intArray, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "intArray___getitem__" "', argument " "1"" of type '" "intArray *""'"); 
+  }
+  arg1 = reinterpret_cast< intArray * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "intArray___getitem__" "', argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  result = (int)intArray___getitem__(arg1,arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_intArray___setitem__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  intArray *arg1 = (intArray *) 0 ;
+  size_t arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:intArray___setitem__",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_intArray, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "intArray___setitem__" "', argument " "1"" of type '" "intArray *""'"); 
+  }
+  arg1 = reinterpret_cast< intArray * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "intArray___setitem__" "', argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "intArray___setitem__" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  intArray___setitem__(arg1,arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_intArray_cast(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  intArray *arg1 = (intArray *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  int *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:intArray_cast",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_intArray, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "intArray_cast" "', argument " "1"" of type '" "intArray *""'"); 
+  }
+  arg1 = reinterpret_cast< intArray * >(argp1);
+  result = (int *)intArray_cast(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_int, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_intArray_frompointer(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int *arg1 = (int *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  intArray *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:intArray_frompointer",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "intArray_frompointer" "', argument " "1"" of type '" "int *""'"); 
+  }
+  arg1 = reinterpret_cast< int * >(argp1);
+  result = (intArray *)intArray_frompointer(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_intArray, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *intArray_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_intArray, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
 SWIGINTERN int Swig_var_kPointsPerInch_set(PyObject *) {
   SWIG_Error(SWIG_AttributeError,"Variable kPointsPerInch is read-only.");
   return 1;
@@ -3771,6 +3958,22 @@ SWIGINTERN PyObject *_wrap_PTIsTextType(PyObject *SWIGUNUSEDPARM(self), PyObject
   return resultobj;
 fail:
   return NULL;
+}
+
+
+SWIGINTERN int Swig_var_kPolyBlockNames_set(PyObject *_val) {
+  SWIG_exception_fail(SWIG_ArgError(SWIG_AttributeError), "in variable '""read-only kPolyBlockNames""' of type '""char const *[]""'");
+  return 0;
+fail:
+  return 1;
+}
+
+
+SWIGINTERN PyObject *Swig_var_kPolyBlockNames_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_NewPointerObj(SWIG_as_voidptr(kPolyBlockNames), SWIGTYPE_p_p_char,  0 );
+  return pyobj;
 }
 
 
@@ -6125,6 +6328,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AllWordConfidences(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int *arg1 = (int *) 0 ;
+  tesseract::TessBaseAPI *arg2 = (tesseract::TessBaseAPI *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:AllWordConfidences",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AllWordConfidences" "', argument " "1"" of type '" "int *""'"); 
+  }
+  arg1 = reinterpret_cast< int * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AllWordConfidences" "', argument " "2"" of type '" "tesseract::TessBaseAPI *""'"); 
+  }
+  arg2 = reinterpret_cast< tesseract::TessBaseAPI * >(argp2);
+  AllWordConfidences(arg1,arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ProcessPagesWrapper(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   char *arg1 = (char *) 0 ;
@@ -6405,6 +6638,13 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"intp_value", _wrap_intp_value, METH_VARARGS, NULL},
 	 { (char *)"cdata", _wrap_cdata, METH_VARARGS, NULL},
 	 { (char *)"memmove", _wrap_memmove, METH_VARARGS, NULL},
+	 { (char *)"new_intArray", _wrap_new_intArray, METH_VARARGS, NULL},
+	 { (char *)"delete_intArray", _wrap_delete_intArray, METH_VARARGS, NULL},
+	 { (char *)"intArray___getitem__", _wrap_intArray___getitem__, METH_VARARGS, NULL},
+	 { (char *)"intArray___setitem__", _wrap_intArray___setitem__, METH_VARARGS, NULL},
+	 { (char *)"intArray_cast", _wrap_intArray_cast, METH_VARARGS, NULL},
+	 { (char *)"intArray_frompointer", _wrap_intArray_frompointer, METH_VARARGS, NULL},
+	 { (char *)"intArray_swigregister", intArray_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PTIsLineType", _wrap_PTIsLineType, METH_VARARGS, NULL},
 	 { (char *)"PTIsImageType", _wrap_PTIsImageType, METH_VARARGS, NULL},
 	 { (char *)"PTIsTextType", _wrap_PTIsTextType, METH_VARARGS, NULL},
@@ -6469,6 +6709,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TessBaseAPI_swigregister", TessBaseAPI_swigregister, METH_VARARGS, NULL},
 	 { (char *)"isLibTiff", _wrap_isLibTiff, METH_VARARGS, NULL},
 	 { (char *)"isLibLept", _wrap_isLibLept, METH_VARARGS, NULL},
+	 { (char *)"AllWordConfidences", _wrap_AllWordConfidences, METH_VARARGS, NULL},
 	 { (char *)"ProcessPagesWrapper", _wrap_ProcessPagesWrapper, METH_VARARGS, NULL},
 	 { (char *)"ProcessPagesPix", _wrap_ProcessPagesPix, METH_VARARGS, NULL},
 	 { (char *)"ProcessPagesFileStream", _wrap_ProcessPagesFileStream, METH_VARARGS, NULL},
@@ -6483,6 +6724,12 @@ static PyMethodDef SwigMethods[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
+static void *_p_intArrayTo_p_int(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((int *)  ((intArray *) x));
+}
+static void *_p_p_intArrayTo_p_p_int(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((int **)  ((intArray **) x));
+}
 static swig_type_info _swigt__p_BLOCK_LIST = {"_p_BLOCK_LIST", "BLOCK_LIST *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Boxa = {"_p_Boxa", "Boxa *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ETEXT_DESC = {"_p_ETEXT_DESC", "ETEXT_DESC *", 0, 0, (void*)0, 0};
@@ -6500,11 +6747,13 @@ static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_intArray = {"_p_intArray", "intArray *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void = {"_p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void", "tesseract::FillLatticeFunc *|void (Wordrec::**)(MATRIX const &,list_rec *const &,UNICHARSET const &,BlamerBundle *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_Pixa = {"_p_p_Pixa", "Pixa **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_bool = {"_p_p_bool", "bool **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_char = {"_p_p_char", "char **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_int = {"_p_p_int", "int **", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_p_intArray = {"_p_p_intArray", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_tesseract__CubeRecoContext = {"_p_tesseract__CubeRecoContext", "tesseract::CubeRecoContext *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__Dawg = {"_p_tesseract__Dawg", "tesseract::Dawg *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__PageIterator = {"_p_tesseract__PageIterator", "tesseract::PageIterator *", 0, 0, (void*)0, 0};
@@ -6531,11 +6780,13 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_double,
   &_swigt__p_float,
   &_swigt__p_int,
+  &_swigt__p_intArray,
   &_swigt__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void,
   &_swigt__p_p_Pixa,
   &_swigt__p_p_bool,
   &_swigt__p_p_char,
   &_swigt__p_p_int,
+  &_swigt__p_p_intArray,
   &_swigt__p_tesseract__CubeRecoContext,
   &_swigt__p_tesseract__Dawg,
   &_swigt__p_tesseract__PageIterator,
@@ -6561,12 +6812,14 @@ static swig_cast_info _swigc__p_bool[] = {  {&_swigt__p_bool, 0, 0, 0},{0, 0, 0,
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_float[] = {  {&_swigt__p_float, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_intArray, _p_intArrayTo_p_int, 0, 0},  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_intArray[] = {  {&_swigt__p_intArray, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void[] = {  {&_swigt__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_Pixa[] = {  {&_swigt__p_p_Pixa, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_bool[] = {  {&_swigt__p_p_bool, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_char[] = {  {&_swigt__p_p_char, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_int[] = {  {&_swigt__p_p_int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_intArray[] = {{&_swigt__p_p_intArray, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_int[] = {  {&_swigt__p_p_intArray, _p_p_intArrayTo_p_p_int, 0, 0},  {&_swigt__p_p_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__CubeRecoContext[] = {  {&_swigt__p_tesseract__CubeRecoContext, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__Dawg[] = {  {&_swigt__p_tesseract__Dawg, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__PageIterator[] = {  {&_swigt__p_tesseract__PageIterator, 0, 0, 0},{0, 0, 0, 0}};
@@ -6593,11 +6846,13 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_double,
   _swigc__p_float,
   _swigc__p_int,
+  _swigc__p_intArray,
   _swigc__p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__p_list_rec_r_q_const__UNICHARSET_p_BlamerBundle__void,
   _swigc__p_p_Pixa,
   _swigc__p_p_bool,
   _swigc__p_p_char,
   _swigc__p_p_int,
+  _swigc__p_p_intArray,
   _swigc__p_tesseract__CubeRecoContext,
   _swigc__p_tesseract__Dawg,
   _swigc__p_tesseract__PageIterator,
@@ -7307,6 +7562,7 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PT_VERT_LINE",SWIG_From_int(static_cast< int >(PT_VERT_LINE)));
   SWIG_Python_SetConstant(d, "PT_NOISE",SWIG_From_int(static_cast< int >(PT_NOISE)));
   SWIG_Python_SetConstant(d, "PT_COUNT",SWIG_From_int(static_cast< int >(PT_COUNT)));
+  SWIG_addvarlink(SWIG_globals(),(char*)"kPolyBlockNames",Swig_var_kPolyBlockNames_get, Swig_var_kPolyBlockNames_set);
   SWIG_Python_SetConstant(d, "ORIENTATION_PAGE_UP",SWIG_From_int(static_cast< int >(tesseract::ORIENTATION_PAGE_UP)));
   SWIG_Python_SetConstant(d, "ORIENTATION_PAGE_RIGHT",SWIG_From_int(static_cast< int >(tesseract::ORIENTATION_PAGE_RIGHT)));
   SWIG_Python_SetConstant(d, "ORIENTATION_PAGE_DOWN",SWIG_From_int(static_cast< int >(tesseract::ORIENTATION_PAGE_DOWN)));

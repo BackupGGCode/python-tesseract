@@ -97,6 +97,30 @@ cdata = _tesseract.cdata
 def memmove(*args):
   return _tesseract.memmove(*args)
 memmove = _tesseract.memmove
+class intArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, intArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, intArray, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _tesseract.new_intArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _tesseract.delete_intArray
+    __del__ = lambda self : None;
+    def __getitem__(self, *args): return _tesseract.intArray___getitem__(self, *args)
+    def __setitem__(self, *args): return _tesseract.intArray___setitem__(self, *args)
+    def cast(self): return _tesseract.intArray_cast(self)
+    __swig_getmethods__["frompointer"] = lambda x: _tesseract.intArray_frompointer
+    if _newclass:frompointer = staticmethod(_tesseract.intArray_frompointer)
+intArray_swigregister = _tesseract.intArray_swigregister
+intArray_swigregister(intArray)
+
+def intArray_frompointer(*args):
+  return _tesseract.intArray_frompointer(*args)
+intArray_frompointer = _tesseract.intArray_frompointer
+
 PT_UNKNOWN = _tesseract.PT_UNKNOWN
 PT_FLOWING_TEXT = _tesseract.PT_FLOWING_TEXT
 PT_HEADING_TEXT = _tesseract.PT_HEADING_TEXT
@@ -267,6 +291,10 @@ isLibTiff = _tesseract.isLibTiff
 def isLibLept():
   return _tesseract.isLibLept()
 isLibLept = _tesseract.isLibLept
+
+def AllWordConfidences(*args):
+  return _tesseract.AllWordConfidences(*args)
+AllWordConfidences = _tesseract.AllWordConfidences
 
 def ProcessPagesWrapper(*args):
   return _tesseract.ProcessPagesWrapper(*args)
