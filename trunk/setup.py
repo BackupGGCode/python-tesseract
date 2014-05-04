@@ -188,10 +188,11 @@ elif osname=="windows":
 
 	sources.append('ms_fmemopen.c')
 	pathOffset="vs2008"
-	if "64" not in sys.version:
-		xDir="x86"
-	else:
-		xDir="x64"
+#	if "64" not in sys.version:
+#		xDir="x86"
+#	else:
+#		xDir="x64"
+	xDir="x86"
 	print("--os is %s"%xDir)
 	inclPath=os.path.join(pathOffset,"includes")
 	libPath=os.path.join(pathOffset,xDir,"libs")
