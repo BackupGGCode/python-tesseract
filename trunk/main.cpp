@@ -16,6 +16,7 @@
 #include "main.h"
 #include "stdio.h"
 #include "stdlib.h"
+#include <vector>
 
 bool isLibLept() {
 
@@ -45,7 +46,20 @@ char* retParser(const char* a) {
 	//strcpy (retStr,a);
 	return retStr;
 }
-
+/*
+int *retVectParser(const int* a) {
+	int mlen=sizeof(a)/sizeof(*a);
+	if (mlen==0) 
+		return '\0';
+	vector<int> retVect(a,a+mlen)
+	return vector;
+}
+*/
+void AllWordConfidences(int* confs, tesseract::TessBaseAPI* api) {
+	confs=api->AllWordConfidences();
+	//return mstr.string();
+	//return confs;
+}
 
 char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api) {
 	//printf("ok->%s",text_out);

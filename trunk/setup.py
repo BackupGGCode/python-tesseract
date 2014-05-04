@@ -41,7 +41,9 @@ fp.write("#pragma once\n")
 clang_incls=['tesseract','leptonica']
 fp2=open("main.h","w")
 
+
 IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
+			"void AllWordConfidences(int* confs, tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api);",

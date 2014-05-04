@@ -4,6 +4,8 @@
 %pointer_functions(int,intp)
 %include "carrays.i"
 %include "cdata.i"
+%array_class(int, intArray);
+
 
 %{
 #include "config.h"
