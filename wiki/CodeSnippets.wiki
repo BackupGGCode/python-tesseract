@@ -42,6 +42,7 @@ tesseract.delete_intp(intPtr)
 }}}
 
 Example 3
+*How to get confidences of each word by AllWordConfidences()*
 {{{
 import cv2.cv as cv
 import tesseract
