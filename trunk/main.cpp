@@ -55,8 +55,8 @@ int *retVectParser(const int* a) {
 	return vector;
 }
 */
-void AllWordConfidences(int* confs, tesseract::TessBaseAPI* api) {
-	confs=api->AllWordConfidences();
+int*  AllWordConfidences(tesseract::TessBaseAPI* api) {
+	return api->AllWordConfidences();
 	//return mstr.string();
 	//return confs;
 }
