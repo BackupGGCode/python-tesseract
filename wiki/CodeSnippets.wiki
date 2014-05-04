@@ -42,7 +42,8 @@ tesseract.delete_intp(intPtr)
 }}}
 
 Example 3
-{{{import cv2.cv as cv
+{{{
+import cv2.cv as cv
 import tesseract
 import re
 from string import punctuation
