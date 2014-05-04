@@ -35,7 +35,7 @@ print "Number of Words:"
 print "counted by tesseract: %d"%len(confOfText) 
 print "counted by me: %d[%d]"%(countWords(text), countWords2(text))
 if len(confOfText)!=countWords(text):
-	print "Why the word counted by tesseract are different from mine!!!!"
+	print "Why the words counted by tesseract are different from mine!!!!"
 header("Method 2","*"*10)
 confs=tesseract.AllWordConfidences(api)
 print confs, len(confs)
