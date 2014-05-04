@@ -31,8 +31,8 @@
         SWIG_exception( SWIG_TypeError, "%%typemap: could not convert input argument to an IplImage");
     }
 }
-%include <stdint.i>
 /*
+%include <stdint.i>
 %typemap(in,numinputs=0,noblock=1) size_t *len  {
   size_t templen;
   $1 = &templen;
