@@ -61,6 +61,9 @@ python test.py
 
 or 
 {{{
+sudo easy_install https://bitbucket.org/3togo/python-tesseract/downloads/python-tesseract_0.8-3.0-py2.7_macosx-10.9-intel.egg
+or 
+{{{
 pyfileHttp=https://python-tesseract.googlecode.com/files
 ptzip=python-tesseract_0.8-1.8.homebrew.macosx-10.9-intel.tar.gz   #<--- for ios 10.9
 #ptzip=python-tesseract_0.8-1.8.homebrew.macosx-10.8-x86_64.tar.gz      #<---- for ios 10.8.5
