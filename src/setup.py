@@ -7,7 +7,7 @@ PACKAGE="python-tesseract"
 #VERSION=os.getcwd().split("-")[-1]
 VERSION=0.8
 from setuptools import setup, Extension, Command, find_packages
-import sys,os,platform,glob,commands,sys
+import sys,os,platform,glob,commands,sys,distutils
 
 IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
 			"int*  AllWordConfidences(tesseract::TessBaseAPI* api);",
@@ -62,20 +62,27 @@ def idefine(fp,name):
 		fp.write("\t#define __%s__\n"%name)
 		fp.write("#endif\n")
 
-class CleanCommand(Command):
+from distutils.command.clean import clean as _clean
+#class CleanCommand(Command):
+class CleanCommand(_clean):
 	description = "custom clean command that forcefully removes dist/build directories"
-	user_options = []
+	user_options = [("all", "a", ""),]
 	def initialize_options(self):
 		self.cwd = None
+		self.all = None
+		pass
+
 	def finalize_options(self):
 		self.cwd = os.getcwd()
+		pass
+
 	def run(self):
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 		if osname != "windows":
 			os.system('rm -rf ./build ./dist ./deb_dist')
 		else:
 			os.system('del /S /Q build dist')
-
+		#_clean.run(self)
 
 removeFlag('-Wstrict-prototypes')
 osname=platform.uname()[0].lower()
@@ -287,7 +294,7 @@ setup (name = PACKAGE,
 		license="LGPL/MIT",
 		keywords=['tesseract', 'ocr' ],
 		cmdclass={
-		#'clean': CleanCommand
+		'clean': CleanCommand
 		},
 		packages =
 			find_packages(
