@@ -1,0 +1,16 @@
+
+--This line, and those below, will be ignored--
+
+A    test-slim/tessdata
+AM   test-slim/tessdata/eng.cube.word-freq
+AM   test-slim/tessdata/eng.cube.lm
+AM   test-slim/tessdata/eng.tesseract_cube.nn
+AM   test-slim/tessdata/eng.cube.size
+AM   test-slim/tessdata/eng.cube.nn
+AM   test-slim/tessdata/eng.cube.params
+AM   test-slim/tessdata/eng.traineddata
+AM   test-slim/tessdata/eng.cube.bigrams
+AM   test-slim/tessdata/eng.cube.fold
+M    test-slim/dlls/tesseract.py
+M    test-slim/dlls/_tesseract.pyd
+M    test-slim/dlls/opencv_core240.dll

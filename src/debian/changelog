@@ -1,7 +1,16 @@
+python-tesseract (0.8-3.0ubuntu) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * add support to find AllWordConfidences()
+  *
+  *
+
+ -- eli <eli@eli-iMac>  Tue, 06 May 2014 03:53:55 +0800
+
 python-tesseract (0.8-2.6) UNRELEASED; urgency=medium
 
   * Non-maintainer upload.
-  * Trusty 
+  * Trusty
 
  -- eli <eli@nowhere.com>  Fri, 25 Apr 2014 12:26:26 +0800
 
@@ -16,7 +25,7 @@ python-tesseract (0.8-2.3) UNRELEASED; urgency=medium
 
   * Non-maintainer upload.
   * sigh3
- 
+
 
  -- eli <eli@nowhere.com>  Tue, 22 Apr 2014 06:23:25 +0800
 
@@ -24,14 +33,14 @@ python-tesseract (0.8-2.2) UNRELEASED; urgency=medium
 
   * Non-maintainer upload.
   * sigh2
- 
+
 
  -- eli <eli@nowhere.com>  Tue, 22 Apr 2014 06:21:18 +0800
 
 python-tesseract (0.8-2.1) UNRELEASED; urgency=medium
 
   * Non-maintainer upload.
-  * sigh 
+  * sigh
 
  -- eli <eli@nowhere.com>  Tue, 22 Apr 2014 06:20:01 +0800
 
@@ -45,21 +54,21 @@ python-tesseract (0.8-2.0) UNRELEASED; urgency=medium
 python-tesseract (0.8-1.7) UNRELEASED; urgency=low
 
   * Non-maintainer upload.
-  * 
+  *
 
  -- eli <eli@nowhere.com>  Mon, 25 Mar 2013 10:03:58 +0800
 
 python-tesseract (0.8-0.1) UNRELEASED; urgency=low
 
   * Non-maintainer upload.
-  * 
+  *
 
  -- eli <eli@nowhere.com>  Mon, 25 Mar 2013 10:02:32 +0800
 
 python-tesseract (0.7-1.4) unstable; urgency=low
 
   * Non-maintainer upload.
-  * opencv2 supported 
+  * opencv2 supported
 
  -- root <root@nowhere.com>  Thu, 19 Apr 2012 23:37:31 +0800
 
@@ -73,7 +82,7 @@ python-tesseract (0.7-1.3) unstable; urgency=low
 python-tesseract (0.7-1.2) unstable; urgency=low
 
   * Non-maintainer upload.
-  * For Precise 
+  * For Precise
 
  -- eli <eli@nowhere.com>  Thu, 12 Apr 2012 11:30:51 +0800
 

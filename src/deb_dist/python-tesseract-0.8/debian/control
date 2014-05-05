@@ -1,0 +1,12 @@
+Source: python-tesseract
+Maintainer: FreeToGo Nowhere <freetogo@gmail.com>
+Section: python
+Priority: optional
+Build-Depends: python-setuptools (>= 0.6b3), python-all-dev (>= 2.6.6-3), debhelper (>= 7)
+Standards-Version: 3.9.1
+
+Package: python-python-tesseract
+Architecture: any
+Depends: ${misc:Depends}, ${python:Depends}, ${shlibs:Depends}
+Description: ('${python:Provides} Wrapper for Python-${python:Versions} '
+
