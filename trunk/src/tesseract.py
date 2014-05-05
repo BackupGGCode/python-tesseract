@@ -149,6 +149,10 @@ PTIsImageType = _tesseract.PTIsImageType
 def PTIsTextType(*args):
   return _tesseract.PTIsTextType(*args)
 PTIsTextType = _tesseract.PTIsTextType
+
+def PTIsPulloutType(*args):
+  return _tesseract.PTIsPulloutType(*args)
+PTIsPulloutType = _tesseract.PTIsPulloutType
 ORIENTATION_PAGE_UP = _tesseract.ORIENTATION_PAGE_UP
 ORIENTATION_PAGE_RIGHT = _tesseract.ORIENTATION_PAGE_RIGHT
 ORIENTATION_PAGE_DOWN = _tesseract.ORIENTATION_PAGE_DOWN
@@ -170,6 +174,8 @@ PSM_SINGLE_LINE = _tesseract.PSM_SINGLE_LINE
 PSM_SINGLE_WORD = _tesseract.PSM_SINGLE_WORD
 PSM_CIRCLE_WORD = _tesseract.PSM_CIRCLE_WORD
 PSM_SINGLE_CHAR = _tesseract.PSM_SINGLE_CHAR
+PSM_SPARSE_TEXT = _tesseract.PSM_SPARSE_TEXT
+PSM_SPARSE_TEXT_OSD = _tesseract.PSM_SPARSE_TEXT_OSD
 PSM_COUNT = _tesseract.PSM_COUNT
 RIL_BLOCK = _tesseract.RIL_BLOCK
 RIL_PARA = _tesseract.RIL_PARA

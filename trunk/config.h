@@ -1,9 +1,7 @@
 #pragma once
-#ifndef __darwin__
-	#define __darwin__
+#ifndef __linux__
+	#define __linux__
 #endif
-#include "fmemopen.h"
-#define HAVE_LIBLEPT
 #ifndef __opencv2__
 	#define __opencv2__
 #endif
