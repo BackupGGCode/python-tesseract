@@ -39,7 +39,7 @@ bool isLibTiff() {
 char* retParser(const char* a) {
 	int mlen=strlen(a);
 	if (mlen==0) 
-		return '\0';
+		return 0;
 	char *retStr=new char[mlen+1];
 	retStr[mlen]=0;
 	memcpy(retStr,a,mlen);
@@ -158,7 +158,7 @@ char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
 	char* retStr;
 	printf("size=%d\n",size);
 	retStr=ProcessPagesBuffer(buffer,size, api);
-	printf("retStr length=%d\n",strlen(retStr));
+	printf("retStr length=%lu\n",strlen(retStr));
 	delete[] buffer;
 	//free(buffer);
 	return retStr;
@@ -207,18 +207,6 @@ struct iplimage_t {
     size_t offset;
 };
 
-static PyTypeObject iplimage_Type = {
-  PyObject_HEAD_INIT(&PyType_Type)
-  0,                                      /*size*/
-  "cv.iplimage",                          /*name*/
-  sizeof(iplimage_t),                        /*basicsize*/
-};
-
-static int is_none(PyObject *o)
-{
-  //printf("is_none: %d\n", Py_None == o);
-  return Py_None == o;
-}
 
 static int is_iplimage(PyObject *o)
 {

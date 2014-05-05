@@ -7,6 +7,22 @@ written by FreeToGo@gmail.com
 from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform,glob,commands,sys
 
+IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
+			"int*  AllWordConfidences(tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api);",
+#			"char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api);",
+			"char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api);"]
+
+cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
+			#	"void SetMat(PyObject* o, tesseract::TessBaseAPI* api);",
+				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);",
+				"char* GetUTF8Text(tesseract::TessBaseAPI* api);"]
+				
+
+
 def writeIncludeLines(fp,lines) :
 	for line in lines:
 		fp.write(line+"\n");
@@ -23,42 +39,6 @@ def pkgconfig(*packages, **kw):
 		kw[k] = list(set(v))
 	return kw
 
-osname=platform.uname()[0].lower()
-print "os=%s"%osname
-library_dirs=[]
-#sources=['tesseract.i','cv_original.cpp','main.cpp']
-sources=['tesseract.i','main.cpp']
-name = 'python-tesseract'
-description = """${python:Provides} Wrapper for Python-${python:Versions} """,
-version_number=os.getcwd().split("-")[-1]
-print "Current Version : %s"%version_number
-include_dirs=['.']
-
-fp=open("config.h","w")
-fp.write("#pragma once\n")
-#fp.write("#ifndef __CONFIG_H__\n")
-#fp.write("#define __CONFIG_H__\n")
-clang_incls=['tesseract','leptonica']
-fp2=open("main.h","w")
-
-
-IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
-			"int*  AllWordConfidences(tesseract::TessBaseAPI* api);",
-			"char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
-			"char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api);",
-			"char* ProcessPagesFileStream(const char* image,tesseract::TessBaseAPI* api);",
-			"char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api);",
-#			"char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api);",
-			"char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api);"]
-
-
-cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
-			#	"void SetMat(PyObject* o, tesseract::TessBaseAPI* api);",
-				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);",
-				"char* GetUTF8Text(tesseract::TessBaseAPI* api);"]
-writeIncludeLines(fp2,IncludeLines)
-
-
 def listFiles(mdir):
 	files=os.listdir(mdir);
 	list_files=[]
@@ -74,8 +54,6 @@ def idefine(fp,name):
 		fp.write("\t#define __%s__\n"%name)
 		fp.write("#endif\n")
 
-idefine(fp,osname)
-
 class CleanCommand(Command):
 	description = "custom clean command that forcefully removes dist/build directories"
 	user_options = []
@@ -90,15 +68,30 @@ class CleanCommand(Command):
 		else:
 			os.system('del /S /Q build dist')
 
-def inclpath(mlib):
-	ipath=checkPath(incls,mlib)
-	if ipath:
-		return ipath
-	else:
-		return None
-	assert False, 'Include directory %s was not found' % mlib
 
-if osname=="darwin" or osname=="linux" or "cygwin" in osname:
+
+osname=platform.uname()[0].lower()
+print "os=%s"%osname
+library_dirs=[]
+
+sources=['tesseract.i','main.cpp']
+name = 'python-tesseract'
+description = """${python:Provides} Wrapper for Python-${python:Versions} """,
+version_number=os.getcwd().split("-")[-1]
+print "Current Version : %s"%version_number
+include_dirs=['.']
+
+fp=open("config.h","w")
+fp.write("#pragma once\n")
+clang_incls=['tesseract','leptonica']
+fp2=open("main.h","w")
+
+writeIncludeLines(fp2,IncludeLines)
+idefine(fp,osname)
+isLinux=osname in ["darwin","linux","cygwin"]
+
+
+if isLinux:
 	data_files=[]
 
 	if osname=='darwin':
@@ -118,9 +111,16 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 		if "cygwin" in osname:
 			include_dirs.append(os.path.join(".","cygwin","includes"))
 			include_dirs.append(os.path.join("cygwin/includes/"))
-#	incl=os.path.join(prefix,"include")
-#	print "include path=%s"%incl
 
+	def inclpath(mlib):
+		ipath=checkPath(incls,mlib)
+		if ipath:
+			return ipath
+		else:
+			return None
+		assert False, 'Include directory %s was not found' % mlib
+	
+	
 	def checkPath(paths,mlib):
 		for pref in paths:
 			path_to = os.path.join(pref, mlib)
@@ -146,8 +146,6 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 		hasOpenCV = 1
 
 	fp.write("#include <Python.h>\n")
-
-
 	libraries=['stdc++','tesseract','lept']
 
 	cv_pc=pkgconfig("opencv")
@@ -162,10 +160,8 @@ if osname=="darwin" or osname=="linux" or "cygwin" in osname:
 			libname="open"+item.split("libopen")[1].split(".")[0]
 			print "add lib: %s"%libname
 			libraries.append(libname)
-			#mdir=os.path.dirname(item)
-			#if mdir not in library_dirs:
-			#	library_dirs.append(mdir)
 	else:
+		print "*"*100
 		print "No pkg-config support!"
 		if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
 			if 'opencv_core' not in libraries:
@@ -251,7 +247,7 @@ for incl in clang_incls:
 	if mincl:
 		#print "what the fuck"
 		include_dirs.append(mincl)
-#print "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
 print repr(include_dirs)
 tesseract_module = Extension('_tesseract',
 									sources=sources,
