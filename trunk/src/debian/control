@@ -8,16 +8,15 @@ Build-Depends: autotools-dev,
  dh-buildinfo,
  python-support,
  python-all-dev
-Standards-Version: 3.9.1
-X-Python-Version: >= 2.7
 
+X-Python-Version: >= 2.7
 Package: python-tesseract
 Architecture: any
 Depends: ${misc:Depends}, ${python:Depends}, ${shlibs:Depends}, tesseract-ocr
 Breaks: ${python:Breaks}
-Provides: 
-Description: ${python:Provides} Wrapper for Python-${python:Versions} 
+Provides:
+Description: ${python:Provides} Wrapper for Python-${python:Versions}
  Provides a python wrapper class for tesseract-ocr using swig
- Only svn version of tesseract-ocr is supported for the time being. 
- 
-  
+ Only svn version of tesseract-ocr is supported for the time being.
+
+

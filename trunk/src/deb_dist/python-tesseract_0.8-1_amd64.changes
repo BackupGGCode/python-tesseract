@@ -1,0 +1,22 @@
+Format: 1.8
+Date: Tue, 06 May 2014 04:21:06 +0800
+Source: python-tesseract
+Binary: python-python-tesseract
+Architecture: amd64
+Version: 0.8-1
+Distribution: unstable
+Urgency: low
+Maintainer: FreeToGo Nowhere <freetogo@gmail.com>
+Changed-By: FreeToGo Nowhere <freetogo@gmail.com>
+Description: 
+ python-python-tesseract - ('${python:Provides} Wrapper for Python-${python:Versions} '
+Changes: 
+ python-tesseract (0.8-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.6.0+git
+Checksums-Sha1: 
+ d061b6ad76d5a22b6232f0bb046cab07acde1331 31076 python-python-tesseract_0.8-1_amd64.deb
+Checksums-Sha256: 
+ dee32a7fdca23bedc7d5cb756d0736272db62ebe63d1720f193d06528d799815 31076 python-python-tesseract_0.8-1_amd64.deb
+Files: 
+ b6ee74fb455a737ee372088b59aad832 31076 python optional python-python-tesseract_0.8-1_amd64.deb
