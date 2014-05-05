@@ -1,0 +1,27 @@
+all: _tesseract.so
+
+_tesseract.so : main_dummy.o tesseract_wrap.o
+	gcc -shared main_dummy.o tesseract_wrap.o -o _tesseract.so -lstdc++ -ltesseract_api -llept
+
+tesseract_wrap.cpp : tesseract.i
+	swig -c++ -php -I. -I/usr/include/tesseract/ -I/usr/include -I/usr/include/leptonica tesseract.i
+
+tesseract_wrap.o : tesseract_wrap.cpp
+	gcc -c -fpic tesseract_wrap.cpp -o tesseract_wrap.o -I /usr/include -I /usr/include/leptonica -I /usr/include/tesseract/ `phpconfig --includes`
+
+main_dummy.o : main_dummy.cpp 
+	gcc -c -fpic main_dummy.cpp -o main_dummy.o  -I. -I /usr/include/tesseract/ -I /usr/include/leptonica
+
+test:
+	echo "testing 1"
+	php tesseract.php
+	echo "testing 2"
+	php test.php
+clean:
+	rm -f *.o
+	rm build -Rf
+	rm -f *.cxx
+	rm -f tesseract*.py*
+	rm -f *wrap*
+	rm -f *.so
+
