@@ -20,8 +20,14 @@ cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
 			#	"void SetMat(PyObject* o, tesseract::TessBaseAPI* api);",
 				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);",
 				"char* GetUTF8Text(tesseract::TessBaseAPI* api);"]
-				
 
+def removeFlag(flagName):
+	import os
+	from distutils.sysconfig import get_config_vars
+	(opt,) = get_config_vars('OPT')
+	os.environ['OPT'] = " ".join(
+		flag for flag in opt.split() if flag != flagName
+		)
 
 def writeIncludeLines(fp,lines) :
 	for line in lines:
@@ -69,7 +75,7 @@ class CleanCommand(Command):
 			os.system('del /S /Q build dist')
 
 
-
+removeFlag('-Wstrict-prototypes')
 osname=platform.uname()[0].lower()
 print "os=%s"%osname
 library_dirs=[]
@@ -119,8 +125,8 @@ if isLinux:
 		else:
 			return None
 		assert False, 'Include directory %s was not found' % mlib
-	
-	
+
+
 	def checkPath(paths,mlib):
 		for pref in paths:
 			path_to = os.path.join(pref, mlib)
@@ -255,7 +261,9 @@ tesseract_module = Extension('_tesseract',
 									#extra_compile_args=["-O0","-g"],
 									#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
 									extra_compile_args = ["-Wall", "-O0", '-funroll-loops','-g'],
-									swig_opts=["-c++", "-I"+inclpath('tesseract'),
+									swig_opts=[
+													"-c++",
+													 "-I"+inclpath('tesseract'),
 									#				"-I"+os.path.dirname(config.__file__),
 													"-I"+inclpath('leptonica')],
 									include_dirs=include_dirs,
