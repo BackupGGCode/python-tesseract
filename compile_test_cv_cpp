@@ -1,3 +1,0 @@
-#! /bin/bash
-g++ -o test_cv test_cv2.cpp `pkg-config opencv --cflags --libs` -I/usr/include/leptonica   -I/usr/include/tesseract   -llept -ltesseract
-
