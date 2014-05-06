@@ -74,12 +74,15 @@ def setEnvironmentDarwin():
 	print PYTHONPATH
 	bashrc_fname=os.path.expanduser("~/.bashrc")
 	bashrc_lines=open(bashrc_fname).read()
+	if 'PYTHONPATH' not in os.environ :
+		os.environ['PYTHONPATH']=PYTHONPATH
+		print os.environ['PYTHONPATH']
+		
 	if os.environ['PYTHONPATH'] not in bashrc_lines :
 		fp=open(bashrc_fname,"a")
 		fp.write("\nexport PYTHONPATH=%s\n"%os.environ['PYTHONPATH'])
 		fp.close()
-	if 'PYTHONPATH' not in os.environ :
-		return 
+	
 	if PYTHONPATH not in os.environ['PYTHONPATH']:
 		os.environ['PYTHONPATH']=" ".join(PYTHONPATH,os.environ['PYTHONPATH'])
 		print os.environ['PYTHONPATH']

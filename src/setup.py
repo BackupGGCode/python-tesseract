@@ -9,10 +9,11 @@ VERSION="0.8"
 from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform,glob,commands,sys,distutils
 import os
-
+import jfunc as j
+osname=j.osname
 #library_dirs=[]
 #include_dirs=['.']
-osname=platform.uname()[0].lower()
+
 IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
 			"int*  AllWordConfidences(tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
@@ -67,15 +68,7 @@ def checkPath(paths,mlib):
 
 from distutils.command.clean import clean as _clean
 #class CleanCommand(Command):
-def runCmd4files(pwd,cmd,mfiles):
-	for mfile in mfiles:
-		#print mfile
-		if "*" in mfile or os.path.exists(os.path.join(pwd,mfile)):
-			rmStr='%s %s'%(cmd,mfile)
-			print rmStr
-			os.system(rmStr)
-		else:
-			print "%s cannot be removed"%mfile
+
 
 def my_clean():
 	#print "runtime directory:",os.path.dirname(os.path.realpath(__file__))
@@ -83,16 +76,9 @@ def my_clean():
 	print pwd
 	rmDirs="build dist deb_dist tesseract.egg-info python_tesseract.egg-info".split(" ")
 	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz*".split(" ")
-
-	if osname != "windows":
-		rmDirCmd="rm -rf"
-		rmFileCmd=rmDirCmd
-	else:
-		rmDirCmd="rmdir /s /q"
-		rmFileCmd="del /S /Q"
-
-	runCmd4files(pwd,rmDirCmd,rmDirs)
-	runCmd4files(pwd,rmFileCmd,rmFiles)
+	
+	j.runRm4Dirs(pwd,rmDirs)
+	j.runRm4Files(pwd,rmFiles)
 
 	#old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
 	#for package in old_packages:
@@ -251,7 +237,7 @@ class GenVariablesDarwin(GenVariablesLinux):
 		python_version="python"+".".join(python_version.split(".")[:-1])
 		sitePackagesPath=os.path.join(brew_prefix,"lib",python_version,"site-packages")
 		if "PYTHONPATH" in os.environ:
-			os.environ["PYTHONPATH"]=":".join(sitePackagesPath,os.environ["PYTHONPATH"])
+			os.environ["PYTHONPATH"]="%s:%s"%(sitePackagesPath,os.environ["PYTHONPATH"])
 		else:
 			os.environ["PYTHONPATH"]=sitePackagesPath
 
