@@ -82,7 +82,7 @@ def my_clean():
 	pwd=os.path.abspath(os.path.dirname(sys.argv[0]))
 	print pwd
 	rmDirs="build dist deb_dist tesseract.egg-info python_tesseract.egg-info".split(" ")
-	rmFiles="main.h config.h *wrap.cpp setuptools* *tar.gz*".split(" ")
+	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz*".split(" ")
 
 	if osname != "windows":
 		rmDirCmd="rm -rf"
