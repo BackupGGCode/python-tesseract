@@ -12,7 +12,7 @@ import os
 
 #library_dirs=[]
 #include_dirs=['.']
-
+osname=platform.uname()[0].lower()
 IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
 			"int*  AllWordConfidences(tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
@@ -56,13 +56,6 @@ def listFiles(mdir):
 		list_files.append(os.path.join(mdir,mfile))
 	return list_files
 
-def idefine(fp,name):
-	if osname=="windows":
-		fp.write("#define __%s__\n\n"%name)
-	else:
-		fp.write("#ifndef __%s__\n"%name)
-		fp.write("\t#define __%s__\n"%name)
-		fp.write("#endif\n")
 
 def checkPath(paths,mlib):
 	for pref in paths:
@@ -99,7 +92,8 @@ class CleanCommand(_clean):
 
 
 class GenVariablesLinux:
-	def __init__(self, osname,fp_config_h,fp_main_h):
+	def __init__(self, osname,fp_config_h,fp_main_h,sources):
+		self.sources=sources
 		self.include_dirs=['.']
 		self.data_files=[]
 		self.osname=osname
@@ -110,9 +104,11 @@ class GenVariablesLinux:
 		self.libraries=['stdc++','tesseract','lept']
 		self.clang_incls=['tesseract','leptonica']
 		self.setIncls()
+		self.idefine(fp_config_h,osname)
 		if self.isOpenCVInstalled():
 			self.setCVLibraries()
-
+		self.fp_config_h.close()
+		self.fp_main_h.close()
 
 	def setIncls(self):
 		for incl in self.clang_incls:
@@ -121,6 +117,12 @@ class GenVariablesLinux:
 			if mincl:
 				self.include_dirs.append(mincl)
 
+	def idefine(self,fp,name):
+		fp.write("#ifndef __%s__\n"%name)
+		fp.write("\t#define __%s__\n"%name)
+		fp.write("#endif\n")
+
+	
 	def initialize(self):
 
 		prefix=sys.prefix
@@ -144,14 +146,14 @@ class GenVariablesLinux:
 	def isOpenCVInstalled(self):
 		hasOpenCV = 0
 		if self.inclpath("opencv2/core/core_c.h"):
-			idefine(self.fp_config_h,"opencv2")
+			self.idefine(self.fp_config_h,"opencv2")
 			self.fp_config_h.write("#include <opencv2/core/core_c.h>\n")
 			self.clang_incls.append('opencv2')
 			writeIncludeLines(self.fp_main_h,cvIncludeLines)
 			hasOpenCV = 1
 
 		if self.inclpath("opencv/cv.h") :
-			idefine(self.fp_config_h,"opencv")
+			self.idefine(self.fp_config_h,"opencv")
 			self.fp_config_h.write("#include <opencv/cv.h>\n")
 			self.clang_incls.append('opencv')
 			writeIncludeLines(self.fp_main_h,cvIncludeLines)
@@ -189,14 +191,14 @@ class GenVariablesLinux:
 					self.libraries.append('opencv_core')
 					self.libraries.append('opencv_ml')
 					self.libraries.append('opencv_legacy')
-		self.fp_config_h.close()
-		self.fp_main_h.close()
+		
 		print "===========%s==========="%self.libraries
 		print "&"*10,self.include_dirs
 
 	def do(self):
+		
 		tesseract_module = Extension('_tesseract',
-				sources=sources,
+				sources=self.sources,
 				#extra_compile_args=["-DEBUG -O0 -pg "],
 				#extra_compile_args=["-O0","-g"],
 				#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
@@ -214,13 +216,13 @@ class GenVariablesLinux:
 
 
 class GenVariablesDarwin(GenVariablesLinux):
-	def __init__(self, osname,fp_config_h,fp_main_h):
+	def __init__(self, osname,fp_config_h,fp_main_h,sources):
 		print "()"*10,get_config_vars('CFLAGS')
 		removeFlag("-mno-fused-madd",'CFLAGS')
-		GenVariablesLinux.__init__(self,osname,fp_config_h,fp_main_h)
+		GenVariablesLinux.__init__(self,osname,fp_config_h,fp_main_h,sources)
 		
 	def initialize(self):
-		sources.append('ag5_fmemopen.c')
+		self.sources.append('ag5_fmemopen.c')
 		if os.path.exists("/usr/local/Cellar"):
 			prefix="/usr/local"
 		else:
@@ -231,7 +233,8 @@ class GenVariablesDarwin(GenVariablesLinux):
 		self.fp_config_h.write('#define HAVE_LIBLEPT\n')
 
 
-def genVariablesWindows(osname,fp_config_h,fp_main_h):
+def genVariablesWindows(osname,fp_config_h,fp_main_h,sources):
+	idefine(fp_config_h,osname)
 	clang_incls=['tesseract','leptonica']
 	include_dirs=['.']
 	name='python'
@@ -239,6 +242,10 @@ def genVariablesWindows(osname,fp_config_h,fp_main_h):
 
 	sources.append('ms_fmemopen.c')
 	pathOffset="vs2008"
+	
+	def idefine(fp,name,osname):
+		fp.write("#define __%s__\n\n"%name)
+
 #	if "64" not in sys.version:
 #		xDir="x86"
 #	else:
@@ -304,7 +311,7 @@ def genVariablesWindows(osname,fp_config_h,fp_main_h):
 			include_dirs.append(mincl)
 
 	tesseract_module = Extension('_tesseract',
-										sources=sources,
+										sources=self.sources,
 										#extra_compile_args=["-DEBUG -O0 -pg "],
 										#extra_compile_args=["-O0","-g"],
 										#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
@@ -321,13 +328,12 @@ def genVariablesWindows(osname,fp_config_h,fp_main_h):
 
 	return tesseract_module, self.data_files
 
-
-if __name__ == "__main__":
-
+def main():
+	
 	sources=['tesseract.i','main.cpp']
 	description = """${python:Provides} Wrapper for Python-${python:Versions} """,
 
-	osname=platform.uname()[0].lower()
+	
 	removeFlag('-Wstrict-prototypes','OPT')
 
 
@@ -339,21 +345,20 @@ if __name__ == "__main__":
 
 	fp_config_h.write("#pragma once\n")
 	writeIncludeLines(fp_main_h,IncludeLines)
-	idefine(fp_config_h,osname)
 	isLinux=osname in ["linux","cygwin"]
 
 	print "os=%s"%osname
 	
 	if osname=="darwin":
-		gvl=GenVariablesDarwin(osname,fp_config_h,fp_main_h)
+		gvl=GenVariablesDarwin(osname,fp_config_h,fp_main_h,sources)
 		tesseract_module, data_files=gvl.do()
 	
 	elif isLinux:
-		gvl=GenVariablesLinux(osname,fp_config_h,fp_main_h)
+		gvl=GenVariablesLinux(osname,fp_config_h,fp_main_h,sources)
 		tesseract_module, data_files=gvl.do()
 
 	elif osname=="windows":
-		tesseract_module, data_files=genVariablesWindows(osname,fp_config_h,fp_main_h)
+		tesseract_module, data_files=genVariablesWindows(osname,fp_config_h,fp_main_h,sources)
 
 
 	setup (name = PACKAGE,
@@ -380,3 +385,5 @@ if __name__ == "__main__":
 		   )
 
 
+if __name__ == "__main__":
+	main()
