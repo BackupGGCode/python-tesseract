@@ -1,3 +1,16 @@
+python-tesseract (0.8-3.3ubuntu3) UNRELEASED; urgency=medium
+
+  * Updating for Trusty
+
+ -- eli <eli@eli-iMac>  Wed, 07 May 2014 04:24:04 +0800
+
+python-tesseract (0.8-3.2ubuntu3) UNRELEASED; urgency=medium
+
+  * Finally, I got time to tidy up the script
+ 
+
+ -- eli <eli@eli-iMac>  Wed, 07 May 2014 04:23:04 +0800
+
 python-tesseract (0.8-1) unstable; urgency=low
 
   * source package automatically created by stdeb 0.6.0+git
