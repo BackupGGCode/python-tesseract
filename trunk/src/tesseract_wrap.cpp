@@ -3961,28 +3961,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PTIsPulloutType(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  PolyBlockType arg1 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  PyObject * obj0 = 0 ;
-  bool result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:PTIsPulloutType",&obj0)) SWIG_fail;
-  ecode1 = SWIG_AsVal_int(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PTIsPulloutType" "', argument " "1"" of type '" "PolyBlockType""'");
-  } 
-  arg1 = static_cast< PolyBlockType >(val1);
-  result = (bool)PTIsPulloutType(arg1);
-  resultobj = SWIG_From_bool(static_cast< bool >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN int Swig_var_kPolyBlockNames_set(PyObject *_val) {
   SWIG_exception_fail(SWIG_ArgError(SWIG_AttributeError), "in variable '""read-only kPolyBlockNames""' of type '""char const *[]""'");
   return 0;
@@ -6684,7 +6662,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PTIsLineType", _wrap_PTIsLineType, METH_VARARGS, NULL},
 	 { (char *)"PTIsImageType", _wrap_PTIsImageType, METH_VARARGS, NULL},
 	 { (char *)"PTIsTextType", _wrap_PTIsTextType, METH_VARARGS, NULL},
-	 { (char *)"PTIsPulloutType", _wrap_PTIsPulloutType, METH_VARARGS, NULL},
 	 { (char *)"new_TessBaseAPI", _wrap_new_TessBaseAPI, METH_VARARGS, NULL},
 	 { (char *)"delete_TessBaseAPI", _wrap_delete_TessBaseAPI, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_Version", _wrap_TessBaseAPI_Version, METH_VARARGS, NULL},
@@ -7621,8 +7598,6 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PSM_SINGLE_WORD",SWIG_From_int(static_cast< int >(tesseract::PSM_SINGLE_WORD)));
   SWIG_Python_SetConstant(d, "PSM_CIRCLE_WORD",SWIG_From_int(static_cast< int >(tesseract::PSM_CIRCLE_WORD)));
   SWIG_Python_SetConstant(d, "PSM_SINGLE_CHAR",SWIG_From_int(static_cast< int >(tesseract::PSM_SINGLE_CHAR)));
-  SWIG_Python_SetConstant(d, "PSM_SPARSE_TEXT",SWIG_From_int(static_cast< int >(tesseract::PSM_SPARSE_TEXT)));
-  SWIG_Python_SetConstant(d, "PSM_SPARSE_TEXT_OSD",SWIG_From_int(static_cast< int >(tesseract::PSM_SPARSE_TEXT_OSD)));
   SWIG_Python_SetConstant(d, "PSM_COUNT",SWIG_From_int(static_cast< int >(tesseract::PSM_COUNT)));
   SWIG_Python_SetConstant(d, "RIL_BLOCK",SWIG_From_int(static_cast< int >(tesseract::RIL_BLOCK)));
   SWIG_Python_SetConstant(d, "RIL_PARA",SWIG_From_int(static_cast< int >(tesseract::RIL_PARA)));

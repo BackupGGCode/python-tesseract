@@ -8,6 +8,8 @@ PACKAGE="python-tesseract"
 VERSION="0.8"
 from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform,glob,commands,sys,distutils
+import os
+
 #library_dirs=[]
 #include_dirs=['.']
 
@@ -24,12 +26,10 @@ cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
 			#	"void SetMat(PyObject* o, tesseract::TessBaseAPI* api);",
 				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);",
 				"char* GetUTF8Text(tesseract::TessBaseAPI* api);"]
-
-def removeFlag(flagName):
-	import os
-	from distutils.sysconfig import get_config_vars
-	(opt,) = get_config_vars('OPT')
-	os.environ['OPT'] = " ".join(
+from distutils.sysconfig import get_config_vars
+def removeFlag(flagName,mflag):
+	(opt,) = get_config_vars(mflag)
+	os.environ[mflag] = " ".join(
 		flag for flag in opt.split() if flag != flagName
 		)
 
@@ -89,7 +89,9 @@ class CleanCommand(_clean):
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 		if osname != "windows":
 			os.system('rm -rf ./build ./dist ./deb_dist')
-			os.system('rm ../%s_%s*'%(PACKAGE,VERSION))
+			old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
+			for package in old_packages:
+				os.system(package)
 		else:
 			os.system('del /S /Q build dist')
 		#_clean.run(self)
@@ -121,23 +123,12 @@ class GenVariablesLinux:
 
 	def initialize(self):
 
-		if osname=='darwin':
-			sources.append('ag5_fmemopen.c')
-			if os.path.exists("/usr/local/Cellar"):
-				prefix="/usr/local"
-			else:
-				prefix="/opt/local"
-			self.incls = [os.path.join(prefix,'include')]
-			self.libs=[os.path.join(prefix,'lib')]
-			self.fp_config_h.write('#include "fmemopen.h"\n')
-			self.fp_config_h.write('#define HAVE_LIBLEPT\n')
-		else:
-			prefix=sys.prefix
-			self.incls = ['/usr/include', '/usr/local/include']
-			self.libs=['/usr/lib', '/usr/local/lib']
-			if "cygwin" in osname:
-				self.include_dirs.append(os.path.join(".","cygwin","includes"))
-				self.include_dirs.append(os.path.join("cygwin/includes/"))
+		prefix=sys.prefix
+		self.incls = ['/usr/include', '/usr/local/include']
+		self.libs=['/usr/lib', '/usr/local/lib']
+		if "cygwin" in osname:
+			self.include_dirs.append(os.path.join(".","cygwin","includes"))
+			self.include_dirs.append(os.path.join("cygwin/includes/"))
 
 	def inclpath(self,mlib):
 		ipath=checkPath(self.incls,mlib)
@@ -220,6 +211,25 @@ class GenVariablesLinux:
 				libraries=self.libraries,
 											)
 		return tesseract_module, self.data_files
+
+
+class GenVariablesDarwin(GenVariablesLinux):
+	def __init__(self, osname,fp_config_h,fp_main_h):
+		print "()"*10,get_config_vars('CFLAGS')
+		removeFlag("-mno-fused-madd",'CFLAGS')
+		GenVariablesLinux.__init__(self,osname,fp_config_h,fp_main_h)
+		
+	def initialize(self):
+		sources.append('ag5_fmemopen.c')
+		if os.path.exists("/usr/local/Cellar"):
+			prefix="/usr/local"
+		else:
+			prefix="/opt/local"
+		self.incls = [os.path.join(prefix,'include')]
+		self.libs=[os.path.join(prefix,'lib')]
+		self.fp_config_h.write('#include "fmemopen.h"\n')
+		self.fp_config_h.write('#define HAVE_LIBLEPT\n')
+
 
 def genVariablesWindows(osname,fp_config_h,fp_main_h):
 	clang_incls=['tesseract','leptonica']
@@ -318,7 +328,7 @@ if __name__ == "__main__":
 	description = """${python:Provides} Wrapper for Python-${python:Versions} """,
 
 	osname=platform.uname()[0].lower()
-	removeFlag('-Wstrict-prototypes')
+	removeFlag('-Wstrict-prototypes','OPT')
 
 
 	print "Current Version : %s"%VERSION
@@ -330,10 +340,15 @@ if __name__ == "__main__":
 	fp_config_h.write("#pragma once\n")
 	writeIncludeLines(fp_main_h,IncludeLines)
 	idefine(fp_config_h,osname)
-	isLinux=osname in ["darwin","linux","cygwin"]
+	isLinux=osname in ["linux","cygwin"]
 
 	print "os=%s"%osname
-	if isLinux:
+	
+	if osname=="darwin":
+		gvl=GenVariablesDarwin(osname,fp_config_h,fp_main_h)
+		tesseract_module, data_files=gvl.do()
+	
+	elif isLinux:
 		gvl=GenVariablesLinux(osname,fp_config_h,fp_main_h)
 		tesseract_module, data_files=gvl.do()
 
