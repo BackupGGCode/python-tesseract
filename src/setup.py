@@ -29,9 +29,10 @@ cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
 from distutils.sysconfig import get_config_vars
 def removeFlag(flagName,mflag):
 	(opt,) = get_config_vars(mflag)
-	os.environ[mflag] = " ".join(
-		flag for flag in opt.split() if flag != flagName
-		)
+	if opt:
+		os.environ[mflag] = " ".join(
+			flag for flag in opt.split() if flag != flagName
+			)
 
 def writeIncludeLines(fp,lines) :
 	for line in lines:
@@ -68,15 +69,26 @@ from distutils.command.clean import clean as _clean
 #class CleanCommand(Command):
 def my_clean():
 	#print "runtime directory:",os.path.dirname(os.path.realpath(__file__))
-	print "script directory:",os.path.abspath(os.path.dirname(sys.argv[0]))
-	print "^"*100
+	pwd=os.path.abspath(os.path.dirname(sys.argv[0]))
+	rmDirs="build dist deb_dist".split(" ")
+	rmFiles="main.h config.h *wrap.cpp".split(" ")
 	if osname != "windows":
-		os.system('rm -rf ./build ./dist ./deb_dist main.h config.h')
+		for rmDir in rmDirs:
+			if os.path.exists(rmDir):
+				os.system('rm -rf %s'%rmDir )
+		os.system('rm -rf %s'%rmFiles )
 		old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
 		for package in old_packages:
 			os.system(package)
 	else:
-		os.system('del /S /Q build dist')
+		for rmDir in rmDirs:
+			if not os.path.exists(os.path.join(pwd,rmDir)):
+				print "Directory %s cannot be removed"%rmDir
+			else:
+				os.system('rmdir /s /q %s'%rmDir)
+		for rmFile in rmFiles:
+			os.system('del /S /Q %s'%rmFile)
+		
 	
 class CleanCommand(_clean):
 	description = "custom clean command that forcefully removes dist/build directories"
@@ -180,7 +192,6 @@ class GenVariablesLinux:
 				print "add lib: %s"%libname
 				self.libraries.append(libname)
 		else:
-			print "*"*100
 			print "No pkg-config support!"
 			#if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
 			if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  :
@@ -199,7 +210,7 @@ class GenVariablesLinux:
 					self.libraries.append('opencv_legacy')
 		
 		print "===========%s==========="%self.libraries
-		print "&"*10,self.include_dirs
+		print self.include_dirs
 
 	def do(self):
 		
@@ -217,13 +228,13 @@ class GenVariablesLinux:
 				include_dirs=self.include_dirs,
 				#library_dirs=library_dirs,
 				libraries=self.libraries,
-											)
+				)
 		return tesseract_module, self.data_files
 
 
 class GenVariablesDarwin(GenVariablesLinux):
 	def __init__(self, osname,fp_config_h,fp_main_h,sources):
-		print "()"*10,get_config_vars('CFLAGS')
+		#print "()"*10,get_config_vars('CFLAGS')
 		removeFlag("-mno-fused-madd",'CFLAGS')
 		os.environ["ARCHFLAGS"]="-arch x86_64"
 		brew_prefix=commands.getstatusoutput('brew --prefix')[1]
@@ -249,106 +260,115 @@ class GenVariablesDarwin(GenVariablesLinux):
 		self.fp_config_h.write('#define HAVE_LIBLEPT\n')
 
 
-def genVariablesWindows(osname,fp_config_h,fp_main_h,sources):
-	idefine(fp_config_h,osname)
-	clang_incls=['tesseract','leptonica']
-	include_dirs=['.']
-	name='python'
-	description = """Python Wrapper for Tesseract-OCR """
+def checkOnePath(mpath,mlib,mext):
+	path_to = os.path.join(mpath,mlib)
+	#print "****************path_to=%s %s\n"%(repr(path_to),os.path.exists(path_to+"."+mext))
+	if os.path.exists(path_to+"."+mext):
+		return path_to
+	else:
+		files=glob.glob(path_to+"*"+"."+mext)
+		print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+		print files
+		print mext
+		if files and len(files) > 0:
+			print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>%s"%files[0]
 
-	sources.append('ms_fmemopen.c')
-	pathOffset="vs2008"
-	
-	def idefine(fp,name,osname):
+			return files[0][:-4]
+
+class GenVariablesWindows:
+	def __init__(self,osname,fp_config_h,fp_main_h,sources):
+		self.osname=osname
+		self.fp_config_h=fp_config_h
+		self.fp_main_h=fp_main_h
+		self.sources=sources
+		self.idefine(fp_config_h,osname)
+		self.clang_incls=['tesseract','leptonica']
+		self.include_dirs=['.']
+		name='python'
+		description = """Python Wrapper for Tesseract-OCR """
+		self.sources.append('ms_fmemopen.c')
+		self.pathOffset="..\\vs2008"
+		self.initialize()
+		self.setCVLibraries()
+		self.setIncls()
+		self.fp_config_h.close()
+		self.fp_main_h.close()
+		#print "===========%s==========="%libraries
+		
+	def idefine(self, fp, name):
 		fp.write("#define __%s__\n\n"%name)
 
-#	if "64" not in sys.version:
-#		xDir="x86"
-#	else:
-#		xDir="x64"
-	xDir="x86"
-	print("--os is %s"%xDir)
-	inclPath=os.path.join(pathOffset,"includes")
-	libPath=os.path.join(pathOffset,xDir,"libs")
-	dllPath=os.path.join(pathOffset,xDir,"dlls")
-	pydPath=os.path.join(pathOffset,xDir,"pyds")
-	def checkOnePath(mpath,mlib,mext):
-		path_to = os.path.join(mpath,mlib)
-		print "****************path_to=%s %s\n"%(repr(path_to),os.path.exists(path_to+"."+mext))
-		if os.path.exists(path_to+"."+mext):
-			return path_to
+	#	if "64" not in sys.version:
+	#		xDir="x86"
+	#	else:
+	#		xDir="x64"
+	def initialize(self):
+		xDir="x86"
+		print("--os is %s"%xDir)
+		self.inclPath=os.path.join(self.pathOffset,"includes")
+		self.libPath=os.path.join(self.pathOffset,xDir,"libs")
+		self.dllPath=os.path.join(self.pathOffset,xDir,"dlls")
+		self.pydPath=os.path.join(self.pathOffset,xDir,"pyds")
+		self.fp_config_h.write('#include "fmemopen.h"\n')
+		self.data_files=[("DLLS", listFiles(self.pydPath)),
+			#("Lib\site-packages", listFiles("../dlls"))]
+			(".", listFiles(self.dllPath))]
+	
+	def setIncls(self):
+		for incl in self.clang_incls:
+			mincl=self.inclpath(incl)
+			#print "mincl=%s\n"%repr(mincl)
+			if mincl:
+				self.include_dirs.append(mincl)
+		#fp_config_h.write("#endif // __CONFIG_H__\n")
+		
+
+	def inclpath(self,name):
+		return checkOnePath(self.inclPath,name,"")
+	def libpath(self,name):
+		return checkOnePath(self.libPath, name,"lib")
+
+	def setCVLibraries(self):
+		self.libraries=[self.libpath('libtesseract'),self.libpath('liblept')]
+		incl="."
+		cv2IncPath=self.inclpath("opencv2\core\core_c.h")
+		print cv2IncPath
+		if  os.path.exists(cv2IncPath):
+			self.idefine(self.fp_config_h,"opencv2")
+			self.fp_config_h.write('#include "%s"\n'%cv2IncPath)
+			self.fp_config_h.write("#include <Python.h>\n")
+			self.libraries.append(self.libpath('opencv_core'))
+			self.clang_incls.append('opencv2')
+			self.clang_incls.append('.')
+			writeIncludeLines(self.fp_main_h,cvIncludeLines)
 		else:
-			files=glob.glob(path_to+"*"+"."+mext)
-			print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-			print files
-			print mext
-			if files and len(files) > 0:
-				print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>%s"%files[0]
-
-				return files[0][:-4]
-
-
-	def inclpath(name):
-		return checkOnePath(inclPath,name,"")
-	def libpath(name):
-		return checkOnePath(libPath, name,"lib")
-
-
-	libraries=[libpath('libtesseract'),libpath('liblept')]
-	incl="."
-	cv2IncPath="opencv2/core/core_c.h"
-	if  cv2IncPath:
-		idefine(fp,"opencv2")
-		fp_config_h.write('#include "opencv2/core/core_c.h"\n')
-		fp_config_h.write("#include <Python.h>\n")
-		libraries.append(libpath('opencv_core'))
-		clang_incls.append('opencv2')
-		clang_incls.append('.')
-		writeIncludeLines(fp_main_h,cvIncludeLines)
-	else:
-		clang_incls.append('opencv')
-		writeIncludeLines(fp_main_h,cvIncludeLines)
-	fp_config_h.write('#include "fmemopen.h"\n')
-	self.data_files=[("DLLS", listFiles(pydPath)),
-					#("Lib\site-packages", listFiles("../dlls"))]
-					(".", listFiles(dllPath))]
-
-	#fp_config_h.write("#endif // __CONFIG_H__\n")
-	fp_config_h.close()
-	fp_main_h.close()
-	print "===========%s==========="%libraries
-
-
-	for incl in clang_incls:
-		mincl=inclpath(incl)
-		#print "mincl=%s\n"%repr(mincl)
-		if mincl:
-			#print "what the fuck"
-			include_dirs.append(mincl)
-
-	tesseract_module = Extension('_tesseract',
-										sources=self.sources,
-										#extra_compile_args=["-DEBUG -O0 -pg "],
-										#extra_compile_args=["-O0","-g"],
-										#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
-										extra_compile_args = ["-Wall", "-O0", '-funroll-loops','-g'],
-										swig_opts=[
-														"-c++",
-														 "-I"+inclpath('tesseract'),
-										#				"-I"+os.path.dirname(config.__file__),
-														"-I"+inclpath('leptonica')],
-										include_dirs=include_dirs,
-										#library_dirs=library_dirs,
-										libraries=libraries,
-										)
-
-	return tesseract_module, self.data_files
+			clang_incls.append('opencv')
+			writeIncludeLines(self.fp_main_h,cvIncludeLines)
+		
+	def do(self):
+		tesseract_module = Extension( '_tesseract',
+			sources=self.sources,
+			#extra_compile_args=["-DEBUG -O0 -pg "],
+			#extra_compile_args=["-O0","-g"],
+			#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
+			#extra_compile_args = [ "-O0", '-funroll-loops','-g'],
+			#extra_compile_args = ["-Wall", "-Wextra"],
+			swig_opts=[
+					"-c++",
+					"-I"+self.inclpath('tesseract'),
+				#	"-I"+os.path.dirname(config.__file__),
+					"-I"+self.inclpath('leptonica')
+				],
+			include_dirs=self.include_dirs,
+			libraries=self.libraries,
+			)
+		return tesseract_module, self.data_files
 
 def main():
 	
 	sources=['tesseract.i','main.cpp']
-	description = """${python:Provides} Wrapper for Python-${python:Versions} """,
-
+	description = r"""${python:Provides} Wrapper for Python-${python:Versions}"""
+	
 	
 	removeFlag('-Wstrict-prototypes','OPT')
 
@@ -374,9 +394,11 @@ def main():
 		tesseract_module, data_files=gvl.do()
 
 	elif osname=="windows":
-		tesseract_module, data_files=genVariablesWindows(osname,fp_config_h,fp_main_h,sources)
+		gvw=GenVariablesWindows(osname,fp_config_h,fp_main_h,sources)
+		tesseract_module, data_files=gvw.do()
 
-
+	
+	print data_files
 	setup (name = PACKAGE,
 			version = VERSION,
 			author	  = "FreeToGo Nowhere",
