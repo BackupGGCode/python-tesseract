@@ -47,7 +47,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 4.
 Either
 {{{
-svn checkout http://python-tesseract.googlecode.com/svn/trunk/ python-tesseract
+svn checkout http://python-tesseract.googlecode.com/svn/trunk/src python-tesseract
 cd python-tesseract
 export ARCHFLAGS="-arch x86_64"
 export CFLAGS=-Qunused-arguments
