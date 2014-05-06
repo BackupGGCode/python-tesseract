@@ -8,6 +8,8 @@ PACKAGE="python-tesseract"
 VERSION=0.8
 from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform,glob,commands,sys,distutils
+#library_dirs=[]
+#include_dirs=['.']
 
 IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
 			"int*  AllWordConfidences(tesseract::TessBaseAPI* api);",
@@ -62,6 +64,13 @@ def idefine(fp,name):
 		fp.write("\t#define __%s__\n"%name)
 		fp.write("#endif\n")
 
+def checkPath(paths,mlib):
+	for pref in paths:
+		path_to = os.path.join(pref, mlib)
+		#print "path_to=%s\n"%repr(path_to)
+		if os.path.exists(path_to):
+			return path_to
+
 from distutils.command.clean import clean as _clean
 #class CleanCommand(Command):
 class CleanCommand(_clean):
@@ -84,117 +93,136 @@ class CleanCommand(_clean):
 			os.system('del /S /Q build dist')
 		#_clean.run(self)
 
-removeFlag('-Wstrict-prototypes')
-osname=platform.uname()[0].lower()
-print "os=%s"%osname
-library_dirs=[]
-
-sources=['tesseract.i','main.cpp']
-#name = 'python-tesseract'
-#name = 'python'
-description = """${python:Provides} Wrapper for Python-${python:Versions} """,
-#version_number=os.getcwd().split("-")[-1]
-print "Current Version : %s"%VERSION
-include_dirs=['.']
-
-fp=open("config.h","w")
-fp.write("#pragma once\n")
-clang_incls=['tesseract','leptonica']
-fp2=open("main.h","w")
-
-writeIncludeLines(fp2,IncludeLines)
-idefine(fp,osname)
-isLinux=osname in ["darwin","linux","cygwin"]
 
 
-if isLinux:
-	data_files=[]
+class GenVariablesLinux:
+	def __init__(self, osname,fp_config_h,fp_main_h):
+		self.include_dirs=['.']
+		self.data_files=[]
+		self.osname=osname
+		self.fp_config_h=fp_config_h
+		self.fp_main_h=fp_main_h
+		self.initialize()
+		self.fp_config_h.write("#include <Python.h>\n")
+		self.libraries=['stdc++','tesseract','lept']
+		self.clang_incls=['tesseract','leptonica']
+		self.setIncls()
+		if self.isOpenCVInstalled():
+			self.setCVLibraries()
 
-	if osname=='darwin':
-		sources.append('ag5_fmemopen.c')
-		if os.path.exists("/usr/local/Cellar"):
-			prefix="/usr/local"
+
+	def setIncls(self):
+		for incl in self.clang_incls:
+			mincl=self.inclpath(incl)
+			#print "mincl=%s\n"%repr(mincl)
+			if mincl:
+				self.include_dirs.append(mincl)
+
+	def initialize(self):
+
+		if osname=='darwin':
+			sources.append('ag5_fmemopen.c')
+			if os.path.exists("/usr/local/Cellar"):
+				prefix="/usr/local"
+			else:
+				prefix="/opt/local"
+			self.incls = [os.path.join(prefix,'include')]
+			self.libs=[os.path.join(prefix,'lib')]
+			self.fp_config_h.write('#include "fmemopen.h"\n')
+			self.fp_config_h.write('#define HAVE_LIBLEPT\n')
 		else:
-			prefix="/opt/local"
-		incls = [os.path.join(prefix,'include')]
-		libs=[os.path.join(prefix,'lib')]
-		fp.write('#include "fmemopen.h"\n')
-		fp.write('#define HAVE_LIBLEPT\n')
-	else:
-		prefix=sys.prefix
-		incls = ['/usr/include', '/usr/local/include']
-		libs=['/usr/lib', '/usr/local/lib']
-		if "cygwin" in osname:
-			include_dirs.append(os.path.join(".","cygwin","includes"))
-			include_dirs.append(os.path.join("cygwin/includes/"))
+			prefix=sys.prefix
+			self.incls = ['/usr/include', '/usr/local/include']
+			self.libs=['/usr/lib', '/usr/local/lib']
+			if "cygwin" in osname:
+				self.include_dirs.append(os.path.join(".","cygwin","includes"))
+				self.include_dirs.append(os.path.join("cygwin/includes/"))
 
-	def inclpath(mlib):
-		ipath=checkPath(incls,mlib)
+	def inclpath(self,mlib):
+		ipath=checkPath(self.incls,mlib)
 		if ipath:
 			return ipath
 		else:
 			return None
 		assert False, 'Include directory %s was not found' % mlib
 
+	def libpath(self, mlib):
+		return checkPath(self.libs,mlib)
 
-	def checkPath(paths,mlib):
-		for pref in paths:
-			path_to = os.path.join(pref, mlib)
-			#print "path_to=%s\n"%repr(path_to)
-			if os.path.exists(path_to):
-				return path_to
+	def isOpenCVInstalled(self):
+		hasOpenCV = 0
+		if self.inclpath("opencv2/core/core_c.h"):
+			idefine(self.fp_config_h,"opencv2")
+			self.fp_config_h.write("#include <opencv2/core/core_c.h>\n")
+			self.clang_incls.append('opencv2')
+			writeIncludeLines(self.fp_main_h,cvIncludeLines)
+			hasOpenCV = 1
 
-	def libpath(mlib):
-		return checkPath(libs,mlib)
-	hasOpenCV = 0
-	if inclpath("opencv2/core/core_c.h"):
-		idefine(fp,"opencv2")
-		fp.write("#include <opencv2/core/core_c.h>\n")
-		clang_incls.append('opencv2')
-		writeIncludeLines(fp2,cvIncludeLines)
-		hasOpenCV = 1
+		if self.inclpath("opencv/cv.h") :
+			idefine(self.fp_config_h,"opencv")
+			self.fp_config_h.write("#include <opencv/cv.h>\n")
+			self.clang_incls.append('opencv')
+			writeIncludeLines(self.fp_main_h,cvIncludeLines)
+			hasOpenCV = 1
+		return hasOpenCV
 
-	if inclpath("opencv/cv.h")  :
-		idefine(fp,"opencv")
-		fp.write("#include <cv.h>\n")
-		clang_incls.append('opencv')
-		writeIncludeLines(fp2,cvIncludeLines)
-		hasOpenCV = 1
+	def setCVLibraries(self):
+		cv_pc=pkgconfig("opencv")
+		cv_pc_keys=cv_pc.keys()
+		print "~~~cv_pc~~~"
+		print cv_pc
+		print cv_pc_keys
+		if 'libraries' in cv_pc_keys:
+			self.libraries= self.libraries + cv_pc['libraries']
+		elif 'extra_link_args' in cv_pc_keys:
+			for item in cv_pc['extra_link_args']:
+				libname="open"+item.split("libopen")[1].split(".")[0]
+				print "add lib: %s"%libname
+				self.libraries.append(libname)
+		else:
+			print "*"*100
+			print "No pkg-config support!"
+			#if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
+			if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  :
+				if 'opencv_core' not in libraries:
+					self.libraries.append('opencv_contrib')
+					self.libraries.append('opencv_highgui')
+					self.libraries.append('opencv_calib3d')
+					#self.libraries.append('opencv_nonfree')
+					self.libraries.append('opencv_flann')
+					self.libraries.append('opencv_gpu')
+					self.libraries.append('opencv_features2d')
+					self.libraries.append('opencv_video')
+					self.libraries.append('opencv_objdetect')
+					self.libraries.append('opencv_core')
+					self.libraries.append('opencv_ml')
+					self.libraries.append('opencv_legacy')
+		self.fp_config_h.close()
+		self.fp_main_h.close()
+		print "===========%s==========="%self.libraries
+		print "&"*10,self.include_dirs
 
-	fp.write("#include <Python.h>\n")
-	libraries=['stdc++','tesseract','lept']
+	def do(self):
+		tesseract_module = Extension('_tesseract',
+				sources=sources,
+				#extra_compile_args=["-DEBUG -O0 -pg "],
+				#extra_compile_args=["-O0","-g"],
+				#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
+				extra_compile_args = ["-Wall", "-O0", '-funroll-loops','-g'],
+				swig_opts=[
+								"-c++",
+								 "-I"+self.inclpath('tesseract'),
+				#				"-I"+os.path.dirname(config.__file__),
+								"-I"+self.inclpath('leptonica')],
+				include_dirs=self.include_dirs,
+				#library_dirs=library_dirs,
+				libraries=self.libraries,
+											)
+		return tesseract_module, self.data_files
 
-	cv_pc=pkgconfig("opencv")
-	cv_pc_keys=cv_pc.keys()
-	print "~~~cv_pc~~~"
-	print cv_pc
-	print cv_pc_keys
-	if 'libraries' in cv_pc_keys:
-		libraries= libraries + cv_pc['libraries']
-	elif 'extra_link_args' in cv_pc_keys:
-		for item in cv_pc['extra_link_args']:
-			libname="open"+item.split("libopen")[1].split(".")[0]
-			print "add lib: %s"%libname
-			libraries.append(libname)
-	else:
-		print "*"*100
-		print "No pkg-config support!"
-		if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
-			if 'opencv_core' not in libraries:
-				libraries.append('opencv_contrib')
-				libraries.append('opencv_highgui')
-				libraries.append('opencv_calib3d')
-				#libraries.append('opencv_nonfree')
-				libraries.append('opencv_flann')
-				libraries.append('opencv_gpu')
-				libraries.append('opencv_features2d')
-				libraries.append('opencv_video')
-				libraries.append('opencv_objdetect')
-				libraries.append('opencv_core')
-				libraries.append('opencv_ml')
-				libraries.append('opencv_legacy')
-
-elif osname=="windows":
+def genVariablesWindows(osname,fp_config_h,fp_main_h):
+	clang_incls=['tesseract','leptonica']
+	include_dirs=['.']
 	name='python'
 	description = """Python Wrapper for Tesseract-OCR """
 
@@ -237,72 +265,102 @@ elif osname=="windows":
 	cv2IncPath="opencv2/core/core_c.h"
 	if  cv2IncPath:
 		idefine(fp,"opencv2")
-		fp.write('#include "opencv2/core/core_c.h"\n')
-		fp.write("#include <Python.h>\n")
+		fp_config_h.write('#include "opencv2/core/core_c.h"\n')
+		fp_config_h.write("#include <Python.h>\n")
 		libraries.append(libpath('opencv_core'))
 		clang_incls.append('opencv2')
 		clang_incls.append('.')
-		writeIncludeLines(fp2,cvIncludeLines)
+		writeIncludeLines(fp_main_h,cvIncludeLines)
 	else:
 		clang_incls.append('opencv')
-		writeIncludeLines(fp2,cvIncludeLines)
-	fp.write('#include "fmemopen.h"\n')
-	data_files=[("DLLS", listFiles(pydPath)),
+		writeIncludeLines(fp_main_h,cvIncludeLines)
+	fp_config_h.write('#include "fmemopen.h"\n')
+	self.data_files=[("DLLS", listFiles(pydPath)),
 					#("Lib\site-packages", listFiles("../dlls"))]
 					(".", listFiles(dllPath))]
 
-#fp.write("#endif // __CONFIG_H__\n")
-fp.close()
-fp2.close()
-print "===========%s==========="%libraries
+	#fp_config_h.write("#endif // __CONFIG_H__\n")
+	fp_config_h.close()
+	fp_main_h.close()
+	print "===========%s==========="%libraries
 
 
-for incl in clang_incls:
-	mincl=inclpath(incl)
-	#print "mincl=%s\n"%repr(mincl)
-	if mincl:
-		#print "what the fuck"
-		include_dirs.append(mincl)
+	for incl in clang_incls:
+		mincl=inclpath(incl)
+		#print "mincl=%s\n"%repr(mincl)
+		if mincl:
+			#print "what the fuck"
+			include_dirs.append(mincl)
 
-print repr(include_dirs)
-tesseract_module = Extension('_tesseract',
-									sources=sources,
-									#extra_compile_args=["-DEBUG -O0 -pg "],
-									#extra_compile_args=["-O0","-g"],
-									#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
-									extra_compile_args = ["-Wall", "-O0", '-funroll-loops','-g'],
-									swig_opts=[
-													"-c++",
-													 "-I"+inclpath('tesseract'),
-									#				"-I"+os.path.dirname(config.__file__),
-													"-I"+inclpath('leptonica')],
-									include_dirs=include_dirs,
-									library_dirs=library_dirs,
-									libraries=libraries,
-									)
+	tesseract_module = Extension('_tesseract',
+										sources=sources,
+										#extra_compile_args=["-DEBUG -O0 -pg "],
+										#extra_compile_args=["-O0","-g"],
+										#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
+										extra_compile_args = ["-Wall", "-O0", '-funroll-loops','-g'],
+										swig_opts=[
+														"-c++",
+														 "-I"+inclpath('tesseract'),
+										#				"-I"+os.path.dirname(config.__file__),
+														"-I"+inclpath('leptonica')],
+										include_dirs=include_dirs,
+										#library_dirs=library_dirs,
+										libraries=libraries,
+										)
+
+	return tesseract_module, self.data_files
 
 
-setup (name = PACKAGE,
-		version = VERSION,
-		author	  = "FreeToGo Nowhere",
-		author_email="freetogo@gmail.com",
-		maintainer = "FreeToGo Nowhere",
-		maintainer_email="freetogo@gmail.com",
-		description = description,
-		ext_modules = [tesseract_module],
-		#py_modules = ["tesseract"],
-		license="LGPL/MIT",
-		keywords=['tesseract', 'ocr' ],
-		cmdclass={
-		'clean': CleanCommand
-		},
-		packages =
-			find_packages(
-				#exclude=['distribute_setup']
-			),
-			data_files=data_files
-		#	 data_files=[('.',['test.py','eurotext.tif','eurotext.jpg']),],
-		#data_files=data_files
-	   )
+if __name__ == "__main__":
+
+	sources=['tesseract.i','main.cpp']
+	description = """${python:Provides} Wrapper for Python-${python:Versions} """,
+
+	osname=platform.uname()[0].lower()
+	removeFlag('-Wstrict-prototypes')
+
+
+	print "Current Version : %s"%VERSION
+
+	fp_config_h=open("config.h","w")
+	fp_main_h=open("main.h","w")
+
+
+	fp_config_h.write("#pragma once\n")
+	writeIncludeLines(fp_main_h,IncludeLines)
+	idefine(fp_config_h,osname)
+	isLinux=osname in ["darwin","linux","cygwin"]
+
+	print "os=%s"%osname
+	if isLinux:
+		gvl=GenVariablesLinux(osname,fp_config_h,fp_main_h)
+		tesseract_module, data_files=gvl.do()
+
+	elif osname=="windows":
+		tesseract_module, data_files=genVariablesWindows(osname,fp_config_h,fp_main_h)
+
+
+	setup (name = PACKAGE,
+			version = VERSION,
+			author	  = "FreeToGo Nowhere",
+			author_email="freetogo@gmail.com",
+			maintainer = "FreeToGo Nowhere",
+			maintainer_email="freetogo@gmail.com",
+			description = description,
+			ext_modules = [tesseract_module],
+			py_modules = ["tesseract"],
+			license="LGPL/MIT",
+			keywords=['tesseract', 'ocr' ],
+			cmdclass={
+			'clean': CleanCommand
+			},
+			packages =
+				find_packages(
+					#exclude=['distribute_setup']
+				),
+				data_files=data_files
+			#	 data_files=[('.',['test.py','eurotext.tif','eurotext.jpg']),],
+			#data_files=data_files
+		   )
 
 
