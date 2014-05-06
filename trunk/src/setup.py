@@ -66,6 +66,18 @@ def checkPath(paths,mlib):
 
 from distutils.command.clean import clean as _clean
 #class CleanCommand(Command):
+def my_clean():
+	#print "runtime directory:",os.path.dirname(os.path.realpath(__file__))
+	print "script directory:",os.path.abspath(os.path.dirname(sys.argv[0]))
+	print "^"*100
+	if osname != "windows":
+		os.system('rm -rf ./build ./dist ./deb_dist main.h config.h')
+		old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
+		for package in old_packages:
+			os.system(package)
+	else:
+		os.system('del /S /Q build dist')
+	
 class CleanCommand(_clean):
 	description = "custom clean command that forcefully removes dist/build directories"
 	user_options = [("all", "a", ""),]
@@ -80,14 +92,8 @@ class CleanCommand(_clean):
 
 	def run(self):
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
-		if osname != "windows":
-			os.system('rm -rf ./build ./dist ./deb_dist')
-			old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
-			for package in old_packages:
-				os.system(package)
-		else:
-			os.system('del /S /Q build dist')
-		#_clean.run(self)
+		my_clean()
+			#_clean.run(self)
 
 
 
@@ -219,6 +225,16 @@ class GenVariablesDarwin(GenVariablesLinux):
 	def __init__(self, osname,fp_config_h,fp_main_h,sources):
 		print "()"*10,get_config_vars('CFLAGS')
 		removeFlag("-mno-fused-madd",'CFLAGS')
+		os.environ["ARCHFLAGS"]="-arch x86_64"
+		brew_prefix=commands.getstatusoutput('brew --prefix')[1]
+		python_version=commands.getstatusoutput('python --version')[1].split(" ")[1]
+		python_version="python"+".".join(python_version.split(".")[:-1])
+		sitePackagesPath=os.path.join(brew_prefix,"lib",python_version,"site-packages")
+		if "PYTHONPATH" in os.environ:
+			os.environ["PYTHONPATH"]=":".join(sitePackagesPath,os.environ["PYTHONPATH"])
+		else:
+			os.environ["PYTHONPATH"]=sitePackagesPath
+
 		GenVariablesLinux.__init__(self,osname,fp_config_h,fp_main_h,sources)
 		
 	def initialize(self):
