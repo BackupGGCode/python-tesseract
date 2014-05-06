@@ -2,6 +2,7 @@
 #ifndef __linux__
 	#define __linux__
 #endif
+#include <Python.h>
 #ifndef __opencv2__
 	#define __opencv2__
 #endif
@@ -9,5 +10,4 @@
 #ifndef __opencv__
 	#define __opencv__
 #endif
-#include <cv.h>
-#include <Python.h>
+#include <opencv/cv.h>
