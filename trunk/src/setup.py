@@ -67,33 +67,38 @@ def checkPath(paths,mlib):
 
 from distutils.command.clean import clean as _clean
 #class CleanCommand(Command):
+def runCmd4files(pwd,cmd,mfiles):
+	for mfile in mfiles:
+		#print mfile
+		if "*" in mfile or os.path.exists(os.path.join(pwd,mfile)):
+			rmStr='%s %s'%(cmd,mfile)
+			print rmStr
+			os.system(rmStr)
+		else:
+			print "%s cannot be removed"%mfile
+
 def my_clean():
 	#print "runtime directory:",os.path.dirname(os.path.realpath(__file__))
 	pwd=os.path.abspath(os.path.dirname(sys.argv[0]))
-	rmDirs="build dist deb_dist tesseract.egg-info".split(" ")
-	rmFiles="main.h config.h *wrap.cpp setuptools*".split(" ")
+	print pwd
+	rmDirs="build dist deb_dist tesseract.egg-info python_tesseract.egg-info".split(" ")
+	rmFiles="main.h config.h *wrap.cpp setuptools* *tar.gz*".split(" ")
+
 	if osname != "windows":
-		for rmDir in rmDirs:
-			if "*" in rmDir or os.path.exists(rmDir):
-				os.system('rm -rf %s'%rmDir )
-		os.system('rm -rf %s'%rmFiles )
-		old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
-		for package in old_packages:
-			os.system(package)
+		rmDirCmd="rm -rf"
+		rmFileCmd=rmDirCmd
 	else:
-		for rmDir in rmDirs:
-			if "*" in rmDir or os.path.exists(os.path.join(pwd,rmDir)):
-				rmStr='rmdir /s /q %s'%rmDir
-				print rmStr
-				os.system(rmStr)
-			else:
-				print "Directory %s cannot be removed"%rmDir
-			
-				
-		for rmFile in rmFiles:
-			os.system('del /S /Q %s'%rmFile)
-		
-	
+		rmDirCmd="rmdir /s /q"
+		rmFileCmd="del /S /Q"
+
+	runCmd4files(pwd,rmDirCmd,rmDirs)
+	runCmd4files(pwd,rmFileCmd,rmFiles)
+
+	#old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
+	#for package in old_packages:
+		#os.system(package)
+
+
 class CleanCommand(_clean):
 	description = "custom clean command that forcefully removes dist/build directories"
 	user_options = [("all", "a", ""),]
@@ -144,7 +149,7 @@ class GenVariablesLinux:
 		fp.write("\t#define __%s__\n"%name)
 		fp.write("#endif\n")
 
-	
+
 	def initialize(self):
 
 		prefix=sys.prefix
@@ -212,12 +217,12 @@ class GenVariablesLinux:
 					self.libraries.append('opencv_core')
 					self.libraries.append('opencv_ml')
 					self.libraries.append('opencv_legacy')
-		
+
 		print "===========%s==========="%self.libraries
 		print self.include_dirs
 
 	def do(self):
-		
+
 		tesseract_module = Extension('_tesseract',
 				sources=self.sources,
 				#extra_compile_args=["-DEBUG -O0 -pg "],
@@ -251,7 +256,7 @@ class GenVariablesDarwin(GenVariablesLinux):
 			os.environ["PYTHONPATH"]=sitePackagesPath
 
 		GenVariablesLinux.__init__(self,osname,fp_config_h,fp_main_h,sources)
-		
+
 	def initialize(self):
 		self.sources.append('ag5_fmemopen.c')
 		if os.path.exists("/usr/local/Cellar"):
@@ -298,7 +303,7 @@ class GenVariablesWindows:
 		self.fp_config_h.close()
 		self.fp_main_h.close()
 		#print "===========%s==========="%libraries
-		
+
 	def idefine(self, fp, name):
 		fp.write("#define __%s__\n\n"%name)
 
@@ -317,7 +322,7 @@ class GenVariablesWindows:
 		self.data_files=[("DLLS", listFiles(self.pydPath)),
 			#("Lib\site-packages", listFiles("../dlls"))]
 			(".", listFiles(self.dllPath))]
-	
+
 	def setIncls(self):
 		for incl in self.clang_incls:
 			mincl=self.inclpath(incl)
@@ -325,7 +330,7 @@ class GenVariablesWindows:
 			if mincl:
 				self.include_dirs.append(mincl)
 		#fp_config_h.write("#endif // __CONFIG_H__\n")
-		
+
 
 	def inclpath(self,name):
 		return checkOnePath(self.inclPath,name,"")
@@ -348,7 +353,7 @@ class GenVariablesWindows:
 		else:
 			clang_incls.append('opencv')
 			writeIncludeLines(self.fp_main_h,cvIncludeLines)
-		
+
 	def do(self):
 		tesseract_module = Extension( '_tesseract',
 			sources=self.sources,
@@ -369,11 +374,11 @@ class GenVariablesWindows:
 		return tesseract_module, self.data_files
 
 def main():
-	
+
 	sources=['tesseract.i','main.cpp']
 	description = r"""${python:Provides} Wrapper for Python-${python:Versions}"""
-	
-	
+
+
 	removeFlag('-Wstrict-prototypes','OPT')
 
 
@@ -388,11 +393,11 @@ def main():
 	isLinux=osname in ["linux","cygwin"]
 
 	print "os=%s"%osname
-	
+
 	if osname=="darwin":
 		gvl=GenVariablesDarwin(osname,fp_config_h,fp_main_h,sources)
 		tesseract_module, data_files=gvl.do()
-	
+
 	elif isLinux:
 		gvl=GenVariablesLinux(osname,fp_config_h,fp_main_h,sources)
 		tesseract_module, data_files=gvl.do()
@@ -401,7 +406,7 @@ def main():
 		gvw=GenVariablesWindows(osname,fp_config_h,fp_main_h,sources)
 		tesseract_module, data_files=gvw.do()
 
-	
+
 	print data_files
 	setup (name = PACKAGE,
 			version = VERSION,
