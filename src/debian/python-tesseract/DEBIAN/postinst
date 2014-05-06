@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-# Automatically added by dh_python2:
+# Automatically added by dhpython:
 if which pycompile >/dev/null 2>&1; then
 	pycompile -p python-tesseract 
 fi

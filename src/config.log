@@ -862,7 +862,7 @@ conftest.c:1:0: note: this is the location of the previous definition
 conftest.c:64:6: warning: conflicting types for built-in function 'floor' [enabled by default]
  char floor ();
       ^
-/tmp/ccsNrjx2.o: In function `main':
+/tmp/ccwv3zhz.o: In function `main':
 /home/eli/Desktop/svn/python-tesseract/src/conftest.c:75: undefined reference to `floor'
 collect2: error: ld returned 1 exit status
 configure:4212: $? = 1

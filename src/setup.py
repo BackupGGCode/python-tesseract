@@ -5,7 +5,7 @@ written by FreeToGo@gmail.com
 """
 PACKAGE="python-tesseract"
 #VERSION=os.getcwd().split("-")[-1]
-VERSION=0.8
+VERSION="0.8"
 from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform,glob,commands,sys,distutils
 #library_dirs=[]
@@ -89,6 +89,7 @@ class CleanCommand(_clean):
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 		if osname != "windows":
 			os.system('rm -rf ./build ./dist ./deb_dist')
+			os.system('rm ../%s_%s*'%(PACKAGE,VERSION))
 		else:
 			os.system('del /S /Q build dist')
 		#_clean.run(self)
