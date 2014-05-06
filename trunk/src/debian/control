@@ -8,7 +8,7 @@ X-Python-Version: >= 2.7
 
 Package: python-tesseract
 Architecture: any
-Depends: ${misc:Depends}, ${python:Depends}, ${shlibs:Depends}, tesseract-ocr, leptonica, dh-python2
+Depends: ${misc:Depends}, ${python:Depends}, ${shlibs:Depends}, tesseract-ocr, leptonica-progs
 Provides: python-tesseract
 Description: ('${python:Provides} Wrapper for Python-${python:Versions} '
 

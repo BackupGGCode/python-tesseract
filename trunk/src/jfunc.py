@@ -1,12 +1,20 @@
 import platform, os, commands
 
 osname=platform.uname()[0].lower()
+
 if osname=="darwin":
 	brew_prefix=commands.getstatusoutput('brew --prefix')[1]
 	sitepackagesLocations=[
 		os.path.expanduser("~/Library/Python/2.7/lib/python/site-packages"),
 		"/usr/local/lib/python2.7/site-packages/",
 		"/Library/Python/2.7/site-packages"
+		]
+elif osname=="linux":
+	sitepackagesLocations=[
+		os.path.expanduser("~/.local/lib/python2.7/site-packages"),
+		"/usr/local/lib/python2.7/dist-packages",
+		"/usr/lib/python2.7/dist-packages",
+		"/usr/lib/python2.7/site-packages",
 		]
 def runCmd4Files(pwd,cmd,mfiles):
 	for mfile in mfiles:
@@ -33,5 +41,7 @@ def runRm4Files(pwd,mfiles):
 	else:
 		rmFileCmd="del /S /Q"
 
-	runCmd4Files(pwd,rmFileCmd,mfiles)	
-		
+	runCmd4Files(pwd,rmFileCmd,mfiles)
+
+if __name__ == "__main__":
+	print "os is %s"%osname
