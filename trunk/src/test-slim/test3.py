@@ -90,4 +90,4 @@ if __name__=="__main__":
 	osname=platform.uname()[0].lower()
 	if osname=='darwin':
 		setEnvironmentDarwin()
-	
+	ocr()
