@@ -70,11 +70,11 @@ from distutils.command.clean import clean as _clean
 def my_clean():
 	#print "runtime directory:",os.path.dirname(os.path.realpath(__file__))
 	pwd=os.path.abspath(os.path.dirname(sys.argv[0]))
-	rmDirs="build dist deb_dist".split(" ")
-	rmFiles="main.h config.h *wrap.cpp".split(" ")
+	rmDirs="build dist deb_dist tesseract.egg-info".split(" ")
+	rmFiles="main.h config.h *wrap.cpp setuptools*".split(" ")
 	if osname != "windows":
 		for rmDir in rmDirs:
-			if os.path.exists(rmDir):
+			if "*" in rmDir or os.path.exists(rmDir):
 				os.system('rm -rf %s'%rmDir )
 		os.system('rm -rf %s'%rmFiles )
 		old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
@@ -82,10 +82,14 @@ def my_clean():
 			os.system(package)
 	else:
 		for rmDir in rmDirs:
-			if not os.path.exists(os.path.join(pwd,rmDir)):
-				print "Directory %s cannot be removed"%rmDir
+			if "*" in rmDir or os.path.exists(os.path.join(pwd,rmDir)):
+				rmStr='rmdir /s /q %s'%rmDir
+				print rmStr
+				os.system(rmStr)
 			else:
-				os.system('rmdir /s /q %s'%rmDir)
+				print "Directory %s cannot be removed"%rmDir
+			
+				
 		for rmFile in rmFiles:
 			os.system('del /S /Q %s'%rmFile)
 		
