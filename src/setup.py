@@ -293,12 +293,12 @@ class GenVariablesWindows:
 	def idefine(self, fp, name):
 		fp.write("#define __%s__\n\n"%name)
 
-	#	if "64" not in sys.version:
-	#		xDir="x86"
-	#	else:
-	#		xDir="x64"
+		
 	def initialize(self):
-		xDir="x86"
+		if "64" not in sys.version:
+			xDir="x86"
+		else:
+			xDir="x64"
 		print("--os is %s"%xDir)
 		self.inclPath=os.path.join(self.pathOffset,"includes")
 		self.libPath=os.path.join(self.pathOffset,xDir,"libs")
