@@ -1,7 +1,7 @@
 import platform, os, commands
 
 osname=platform.uname()[0].lower()
-
+print "Your os is:%s"%osname
 if osname=="darwin":
 	brew_prefix=commands.getstatusoutput('brew --prefix')[1]
 	sitepackagesLocations=[
@@ -15,6 +15,11 @@ elif osname=="linux":
 		"/usr/local/lib/python2.7/dist-packages",
 		"/usr/lib/python2.7/dist-packages",
 		"/usr/lib/python2.7/site-packages",
+		]
+elif osname=="windows":
+	sitepackagesLocations=[
+		os.path.expanduser("~\\appdata\\roaming\\python\\python27\\site-packages"),
+		"C:\\Python27\\Lib\\site-packages"
 		]
 def runCmd4Files(pwd,cmd,mfiles):
 	for mfile in mfiles:
@@ -31,7 +36,7 @@ def runRm4Dirs(pwd,mfiles):
 	if osname != "windows":
 		rmDirCmd="rm -rf"
 	else:
-		rmDirCmd="rmdir /s /q"
+		rmDirCmd="del /S /Q"
 
 	runCmd4Files(pwd,rmDirCmd,mfiles)
 

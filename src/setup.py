@@ -84,6 +84,13 @@ def my_clean():
 	#for package in old_packages:
 		#os.system(package)
 
+def my_uninstall():
+	rmPaths=[]
+	files=["*tesseract*"]
+	#if osname=='darwin' and j.brew_prefix:
+	for rmPath in j.sitepackagesLocations:
+		print rmPath
+		j.runRm4Dirs(rmPath,files)
 
 class CleanCommand(_clean):
 	description = "custom clean command that forcefully removes dist/build directories"
@@ -100,6 +107,23 @@ class CleanCommand(_clean):
 	def run(self):
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 		my_clean()
+			#_clean.run(self)
+
+class UninstallCommand(_clean):
+	description = "custom uninstall command that forcefully removes dist/build directories"
+	user_options = [("all", "a", ""),]
+	def initialize_options(self):
+		self.cwd = None
+		self.all = None
+		pass
+
+	def finalize_options(self):
+		self.cwd = os.getcwd()
+		pass
+
+	def run(self):
+		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
+		my_uninstall()
 			#_clean.run(self)
 
 
@@ -406,7 +430,8 @@ def main():
 			license="LGPL/MIT",
 			keywords=['tesseract', 'ocr' ],
 			cmdclass={
-			'clean': CleanCommand
+			'clean': CleanCommand,
+			'uninstall' : UninstallCommand
 			},
 			packages =
 				find_packages(
