@@ -1,2056 +1,2056 @@
-LIBRARY liblept168
+LIBRARY liblept168.dll
 EXPORTS
-	AlphaMaskBorderVals
-	ConvolveSamplingFactX
-	ConvolveSamplingFactY
-	ImageFileFormatExtensions
-	MORPH_BC
-	NumImageFileFormatExtensions
-	absDifferenceLow
-	accumulateLow
-	addColorizedGrayToCmap
-	addConstantGrayLow
-	addGrayLow
-	adjacentOnPixelInRaster
-	affineInvertXform
-	affineXformPt
-	affineXformSampledPt
-	applyCubicFit
-	applyLinearFit
-	applyQuadraticFit
-	applyQuarticFit
-	arrayFindEachSequence
-	arrayFindSequence
-	arrayRead
-	arrayReadStream
-	barcodeDispatchDecoder
-	barcodeFormatIsSupported
-	bbufferBytesToWrite
-	bbufferCreate
-	bbufferDestroy
-	bbufferDestroyAndSaveData
-	bbufferExtendArray
-	bbufferRead
-	bbufferReadStream
-	bbufferWrite
-	bbufferWriteStream
-	bilinearXformPt
-	bilinearXformSampledPt
-	blockconvAccumLow
-	blockconvLow
-	blocksumLow
-	bmfCreate
-	bmfDestroy
-	bmfGetBaseline
-	bmfGetLineStrings
-	bmfGetPix
-	bmfGetStringWidth
-	bmfGetWidth
-	bmfGetWordWidths
-	boxAdjustSides
-	boxBoundingRegion
-	boxChangeRefcount
-	boxClipToRectangle
-	boxClone
-	boxContains
-	boxContainsPt
-	boxCopy
-	boxCreate
-	boxCreateValid
-	boxDestroy
-	boxEqual
-	boxGetCenter
-	boxGetGeometry
-	boxGetRefcount
-	boxIntersectByLine
-	boxIntersects
-	boxOverlapFraction
-	boxOverlapRegion
-	boxPrintStreamInfo
-	boxRelocateOneSide
-	boxRotateOrth
-	boxSetGeometry
-	boxTransform
-	boxTransformOrdered
-	boxaAddBox
-	boxaAffineTransform
-	boxaBinSort
-	boxaClear
-	boxaClipToBox
-	boxaCombineOverlaps
-	boxaContainedInBox
-	boxaConvertToPta
-	boxaCopy
-	boxaCreate
-	boxaDestroy
-	boxaEqual
-	boxaExtendArray
-	boxaExtendArrayToSize
-	boxaExtractSortedPattern
-	boxaGetBox
-	boxaGetBoxGeometry
-	boxaGetCount
-	boxaGetCoverage
-	boxaGetExtent
-	boxaGetMedian
-	boxaGetNearestToPt
-	boxaGetRankSize
-	boxaGetValidBox
-	boxaGetValidCount
-	boxaGetWhiteblocks
-	boxaInitFull
-	boxaInsertBox
-	boxaIntersectsBox
-	boxaJoin
-	boxaLocationRange
-	boxaMakeSizeIndicator
-	boxaPermutePseudorandom
-	boxaPermuteRandom
-	boxaPruneSortedOnOverlap
-	boxaRead
-	boxaReadStream
-	boxaRemoveBox
-	boxaReplaceBox
-	boxaRotate
-	boxaRotateOrth
-	boxaScale
-	boxaSelectBySize
-	boxaSelectWithIndicator
-	boxaSizeRange
-	boxaSort
-	boxaSort2d
-	boxaSort2dByIndex
-	boxaSortByIndex
-	boxaSwapBoxes
-	boxaTransform
-	boxaTransformOrdered
-	boxaTranslate
-	boxaWrite
-	boxaWriteStream
-	boxaaAddBox
-	boxaaAddBoxa
-	boxaaAlignBox
-	boxaaCopy
-	boxaaCreate
-	boxaaDestroy
-	boxaaDisplay
-	boxaaExtendArray
-	boxaaFlattenToBoxa
-	boxaaGetBoxCount
-	boxaaGetBoxa
-	boxaaGetCount
-	boxaaGetExtent
-	boxaaInsertBoxa
-	boxaaQuadtreeRegions
-	boxaaRead
-	boxaaReadStream
-	boxaaRemoveBoxa
-	boxaaReplaceBoxa
-	boxaaWrite
-	boxaaWriteStream
-	ccbCreate
-	ccbDestroy
-	ccbaAddCcb
-	ccbaCreate
-	ccbaDestroy
-	ccbaDisplayBorder
-	ccbaDisplayImage1
-	ccbaDisplayImage2
-	ccbaDisplaySPBorder
-	ccbaExtendArray
-	ccbaGenerateGlobalLocs
-	ccbaGenerateSPGlobalLocs
-	ccbaGenerateSinglePath
-	ccbaGenerateStepChains
-	ccbaGetCcb
-	ccbaGetCount
-	ccbaRead
-	ccbaReadStream
-	ccbaStepChainsToPixCoords
-	ccbaWrite
-	ccbaWriteSVG
-	ccbaWriteSVGString
-	ccbaWriteStream
-	composeRGBPixel
-	compressed_dataDestroy
-	concatenatePdf
-	concatenatePdfToData
-	convertByteToHexAscii
-	convertFilesFittedToPS
-	convertFilesTo1bpp
-	convertFilesToPS
-	convertFilesToPdf
-	convertFlateToPS
-	convertFlateToPSEmbed
-	convertFlateToPSString
-	convertG4ToPS
-	convertG4ToPSEmbed
-	convertG4ToPSString
-	convertHSVToRGB
-	convertImageDataToPdf
-	convertImageDataToPdfData
-	convertJpegToPS
-	convertJpegToPSEmbed
-	convertJpegToPSString
-	convertOnBigEnd16
-	convertOnBigEnd32
-	convertOnLittleEnd16
-	convertOnLittleEnd32
-	convertRGBToHSV
-	convertRGBToYUV
-	convertSegmentedFilesToPdf
-	convertSegmentedPagesToPS
-	convertTiffMultipageToPS
-	convertToPSEmbed
-	convertToPdf
-	convertToPdfData
-	convertToPdfDataSegmented
-	convertToPdfSegmented
-	convertYUVToRGB
-	create2dFloatArray
-	create2dIntArray
-	createMatrix2dRotate
-	createMatrix2dScale
-	createMatrix2dTranslate
-	decodeAscii85
-	dewarpApplyDisparity
-	dewarpBuildModel
-	dewarpCreate
-	dewarpDestroy
-	dewarpMinimize
-	dewarpPopulateFullRes
-	dewarpRead
-	dewarpReadStream
-	dewarpWrite
-	dewarpWriteStream
-	dilateGrayLow
-	displayHSVColorRange
-	distanceFunctionLow
-	ditherTo2bppLineLow
-	ditherTo2bppLow
-	ditherToBinaryLUTLow
-	ditherToBinaryLineLUTLow
-	ditherToBinaryLineLow
-	ditherToBinaryLow
-	dpixChangeRefcount
-	dpixClone
-	dpixConvertToFPix
-	dpixCopy
-	dpixCopyResolution
-	dpixCreate
-	dpixCreateTemplate
-	dpixDestroy
-	dpixEndianByteSwap
-	dpixGetData
-	dpixGetDimensions
-	dpixGetPixel
-	dpixGetRefcount
-	dpixGetResolution
-	dpixGetWpl
-	dpixRead
-	dpixReadStream
-	dpixResizeImageData
-	dpixScaleByInteger
-	dpixSetData
-	dpixSetDimensions
-	dpixSetPixel
-	dpixSetResolution
-	dpixSetWpl
-	dpixWrite
-	dpixWriteStream
-	encodeAscii85
-	erodeGrayLow
-	expandBinaryPower2Low
-	extractG4DataFromFile
-	extractJpegDataFromArray
-	extractJpegDataFromFile
-	extractMinMaxComponent
-	extractNumberFromFilename
-	extractRGBValues
-	fgetJpegResolution
-	fgetPngResolution
-	fhmtautogen
-	fhmtautogen1
-	fhmtautogen2
-	fhmtgen_low_1
-	fileAppendString
-	fileConcatenate
-	fileCopy
-	fileFormatIsTiff
-	filesAreIdentical
-	finalAccumulateLow
-	finalAccumulateThreshLow
-	findFileFormat
-	findFileFormatBuffer
-	findFileFormatStream
-	findNextBorderPixel
-	findTiffCompression
-	flipLRLow
-	flipTBLow
-	fmorphautogen
-	fmorphautogen1
-	fmorphautogen2
-	fmorphopgen_low_1
-	fmorphopgen_low_2
-	fnbytesInFile
-	fopenReadStream
-	fopenWriteStream
-	fpixAddBorder
-	fpixAddMirroredBorder
-	fpixAddMultConstant
-	fpixBuildHorizontalDisparity
-	fpixChangeRefcount
-	fpixClone
-	fpixConvertToDPix
-	fpixConvertToPix
-	fpixConvolve
-	fpixConvolveSep
-	fpixCopy
-	fpixCopyResolution
-	fpixCreate
-	fpixCreateTemplate
-	fpixDestroy
-	fpixDisplayMaxDynamicRange
-	fpixEndianByteSwap
-	fpixGetData
-	fpixGetDimensions
-	fpixGetMax
-	fpixGetMin
-	fpixGetPixel
-	fpixGetRefcount
-	fpixGetResolution
-	fpixGetWpl
-	fpixLinearCombination
-	fpixPrintStream
-	fpixRasterop
-	fpixRead
-	fpixReadStream
-	fpixRemoveBorder
-	fpixRenderContours
-	fpixResizeImageData
-	fpixSampledDisparity
-	fpixScaleByInteger
-	fpixSetData
-	fpixSetDimensions
-	fpixSetPixel
-	fpixSetResolution
-	fpixSetWpl
-	fpixWrite
-	fpixWriteStream
-	fpixaAddFPix
-	fpixaChangeRefcount
-	fpixaCopy
-	fpixaCreate
-	fpixaDestroy
-	fpixaDisplayQuadtree
-	fpixaExtendArray
-	fpixaExtendArrayToSize
-	fpixaGetCount
-	fpixaGetFPix
-	fpixaGetFPixDimensions
-	fpixaGetPixel
-	fpixaSetPixel
-	fprintTiffInfo
-	freadHeaderJpeg
-	freadHeaderPng
-	freadHeaderPnm
-	freadHeaderSpix
-	freadHeaderTiff
-	gaussjordan
-	genPathname
-	genRandomIntegerInRange
-	genTempFilename
-	generateBinaryMaze
-	generateFlatePS
-	generateG4PS
-	generateJpegPS
-	generatePtaBox
-	generatePtaBoxa
-	generatePtaFilledCircle
-	generatePtaHashBox
-	generatePtaLine
-	generatePtaLineFromPt
-	generatePtaPolyline
-	generatePtaWideLine
-	generatePtaaBoxa
-	generatePtaaHashBoxa
-	generateUncompressedPS
-	getAffineXformCoeffs
-	getBilinearXformCoeffs
-	getCompositeParameters
-	getCutPathForHole
-	getExtendedCompositeParameters
-	getFilenamesInDirectory
-	getFormatExtension
-	getImagelibVersions
-	getImpliedFileFormat
-	getLeptonicaVersion
-	getLogBase2
-	getMorphBorderPixelColor
-	getNumberedPathnamesInDirectory
-	getOctcubeIndexFromRGB
-	getProjectiveXformCoeffs
-	getResA4Page
-	getResLetterPage
-	getScaledParametersPS
-	getSortedPathnamesInDirectory
-	getTiffResolution
-	gplotAddPlot
-	gplotCreate
-	gplotDestroy
-	gplotGenCommandFile
-	gplotGenDataFiles
-	gplotMakeOutput
-	gplotRead
-	gplotSetScaling
-	gplotSimple1
-	gplotSimple2
-	gplotSimpleN
-	gplotWrite
-	ioFormatTest
-	jbAccumulateComposites
-	jbAddPage
-	jbAddPageComponents
-	jbAddPages
-	jbClasserCreate
-	jbClasserDestroy
-	jbClassifyCorrelation
-	jbClassifyRankHaus
-	jbCorrelation
-	jbCorrelationInit
-	jbCorrelationInitWithoutComponents
-	jbDataDestroy
-	jbDataRead
-	jbDataRender
-	jbDataSave
-	jbDataWrite
-	jbGetComponents
-	jbGetLLCorners
-	jbGetULCorners
-	jbRankHaus
-	jbRankHausInit
-	jbTemplatesFromComposites
-	jbWordsInTextlines
-	kernelCopy
-	kernelCreate
-	kernelCreateFromFile
-	kernelCreateFromPix
-	kernelCreateFromString
-	kernelDestroy
-	kernelDisplayInPix
-	kernelGetElement
-	kernelGetMinMax
-	kernelGetParameters
-	kernelGetSum
-	kernelInvert
-	kernelNormalize
-	kernelRead
-	kernelReadStream
-	kernelSetElement
-	kernelSetOrigin
-	kernelWrite
-	kernelWriteStream
-	l_binaryCopy
-	l_binaryRead
-	l_binaryReadStream
-	l_binaryWrite
-	l_byteaAppendData
-	l_byteaAppendString
-	l_byteaCopy
-	l_byteaCopyData
-	l_byteaCreate
-	l_byteaDestroy
-	l_byteaExtendArrayToSize
-	l_byteaFindEachSequence
-	l_byteaGetData
-	l_byteaGetSize
-	l_byteaInitFromFile
-	l_byteaInitFromMem
-	l_byteaInitFromStream
-	l_byteaJoin
-	l_byteaSplit
-	l_byteaWrite
-	l_byteaWriteStream
-	l_chooseDisplayProg
-	l_clearDataBit
-	l_clearDataDibit
-	l_clearDataQbit
-	l_error
-	l_errorFloat
-	l_errorInt
-	l_errorString
-	l_generateFlateData
-	l_generateG4Data
-	l_generateJpegData
-	l_getCurrentTime
-	l_getDataBit
-	l_getDataByte
-	l_getDataDibit
-	l_getDataFourBytes
-	l_getDataQbit
-	l_getDataTwoBytes
-	l_getFormattedDate
-	l_info
-	l_infoFloat
-	l_infoFloat2
-	l_infoInt
-	l_infoInt2
-	l_infoString
-	l_jpegSetNoChromaSampling
-	l_pdfSetDateAndVersion
-	l_pdfSetG4ImageMask
-	l_pngSetStrip16To8
-	l_pngSetStripAlpha
-	l_pngSetWriteAlpha
-	l_pngSetZlibCompression
-	l_productMat2
-	l_productMat3
-	l_productMat4
-	l_productMatVec
-	l_psWriteBoundingBox
-	l_setAlphaMaskBorder
-	l_setConvolveSampling
-	l_setDataBit
-	l_setDataBitVal
-	l_setDataByte
-	l_setDataDibit
-	l_setDataFourBytes
-	l_setDataQbit
-	l_setDataTwoBytes
-	l_warning
-	l_warningFloat
-	l_warningFloat2
-	l_warningInt
-	l_warningInt2
-	l_warningString
-	lept_calloc
-	lept_cp
-	lept_fclose
-	lept_fopen
-	lept_free
-	lept_mkdir
-	lept_mv
-	lept_rm
-	lept_rmdir
-	lheapAdd
-	lheapCreate
-	lheapDestroy
-	lheapExtendArray
-	lheapGetCount
-	lheapPrint
-	lheapRemove
-	lheapSort
-	lheapSortStrictOrder
-	lheapSwapDown
-	lheapSwapUp
-	lineEndianByteSwap
-	linearInterpolatePixelColor
-	linearInterpolatePixelGray
-	listAddToHead
-	listAddToTail
-	listDestroy
-	listFindElement
-	listFindTail
-	listGetCount
-	listInsertAfter
-	listInsertBefore
-	listJoin
-	listRemoveElement
-	listRemoveFromHead
-	listRemoveFromTail
-	listReverse
-	locateOutsideSeedPixel
-	locatePtRadially
-	lqueueAdd
-	lqueueCreate
-	lqueueDestroy
-	lqueueExtendArray
-	lqueueGetCount
-	lqueuePrint
-	lqueueRemove
-	lstackAdd
-	lstackCreate
-	lstackDestroy
-	lstackExtendArray
-	lstackGetCount
-	lstackPrint
-	lstackRemove
-	make8To1DitherTables
-	make8To2DitherTables
-	makeDoGKernel
-	makeExpandTab2x
-	makeExpandTab4x
-	makeExpandTab8x
-	makeFlatKernel
-	makeGaussianKernel
-	makeGaussianKernelSep
-	makeGrayQuantColormapArb
-	makeGrayQuantIndexTable
-	makeGrayQuantTableArb
-	makeGrayQuantTargetTable
-	makeLogBase2Tab
-	makeMSBitLocTab
-	makeOrientDecision
-	makePixelCentroidTab8
-	makePixelSumTab8
-	makeRGBToIndexTables
-	makeReverseByteTab1
-	makeReverseByteTab2
-	makeReverseByteTab4
-	makeSubsampleTab2x
-	makeSumTabSG2
-	makeSumTabSG3
-	makeSumTabSG4
-	makeValTabSG2
-	makeValTabSG3
-	makeValTabSG4
-	makeValTabSG6
-	makeValTabSG8
-	morphSequenceVerify
-	multConstAccumulateLow
-	multConstantGrayLow
-	nbytesInFile
-	nextOnPixelInRaster
-	nextOnPixelInRasterLow
-	numa2dAddNumber
-	numa2dCreate
-	numa2dDestroy
-	numa2dGetCount
-	numa2dGetFValue
-	numa2dGetIValue
-	numa2dGetNuma
-	numaAddBorder
-	numaAddNumber
-	numaAddSpecifiedBorder
-	numaArithOp
-	numaChangeRefcount
-	numaClipToInterval
-	numaClone
-	numaClose
-	numaContrastTRC
-	numaConvertToInt
-	numaCopy
-	numaCopyXParameters
-	numaCountReversals
-	numaCreate
-	numaCreateFromFArray
-	numaCreateFromIArray
-	numaCrossingsByPeaks
-	numaCrossingsByThreshold
-	numaDestroy
-	numaDifferentiateInterval
-	numaDilate
-	numaDiscretizeRankAndIntensity
-	numaEmpty
-	numaEqualizeTRC
-	numaErode
-	numaEvalBestHaarParameters
-	numaEvalHaarSum
-	numaExtendArray
-	numaFindExtrema
-	numaFindPeaks
-	numaFitMax
-	numaGammaTRC
-	numaGetBinSortIndex
-	numaGetCount
-	numaGetCountRelativeToZero
-	numaGetEdgeValues
-	numaGetFArray
-	numaGetFValue
-	numaGetHistogramStats
-	numaGetHistogramStatsOnInterval
-	numaGetIArray
-	numaGetIValue
-	numaGetMax
-	numaGetMedian
-	numaGetMin
-	numaGetMode
-	numaGetNonzeroRange
-	numaGetPartialSums
-	numaGetRankBinValues
-	numaGetRankValue
-	numaGetRefcount
-	numaGetSortIndex
-	numaGetSpanValues
-	numaGetStatsUsingHistogram
-	numaGetSum
-	numaGetSumOnInterval
-	numaGetXParameters
-	numaHasOnlyIntegers
-	numaHashAdd
-	numaHashCreate
-	numaHashDestroy
-	numaHashGetNuma
-	numaHistogramGetRankFromVal
-	numaHistogramGetValFromRank
-	numaInsertNumber
-	numaIntegrateInterval
-	numaInterpolateArbxInterval
-	numaInterpolateArbxVal
-	numaInterpolateEqxInterval
-	numaInterpolateEqxVal
-	numaInvert
-	numaIsSorted
-	numaJoin
-	numaLogicalOp
-	numaLowPassIntervals
-	numaMakeConstant
-	numaMakeDelta
-	numaMakeHistogram
-	numaMakeHistogramAuto
-	numaMakeHistogramClipped
-	numaMakeRankFromHistogram
-	numaMakeSequence
-	numaMakeThresholdIndicator
-	numaNormalizeHistogram
-	numaOpen
-	numaPseudorandomSequence
-	numaQuantizeCrossingsByWidth
-	numaQuantizeCrossingsByWindow
-	numaRandomPermutation
-	numaRead
-	numaReadStream
-	numaRebinHistogram
-	numaRemoveBorder
-	numaRemoveNumber
-	numaReplaceNumber
-	numaSelectCrossingThreshold
-	numaSetCount
-	numaSetValue
-	numaSetXParameters
-	numaShiftValue
-	numaSort
-	numaSortByIndex
-	numaSortPair
-	numaSplitDistribution
-	numaSubsample
-	numaThresholdEdges
-	numaTransform
-	numaUniformSampling
-	numaWindowedMean
-	numaWindowedMeanSquare
-	numaWindowedStats
-	numaWindowedVariance
-	numaWrite
-	numaWriteStream
-	numaaAddNuma
-	numaaAddNumber
-	numaaCompareImagesByBoxes
-	numaaCreate
-	numaaDestroy
-	numaaExtendArray
-	numaaFlattenToNuma
-	numaaGetCount
-	numaaGetNuma
-	numaaGetNumaCount
-	numaaGetNumberCount
-	numaaGetPtrArray
-	numaaGetValue
-	numaaRead
-	numaaReadStream
-	numaaReplaceNuma
-	numaaWrite
-	numaaWriteStream
-	parseForProtos
-	parseStringForNumbers
-	pathJoin
-	pixAbsDifference
-	pixAccumulate
-	pixAddBlackBorder
-	pixAddBorder
-	pixAddBorderGeneral
-	pixAddConstantGray
-	pixAddGray
-	pixAddGrayColormap8
-	pixAddMinimalGrayColormap8
-	pixAddMirroredBorder
-	pixAddMixedBorder
-	pixAddRepeatedBorder
-	pixAddSingleTextblock
-	pixAddText
-	pixAddWithIndicator
-	pixAffine
-	pixAffineColor
-	pixAffineGray
-	pixAffinePta
-	pixAffinePtaColor
-	pixAffinePtaGammaXform
-	pixAffinePtaGray
-	pixAffinePtaWithAlpha
-	pixAffineSampled
-	pixAffineSampledPta
-	pixAffineSequential
-	pixAnd
-	pixApplyHorizontalDisparity
-	pixApplyInvBackgroundGrayMap
-	pixApplyInvBackgroundRGBMap
-	pixApplyLocalThreshold
-	pixApplyVariableGrayMap
-	pixApplyVerticalDisparity
-	pixAssignToNearestColor
-	pixAverageIntensityProfile
-	pixAverageOnLine
-	pixBackgroundNorm
-	pixBackgroundNormFlex
-	pixBackgroundNormGrayArray
-	pixBackgroundNormGrayArrayMorph
-	pixBackgroundNormMorph
-	pixBackgroundNormRGBArrays
-	pixBackgroundNormRGBArraysMorph
-	pixBackgroundNormSimple
-	pixBilinear
-	pixBilinearColor
-	pixBilinearGray
-	pixBilinearPta
-	pixBilinearPtaColor
-	pixBilinearPtaGammaXform
-	pixBilinearPtaGray
-	pixBilinearPtaWithAlpha
-	pixBilinearSampled
-	pixBilinearSampledPta
-	pixBlend
-	pixBlendBoxaRandom
-	pixBlendCmap
-	pixBlendColor
-	pixBlendColorByChannel
-	pixBlendGray
-	pixBlendGrayAdapt
-	pixBlendHardLight
-	pixBlendInRect
-	pixBlendMask
-	pixBlendWithGrayMask
-	pixBlockconv
-	pixBlockconvAccum
-	pixBlockconvGray
-	pixBlockconvGrayTile
-	pixBlockconvGrayUnnormalized
-	pixBlockconvTiled
-	pixBlockrank
-	pixBlocksum
-	pixCensusTransform
-	pixCentroid
-	pixChangeRefcount
-	pixChooseOutputFormat
-	pixCleanupByteProcessing
-	pixClearAll
-	pixClearInRect
-	pixClearPixel
-	pixClipBoxToEdges
-	pixClipBoxToForeground
-	pixClipMasked
-	pixClipRectangle
-	pixClipToForeground
-	pixClone
-	pixClose
-	pixCloseBrick
-	pixCloseBrickDwa
-	pixCloseCompBrick
-	pixCloseCompBrickDwa
-	pixCloseCompBrickExtendDwa
-	pixCloseGeneralized
-	pixCloseGray
-	pixCloseGray3
-	pixCloseSafe
-	pixCloseSafeBrick
-	pixCloseSafeCompBrick
-	pixColorContent
-	pixColorFraction
-	pixColorGray
-	pixColorGrayCmap
-	pixColorMagnitude
-	pixColorMorph
-	pixColorMorphSequence
-	pixColorSegment
-	pixColorSegmentClean
-	pixColorSegmentCluster
-	pixColorSegmentRemoveColors
-	pixColorizeGray
-	pixColorsForQuantization
-	pixColumnStats
-	pixCombineMasked
-	pixCombineMaskedGeneral
-	pixCompareBinary
-	pixCompareGray
-	pixCompareGrayOrRGB
-	pixCompareRGB
-	pixCompareRankDifference
-	pixCompareTiled
-	pixConformsToRectangle
-	pixConnComp
-	pixConnCompBB
-	pixConnCompPixa
-	pixContrastNorm
-	pixContrastTRC
-	pixContrastTRCMasked
-	pixConvert16To8
-	pixConvert1To16
-	pixConvert1To2
-	pixConvert1To2Cmap
-	pixConvert1To32
-	pixConvert1To4
-	pixConvert1To4Cmap
-	pixConvert1To8
-	pixConvert24To32
-	pixConvert2To8
-	pixConvert32To24
-	pixConvert4To8
-	pixConvert8To16
-	pixConvert8To32
-	pixConvertColorToSubpixelRGB
-	pixConvertForPSWrap
-	pixConvertGrayToColormap
-	pixConvertGrayToColormap8
-	pixConvertGrayToFalseColor
-	pixConvertGrayToSubpixelRGB
-	pixConvertHSVToRGB
-	pixConvertLossless
-	pixConvertRGBToColormap
-	pixConvertRGBToGray
-	pixConvertRGBToGrayFast
-	pixConvertRGBToGrayMinMax
-	pixConvertRGBToHSV
-	pixConvertRGBToHue
-	pixConvertRGBToLuminance
-	pixConvertRGBToSaturation
-	pixConvertRGBToValue
-	pixConvertRGBToYUV
-	pixConvertTo1
-	pixConvertTo16
-	pixConvertTo1BySampling
-	pixConvertTo32
-	pixConvertTo32BySampling
-	pixConvertTo8
-	pixConvertTo8BySampling
-	pixConvertTo8Or32
-	pixConvertToFPix
-	pixConvertToPdf
-	pixConvertToPdfData
-	pixConvertToPdfDataSegmented
-	pixConvertToPdfSegmented
-	pixConvertToSubpixelRGB
-	pixConvertYUVToRGB
-	pixConvolve
-	pixConvolveRGB
-	pixConvolveRGBSep
-	pixConvolveSep
-	pixCopy
-	pixCopyBorder
-	pixCopyColormap
-	pixCopyDimensions
-	pixCopyInputFormat
-	pixCopyResolution
-	pixCopyText
-	pixCorrelationBinary
-	pixCorrelationScore
-	pixCorrelationScoreSimple
-	pixCorrelationScoreThresholded
-	pixCountConnComp
-	pixCountPixels
-	pixCountPixelsByColumn
-	pixCountPixelsByRow
-	pixCountPixelsInRow
-	pixCreate
-	pixCreateFromPixcomp
-	pixCreateHeader
-	pixCreateNoInit
-	pixCreateRGBImage
-	pixCreateTemplate
-	pixCreateTemplateNoInit
-	pixDeserializeFromMemory
-	pixDeskew
-	pixDeskewBarcode
-	pixDeskewGeneral
-	pixDeskewLocal
-	pixDestroy
-	pixDestroyColormap
-	pixDilate
-	pixDilateBrick
-	pixDilateBrickDwa
-	pixDilateCompBrick
-	pixDilateCompBrickDwa
-	pixDilateCompBrickExtendDwa
-	pixDilateGray
-	pixDilateGray3
-	pixDisplay
-	pixDisplayColorArray
-	pixDisplayDiffBinary
-	pixDisplayHitMissSel
-	pixDisplayMatchedPattern
-	pixDisplayMultiple
-	pixDisplayPta
-	pixDisplayPtaa
-	pixDisplayWithTitle
-	pixDisplayWrite
-	pixDisplayWriteFormat
-	pixDistanceFunction
-	pixDitherTo2bpp
-	pixDitherTo2bppSpec
-	pixDitherToBinary
-	pixDitherToBinaryLUT
-	pixDitherToBinarySpec
-	pixDrawBoxa
-	pixDrawBoxaRandom
-	pixEmbedForRotation
-	pixEndianByteSwap
-	pixEndianByteSwapNew
-	pixEndianTwoByteSwap
-	pixEndianTwoByteSwapNew
-	pixEqual
-	pixEqualWithCmap
-	pixEqualizeTRC
-	pixErode
-	pixErodeBrick
-	pixErodeBrickDwa
-	pixErodeCompBrick
-	pixErodeCompBrickDwa
-	pixErodeCompBrickExtendDwa
-	pixErodeGray
-	pixErodeGray3
-	pixExpandBinaryPower2
-	pixExpandBinaryReplicate
-	pixExpandReplicate
-	pixExtendByReplication
-	pixExtractBarcodeCrossings
-	pixExtractBarcodeWidths1
-	pixExtractBarcodeWidths2
-	pixExtractBarcodes
-	pixExtractBorderConnComps
-	pixExtractBoundary
-	pixExtractData
-	pixExtractOnLine
-	pixFHMTGen_1
-	pixFMorphopGen_1
-	pixFMorphopGen_2
-	pixFadeWithGray
-	pixFastTophat
-	pixFewColorsMedianCutQuantMixed
-	pixFewColorsOctcubeQuant1
-	pixFewColorsOctcubeQuant2
-	pixFewColorsOctcubeQuantMixed
-	pixFillClosedBorders
-	pixFillHolesToBoundingRect
-	pixFillMapHoles
-	pixFinalAccumulate
-	pixFinalAccumulateThreshold
-	pixFindAreaFraction
-	pixFindAreaPerimRatio
-	pixFindBaselines
-	pixFindCornerPixels
-	pixFindDifferentialSquareSum
-	pixFindEqualValues
-	pixFindHistoPeaksHSV
-	pixFindHorizontalRuns
-	pixFindLargestRectangle
-	pixFindNormalizedSquareSum
-	pixFindOverlapFraction
-	pixFindPerimSizeRatio
-	pixFindRectangleComps
-	pixFindSkew
-	pixFindSkewAndDeskew
-	pixFindSkewOrthogonalRange
-	pixFindSkewSweep
-	pixFindSkewSweepAndSearch
-	pixFindSkewSweepAndSearchScore
-	pixFindSkewSweepAndSearchScorePivot
-	pixFindVerticalRuns
-	pixFixedOctcubeQuant256
-	pixFixedOctcubeQuantGenRGB
-	pixFlipFHMTGen
-	pixFlipLR
-	pixFlipPixel
-	pixFlipTB
-	pixFreeData
-	pixGammaTRC
-	pixGammaTRCMasked
-	pixGammaTRCWithAlpha
-	pixGenHalftoneMask
-	pixGenTextblockMask
-	pixGenTextlineMask
-	pixGenerateFlateData
-	pixGenerateFromPta
-	pixGenerateG4Data
-	pixGenerateJpegData
-	pixGenerateMaskByBand
-	pixGenerateMaskByBand32
-	pixGenerateMaskByDiscr32
-	pixGenerateMaskByValue
-	pixGenerateSelBoundary
-	pixGenerateSelRandom
-	pixGenerateSelWithRuns
-	pixGetAllCCBorders
-	pixGetAverageMasked
-	pixGetAverageMaskedRGB
-	pixGetAverageTiled
-	pixGetAverageTiledRGB
-	pixGetBackgroundGrayMap
-	pixGetBackgroundGrayMapMorph
-	pixGetBackgroundRGBMap
-	pixGetBackgroundRGBMapMorph
-	pixGetBinnedColor
-	pixGetBinnedComponentRange
-	pixGetCCBorders
-	pixGetCmapHistogram
-	pixGetCmapHistogramMasked
-	pixGetColorHistogram
-	pixGetColorHistogramMasked
-	pixGetColormap
-	pixGetColumnStats
-	pixGetComponentRange
-	pixGetData
-	pixGetDepth
-	pixGetDifferenceHistogram
-	pixGetDifferenceStats
-	pixGetDimensions
-	pixGetEdgeProfile
-	pixGetExtremeValue
-	pixGetGrayHistogram
-	pixGetGrayHistogramMasked
-	pixGetHeight
-	pixGetHoleBorder
-	pixGetInputFormat
-	pixGetInvBackgroundMap
-	pixGetLastOffPixelInRun
-	pixGetLastOnPixelInRun
-	pixGetLinePtrs
-	pixGetLocalSkewAngles
-	pixGetLocalSkewTransform
-	pixGetMaxValueInRect
-	pixGetMeanVerticals
-	pixGetOuterBorder
-	pixGetOuterBorderPta
-	pixGetOuterBordersPtaa
-	pixGetPSNR
-	pixGetPixel
-	pixGetRGBComponent
-	pixGetRGBComponentCmap
-	pixGetRGBLine
-	pixGetRGBPixel
-	pixGetRandomPixel
-	pixGetRankColorArray
-	pixGetRankValueMasked
-	pixGetRankValueMaskedRGB
-	pixGetRasterData
-	pixGetRefcount
-	pixGetRegionsBinary
-	pixGetResolution
-	pixGetRowStats
-	pixGetRunCentersOnLine
-	pixGetRunsOnLine
-	pixGetText
-	pixGetTextlineCenters
-	pixGetWidth
-	pixGetWindowsHBITMAP
-	pixGetWordBoxesInTextlines
-	pixGetWordsInTextlines
-	pixGetWpl
-	pixGetXRes
-	pixGetYRes
-	pixGlobalNormNoSatRGB
-	pixGlobalNormRGB
-	pixGrayMorphSequence
-	pixGrayQuantFromCmap
-	pixGrayQuantFromHisto
-	pixHDome
-	pixHMT
-	pixHMTDwa_1
-	pixHShear
-	pixHShearCenter
-	pixHShearCorner
-	pixHShearIP
-	pixHShearLI
-	pixHalfEdgeByBandpass
-	pixHaustest
-	pixHolesByFilling
-	pixHtmlViewer
-	pixInitAccumulate
-	pixIntersectionOfMorphOps
-	pixInvert
-	pixItalicWords
-	pixLinearMapToTargetColor
-	pixLinearTRCTiled
-	pixLocalExtrema
-	pixLocateBarcodes
-	pixMakeHistoHS
-	pixMakeHistoHV
-	pixMakeHistoSV
-	pixMakeMaskFromLUT
-	pixMakeRangeMaskHS
-	pixMakeRangeMaskHV
-	pixMakeRangeMaskSV
-	pixMaskBoxa
-	pixMaskConnComp
-	pixMaskOverColorPixels
-	pixMaskedThreshOnBackgroundNorm
-	pixMaxDynamicRange
-	pixMeanInRectangle
-	pixMeanSquareAccum
-	pixMeasureEdgeSmoothness
-	pixMeasureSaturation
-	pixMedianCutHisto
-	pixMedianCutQuant
-	pixMedianCutQuantGeneral
-	pixMedianCutQuantMixed
-	pixMedianFilter
-	pixMinMaxTiles
-	pixMinOrMax
-	pixMirrorDetect
-	pixMirrorDetectDwa
-	pixMirroredTiling
-	pixModifyHue
-	pixModifySaturation
-	pixMorphCompSequence
-	pixMorphCompSequenceDwa
-	pixMorphDwa_1
-	pixMorphDwa_2
-	pixMorphGradient
-	pixMorphSequence
-	pixMorphSequenceByComponent
-	pixMorphSequenceByRegion
-	pixMorphSequenceDwa
-	pixMorphSequenceMasked
-	pixMultConstAccumulate
-	pixMultConstantColor
-	pixMultConstantGray
-	pixMultMatrixColor
-	pixNumColors
-	pixNumSignificantGrayColors
-	pixNumberOccupiedOctcubes
-	pixOctcubeHistogram
-	pixOctcubeQuantFromCmap
-	pixOctcubeQuantFromCmapLUT
-	pixOctcubeQuantMixedWithGray
-	pixOctreeColorQuant
-	pixOctreeColorQuantGeneral
-	pixOctreeQuantByPopulation
-	pixOctreeQuantNumColors
-	pixOpen
-	pixOpenBrick
-	pixOpenBrickDwa
-	pixOpenCompBrick
-	pixOpenCompBrickDwa
-	pixOpenCompBrickExtendDwa
-	pixOpenGeneralized
-	pixOpenGray
-	pixOpenGray3
-	pixOr
-	pixOrientDetect
-	pixOrientDetectDwa
-	pixOtsuAdaptiveThreshold
-	pixOtsuThreshOnBackgroundNorm
-	pixPaintBoxa
-	pixPaintBoxaRandom
-	pixPaintSelfThroughMask
-	pixPaintThroughMask
-	pixPlotAlongPta
-	pixPrintStreamInfo
-	pixProcessBarcodes
-	pixProjective
-	pixProjectiveColor
-	pixProjectiveGray
-	pixProjectivePta
-	pixProjectivePtaColor
-	pixProjectivePtaGammaXform
-	pixProjectivePtaGray
-	pixProjectivePtaWithAlpha
-	pixProjectiveSampled
-	pixProjectiveSampledPta
-	pixQuadraticVShear
-	pixQuadraticVShearLI
-	pixQuadraticVShearSampled
-	pixQuadtreeMean
-	pixQuadtreeVariance
-	pixQuantFromCmap
-	pixQuantizeIfFewColors
-	pixRandomHarmonicWarp
-	pixRankColumnTransform
-	pixRankFilter
-	pixRankFilterGray
-	pixRankFilterRGB
-	pixRankHaustest
-	pixRankRowTransform
-	pixRasterop
-	pixRasteropFullImage
-	pixRasteropHip
-	pixRasteropIP
-	pixRasteropVip
-	pixRead
-	pixReadBarcodeWidths
-	pixReadBarcodes
-	pixReadHeader
-	pixReadHeaderMem
-	pixReadIndexed
-	pixReadJpeg
-	pixReadMem
-	pixReadMemBmp
-	pixReadMemGif
-	pixReadMemJpeg
-	pixReadMemPng
-	pixReadMemPnm
-	pixReadMemSpix
-	pixReadMemTiff
-	pixReadRGBAPng
-	pixReadStream
-	pixReadStreamBmp
-	pixReadStreamGif
-	pixReadStreamJpeg
-	pixReadStreamPng
-	pixReadStreamPnm
-	pixReadStreamSpix
-	pixReadStreamTiff
-	pixReadStreamWebP
-	pixReadTiff
-	pixReadWithHint
-	pixReduceBinary2
-	pixReduceRankBinary2
-	pixReduceRankBinaryCascade
-	pixRemoveBorder
-	pixRemoveBorderConnComps
-	pixRemoveBorderGeneral
-	pixRemoveColormap
-	pixRemoveMatchedPattern
-	pixRemoveSeededComponents
-	pixRemoveUnusedColors
-	pixRemoveWithIndicator
-	pixRenderBox
-	pixRenderBoxArb
-	pixRenderBoxBlend
-	pixRenderBoxa
-	pixRenderBoxaArb
-	pixRenderBoxaBlend
-	pixRenderContours
-	pixRenderHashBox
-	pixRenderHashBoxArb
-	pixRenderHashBoxBlend
-	pixRenderLine
-	pixRenderLineArb
-	pixRenderLineBlend
-	pixRenderPolyline
-	pixRenderPolylineArb
-	pixRenderPolylineBlend
-	pixRenderPta
-	pixRenderPtaArb
-	pixRenderPtaBlend
-	pixRenderRandomCmapPtaa
-	pixResizeImageData
-	pixResizeToMatch
-	pixReversalProfile
-	pixRotate
-	pixRotate180
-	pixRotate2Shear
-	pixRotate3Shear
-	pixRotate90
-	pixRotateAM
-	pixRotateAMColor
-	pixRotateAMColorCorner
-	pixRotateAMColorFast
-	pixRotateAMCorner
-	pixRotateAMGray
-	pixRotateAMGrayCorner
-	pixRotateBinaryNice
-	pixRotateBySampling
-	pixRotateGammaXform
-	pixRotateOrth
-	pixRotateShear
-	pixRotateShearCenter
-	pixRotateShearCenterIP
-	pixRotateShearIP
-	pixRotateWithAlpha
-	pixRowStats
-	pixRunHistogramMorph
-	pixRunlengthTransform
-	pixSauvolaBinarize
-	pixSauvolaBinarizeTiled
-	pixSauvolaGetThreshold
-	pixSaveTiled
-	pixSaveTiledOutline
-	pixSaveTiledWithText
-	pixScale
-	pixScaleAreaMap
-	pixScaleAreaMap2
-	pixScaleBinary
-	pixScaleByIntSubsampling
-	pixScaleBySampling
-	pixScaleColor2xLI
-	pixScaleColor4xLI
-	pixScaleColorLI
-	pixScaleGammaXform
-	pixScaleGeneral
-	pixScaleGray2xLI
-	pixScaleGray2xLIDither
-	pixScaleGray2xLIThresh
-	pixScaleGray4xLI
-	pixScaleGray4xLIDither
-	pixScaleGray4xLIThresh
-	pixScaleGrayLI
-	pixScaleGrayMinMax
-	pixScaleGrayMinMax2
-	pixScaleGrayRank2
-	pixScaleGrayRankCascade
-	pixScaleGrayToBinaryFast
-	pixScaleLI
-	pixScaleMipmap
-	pixScaleRGBToBinaryFast
-	pixScaleRGBToGray2
-	pixScaleRGBToGrayFast
-	pixScaleResolution
-	pixScaleSmooth
-	pixScaleToGray
-	pixScaleToGray16
-	pixScaleToGray2
-	pixScaleToGray3
-	pixScaleToGray4
-	pixScaleToGray6
-	pixScaleToGray8
-	pixScaleToGrayFast
-	pixScaleToGrayMipmap
-	pixScaleToSize
-	pixScaleWithAlpha
-	pixScanForEdge
-	pixScanForForeground
-	pixSearchBinaryMaze
-	pixSearchGrayMaze
-	pixSeedfill
-	pixSeedfill4
-	pixSeedfill4BB
-	pixSeedfill8
-	pixSeedfill8BB
-	pixSeedfillBB
-	pixSeedfillBinary
-	pixSeedfillBinaryRestricted
-	pixSeedfillGray
-	pixSeedfillGrayBasin
-	pixSeedfillGrayInv
-	pixSeedfillGrayInvSimple
-	pixSeedfillGraySimple
-	pixSeedfillMorph
-	pixSeedspread
-	pixSelectByAreaFraction
-	pixSelectByAreaPerimRatio
-	pixSelectBySize
-	pixSelectByWidthHeightRatio
-	pixSelectMinInConnComp
-	pixSelectedLocalExtrema
-	pixSelectiveConnCompFill
-	pixSerializeToMemory
-	pixSetAll
-	pixSetAllArbitrary
-	pixSetBlackOrWhite
-	pixSetBlackOrWhiteBoxa
-	pixSetBorderRingVal
-	pixSetBorderVal
-	pixSetColormap
-	pixSetData
-	pixSetDepth
-	pixSetDimensions
-	pixSetHeight
-	pixSetInRect
-	pixSetInRectArbitrary
-	pixSetInputFormat
-	pixSetLowContrast
-	pixSetMasked
-	pixSetMaskedCmap
-	pixSetMaskedGeneral
-	pixSetMirroredBorder
-	pixSetOrClearBorder
-	pixSetPadBits
-	pixSetPadBitsBand
-	pixSetPixel
-	pixSetPixelColumn
-	pixSetRGBComponent
-	pixSetRGBPixel
-	pixSetResolution
-	pixSetSelectCmap
-	pixSetSelectMaskedCmap
-	pixSetText
-	pixSetTextblock
-	pixSetTextline
-	pixSetUnderTransparency
-	pixSetWidth
-	pixSetWpl
-	pixSetXRes
-	pixSetYRes
-	pixSetupByteProcessing
-	pixSimpleCaptcha
-	pixSizesEqual
-	pixSmoothConnectedRegions
-	pixSnapColor
-	pixSnapColorCmap
-	pixSobelEdgeFilter
-	pixSplitComponentIntoBoxa
-	pixSplitDistributionFgBg
-	pixSplitIntoBoxa
-	pixStereoFromPair
-	pixStretchHorizontal
-	pixStretchHorizontalLI
-	pixStretchHorizontalSampled
-	pixSubsampleBoundaryPixels
-	pixSubtract
-	pixSubtractGray
-	pixSumPixelValues
-	pixSumPixelsByColumn
-	pixSumPixelsByRow
-	pixTRCMap
-	pixTestForSimilarity
-	pixThin
-	pixThinExamples
-	pixThinGeneral
-	pixThreshold8
-	pixThresholdForFgBg
-	pixThresholdGrayArb
-	pixThresholdOn8bpp
-	pixThresholdPixelSum
-	pixThresholdSpreadNorm
-	pixThresholdTo2bpp
-	pixThresholdTo4bpp
-	pixThresholdToBinary
-	pixThresholdToValue
-	pixTilingCreate
-	pixTilingDestroy
-	pixTilingGetCount
-	pixTilingGetSize
-	pixTilingGetTile
-	pixTilingNoStripOnPaint
-	pixTilingPaintTile
-	pixTophat
-	pixTransferAllData
-	pixTranslate
-	pixTwoSidedEdgeFilter
-	pixUnionOfMorphOps
-	pixUnpackBinary
-	pixUnsharpMasking
-	pixUnsharpMaskingFast
-	pixUnsharpMaskingGray
-	pixUnsharpMaskingGray1D
-	pixUnsharpMaskingGray2D
-	pixUnsharpMaskingGrayFast
-	pixUpDownDetect
-	pixUpDownDetectDwa
-	pixUpDownDetectGeneral
-	pixUpDownDetectGeneralDwa
-	pixUsesCmapColor
-	pixVShear
-	pixVShearCenter
-	pixVShearCorner
-	pixVShearIP
-	pixVShearLI
-	pixVarThresholdToBinary
-	pixVarianceInRectangle
-	pixWarpStereoscopic
-	pixWindowedMean
-	pixWindowedMeanSquare
-	pixWindowedStats
-	pixWindowedVariance
-	pixWordMaskByDilation
-	pixWrite
-	pixWriteImpliedFormat
-	pixWriteJpeg
-	pixWriteMem
-	pixWriteMemBmp
-	pixWriteMemGif
-	pixWriteMemJpeg
-	pixWriteMemPS
-	pixWriteMemPng
-	pixWriteMemPnm
-	pixWriteMemSpix
-	pixWriteMemTiff
-	pixWriteMemTiffCustom
-	pixWriteMixedToPS
-	pixWritePSEmbed
-	pixWritePng
-	pixWriteRGBAPng
-	pixWriteSegmentedPageToPS
-	pixWriteStream
-	pixWriteStreamAsciiPnm
-	pixWriteStreamBmp
-	pixWriteStreamGif
-	pixWriteStreamJpeg
-	pixWriteStreamPS
-	pixWriteStreamPdf
-	pixWriteStreamPng
-	pixWriteStreamPnm
-	pixWriteStreamSpix
-	pixWriteStreamTiff
-	pixWriteStreamWebP
-	pixWriteStringPS
-	pixWriteTempfile
-	pixWriteTiff
-	pixWriteTiffCustom
-	pixWriteWebP
-	pixWriteWebPwithTargetPSNR
-	pixXor
-	pixZero
-	pixaAddBorderGeneral
-	pixaAddBox
-	pixaAddPix
-	pixaAnyColormaps
-	pixaBinSort
-	pixaCentroids
-	pixaChangeRefcount
-	pixaClear
-	pixaClipToPix
-	pixaCopy
-	pixaCountPixels
-	pixaCreate
-	pixaCreateFromBoxa
-	pixaCreateFromPix
-	pixaCreateFromPixacomp
-	pixaDestroy
-	pixaDisplay
-	pixaDisplayOnColor
-	pixaDisplayOnLattice
-	pixaDisplayRandomCmap
-	pixaDisplayTiled
-	pixaDisplayTiledAndScaled
-	pixaDisplayTiledInRows
-	pixaDisplayUnsplit
-	pixaEqual
-	pixaExtendArray
-	pixaExtendArrayToSize
-	pixaExtractColumnFromEachPix
-	pixaFindAreaFraction
-	pixaFindAreaPerimRatio
-	pixaFindDimensions
-	pixaFindPerimSizeRatio
-	pixaFindWidthHeightProduct
-	pixaFindWidthHeightRatio
-	pixaGenerateFont
-	pixaGetAlignedStats
-	pixaGetBox
-	pixaGetBoxGeometry
-	pixaGetBoxa
-	pixaGetBoxaCount
-	pixaGetCount
-	pixaGetDepthInfo
-	pixaGetFont
-	pixaGetPix
-	pixaGetPixArray
-	pixaGetPixDimensions
-	pixaInitFull
-	pixaInsertPix
-	pixaJoin
-	pixaMorphSequenceByComponent
-	pixaMorphSequenceByRegion
-	pixaRead
-	pixaReadFiles
-	pixaReadFilesSA
-	pixaReadMultipageTiff
-	pixaReadStream
-	pixaRemovePix
-	pixaReplacePix
-	pixaSaveFont
-	pixaSelectByAreaFraction
-	pixaSelectByAreaPerimRatio
-	pixaSelectBySize
-	pixaSelectByWidthHeightRatio
-	pixaSelectWithIndicator
-	pixaSizeRange
-	pixaSort
-	pixaSort2dByIndex
-	pixaSortByIndex
-	pixaSplitPix
-	pixaWrite
-	pixaWriteCompressedToPS
-	pixaWriteFiles
-	pixaWriteStream
-	pixaaAddBox
-	pixaaAddPixa
-	pixaaCreate
-	pixaaCreateFromPixa
-	pixaaDestroy
-	pixaaDisplay
-	pixaaDisplayByPixa
-	pixaaDisplayTiledAndScaled
-	pixaaExtendArray
-	pixaaFlattenToPixa
-	pixaaGetBoxa
-	pixaaGetCount
-	pixaaGetPixa
-	pixaaRead
-	pixaaReadStream
-	pixaaWrite
-	pixaaWriteStream
-	pixaccAdd
-	pixaccCreate
-	pixaccCreateWithPix
-	pixaccDestroy
-	pixaccFinal
-	pixaccGetOffset
-	pixaccGetPix
-	pixaccMultConst
-	pixaccMultConstAccumulate
-	pixaccSubtract
-	pixacompAddBox
-	pixacompAddPix
-	pixacompAddPixcomp
-	pixacompCreate
-	pixacompCreateFromFiles
-	pixacompCreateFromPixa
-	pixacompCreateFromSA
-	pixacompCreateInitialized
-	pixacompDestroy
-	pixacompDisplayTiledAndScaled
-	pixacompExtendArray
-	pixacompGetBox
-	pixacompGetBoxGeometry
-	pixacompGetBoxa
-	pixacompGetBoxaCount
-	pixacompGetCount
-	pixacompGetPix
-	pixacompGetPixDimensions
-	pixacompGetPixcomp
-	pixacompRead
-	pixacompReadStream
-	pixacompReplacePix
-	pixacompReplacePixcomp
-	pixacompWrite
-	pixacompWriteStream
-	pixacompWriteStreamInfo
-	pixcmapAddBlackOrWhite
-	pixcmapAddColor
-	pixcmapAddNearestColor
-	pixcmapAddNewColor
-	pixcmapClear
-	pixcmapColorToGray
-	pixcmapContrastTRC
-	pixcmapConvertHSVToRGB
-	pixcmapConvertRGBToHSV
-	pixcmapConvertRGBToYUV
-	pixcmapConvertToHex
-	pixcmapConvertYUVToRGB
-	pixcmapCopy
-	pixcmapCountGrayColors
-	pixcmapCreate
-	pixcmapCreateLinear
-	pixcmapCreateRandom
-	pixcmapDeserializeFromMemory
-	pixcmapDestroy
-	pixcmapGammaTRC
-	pixcmapGetColor
-	pixcmapGetColor32
-	pixcmapGetComponentRange
-	pixcmapGetCount
-	pixcmapGetDepth
-	pixcmapGetExtremeValue
-	pixcmapGetFreeCount
-	pixcmapGetIndex
-	pixcmapGetMinDepth
-	pixcmapGetNearestGrayIndex
-	pixcmapGetNearestIndex
-	pixcmapGetRankIntensity
-	pixcmapGrayToColor
-	pixcmapHasColor
-	pixcmapReadStream
-	pixcmapResetColor
-	pixcmapSerializeToMemory
-	pixcmapSetBlackAndWhite
-	pixcmapShiftIntensity
-	pixcmapToArrays
-	pixcmapToOctcubeLUT
-	pixcmapToRGBTable
-	pixcmapUsableColor
-	pixcmapWriteStream
-	pixcompCreateFromFile
-	pixcompCreateFromPix
-	pixcompCreateFromString
-	pixcompDestroy
-	pixcompDetermineFormat
-	pixcompGetDimensions
-	pixcompWriteStreamInfo
-	pixelFractionalShift
-	pixelLinearMapToTargetColor
-	pmsCreate
-	pmsCustomAlloc
-	pmsCustomDealloc
-	pmsDestroy
-	pmsGetAlloc
-	pmsGetLevelForAlloc
-	pmsGetLevelForDealloc
-	pmsLogInfo
-	projectiveXformPt
-	projectiveXformSampledPt
-	ptaAddPt
-	ptaAffineTransform
-	ptaChangeRefcount
-	ptaClone
-	ptaContainsPt
-	ptaConvertToBoxa
-	ptaCopy
-	ptaCreate
-	ptaCreateFromNuma
-	ptaCyclicPerm
-	ptaDestroy
-	ptaEmpty
-	ptaExtendArrays
-	ptaGetArrays
-	ptaGetBoundaryPixels
-	ptaGetBoundingRegion
-	ptaGetCount
-	ptaGetCubicLSF
-	ptaGetIPt
-	ptaGetInsideBox
-	ptaGetLinearLSF
-	ptaGetPixelsFromPix
-	ptaGetPt
-	ptaGetQuadraticLSF
-	ptaGetQuarticLSF
-	ptaGetRange
-	ptaGetRefcount
-	ptaJoin
-	ptaRead
-	ptaReadStream
-	ptaRemoveDuplicates
-	ptaReverse
-	ptaRotate
-	ptaScale
-	ptaSetPt
-	ptaSort
-	ptaSubsample
-	ptaTestIntersection
-	ptaTransform
-	ptaTranslate
-	ptaWrite
-	ptaWriteStream
-	ptaaAddPta
-	ptaaCreate
-	ptaaDestroy
-	ptaaExtendArray
-	ptaaGetBoundaryPixels
-	ptaaGetCount
-	ptaaGetPt
-	ptaaGetPta
-	ptaaRead
-	ptaaReadStream
-	ptaaRemoveShortLines
-	ptaaSortByIndex
-	ptaaWrite
-	ptaaWriteStream
-	ptraAdd
-	ptraCompactArray
-	ptraConcatenatePdf
-	ptraConcatenatePdfToData
-	ptraCreate
-	ptraDestroy
-	ptraExtendArray
-	ptraGetActualCount
-	ptraGetHandle
-	ptraGetMaxIndex
-	ptraGetPtrToItem
-	ptraInsert
-	ptraJoin
-	ptraRemove
-	ptraRemoveLast
-	ptraReplace
-	ptraReverse
-	ptraSwap
-	ptraaCreate
-	ptraaDestroy
-	ptraaFlattenToPtra
-	ptraaGetPtra
-	ptraaGetSize
-	ptraaInsertPtra
-	quadtreeGetChildren
-	quadtreeGetParent
-	quadtreeMaxLevels
-	rasteropHipLow
-	rasteropLow
-	rasteropUniLow
-	rasteropVipLow
-	readHeaderJpeg
-	readHeaderMemJpeg
-	readHeaderMemTiff
-	readHeaderPng
-	readHeaderPnm
-	readHeaderSpix
-	readHeaderTiff
-	readHeaderWebP
-	reallocNew
-	reduceBinary2Low
-	reduceRankBinary2Low
-	regTestCheckFile
-	regTestCleanup
-	regTestCompareFiles
-	regTestComparePix
-	regTestCompareSimilarPix
-	regTestSetup
-	regTestWritePixAndCheck
-	resetMorphBoundaryCondition
-	returnErrorFloat
-	returnErrorInt
-	returnErrorPtr
-	rotate90Low
-	rotateAMColorCornerLow
-	rotateAMColorFastLow
-	rotateAMColorLow
-	rotateAMGrayCornerLow
-	rotateAMGrayLow
-	runlengthMembershipOnLine
-	saConcatenatePdf
-	saConcatenatePdfToData
-	saConvertFilesToPdf
-	saConvertFilesToPdfData
-	sarrayAddString
-	sarrayAppend
-	sarrayAppendRange
-	sarrayChangeRefcount
-	sarrayClear
-	sarrayClone
-	sarrayConcatenate
-	sarrayConvertFilesFittedToPS
-	sarrayConvertFilesToPS
-	sarrayConvertWordsToLines
-	sarrayCopy
-	sarrayCreate
-	sarrayCreateInitialized
-	sarrayCreateLinesFromString
-	sarrayCreateWordsFromString
-	sarrayDestroy
-	sarrayExtendArray
-	sarrayGetArray
-	sarrayGetCount
-	sarrayGetRefcount
-	sarrayGetString
-	sarrayPadToSameSize
-	sarrayParseRange
-	sarrayRead
-	sarrayReadStream
-	sarrayRemoveString
-	sarrayReplaceString
-	sarraySelectByRange
-	sarraySelectBySubstring
-	sarraySort
-	sarraySplitString
-	sarrayToString
-	sarrayToStringRange
-	sarrayWrite
-	sarrayWriteStream
-	scaleAreaMapLow2
-	scaleBinaryLow
-	scaleBySamplingLow
-	scaleColor2xLILineLow
-	scaleColor2xLILow
-	scaleColorAreaMapLow
-	scaleColorLILow
-	scaleGray2xLILineLow
-	scaleGray2xLILow
-	scaleGray4xLILineLow
-	scaleGray4xLILow
-	scaleGrayAreaMapLow
-	scaleGrayLILow
-	scaleMipmapLow
-	scaleRGBToGray2Low
-	scaleSmoothLow
-	scaleToGray16Low
-	scaleToGray2Low
-	scaleToGray3Low
-	scaleToGray4Low
-	scaleToGray6Low
-	scaleToGray8Low
-	seedfillBinaryLow
-	seedfillGrayInvLow
-	seedfillGrayInvLowSimple
-	seedfillGrayLow
-	seedfillGrayLowSimple
-	seedspreadLow
-	selCopy
-	selCreate
-	selCreateBrick
-	selCreateComb
-	selCreateFromColorPix
-	selCreateFromPix
-	selCreateFromPta
-	selCreateFromString
-	selDestroy
-	selDisplayInPix
-	selFindMaxTranslations
-	selGetElement
-	selGetName
-	selGetParameters
-	selGetTypeAtOrigin
-	selPrintToString
-	selRead
-	selReadFromColorImage
-	selReadStream
-	selRotateOrth
-	selSetElement
-	selSetName
-	selSetOrigin
-	selWrite
-	selWriteStream
-	selaAddBasic
-	selaAddCrossJunctions
-	selaAddDwaCombs
-	selaAddDwaLinear
-	selaAddHitMiss
-	selaAddSel
-	selaAddTJunctions
-	selaCreate
-	selaCreateFromFile
-	selaDestroy
-	selaDisplayInPix
-	selaExtendArray
-	selaFindSelByName
-	selaGetBrickName
-	selaGetCombName
-	selaGetCount
-	selaGetSel
-	selaGetSelnames
-	selaRead
-	selaReadStream
-	selaWrite
-	selaWriteStream
-	selectComposableSels
-	selectComposableSizes
-	selectDefaultPdfEncoding
-	setPixMemoryManager
-	setPixelLow
-	shiftDataHorizontalLow
-	splitPathAtDirectory
-	splitPathAtExtension
-	splitStringToParagraphs
-	sreadHeaderPng
-	sreadHeaderPnm
-	sreadHeaderSpix
-	startTimer
-	startTimerNested
-	stopTimer
-	stopTimerNested
-	stringCat
-	stringCompareLexical
-	stringCopy
-	stringFindSubstr
-	stringJoin
-	stringLength
-	stringNew
-	stringRemoveChars
-	stringReplace
-	stringReplaceEachSubstr
-	stringReplaceSubstr
-	stringReverse
-	stringSplitOnToken
-	strtokSafe
-	subtractGrayLow
-	sudokuCreate
-	sudokuDestroy
-	sudokuGenerate
-	sudokuOutput
-	sudokuReadFile
-	sudokuReadString
-	sudokuSolve
-	sudokuTestUniqueness
-	thresholdTo2bppLow
-	thresholdTo4bppLow
-	thresholdToBinaryLineLow
-	thresholdToBinaryLow
-	thresholdToValueLow
-	tiffGetCount
-	writeImageCompressedToPSFile
-	writeMultipageTiff
-	writeMultipageTiffSA
-	wshedApply
-	wshedBasins
-	wshedCreate
-	wshedDestroy
-	wshedRenderColors
-	wshedRenderFill
-	zlibCompress
-	zlibUncompress
+AlphaMaskBorderVals DATA
+ConvolveSamplingFactX DATA
+ConvolveSamplingFactY DATA
+ImageFileFormatExtensions DATA
+MORPH_BC DATA
+NumImageFileFormatExtensions DATA
+absDifferenceLow
+accumulateLow
+addColorizedGrayToCmap
+addConstantGrayLow
+addGrayLow
+adjacentOnPixelInRaster
+affineInvertXform
+affineXformPt
+affineXformSampledPt
+applyCubicFit
+applyLinearFit
+applyQuadraticFit
+applyQuarticFit
+arrayFindEachSequence
+arrayFindSequence
+arrayRead
+arrayReadStream
+barcodeDispatchDecoder
+barcodeFormatIsSupported
+bbufferBytesToWrite
+bbufferCreate
+bbufferDestroy
+bbufferDestroyAndSaveData
+bbufferExtendArray
+bbufferRead
+bbufferReadStream
+bbufferWrite
+bbufferWriteStream
+bilinearXformPt
+bilinearXformSampledPt
+blockconvAccumLow
+blockconvLow
+blocksumLow
+bmfCreate
+bmfDestroy
+bmfGetBaseline
+bmfGetLineStrings
+bmfGetPix
+bmfGetStringWidth
+bmfGetWidth
+bmfGetWordWidths
+boxAdjustSides
+boxBoundingRegion
+boxChangeRefcount
+boxClipToRectangle
+boxClone
+boxContains
+boxContainsPt
+boxCopy
+boxCreate
+boxCreateValid
+boxDestroy
+boxEqual
+boxGetCenter
+boxGetGeometry
+boxGetRefcount
+boxIntersectByLine
+boxIntersects
+boxOverlapFraction
+boxOverlapRegion
+boxPrintStreamInfo
+boxRelocateOneSide
+boxRotateOrth
+boxSetGeometry
+boxTransform
+boxTransformOrdered
+boxaAddBox
+boxaAffineTransform
+boxaBinSort
+boxaClear
+boxaClipToBox
+boxaCombineOverlaps
+boxaContainedInBox
+boxaConvertToPta
+boxaCopy
+boxaCreate
+boxaDestroy
+boxaEqual
+boxaExtendArray
+boxaExtendArrayToSize
+boxaExtractSortedPattern
+boxaGetBox
+boxaGetBoxGeometry
+boxaGetCount
+boxaGetCoverage
+boxaGetExtent
+boxaGetMedian
+boxaGetNearestToPt
+boxaGetRankSize
+boxaGetValidBox
+boxaGetValidCount
+boxaGetWhiteblocks
+boxaInitFull
+boxaInsertBox
+boxaIntersectsBox
+boxaJoin
+boxaLocationRange
+boxaMakeSizeIndicator
+boxaPermutePseudorandom
+boxaPermuteRandom
+boxaPruneSortedOnOverlap
+boxaRead
+boxaReadStream
+boxaRemoveBox
+boxaReplaceBox
+boxaRotate
+boxaRotateOrth
+boxaScale
+boxaSelectBySize
+boxaSelectWithIndicator
+boxaSizeRange
+boxaSort
+boxaSort2d
+boxaSort2dByIndex
+boxaSortByIndex
+boxaSwapBoxes
+boxaTransform
+boxaTransformOrdered
+boxaTranslate
+boxaWrite
+boxaWriteStream
+boxaaAddBox
+boxaaAddBoxa
+boxaaAlignBox
+boxaaCopy
+boxaaCreate
+boxaaDestroy
+boxaaDisplay
+boxaaExtendArray
+boxaaFlattenToBoxa
+boxaaGetBoxCount
+boxaaGetBoxa
+boxaaGetCount
+boxaaGetExtent
+boxaaInsertBoxa
+boxaaQuadtreeRegions
+boxaaRead
+boxaaReadStream
+boxaaRemoveBoxa
+boxaaReplaceBoxa
+boxaaWrite
+boxaaWriteStream
+ccbCreate
+ccbDestroy
+ccbaAddCcb
+ccbaCreate
+ccbaDestroy
+ccbaDisplayBorder
+ccbaDisplayImage1
+ccbaDisplayImage2
+ccbaDisplaySPBorder
+ccbaExtendArray
+ccbaGenerateGlobalLocs
+ccbaGenerateSPGlobalLocs
+ccbaGenerateSinglePath
+ccbaGenerateStepChains
+ccbaGetCcb
+ccbaGetCount
+ccbaRead
+ccbaReadStream
+ccbaStepChainsToPixCoords
+ccbaWrite
+ccbaWriteSVG
+ccbaWriteSVGString
+ccbaWriteStream
+composeRGBPixel
+compressed_dataDestroy
+concatenatePdf
+concatenatePdfToData
+convertByteToHexAscii
+convertFilesFittedToPS
+convertFilesTo1bpp
+convertFilesToPS
+convertFilesToPdf
+convertFlateToPS
+convertFlateToPSEmbed
+convertFlateToPSString
+convertG4ToPS
+convertG4ToPSEmbed
+convertG4ToPSString
+convertHSVToRGB
+convertImageDataToPdf
+convertImageDataToPdfData
+convertJpegToPS
+convertJpegToPSEmbed
+convertJpegToPSString
+convertOnBigEnd16
+convertOnBigEnd32
+convertOnLittleEnd16
+convertOnLittleEnd32
+convertRGBToHSV
+convertRGBToYUV
+convertSegmentedFilesToPdf
+convertSegmentedPagesToPS
+convertTiffMultipageToPS
+convertToPSEmbed
+convertToPdf
+convertToPdfData
+convertToPdfDataSegmented
+convertToPdfSegmented
+convertYUVToRGB
+create2dFloatArray
+create2dIntArray
+createMatrix2dRotate
+createMatrix2dScale
+createMatrix2dTranslate
+decodeAscii85
+dewarpApplyDisparity
+dewarpBuildModel
+dewarpCreate
+dewarpDestroy
+dewarpMinimize
+dewarpPopulateFullRes
+dewarpRead
+dewarpReadStream
+dewarpWrite
+dewarpWriteStream
+dilateGrayLow
+displayHSVColorRange
+distanceFunctionLow
+ditherTo2bppLineLow
+ditherTo2bppLow
+ditherToBinaryLUTLow
+ditherToBinaryLineLUTLow
+ditherToBinaryLineLow
+ditherToBinaryLow
+dpixChangeRefcount
+dpixClone
+dpixConvertToFPix
+dpixCopy
+dpixCopyResolution
+dpixCreate
+dpixCreateTemplate
+dpixDestroy
+dpixEndianByteSwap
+dpixGetData
+dpixGetDimensions
+dpixGetPixel
+dpixGetRefcount
+dpixGetResolution
+dpixGetWpl
+dpixRead
+dpixReadStream
+dpixResizeImageData
+dpixScaleByInteger
+dpixSetData
+dpixSetDimensions
+dpixSetPixel
+dpixSetResolution
+dpixSetWpl
+dpixWrite
+dpixWriteStream
+encodeAscii85
+erodeGrayLow
+expandBinaryPower2Low
+extractG4DataFromFile
+extractJpegDataFromArray
+extractJpegDataFromFile
+extractMinMaxComponent
+extractNumberFromFilename
+extractRGBValues
+fgetJpegResolution
+fgetPngResolution
+fhmtautogen
+fhmtautogen1
+fhmtautogen2
+fhmtgen_low_1
+fileAppendString
+fileConcatenate
+fileCopy
+fileFormatIsTiff
+filesAreIdentical
+finalAccumulateLow
+finalAccumulateThreshLow
+findFileFormat
+findFileFormatBuffer
+findFileFormatStream
+findNextBorderPixel
+findTiffCompression
+flipLRLow
+flipTBLow
+fmorphautogen
+fmorphautogen1
+fmorphautogen2
+fmorphopgen_low_1
+fmorphopgen_low_2
+fnbytesInFile
+fopenReadStream
+fopenWriteStream
+fpixAddBorder
+fpixAddMirroredBorder
+fpixAddMultConstant
+fpixBuildHorizontalDisparity
+fpixChangeRefcount
+fpixClone
+fpixConvertToDPix
+fpixConvertToPix
+fpixConvolve
+fpixConvolveSep
+fpixCopy
+fpixCopyResolution
+fpixCreate
+fpixCreateTemplate
+fpixDestroy
+fpixDisplayMaxDynamicRange
+fpixEndianByteSwap
+fpixGetData
+fpixGetDimensions
+fpixGetMax
+fpixGetMin
+fpixGetPixel
+fpixGetRefcount
+fpixGetResolution
+fpixGetWpl
+fpixLinearCombination
+fpixPrintStream
+fpixRasterop
+fpixRead
+fpixReadStream
+fpixRemoveBorder
+fpixRenderContours
+fpixResizeImageData
+fpixSampledDisparity
+fpixScaleByInteger
+fpixSetData
+fpixSetDimensions
+fpixSetPixel
+fpixSetResolution
+fpixSetWpl
+fpixWrite
+fpixWriteStream
+fpixaAddFPix
+fpixaChangeRefcount
+fpixaCopy
+fpixaCreate
+fpixaDestroy
+fpixaDisplayQuadtree
+fpixaExtendArray
+fpixaExtendArrayToSize
+fpixaGetCount
+fpixaGetFPix
+fpixaGetFPixDimensions
+fpixaGetPixel
+fpixaSetPixel
+fprintTiffInfo
+freadHeaderJpeg
+freadHeaderPng
+freadHeaderPnm
+freadHeaderSpix
+freadHeaderTiff
+gaussjordan
+genPathname
+genRandomIntegerInRange
+genTempFilename
+generateBinaryMaze
+generateFlatePS
+generateG4PS
+generateJpegPS
+generatePtaBox
+generatePtaBoxa
+generatePtaFilledCircle
+generatePtaHashBox
+generatePtaLine
+generatePtaLineFromPt
+generatePtaPolyline
+generatePtaWideLine
+generatePtaaBoxa
+generatePtaaHashBoxa
+generateUncompressedPS
+getAffineXformCoeffs
+getBilinearXformCoeffs
+getCompositeParameters
+getCutPathForHole
+getExtendedCompositeParameters
+getFilenamesInDirectory
+getFormatExtension
+getImagelibVersions
+getImpliedFileFormat
+getLeptonicaVersion
+getLogBase2
+getMorphBorderPixelColor
+getNumberedPathnamesInDirectory
+getOctcubeIndexFromRGB
+getProjectiveXformCoeffs
+getResA4Page
+getResLetterPage
+getScaledParametersPS
+getSortedPathnamesInDirectory
+getTiffResolution
+gplotAddPlot
+gplotCreate
+gplotDestroy
+gplotGenCommandFile
+gplotGenDataFiles
+gplotMakeOutput
+gplotRead
+gplotSetScaling
+gplotSimple1
+gplotSimple2
+gplotSimpleN
+gplotWrite
+ioFormatTest
+jbAccumulateComposites
+jbAddPage
+jbAddPageComponents
+jbAddPages
+jbClasserCreate
+jbClasserDestroy
+jbClassifyCorrelation
+jbClassifyRankHaus
+jbCorrelation
+jbCorrelationInit
+jbCorrelationInitWithoutComponents
+jbDataDestroy
+jbDataRead
+jbDataRender
+jbDataSave
+jbDataWrite
+jbGetComponents
+jbGetLLCorners
+jbGetULCorners
+jbRankHaus
+jbRankHausInit
+jbTemplatesFromComposites
+jbWordsInTextlines
+kernelCopy
+kernelCreate
+kernelCreateFromFile
+kernelCreateFromPix
+kernelCreateFromString
+kernelDestroy
+kernelDisplayInPix
+kernelGetElement
+kernelGetMinMax
+kernelGetParameters
+kernelGetSum
+kernelInvert
+kernelNormalize
+kernelRead
+kernelReadStream
+kernelSetElement
+kernelSetOrigin
+kernelWrite
+kernelWriteStream
+l_binaryCopy
+l_binaryRead
+l_binaryReadStream
+l_binaryWrite
+l_byteaAppendData
+l_byteaAppendString
+l_byteaCopy
+l_byteaCopyData
+l_byteaCreate
+l_byteaDestroy
+l_byteaExtendArrayToSize
+l_byteaFindEachSequence
+l_byteaGetData
+l_byteaGetSize
+l_byteaInitFromFile
+l_byteaInitFromMem
+l_byteaInitFromStream
+l_byteaJoin
+l_byteaSplit
+l_byteaWrite
+l_byteaWriteStream
+l_chooseDisplayProg
+l_clearDataBit
+l_clearDataDibit
+l_clearDataQbit
+l_error
+l_errorFloat
+l_errorInt
+l_errorString
+l_generateFlateData
+l_generateG4Data
+l_generateJpegData
+l_getCurrentTime
+l_getDataBit
+l_getDataByte
+l_getDataDibit
+l_getDataFourBytes
+l_getDataQbit
+l_getDataTwoBytes
+l_getFormattedDate
+l_info
+l_infoFloat
+l_infoFloat2
+l_infoInt
+l_infoInt2
+l_infoString
+l_jpegSetNoChromaSampling
+l_pdfSetDateAndVersion
+l_pdfSetG4ImageMask
+l_pngSetStrip16To8
+l_pngSetStripAlpha
+l_pngSetWriteAlpha
+l_pngSetZlibCompression
+l_productMat2
+l_productMat3
+l_productMat4
+l_productMatVec
+l_psWriteBoundingBox
+l_setAlphaMaskBorder
+l_setConvolveSampling
+l_setDataBit
+l_setDataBitVal
+l_setDataByte
+l_setDataDibit
+l_setDataFourBytes
+l_setDataQbit
+l_setDataTwoBytes
+l_warning
+l_warningFloat
+l_warningFloat2
+l_warningInt
+l_warningInt2
+l_warningString
+lept_calloc
+lept_cp
+lept_fclose
+lept_fopen
+lept_free
+lept_mkdir
+lept_mv
+lept_rm
+lept_rmdir
+lheapAdd
+lheapCreate
+lheapDestroy
+lheapExtendArray
+lheapGetCount
+lheapPrint
+lheapRemove
+lheapSort
+lheapSortStrictOrder
+lheapSwapDown
+lheapSwapUp
+lineEndianByteSwap
+linearInterpolatePixelColor
+linearInterpolatePixelGray
+listAddToHead
+listAddToTail
+listDestroy
+listFindElement
+listFindTail
+listGetCount
+listInsertAfter
+listInsertBefore
+listJoin
+listRemoveElement
+listRemoveFromHead
+listRemoveFromTail
+listReverse
+locateOutsideSeedPixel
+locatePtRadially
+lqueueAdd
+lqueueCreate
+lqueueDestroy
+lqueueExtendArray
+lqueueGetCount
+lqueuePrint
+lqueueRemove
+lstackAdd
+lstackCreate
+lstackDestroy
+lstackExtendArray
+lstackGetCount
+lstackPrint
+lstackRemove
+make8To1DitherTables
+make8To2DitherTables
+makeDoGKernel
+makeExpandTab2x
+makeExpandTab4x
+makeExpandTab8x
+makeFlatKernel
+makeGaussianKernel
+makeGaussianKernelSep
+makeGrayQuantColormapArb
+makeGrayQuantIndexTable
+makeGrayQuantTableArb
+makeGrayQuantTargetTable
+makeLogBase2Tab
+makeMSBitLocTab
+makeOrientDecision
+makePixelCentroidTab8
+makePixelSumTab8
+makeRGBToIndexTables
+makeReverseByteTab1
+makeReverseByteTab2
+makeReverseByteTab4
+makeSubsampleTab2x
+makeSumTabSG2
+makeSumTabSG3
+makeSumTabSG4
+makeValTabSG2
+makeValTabSG3
+makeValTabSG4
+makeValTabSG6
+makeValTabSG8
+morphSequenceVerify
+multConstAccumulateLow
+multConstantGrayLow
+nbytesInFile
+nextOnPixelInRaster
+nextOnPixelInRasterLow
+numa2dAddNumber
+numa2dCreate
+numa2dDestroy
+numa2dGetCount
+numa2dGetFValue
+numa2dGetIValue
+numa2dGetNuma
+numaAddBorder
+numaAddNumber
+numaAddSpecifiedBorder
+numaArithOp
+numaChangeRefcount
+numaClipToInterval
+numaClone
+numaClose
+numaContrastTRC
+numaConvertToInt
+numaCopy
+numaCopyXParameters
+numaCountReversals
+numaCreate
+numaCreateFromFArray
+numaCreateFromIArray
+numaCrossingsByPeaks
+numaCrossingsByThreshold
+numaDestroy
+numaDifferentiateInterval
+numaDilate
+numaDiscretizeRankAndIntensity
+numaEmpty
+numaEqualizeTRC
+numaErode
+numaEvalBestHaarParameters
+numaEvalHaarSum
+numaExtendArray
+numaFindExtrema
+numaFindPeaks
+numaFitMax
+numaGammaTRC
+numaGetBinSortIndex
+numaGetCount
+numaGetCountRelativeToZero
+numaGetEdgeValues
+numaGetFArray
+numaGetFValue
+numaGetHistogramStats
+numaGetHistogramStatsOnInterval
+numaGetIArray
+numaGetIValue
+numaGetMax
+numaGetMedian
+numaGetMin
+numaGetMode
+numaGetNonzeroRange
+numaGetPartialSums
+numaGetRankBinValues
+numaGetRankValue
+numaGetRefcount
+numaGetSortIndex
+numaGetSpanValues
+numaGetStatsUsingHistogram
+numaGetSum
+numaGetSumOnInterval
+numaGetXParameters
+numaHasOnlyIntegers
+numaHashAdd
+numaHashCreate
+numaHashDestroy
+numaHashGetNuma
+numaHistogramGetRankFromVal
+numaHistogramGetValFromRank
+numaInsertNumber
+numaIntegrateInterval
+numaInterpolateArbxInterval
+numaInterpolateArbxVal
+numaInterpolateEqxInterval
+numaInterpolateEqxVal
+numaInvert
+numaIsSorted
+numaJoin
+numaLogicalOp
+numaLowPassIntervals
+numaMakeConstant
+numaMakeDelta
+numaMakeHistogram
+numaMakeHistogramAuto
+numaMakeHistogramClipped
+numaMakeRankFromHistogram
+numaMakeSequence
+numaMakeThresholdIndicator
+numaNormalizeHistogram
+numaOpen
+numaPseudorandomSequence
+numaQuantizeCrossingsByWidth
+numaQuantizeCrossingsByWindow
+numaRandomPermutation
+numaRead
+numaReadStream
+numaRebinHistogram
+numaRemoveBorder
+numaRemoveNumber
+numaReplaceNumber
+numaSelectCrossingThreshold
+numaSetCount
+numaSetValue
+numaSetXParameters
+numaShiftValue
+numaSort
+numaSortByIndex
+numaSortPair
+numaSplitDistribution
+numaSubsample
+numaThresholdEdges
+numaTransform
+numaUniformSampling
+numaWindowedMean
+numaWindowedMeanSquare
+numaWindowedStats
+numaWindowedVariance
+numaWrite
+numaWriteStream
+numaaAddNuma
+numaaAddNumber
+numaaCompareImagesByBoxes
+numaaCreate
+numaaDestroy
+numaaExtendArray
+numaaFlattenToNuma
+numaaGetCount
+numaaGetNuma
+numaaGetNumaCount
+numaaGetNumberCount
+numaaGetPtrArray
+numaaGetValue
+numaaRead
+numaaReadStream
+numaaReplaceNuma
+numaaWrite
+numaaWriteStream
+parseForProtos
+parseStringForNumbers
+pathJoin
+pixAbsDifference
+pixAccumulate
+pixAddBlackBorder
+pixAddBorder
+pixAddBorderGeneral
+pixAddConstantGray
+pixAddGray
+pixAddGrayColormap8
+pixAddMinimalGrayColormap8
+pixAddMirroredBorder
+pixAddMixedBorder
+pixAddRepeatedBorder
+pixAddSingleTextblock
+pixAddText
+pixAddWithIndicator
+pixAffine
+pixAffineColor
+pixAffineGray
+pixAffinePta
+pixAffinePtaColor
+pixAffinePtaGammaXform
+pixAffinePtaGray
+pixAffinePtaWithAlpha
+pixAffineSampled
+pixAffineSampledPta
+pixAffineSequential
+pixAnd
+pixApplyHorizontalDisparity
+pixApplyInvBackgroundGrayMap
+pixApplyInvBackgroundRGBMap
+pixApplyLocalThreshold
+pixApplyVariableGrayMap
+pixApplyVerticalDisparity
+pixAssignToNearestColor
+pixAverageIntensityProfile
+pixAverageOnLine
+pixBackgroundNorm
+pixBackgroundNormFlex
+pixBackgroundNormGrayArray
+pixBackgroundNormGrayArrayMorph
+pixBackgroundNormMorph
+pixBackgroundNormRGBArrays
+pixBackgroundNormRGBArraysMorph
+pixBackgroundNormSimple
+pixBilinear
+pixBilinearColor
+pixBilinearGray
+pixBilinearPta
+pixBilinearPtaColor
+pixBilinearPtaGammaXform
+pixBilinearPtaGray
+pixBilinearPtaWithAlpha
+pixBilinearSampled
+pixBilinearSampledPta
+pixBlend
+pixBlendBoxaRandom
+pixBlendCmap
+pixBlendColor
+pixBlendColorByChannel
+pixBlendGray
+pixBlendGrayAdapt
+pixBlendHardLight
+pixBlendInRect
+pixBlendMask
+pixBlendWithGrayMask
+pixBlockconv
+pixBlockconvAccum
+pixBlockconvGray
+pixBlockconvGrayTile
+pixBlockconvGrayUnnormalized
+pixBlockconvTiled
+pixBlockrank
+pixBlocksum
+pixCensusTransform
+pixCentroid
+pixChangeRefcount
+pixChooseOutputFormat
+pixCleanupByteProcessing
+pixClearAll
+pixClearInRect
+pixClearPixel
+pixClipBoxToEdges
+pixClipBoxToForeground
+pixClipMasked
+pixClipRectangle
+pixClipToForeground
+pixClone
+pixClose
+pixCloseBrick
+pixCloseBrickDwa
+pixCloseCompBrick
+pixCloseCompBrickDwa
+pixCloseCompBrickExtendDwa
+pixCloseGeneralized
+pixCloseGray
+pixCloseGray3
+pixCloseSafe
+pixCloseSafeBrick
+pixCloseSafeCompBrick
+pixColorContent
+pixColorFraction
+pixColorGray
+pixColorGrayCmap
+pixColorMagnitude
+pixColorMorph
+pixColorMorphSequence
+pixColorSegment
+pixColorSegmentClean
+pixColorSegmentCluster
+pixColorSegmentRemoveColors
+pixColorizeGray
+pixColorsForQuantization
+pixColumnStats
+pixCombineMasked
+pixCombineMaskedGeneral
+pixCompareBinary
+pixCompareGray
+pixCompareGrayOrRGB
+pixCompareRGB
+pixCompareRankDifference
+pixCompareTiled
+pixConformsToRectangle
+pixConnComp
+pixConnCompBB
+pixConnCompPixa
+pixContrastNorm
+pixContrastTRC
+pixContrastTRCMasked
+pixConvert16To8
+pixConvert1To16
+pixConvert1To2
+pixConvert1To2Cmap
+pixConvert1To32
+pixConvert1To4
+pixConvert1To4Cmap
+pixConvert1To8
+pixConvert24To32
+pixConvert2To8
+pixConvert32To24
+pixConvert4To8
+pixConvert8To16
+pixConvert8To32
+pixConvertColorToSubpixelRGB
+pixConvertForPSWrap
+pixConvertGrayToColormap
+pixConvertGrayToColormap8
+pixConvertGrayToFalseColor
+pixConvertGrayToSubpixelRGB
+pixConvertHSVToRGB
+pixConvertLossless
+pixConvertRGBToColormap
+pixConvertRGBToGray
+pixConvertRGBToGrayFast
+pixConvertRGBToGrayMinMax
+pixConvertRGBToHSV
+pixConvertRGBToHue
+pixConvertRGBToLuminance
+pixConvertRGBToSaturation
+pixConvertRGBToValue
+pixConvertRGBToYUV
+pixConvertTo1
+pixConvertTo16
+pixConvertTo1BySampling
+pixConvertTo32
+pixConvertTo32BySampling
+pixConvertTo8
+pixConvertTo8BySampling
+pixConvertTo8Or32
+pixConvertToFPix
+pixConvertToPdf
+pixConvertToPdfData
+pixConvertToPdfDataSegmented
+pixConvertToPdfSegmented
+pixConvertToSubpixelRGB
+pixConvertYUVToRGB
+pixConvolve
+pixConvolveRGB
+pixConvolveRGBSep
+pixConvolveSep
+pixCopy
+pixCopyBorder
+pixCopyColormap
+pixCopyDimensions
+pixCopyInputFormat
+pixCopyResolution
+pixCopyText
+pixCorrelationBinary
+pixCorrelationScore
+pixCorrelationScoreSimple
+pixCorrelationScoreThresholded
+pixCountConnComp
+pixCountPixels
+pixCountPixelsByColumn
+pixCountPixelsByRow
+pixCountPixelsInRow
+pixCreate
+pixCreateFromPixcomp
+pixCreateHeader
+pixCreateNoInit
+pixCreateRGBImage
+pixCreateTemplate
+pixCreateTemplateNoInit
+pixDeserializeFromMemory
+pixDeskew
+pixDeskewBarcode
+pixDeskewGeneral
+pixDeskewLocal
+pixDestroy
+pixDestroyColormap
+pixDilate
+pixDilateBrick
+pixDilateBrickDwa
+pixDilateCompBrick
+pixDilateCompBrickDwa
+pixDilateCompBrickExtendDwa
+pixDilateGray
+pixDilateGray3
+pixDisplay
+pixDisplayColorArray
+pixDisplayDiffBinary
+pixDisplayHitMissSel
+pixDisplayMatchedPattern
+pixDisplayMultiple
+pixDisplayPta
+pixDisplayPtaa
+pixDisplayWithTitle
+pixDisplayWrite
+pixDisplayWriteFormat
+pixDistanceFunction
+pixDitherTo2bpp
+pixDitherTo2bppSpec
+pixDitherToBinary
+pixDitherToBinaryLUT
+pixDitherToBinarySpec
+pixDrawBoxa
+pixDrawBoxaRandom
+pixEmbedForRotation
+pixEndianByteSwap
+pixEndianByteSwapNew
+pixEndianTwoByteSwap
+pixEndianTwoByteSwapNew
+pixEqual
+pixEqualWithCmap
+pixEqualizeTRC
+pixErode
+pixErodeBrick
+pixErodeBrickDwa
+pixErodeCompBrick
+pixErodeCompBrickDwa
+pixErodeCompBrickExtendDwa
+pixErodeGray
+pixErodeGray3
+pixExpandBinaryPower2
+pixExpandBinaryReplicate
+pixExpandReplicate
+pixExtendByReplication
+pixExtractBarcodeCrossings
+pixExtractBarcodeWidths1
+pixExtractBarcodeWidths2
+pixExtractBarcodes
+pixExtractBorderConnComps
+pixExtractBoundary
+pixExtractData
+pixExtractOnLine
+pixFHMTGen_1
+pixFMorphopGen_1
+pixFMorphopGen_2
+pixFadeWithGray
+pixFastTophat
+pixFewColorsMedianCutQuantMixed
+pixFewColorsOctcubeQuant1
+pixFewColorsOctcubeQuant2
+pixFewColorsOctcubeQuantMixed
+pixFillClosedBorders
+pixFillHolesToBoundingRect
+pixFillMapHoles
+pixFinalAccumulate
+pixFinalAccumulateThreshold
+pixFindAreaFraction
+pixFindAreaPerimRatio
+pixFindBaselines
+pixFindCornerPixels
+pixFindDifferentialSquareSum
+pixFindEqualValues
+pixFindHistoPeaksHSV
+pixFindHorizontalRuns
+pixFindLargestRectangle
+pixFindNormalizedSquareSum
+pixFindOverlapFraction
+pixFindPerimSizeRatio
+pixFindRectangleComps
+pixFindSkew
+pixFindSkewAndDeskew
+pixFindSkewOrthogonalRange
+pixFindSkewSweep
+pixFindSkewSweepAndSearch
+pixFindSkewSweepAndSearchScore
+pixFindSkewSweepAndSearchScorePivot
+pixFindVerticalRuns
+pixFixedOctcubeQuant256
+pixFixedOctcubeQuantGenRGB
+pixFlipFHMTGen
+pixFlipLR
+pixFlipPixel
+pixFlipTB
+pixFreeData
+pixGammaTRC
+pixGammaTRCMasked
+pixGammaTRCWithAlpha
+pixGenHalftoneMask
+pixGenTextblockMask
+pixGenTextlineMask
+pixGenerateFlateData
+pixGenerateFromPta
+pixGenerateG4Data
+pixGenerateJpegData
+pixGenerateMaskByBand
+pixGenerateMaskByBand32
+pixGenerateMaskByDiscr32
+pixGenerateMaskByValue
+pixGenerateSelBoundary
+pixGenerateSelRandom
+pixGenerateSelWithRuns
+pixGetAllCCBorders
+pixGetAverageMasked
+pixGetAverageMaskedRGB
+pixGetAverageTiled
+pixGetAverageTiledRGB
+pixGetBackgroundGrayMap
+pixGetBackgroundGrayMapMorph
+pixGetBackgroundRGBMap
+pixGetBackgroundRGBMapMorph
+pixGetBinnedColor
+pixGetBinnedComponentRange
+pixGetCCBorders
+pixGetCmapHistogram
+pixGetCmapHistogramMasked
+pixGetColorHistogram
+pixGetColorHistogramMasked
+pixGetColormap
+pixGetColumnStats
+pixGetComponentRange
+pixGetData
+pixGetDepth
+pixGetDifferenceHistogram
+pixGetDifferenceStats
+pixGetDimensions
+pixGetEdgeProfile
+pixGetExtremeValue
+pixGetGrayHistogram
+pixGetGrayHistogramMasked
+pixGetHeight
+pixGetHoleBorder
+pixGetInputFormat
+pixGetInvBackgroundMap
+pixGetLastOffPixelInRun
+pixGetLastOnPixelInRun
+pixGetLinePtrs
+pixGetLocalSkewAngles
+pixGetLocalSkewTransform
+pixGetMaxValueInRect
+pixGetMeanVerticals
+pixGetOuterBorder
+pixGetOuterBorderPta
+pixGetOuterBordersPtaa
+pixGetPSNR
+pixGetPixel
+pixGetRGBComponent
+pixGetRGBComponentCmap
+pixGetRGBLine
+pixGetRGBPixel
+pixGetRandomPixel
+pixGetRankColorArray
+pixGetRankValueMasked
+pixGetRankValueMaskedRGB
+pixGetRasterData
+pixGetRefcount
+pixGetRegionsBinary
+pixGetResolution
+pixGetRowStats
+pixGetRunCentersOnLine
+pixGetRunsOnLine
+pixGetText
+pixGetTextlineCenters
+pixGetWidth
+pixGetWindowsHBITMAP
+pixGetWordBoxesInTextlines
+pixGetWordsInTextlines
+pixGetWpl
+pixGetXRes
+pixGetYRes
+pixGlobalNormNoSatRGB
+pixGlobalNormRGB
+pixGrayMorphSequence
+pixGrayQuantFromCmap
+pixGrayQuantFromHisto
+pixHDome
+pixHMT
+pixHMTDwa_1
+pixHShear
+pixHShearCenter
+pixHShearCorner
+pixHShearIP
+pixHShearLI
+pixHalfEdgeByBandpass
+pixHaustest
+pixHolesByFilling
+pixHtmlViewer
+pixInitAccumulate
+pixIntersectionOfMorphOps
+pixInvert
+pixItalicWords
+pixLinearMapToTargetColor
+pixLinearTRCTiled
+pixLocalExtrema
+pixLocateBarcodes
+pixMakeHistoHS
+pixMakeHistoHV
+pixMakeHistoSV
+pixMakeMaskFromLUT
+pixMakeRangeMaskHS
+pixMakeRangeMaskHV
+pixMakeRangeMaskSV
+pixMaskBoxa
+pixMaskConnComp
+pixMaskOverColorPixels
+pixMaskedThreshOnBackgroundNorm
+pixMaxDynamicRange
+pixMeanInRectangle
+pixMeanSquareAccum
+pixMeasureEdgeSmoothness
+pixMeasureSaturation
+pixMedianCutHisto
+pixMedianCutQuant
+pixMedianCutQuantGeneral
+pixMedianCutQuantMixed
+pixMedianFilter
+pixMinMaxTiles
+pixMinOrMax
+pixMirrorDetect
+pixMirrorDetectDwa
+pixMirroredTiling
+pixModifyHue
+pixModifySaturation
+pixMorphCompSequence
+pixMorphCompSequenceDwa
+pixMorphDwa_1
+pixMorphDwa_2
+pixMorphGradient
+pixMorphSequence
+pixMorphSequenceByComponent
+pixMorphSequenceByRegion
+pixMorphSequenceDwa
+pixMorphSequenceMasked
+pixMultConstAccumulate
+pixMultConstantColor
+pixMultConstantGray
+pixMultMatrixColor
+pixNumColors
+pixNumSignificantGrayColors
+pixNumberOccupiedOctcubes
+pixOctcubeHistogram
+pixOctcubeQuantFromCmap
+pixOctcubeQuantFromCmapLUT
+pixOctcubeQuantMixedWithGray
+pixOctreeColorQuant
+pixOctreeColorQuantGeneral
+pixOctreeQuantByPopulation
+pixOctreeQuantNumColors
+pixOpen
+pixOpenBrick
+pixOpenBrickDwa
+pixOpenCompBrick
+pixOpenCompBrickDwa
+pixOpenCompBrickExtendDwa
+pixOpenGeneralized
+pixOpenGray
+pixOpenGray3
+pixOr
+pixOrientDetect
+pixOrientDetectDwa
+pixOtsuAdaptiveThreshold
+pixOtsuThreshOnBackgroundNorm
+pixPaintBoxa
+pixPaintBoxaRandom
+pixPaintSelfThroughMask
+pixPaintThroughMask
+pixPlotAlongPta
+pixPrintStreamInfo
+pixProcessBarcodes
+pixProjective
+pixProjectiveColor
+pixProjectiveGray
+pixProjectivePta
+pixProjectivePtaColor
+pixProjectivePtaGammaXform
+pixProjectivePtaGray
+pixProjectivePtaWithAlpha
+pixProjectiveSampled
+pixProjectiveSampledPta
+pixQuadraticVShear
+pixQuadraticVShearLI
+pixQuadraticVShearSampled
+pixQuadtreeMean
+pixQuadtreeVariance
+pixQuantFromCmap
+pixQuantizeIfFewColors
+pixRandomHarmonicWarp
+pixRankColumnTransform
+pixRankFilter
+pixRankFilterGray
+pixRankFilterRGB
+pixRankHaustest
+pixRankRowTransform
+pixRasterop
+pixRasteropFullImage
+pixRasteropHip
+pixRasteropIP
+pixRasteropVip
+pixRead
+pixReadBarcodeWidths
+pixReadBarcodes
+pixReadHeader
+pixReadHeaderMem
+pixReadIndexed
+pixReadJpeg
+pixReadMem
+pixReadMemBmp
+pixReadMemGif
+pixReadMemJpeg
+pixReadMemPng
+pixReadMemPnm
+pixReadMemSpix
+pixReadMemTiff
+pixReadRGBAPng
+pixReadStream
+pixReadStreamBmp
+pixReadStreamGif
+pixReadStreamJpeg
+pixReadStreamPng
+pixReadStreamPnm
+pixReadStreamSpix
+pixReadStreamTiff
+pixReadStreamWebP
+pixReadTiff
+pixReadWithHint
+pixReduceBinary2
+pixReduceRankBinary2
+pixReduceRankBinaryCascade
+pixRemoveBorder
+pixRemoveBorderConnComps
+pixRemoveBorderGeneral
+pixRemoveColormap
+pixRemoveMatchedPattern
+pixRemoveSeededComponents
+pixRemoveUnusedColors
+pixRemoveWithIndicator
+pixRenderBox
+pixRenderBoxArb
+pixRenderBoxBlend
+pixRenderBoxa
+pixRenderBoxaArb
+pixRenderBoxaBlend
+pixRenderContours
+pixRenderHashBox
+pixRenderHashBoxArb
+pixRenderHashBoxBlend
+pixRenderLine
+pixRenderLineArb
+pixRenderLineBlend
+pixRenderPolyline
+pixRenderPolylineArb
+pixRenderPolylineBlend
+pixRenderPta
+pixRenderPtaArb
+pixRenderPtaBlend
+pixRenderRandomCmapPtaa
+pixResizeImageData
+pixResizeToMatch
+pixReversalProfile
+pixRotate
+pixRotate180
+pixRotate2Shear
+pixRotate3Shear
+pixRotate90
+pixRotateAM
+pixRotateAMColor
+pixRotateAMColorCorner
+pixRotateAMColorFast
+pixRotateAMCorner
+pixRotateAMGray
+pixRotateAMGrayCorner
+pixRotateBinaryNice
+pixRotateBySampling
+pixRotateGammaXform
+pixRotateOrth
+pixRotateShear
+pixRotateShearCenter
+pixRotateShearCenterIP
+pixRotateShearIP
+pixRotateWithAlpha
+pixRowStats
+pixRunHistogramMorph
+pixRunlengthTransform
+pixSauvolaBinarize
+pixSauvolaBinarizeTiled
+pixSauvolaGetThreshold
+pixSaveTiled
+pixSaveTiledOutline
+pixSaveTiledWithText
+pixScale
+pixScaleAreaMap
+pixScaleAreaMap2
+pixScaleBinary
+pixScaleByIntSubsampling
+pixScaleBySampling
+pixScaleColor2xLI
+pixScaleColor4xLI
+pixScaleColorLI
+pixScaleGammaXform
+pixScaleGeneral
+pixScaleGray2xLI
+pixScaleGray2xLIDither
+pixScaleGray2xLIThresh
+pixScaleGray4xLI
+pixScaleGray4xLIDither
+pixScaleGray4xLIThresh
+pixScaleGrayLI
+pixScaleGrayMinMax
+pixScaleGrayMinMax2
+pixScaleGrayRank2
+pixScaleGrayRankCascade
+pixScaleGrayToBinaryFast
+pixScaleLI
+pixScaleMipmap
+pixScaleRGBToBinaryFast
+pixScaleRGBToGray2
+pixScaleRGBToGrayFast
+pixScaleResolution
+pixScaleSmooth
+pixScaleToGray
+pixScaleToGray16
+pixScaleToGray2
+pixScaleToGray3
+pixScaleToGray4
+pixScaleToGray6
+pixScaleToGray8
+pixScaleToGrayFast
+pixScaleToGrayMipmap
+pixScaleToSize
+pixScaleWithAlpha
+pixScanForEdge
+pixScanForForeground
+pixSearchBinaryMaze
+pixSearchGrayMaze
+pixSeedfill
+pixSeedfill4
+pixSeedfill4BB
+pixSeedfill8
+pixSeedfill8BB
+pixSeedfillBB
+pixSeedfillBinary
+pixSeedfillBinaryRestricted
+pixSeedfillGray
+pixSeedfillGrayBasin
+pixSeedfillGrayInv
+pixSeedfillGrayInvSimple
+pixSeedfillGraySimple
+pixSeedfillMorph
+pixSeedspread
+pixSelectByAreaFraction
+pixSelectByAreaPerimRatio
+pixSelectBySize
+pixSelectByWidthHeightRatio
+pixSelectMinInConnComp
+pixSelectedLocalExtrema
+pixSelectiveConnCompFill
+pixSerializeToMemory
+pixSetAll
+pixSetAllArbitrary
+pixSetBlackOrWhite
+pixSetBlackOrWhiteBoxa
+pixSetBorderRingVal
+pixSetBorderVal
+pixSetColormap
+pixSetData
+pixSetDepth
+pixSetDimensions
+pixSetHeight
+pixSetInRect
+pixSetInRectArbitrary
+pixSetInputFormat
+pixSetLowContrast
+pixSetMasked
+pixSetMaskedCmap
+pixSetMaskedGeneral
+pixSetMirroredBorder
+pixSetOrClearBorder
+pixSetPadBits
+pixSetPadBitsBand
+pixSetPixel
+pixSetPixelColumn
+pixSetRGBComponent
+pixSetRGBPixel
+pixSetResolution
+pixSetSelectCmap
+pixSetSelectMaskedCmap
+pixSetText
+pixSetTextblock
+pixSetTextline
+pixSetUnderTransparency
+pixSetWidth
+pixSetWpl
+pixSetXRes
+pixSetYRes
+pixSetupByteProcessing
+pixSimpleCaptcha
+pixSizesEqual
+pixSmoothConnectedRegions
+pixSnapColor
+pixSnapColorCmap
+pixSobelEdgeFilter
+pixSplitComponentIntoBoxa
+pixSplitDistributionFgBg
+pixSplitIntoBoxa
+pixStereoFromPair
+pixStretchHorizontal
+pixStretchHorizontalLI
+pixStretchHorizontalSampled
+pixSubsampleBoundaryPixels
+pixSubtract
+pixSubtractGray
+pixSumPixelValues
+pixSumPixelsByColumn
+pixSumPixelsByRow
+pixTRCMap
+pixTestForSimilarity
+pixThin
+pixThinExamples
+pixThinGeneral
+pixThreshold8
+pixThresholdForFgBg
+pixThresholdGrayArb
+pixThresholdOn8bpp
+pixThresholdPixelSum
+pixThresholdSpreadNorm
+pixThresholdTo2bpp
+pixThresholdTo4bpp
+pixThresholdToBinary
+pixThresholdToValue
+pixTilingCreate
+pixTilingDestroy
+pixTilingGetCount
+pixTilingGetSize
+pixTilingGetTile
+pixTilingNoStripOnPaint
+pixTilingPaintTile
+pixTophat
+pixTransferAllData
+pixTranslate
+pixTwoSidedEdgeFilter
+pixUnionOfMorphOps
+pixUnpackBinary
+pixUnsharpMasking
+pixUnsharpMaskingFast
+pixUnsharpMaskingGray
+pixUnsharpMaskingGray1D
+pixUnsharpMaskingGray2D
+pixUnsharpMaskingGrayFast
+pixUpDownDetect
+pixUpDownDetectDwa
+pixUpDownDetectGeneral
+pixUpDownDetectGeneralDwa
+pixUsesCmapColor
+pixVShear
+pixVShearCenter
+pixVShearCorner
+pixVShearIP
+pixVShearLI
+pixVarThresholdToBinary
+pixVarianceInRectangle
+pixWarpStereoscopic
+pixWindowedMean
+pixWindowedMeanSquare
+pixWindowedStats
+pixWindowedVariance
+pixWordMaskByDilation
+pixWrite
+pixWriteImpliedFormat
+pixWriteJpeg
+pixWriteMem
+pixWriteMemBmp
+pixWriteMemGif
+pixWriteMemJpeg
+pixWriteMemPS
+pixWriteMemPng
+pixWriteMemPnm
+pixWriteMemSpix
+pixWriteMemTiff
+pixWriteMemTiffCustom
+pixWriteMixedToPS
+pixWritePSEmbed
+pixWritePng
+pixWriteRGBAPng
+pixWriteSegmentedPageToPS
+pixWriteStream
+pixWriteStreamAsciiPnm
+pixWriteStreamBmp
+pixWriteStreamGif
+pixWriteStreamJpeg
+pixWriteStreamPS
+pixWriteStreamPdf
+pixWriteStreamPng
+pixWriteStreamPnm
+pixWriteStreamSpix
+pixWriteStreamTiff
+pixWriteStreamWebP
+pixWriteStringPS
+pixWriteTempfile
+pixWriteTiff
+pixWriteTiffCustom
+pixWriteWebP
+pixWriteWebPwithTargetPSNR
+pixXor
+pixZero
+pixaAddBorderGeneral
+pixaAddBox
+pixaAddPix
+pixaAnyColormaps
+pixaBinSort
+pixaCentroids
+pixaChangeRefcount
+pixaClear
+pixaClipToPix
+pixaCopy
+pixaCountPixels
+pixaCreate
+pixaCreateFromBoxa
+pixaCreateFromPix
+pixaCreateFromPixacomp
+pixaDestroy
+pixaDisplay
+pixaDisplayOnColor
+pixaDisplayOnLattice
+pixaDisplayRandomCmap
+pixaDisplayTiled
+pixaDisplayTiledAndScaled
+pixaDisplayTiledInRows
+pixaDisplayUnsplit
+pixaEqual
+pixaExtendArray
+pixaExtendArrayToSize
+pixaExtractColumnFromEachPix
+pixaFindAreaFraction
+pixaFindAreaPerimRatio
+pixaFindDimensions
+pixaFindPerimSizeRatio
+pixaFindWidthHeightProduct
+pixaFindWidthHeightRatio
+pixaGenerateFont
+pixaGetAlignedStats
+pixaGetBox
+pixaGetBoxGeometry
+pixaGetBoxa
+pixaGetBoxaCount
+pixaGetCount
+pixaGetDepthInfo
+pixaGetFont
+pixaGetPix
+pixaGetPixArray
+pixaGetPixDimensions
+pixaInitFull
+pixaInsertPix
+pixaJoin
+pixaMorphSequenceByComponent
+pixaMorphSequenceByRegion
+pixaRead
+pixaReadFiles
+pixaReadFilesSA
+pixaReadMultipageTiff
+pixaReadStream
+pixaRemovePix
+pixaReplacePix
+pixaSaveFont
+pixaSelectByAreaFraction
+pixaSelectByAreaPerimRatio
+pixaSelectBySize
+pixaSelectByWidthHeightRatio
+pixaSelectWithIndicator
+pixaSizeRange
+pixaSort
+pixaSort2dByIndex
+pixaSortByIndex
+pixaSplitPix
+pixaWrite
+pixaWriteCompressedToPS
+pixaWriteFiles
+pixaWriteStream
+pixaaAddBox
+pixaaAddPixa
+pixaaCreate
+pixaaCreateFromPixa
+pixaaDestroy
+pixaaDisplay
+pixaaDisplayByPixa
+pixaaDisplayTiledAndScaled
+pixaaExtendArray
+pixaaFlattenToPixa
+pixaaGetBoxa
+pixaaGetCount
+pixaaGetPixa
+pixaaRead
+pixaaReadStream
+pixaaWrite
+pixaaWriteStream
+pixaccAdd
+pixaccCreate
+pixaccCreateWithPix
+pixaccDestroy
+pixaccFinal
+pixaccGetOffset
+pixaccGetPix
+pixaccMultConst
+pixaccMultConstAccumulate
+pixaccSubtract
+pixacompAddBox
+pixacompAddPix
+pixacompAddPixcomp
+pixacompCreate
+pixacompCreateFromFiles
+pixacompCreateFromPixa
+pixacompCreateFromSA
+pixacompCreateInitialized
+pixacompDestroy
+pixacompDisplayTiledAndScaled
+pixacompExtendArray
+pixacompGetBox
+pixacompGetBoxGeometry
+pixacompGetBoxa
+pixacompGetBoxaCount
+pixacompGetCount
+pixacompGetPix
+pixacompGetPixDimensions
+pixacompGetPixcomp
+pixacompRead
+pixacompReadStream
+pixacompReplacePix
+pixacompReplacePixcomp
+pixacompWrite
+pixacompWriteStream
+pixacompWriteStreamInfo
+pixcmapAddBlackOrWhite
+pixcmapAddColor
+pixcmapAddNearestColor
+pixcmapAddNewColor
+pixcmapClear
+pixcmapColorToGray
+pixcmapContrastTRC
+pixcmapConvertHSVToRGB
+pixcmapConvertRGBToHSV
+pixcmapConvertRGBToYUV
+pixcmapConvertToHex
+pixcmapConvertYUVToRGB
+pixcmapCopy
+pixcmapCountGrayColors
+pixcmapCreate
+pixcmapCreateLinear
+pixcmapCreateRandom
+pixcmapDeserializeFromMemory
+pixcmapDestroy
+pixcmapGammaTRC
+pixcmapGetColor
+pixcmapGetColor32
+pixcmapGetComponentRange
+pixcmapGetCount
+pixcmapGetDepth
+pixcmapGetExtremeValue
+pixcmapGetFreeCount
+pixcmapGetIndex
+pixcmapGetMinDepth
+pixcmapGetNearestGrayIndex
+pixcmapGetNearestIndex
+pixcmapGetRankIntensity
+pixcmapGrayToColor
+pixcmapHasColor
+pixcmapReadStream
+pixcmapResetColor
+pixcmapSerializeToMemory
+pixcmapSetBlackAndWhite
+pixcmapShiftIntensity
+pixcmapToArrays
+pixcmapToOctcubeLUT
+pixcmapToRGBTable
+pixcmapUsableColor
+pixcmapWriteStream
+pixcompCreateFromFile
+pixcompCreateFromPix
+pixcompCreateFromString
+pixcompDestroy
+pixcompDetermineFormat
+pixcompGetDimensions
+pixcompWriteStreamInfo
+pixelFractionalShift
+pixelLinearMapToTargetColor
+pmsCreate
+pmsCustomAlloc
+pmsCustomDealloc
+pmsDestroy
+pmsGetAlloc
+pmsGetLevelForAlloc
+pmsGetLevelForDealloc
+pmsLogInfo
+projectiveXformPt
+projectiveXformSampledPt
+ptaAddPt
+ptaAffineTransform
+ptaChangeRefcount
+ptaClone
+ptaContainsPt
+ptaConvertToBoxa
+ptaCopy
+ptaCreate
+ptaCreateFromNuma
+ptaCyclicPerm
+ptaDestroy
+ptaEmpty
+ptaExtendArrays
+ptaGetArrays
+ptaGetBoundaryPixels
+ptaGetBoundingRegion
+ptaGetCount
+ptaGetCubicLSF
+ptaGetIPt
+ptaGetInsideBox
+ptaGetLinearLSF
+ptaGetPixelsFromPix
+ptaGetPt
+ptaGetQuadraticLSF
+ptaGetQuarticLSF
+ptaGetRange
+ptaGetRefcount
+ptaJoin
+ptaRead
+ptaReadStream
+ptaRemoveDuplicates
+ptaReverse
+ptaRotate
+ptaScale
+ptaSetPt
+ptaSort
+ptaSubsample
+ptaTestIntersection
+ptaTransform
+ptaTranslate
+ptaWrite
+ptaWriteStream
+ptaaAddPta
+ptaaCreate
+ptaaDestroy
+ptaaExtendArray
+ptaaGetBoundaryPixels
+ptaaGetCount
+ptaaGetPt
+ptaaGetPta
+ptaaRead
+ptaaReadStream
+ptaaRemoveShortLines
+ptaaSortByIndex
+ptaaWrite
+ptaaWriteStream
+ptraAdd
+ptraCompactArray
+ptraConcatenatePdf
+ptraConcatenatePdfToData
+ptraCreate
+ptraDestroy
+ptraExtendArray
+ptraGetActualCount
+ptraGetHandle
+ptraGetMaxIndex
+ptraGetPtrToItem
+ptraInsert
+ptraJoin
+ptraRemove
+ptraRemoveLast
+ptraReplace
+ptraReverse
+ptraSwap
+ptraaCreate
+ptraaDestroy
+ptraaFlattenToPtra
+ptraaGetPtra
+ptraaGetSize
+ptraaInsertPtra
+quadtreeGetChildren
+quadtreeGetParent
+quadtreeMaxLevels
+rasteropHipLow
+rasteropLow
+rasteropUniLow
+rasteropVipLow
+readHeaderJpeg
+readHeaderMemJpeg
+readHeaderMemTiff
+readHeaderPng
+readHeaderPnm
+readHeaderSpix
+readHeaderTiff
+readHeaderWebP
+reallocNew
+reduceBinary2Low
+reduceRankBinary2Low
+regTestCheckFile
+regTestCleanup
+regTestCompareFiles
+regTestComparePix
+regTestCompareSimilarPix
+regTestSetup
+regTestWritePixAndCheck
+resetMorphBoundaryCondition
+returnErrorFloat
+returnErrorInt
+returnErrorPtr
+rotate90Low
+rotateAMColorCornerLow
+rotateAMColorFastLow
+rotateAMColorLow
+rotateAMGrayCornerLow
+rotateAMGrayLow
+runlengthMembershipOnLine
+saConcatenatePdf
+saConcatenatePdfToData
+saConvertFilesToPdf
+saConvertFilesToPdfData
+sarrayAddString
+sarrayAppend
+sarrayAppendRange
+sarrayChangeRefcount
+sarrayClear
+sarrayClone
+sarrayConcatenate
+sarrayConvertFilesFittedToPS
+sarrayConvertFilesToPS
+sarrayConvertWordsToLines
+sarrayCopy
+sarrayCreate
+sarrayCreateInitialized
+sarrayCreateLinesFromString
+sarrayCreateWordsFromString
+sarrayDestroy
+sarrayExtendArray
+sarrayGetArray
+sarrayGetCount
+sarrayGetRefcount
+sarrayGetString
+sarrayPadToSameSize
+sarrayParseRange
+sarrayRead
+sarrayReadStream
+sarrayRemoveString
+sarrayReplaceString
+sarraySelectByRange
+sarraySelectBySubstring
+sarraySort
+sarraySplitString
+sarrayToString
+sarrayToStringRange
+sarrayWrite
+sarrayWriteStream
+scaleAreaMapLow2
+scaleBinaryLow
+scaleBySamplingLow
+scaleColor2xLILineLow
+scaleColor2xLILow
+scaleColorAreaMapLow
+scaleColorLILow
+scaleGray2xLILineLow
+scaleGray2xLILow
+scaleGray4xLILineLow
+scaleGray4xLILow
+scaleGrayAreaMapLow
+scaleGrayLILow
+scaleMipmapLow
+scaleRGBToGray2Low
+scaleSmoothLow
+scaleToGray16Low
+scaleToGray2Low
+scaleToGray3Low
+scaleToGray4Low
+scaleToGray6Low
+scaleToGray8Low
+seedfillBinaryLow
+seedfillGrayInvLow
+seedfillGrayInvLowSimple
+seedfillGrayLow
+seedfillGrayLowSimple
+seedspreadLow
+selCopy
+selCreate
+selCreateBrick
+selCreateComb
+selCreateFromColorPix
+selCreateFromPix
+selCreateFromPta
+selCreateFromString
+selDestroy
+selDisplayInPix
+selFindMaxTranslations
+selGetElement
+selGetName
+selGetParameters
+selGetTypeAtOrigin
+selPrintToString
+selRead
+selReadFromColorImage
+selReadStream
+selRotateOrth
+selSetElement
+selSetName
+selSetOrigin
+selWrite
+selWriteStream
+selaAddBasic
+selaAddCrossJunctions
+selaAddDwaCombs
+selaAddDwaLinear
+selaAddHitMiss
+selaAddSel
+selaAddTJunctions
+selaCreate
+selaCreateFromFile
+selaDestroy
+selaDisplayInPix
+selaExtendArray
+selaFindSelByName
+selaGetBrickName
+selaGetCombName
+selaGetCount
+selaGetSel
+selaGetSelnames
+selaRead
+selaReadStream
+selaWrite
+selaWriteStream
+selectComposableSels
+selectComposableSizes
+selectDefaultPdfEncoding
+setPixMemoryManager
+setPixelLow
+shiftDataHorizontalLow
+splitPathAtDirectory
+splitPathAtExtension
+splitStringToParagraphs
+sreadHeaderPng
+sreadHeaderPnm
+sreadHeaderSpix
+startTimer
+startTimerNested
+stopTimer
+stopTimerNested
+stringCat
+stringCompareLexical
+stringCopy
+stringFindSubstr
+stringJoin
+stringLength
+stringNew
+stringRemoveChars
+stringReplace
+stringReplaceEachSubstr
+stringReplaceSubstr
+stringReverse
+stringSplitOnToken
+strtokSafe
+subtractGrayLow
+sudokuCreate
+sudokuDestroy
+sudokuGenerate
+sudokuOutput
+sudokuReadFile
+sudokuReadString
+sudokuSolve
+sudokuTestUniqueness
+thresholdTo2bppLow
+thresholdTo4bppLow
+thresholdToBinaryLineLow
+thresholdToBinaryLow
+thresholdToValueLow
+tiffGetCount
+writeImageCompressedToPSFile
+writeMultipageTiff
+writeMultipageTiffSA
+wshedApply
+wshedBasins
+wshedCreate
+wshedDestroy
+wshedRenderColors
+wshedRenderFill
+zlibCompress
+zlibUncompress
