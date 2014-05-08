@@ -9,13 +9,6 @@ import src.jfunc as j
 osname=j.osname
 argv=sys.argv
 
-def my_uninstall():
-	rmPaths=[]
-	files=["*tesseract*"]
-	#if osname=='darwin' and j.brew_prefix:
-	for rmPath in j.sitepackagesLocations:
-		print rmPath
-		j.runRm4Dirs(rmPath,files)
 
 def main():
 	argLen=len(argv)
@@ -24,9 +17,6 @@ def main():
 		print argv
 		return
 	cmd=argv[1]
-	if cmd=="uninstall":
-		my_uninstall()
-		return
 	pwd=os.path.dirname(os.path.realpath(__file__))
 	srcPath=os.path.join(pwd,'src')
 	os.chdir(srcPath)
@@ -35,11 +25,11 @@ def main():
 		fp.write('\n')
 		fp.close()
 	import src.setup,sys
-
-
+	if cmd=="uninstall":
+		src.setup.my_uninstall()
+		return
 	print ".........."
 	src.setup.main()
-
 	if cmd=="clean":
 		os.chdir("../")
 		src.setup.my_clean()
