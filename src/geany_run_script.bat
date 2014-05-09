@@ -1,4 +1,4 @@
-python "jfunc.py"
+python "setup.py"
 
 pause
 del "%0"

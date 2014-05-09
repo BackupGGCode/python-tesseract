@@ -9,7 +9,8 @@ VERSION="0.8"
 from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform,glob,commands,sys,distutils
 import os
-import jfunc as j
+import jfunc
+j=jfunc.jfunc()
 
 
 osname=j.osname
@@ -78,10 +79,11 @@ def my_clean():
 	print pwd
 	rmDirs="build dist deb_dist tesseract.egg-info python_tesseract.egg-info".split(" ")
 	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz*".split(" ")
-	
+	print "remove Dirs"
 	j.runRm4Dirs(pwd,rmDirs)
+	print "remove Files"
 	j.runRm4Files(pwd,rmFiles)
-
+	print "Done"
 	#old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
 	#for package in old_packages:
 		#os.system(package)
@@ -110,7 +112,7 @@ class CleanCommand(_clean):
 	def run(self):
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 		my_clean()
-			#_clean.run(self)
+		#_clean.run(self)
 
 class UninstallCommand(_clean):
 	description = "custom uninstall command that forcefully removes dist/build directories"
