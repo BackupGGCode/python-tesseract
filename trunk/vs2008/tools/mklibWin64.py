@@ -71,24 +71,38 @@ vs_path = get_vspath() + "..\\..\\VC\\"
 #   MSCMD:
 #     > lib /def:target_lib.def /machine:amd64 /out:target_lib.lib
 ###############################################################################
+def patchDef(fname):
+	print "Patching %s"%fname
+	basename=fname.split(".")[0]
+	lines=open(fname).readlines()
+	print lines[0]
+	lines[0]="LIBRARY %s.dll\n"%basename
+	print lines[0]
+	fp=open(fname,"w")
+	fp.write("".join(lines))
+	fp.close()
+	
 def make_lib(dll_path,cwd_path,tgtname):
   print "[2-1] create a windows module definition: lib%s.def" % tgtname
-  dump_def = 'cd "%s" & pexports %s\lib%s.dll > lib%s.def' % (cwd_path, dll_path,tgtname, tgtname)
+  dump_def = 'cd "%s" & pexports %s\%s.dll > %s.def' % (cwd_path, dll_path,tgtname, tgtname)
   print dump_def
   ret = os.system(dump_def)
+  patchDef("%s.def"%tgtname)
+    
   if ret == 0:
-    print "[2-2] use (lib%s.def) to create import module: lib%s.lib" % (tgtname, tgtname)
-    lib_cmd = 'cd "%s"&lib /def:lib%s.def /machine:amd64 /out:lib%s.lib' % (cwd_path, tgtname, tgtname)
+    print "[2-2] use (%s.def) to create import module: %s.lib" % (tgtname, tgtname)
+    lib_cmd = 'cd "%s"&lib /def:%s.def /machine:amd64 /out:%s.lib' % (cwd_path, tgtname, tgtname)
     cmds = 'cd "%s"&vcvarsall.bat x86_amd64&%s&cd "%s"' % (vs_path, lib_cmd, cwd_path)
     ret = os.system(cmds)
+       
     if ret == 0:
-      print "INFO: mklib (%s/lib%s.lib) success." % (cwd_path, tgtname)
+      print "INFO: mklib (%s/%s.lib) success." % (cwd_path, tgtname)
       return 0;
     else:
-      print "ERROR: mklib (%s/lib%s.lib) failed." % (cwd_path, tgtname)
+      print "ERROR: mklib (%s/%s.lib) failed." % (cwd_path, tgtname)
       return (-2)
   else:
-    print "ERROR: mklib (%s/lib%s.def) failed." % (cwd_path, tgtname)
+    print "ERROR: mklib (%s/%s.def) failed." % (cwd_path, tgtname)
     return (-1);
 
 ###############################################################################
@@ -127,8 +141,8 @@ def genLib(cwd_path,dll_dir,tgtname):
 	
 	#work_dir = "./"
 	make_lib(dll_dir,cwd_path,tgtname)
-	libName=os.path.join(".","lib%s.lib"%tgtname)
-	libName2=os.path.join("..\\x64\\libs\\","lib%s.lib"%tgtname)
+	libName=os.path.join(".","%s.lib"%tgtname)
+	libName2=os.path.join("..\\x64\\libs\\","%s.lib"%tgtname)
 	print libName,libName2
 	if os.path.exists(libName2):
 		os.remove(libName2)
