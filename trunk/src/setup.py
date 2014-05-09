@@ -91,6 +91,7 @@ def my_uninstall():
 	for rmPath in j.sitepackagesLocations:
 		print rmPath
 		j.runRm4Dirs(rmPath,files)
+		j.runRm4Files(rmPath,files)
 
 class CleanCommand(_clean):
 	description = "custom clean command that forcefully removes dist/build directories"
