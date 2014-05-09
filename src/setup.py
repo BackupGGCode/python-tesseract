@@ -10,6 +10,7 @@ from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform,glob,commands,sys,distutils
 import os
 import jfunc as j
+
 osname=j.osname
 #library_dirs=[]
 #include_dirs=['.']
@@ -385,7 +386,8 @@ class GenVariablesWindows:
 		return tesseract_module, self.data_files
 
 def main():
-
+	data_files=None
+	tesseract_module=None
 	sources=['tesseract.i','main.cpp']
 	description = r"""${python:Provides} Wrapper for Python-${python:Versions}"""
 
@@ -417,8 +419,9 @@ def main():
 		gvw=GenVariablesWindows(osname,fp_config_h,fp_main_h,sources)
 		tesseract_module, data_files=gvw.do()
 
-
-	print data_files
+	if data_files:
+		print "data_files=%s"%repr(data_files)
+	
 	setup (name = PACKAGE,
 			version = VERSION,
 			author	  = "FreeToGo Nowhere",
