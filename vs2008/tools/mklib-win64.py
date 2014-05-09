@@ -60,6 +60,18 @@ def get_vspath():
     print "VS110COMNTOOLS =", _vspath
   return _vspath
 
+
+def patchDef(fname):
+	print "Patching %s"%fname
+	basename=fname.split(".")[0]
+	lines=open(fname).readlines()
+	print lines[0]
+	lines[0]="LIBRARY %s.dll\n"%basename
+	print lines[0]
+	fp=open(fname,"w")
+	fp.write("".join(lines))
+	fp.close()
+	
 ###############################################################################
 # step (1): create a windows module definition: target_lib.def
 #   MSCMD:
@@ -72,11 +84,17 @@ def get_vspath():
 ###############################################################################
 def make_lib(workdir, tgtname):
   print "[2-1] create a windows module definition: lib%s.def" % tgtname
-  dump_def = 'cd "%s"&pexports lib%s.dll > lib%s.def' % \
-    (work_dir, tgtname, tgtname)
+  dllName="lib%s.dll",tgtname
+  defName="lib%s.def",tgtname
+  dump_def = 'cd "%s"&pexports %s > ' % (work_dir, dllName, defName)
+  print "*"*100
   ret = os.system(dump_def)
+  print ".....PATCHING....."
+  patchDef(os.path.join(workdir,defName))
   if ret == 0:
     print "[2-2] use (lib%s.def) to create import module: lib%s.lib" % (tgtname, tgtname)
+    
+    
     lib_cmd = 'cd "%s"&lib /def:lib%s.def /machine:amd64 /out:lib%s.lib' % (workdir, tgtname, tgtname)
     cmds = 'cd "%s"&vcvarsall.bat x86_amd64&%s&cd "%s"' % (vs_path, lib_cmd, cwd_path)
     ret = os.system(cmds)
