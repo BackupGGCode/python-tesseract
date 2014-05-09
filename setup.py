@@ -27,6 +27,7 @@ def main():
 	import src.setup,sys
 	if cmd=="uninstall":
 		src.setup.my_uninstall()
+		
 		return
 	print ".........."
 	src.setup.main()
