@@ -1,4 +1,4 @@
-import platform, os, commands
+import platform, os, commands, glob
 
 osname=platform.uname()[0].lower()
 print "Your os is:%s"%osname
@@ -25,18 +25,21 @@ def runCmd4Files(pwd,cmd,mfiles):
 	for mfile in mfiles:
 		#print mfile
 		mfile=os.path.join(pwd,mfile)
-		if "*" in mfile or os.path.exists(mfile):
-			rmStr='%s %s'%(cmd,mfile)
-			print rmStr
-			os.system(rmStr)
-		else:
-			print "%s cannot be removed"%mfile
+		mfiles=glob.glob(mfile)
+		for mfile in mfiles:
+			#if "*" in mfile or os.path.exists(mfile):
+			if os.path.exists(mfile):
+				rmStr='%s %s'%(cmd,mfile)
+				print rmStr
+				os.system(rmStr)
+			else:
+				print "%s cannot be removed"%mfile
 
 def runRm4Dirs(pwd,mfiles):
 	if osname != "windows":
 		rmDirCmd="rm -rf"
 	else:
-		rmDirCmd="del /S /Q"
+		rmDirCmd="rd /S /Q"
 
 	runCmd4Files(pwd,rmDirCmd,mfiles)
 
