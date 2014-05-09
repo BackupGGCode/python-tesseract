@@ -1,7 +1,18 @@
-import platform, os, commands, glob
+from __future__ import print_function
+import platform, os, commands
+import __builtin__ 
+
+DEBUG=True
+WARNING_LEVEL=10
+
+def print(*argv):
+	mlen=len(argv)
+	if not DEBUG or (mlen>=2 and argv[1] < WARNING_LEVEL):
+		return 
+	__builtin__.print(argv[0])
 
 osname=platform.uname()[0].lower()
-print "Your os is:%s"%osname
+__builtin__.print("Your os is:%s"%osname)
 if osname=="darwin":
 	brew_prefix=commands.getstatusoutput('brew --prefix')[1]
 	sitepackagesLocations=[
@@ -25,15 +36,12 @@ def runCmd4Files(pwd,cmd,mfiles):
 	for mfile in mfiles:
 		#print mfile
 		mfile=os.path.join(pwd,mfile)
-		mfiles=glob.glob(mfile)
-		for mfile in mfiles:
-			#if "*" in mfile or os.path.exists(mfile):
-			if os.path.exists(mfile):
-				rmStr='%s %s'%(cmd,mfile)
-				print rmStr
-				os.system(rmStr)
-			else:
-				print "%s cannot be removed"%mfile
+		if "*" in mfile or os.path.exists(mfile):
+			rmStr='%s %s'%(cmd,mfile)
+			print(rmStr)
+			os.system(rmStr)
+		else:
+			print("%s cannot be removed"%mfile)
 
 def runRm4Dirs(pwd,mfiles):
 	if osname != "windows":
@@ -52,4 +60,6 @@ def runRm4Files(pwd,mfiles):
 	runCmd4Files(pwd,rmFileCmd,mfiles)
 
 if __name__ == "__main__":
-	print "os is %s"%osname
+	print("os is %s"%osname,11)
+	print("Warining Level is %s"%8,8)
+	print("Warining Level is %s"%11,11)

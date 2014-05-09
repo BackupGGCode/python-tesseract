@@ -5,6 +5,7 @@
 %include "carrays.i"
 %include "cdata.i"
 %array_class(int, intArray);
+%newobject retParser;
 
 
 %{
@@ -15,7 +16,7 @@
 #include "baseapi.h"
 //#include "cv_original.h"
 #include "main.h"
-
+char* retParser(const char* a);
 
 %}
 /* Input typemap: convert from Python input object to C/C++ IplImage

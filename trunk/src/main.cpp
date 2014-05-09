@@ -40,12 +40,19 @@ char* retParser(const char* a) {
 	int mlen=strlen(a);
 	if (mlen==0) 
 		return 0;
-	char *retStr=new char[mlen+1];
-	retStr[mlen]=0;
+	//char *retStr=new char[mlen+1];
+	char *retStr=(char *)malloc(sizeof(char) * ( mlen + 1 ));
+	//retStr[mlen]=0;
 	memcpy(retStr,a,mlen);
 	//strcpy (retStr,a);
 	return retStr;
 }
+
+/*
+char* retParser(const char* a) {
+	return (char *)a;
+}
+*/
 /*
 int *retVectParser(const int* a) {
 	int mlen=sizeof(a)/sizeof(*a);
@@ -66,6 +73,7 @@ char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api) {
 	STRING mstr;
 	api->ProcessPages(image, NULL, 0, &mstr);
 	//return mstr.string();
+	//return retParser(mstr.string());
 	return retParser(mstr.string());
  }
 
