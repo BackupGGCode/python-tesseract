@@ -11,6 +11,7 @@ import sys,os,platform,glob,commands,sys,distutils
 import os
 import jfunc as j
 
+
 osname=j.osname
 #library_dirs=[]
 #include_dirs=['.']
