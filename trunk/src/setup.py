@@ -11,6 +11,7 @@ import sys,os,platform,glob,commands,sys,distutils
 import os
 import jfunc
 j=jfunc.jfunc()
+puts=j.puts
 
 
 osname=j.osname
@@ -78,7 +79,7 @@ def my_clean():
 	pwd=os.path.abspath(os.path.dirname(sys.argv[0]))
 	print pwd
 	rmDirs="build dist deb_dist tesseract.egg-info python_tesseract.egg-info".split(" ")
-	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz*".split(" ")
+	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz* *.pyc".split(" ")
 	print "remove Dirs"
 	j.runRm4Dirs(pwd,rmDirs)
 	print "remove Files"
