@@ -1,30 +1,14 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#from __future__ import print_function
-import tesseract
-import ctypes
-import os
-#print "HAVE_LIBLEPT=",tesseract.isLibLept()
-#print dir("tesseract")
-#print tesseract.MAX_NUM_INT_FEATURES
-api = tesseract.TessBaseAPI()
-api.SetOutputName("outputName");
-#api.Init(".","eng")
-api.Init(".","eng",tesseract.OEM_DEFAULT)
-api.SetPageSegMode(tesseract.PSM_AUTO)
-mImgFile = "eurotext.jpg"
-#mImgFile = "bad.png"
+import jfunc as j
+puts=j.puts
 
-result = tesseract.ProcessPagesWrapper(mImgFile,api)
-print "result(ProcessPagesWrapper)=",result
-#api.ProcessPages(mImgFile,None, 0, result)
-#print "abc"
-result = tesseract.ProcessPagesFileStream(mImgFile,api)
-print "result(ProcessPagesFileStream)=",result
 
-result = tesseract.ProcessPagesRaw(mImgFile,api)
-print "result(ProcessPagesRaw)=",result
+puts("Warining Level is %s"%8,8)
+puts("Warining Level is %s"%11,11)
+puts(1.21,3,"apple",[1,2,3],{1:1,2:2},192)
+puts(1.21,3,"apple",[1,2,3],192,END=",")
+puts(1.21,3,"apple",[1,2,3],192,END=" ")
+puts(1.21,3,"apple",[1,2,3],192,START="*"*10,END="%s,\n"%("^"*10))
 
-mBuffer=open(mImgFile).read()
-result = tesseract.ProcessPagesBuffer(mBuffer,len(mBuffer),api)
-print "result(ProcessPagesBuffer)=",result
+
+
+
