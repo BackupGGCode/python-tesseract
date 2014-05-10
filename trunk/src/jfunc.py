@@ -25,7 +25,7 @@ class jfunc():
 	def type(self,a):
 		return repr(type(a)).split(" ")[-1][1:-2].upper()
 
-	def print(self,*argv,**kwargs):
+	def puts(self,*argv,**kwargs):
 		END=kwargs.get("END","\t")
 		START=kwargs.get("START","")
 		mlen=len(argv)
@@ -98,19 +98,19 @@ class jfunc():
 		self.runCmd4Files(pwd,rmDirCmd,mfiles)
 
 	def runRm4Files(self,pwd,mfiles):
-		self.print([self.osname,len(self.osname)])
-		self.print("------------------")
+		self.puts([self.osname,len(self.osname)])
+		self.puts("------------------")
 		if self.osname != "windows":
-			self.print("????")
+			self.puts("????")
 			rmFileCmd="rm -rf"
-			self.print("removed")
+			self.puts("removed")
 		else:
-			self.print([self.osname,len(self.osname)])
-			self.print("........")
+			self.puts([self.osname,len(self.osname)])
+			self.puts("........")
 			rmFileCmd="del /S /Q"
-		self.print("****************")
+		self.puts("****************")
 		self.runCmd4Files(pwd,rmFileCmd,mfiles)
-		self.print("*****-----***********")
+		self.puts("*****-----***********")
 
 j=jfunc()
 osname=j.osname
@@ -118,7 +118,7 @@ sitepackagesLocations=j.sitepackagesLocations
 __builtin__.print("Your os is:%s"%osname)
 
 def puts(*argv,**kwargs):
-	j.print(*argv,**kwargs)
+	j.puts(*argv,**kwargs)
 
 if __name__ == "__main__":
 	puts("os is %s"%osname,11)
