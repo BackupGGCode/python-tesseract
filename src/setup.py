@@ -137,6 +137,12 @@ class UninstallCommand(_clean):
 class GenVariablesLinux:
 	def __init__(self, osname,fp_config_h,fp_main_h,sources):
 		self.sources=sources
+		if osname=="mingw":
+			self.sources.append('ms_fmemopen.c')
+			self.mingwPath=os.path.abspath("../mingw/")
+			self.mingwLibPath=os.path.join(self.mingwPath,"x64","libs")
+		
+		
 		self.include_dirs=['.']
 		self.data_files=[]
 		self.osname=osname
@@ -148,7 +154,7 @@ class GenVariablesLinux:
 		self.clang_incls=['tesseract','leptonica']
 		self.setIncls()
 		self.idefine(fp_config_h,osname)
-		if self.isOpenCVInstalled():
+		if osname!="mingw" and self.isOpenCVInstalled() :
 			self.setCVLibraries()
 		self.fp_config_h.close()
 		self.fp_main_h.close()
@@ -170,13 +176,18 @@ class GenVariablesLinux:
 
 		prefix=sys.prefix
 		self.incls = ['/usr/include', '/usr/local/include']
+		if osname=="mingw":
+			self.incls.append(os.path.join(self.mingwPath,"includes"))
 		self.libs=['/usr/lib', '/usr/local/lib']
 		if "cygwin" in osname:
 			self.include_dirs.append(os.path.join(".","cygwin","includes"))
 			self.include_dirs.append(os.path.join("cygwin/includes/"))
+		elif osname=="mingw":
+			self.fp_config_h.write('#include "fmemopen.h"\n')
 
 	def inclpath(self,mlib):
 		ipath=checkPath(self.incls,mlib)
+		#print self.incls,mlib
 		if ipath:
 			return ipath
 		else:
@@ -242,13 +253,17 @@ class GenVariablesLinux:
 		print self.include_dirs
 
 	def do(self):
-
+		extra_compile_args=["-Wall", "-O0", '-funroll-loops','-g']
+		extra_link_args=[]
+		if osname=="mingw":
+			extra_link_args.append("-L%s"%self.mingwLibPath)
 		tesseract_module = Extension('_tesseract',
 				sources=self.sources,
 				#extra_compile_args=["-DEBUG -O0 -pg "],
 				#extra_compile_args=["-O0","-g"],
 				#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
-				extra_compile_args = ["-Wall", "-O0", '-funroll-loops','-g'],
+				extra_compile_args = extra_compile_args,
+				extra_link_args = extra_link_args,
 				swig_opts=[
 								"-c++",
 								 "-I"+self.inclpath('tesseract'),
@@ -303,7 +318,7 @@ def checkOnePath(mpath,mlib,mext):
 			return files[0][:-4]
 		else:
 			print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> No lib path for path_to=%s mext=%s"%(repr(path_to),repr(mext))
-			sys.exit(-1)
+			#sys.exit(-1)
 
 class GenVariablesWindows:
 	def __init__(self,osname,fp_config_h,fp_main_h,sources):
@@ -317,8 +332,10 @@ class GenVariablesWindows:
 		name='python'
 		description = """Python Wrapper for Tesseract-OCR """
 		self.sources.append('ms_fmemopen.c')
-		self.pathOffset="..\\vs2008"
-		#self.pathOffset="..\\mingw"
+		if osname=="mingw":
+			self.pathOffset="..\\mingw"
+		else:
+			self.pathOffset="..\\vs2008"
 		self.initialize()
 		self.setCVLibraries()
 		self.setIncls()
@@ -357,7 +374,11 @@ class GenVariablesWindows:
 	def inclpath(self,name):
 		return checkOnePath(self.inclPath,name,"")
 	def libpath(self,name):
-		return checkOnePath(self.libPath, name,"lib")
+		if osname=="mingw":
+			libext="a"
+		else:
+			libext="lib"
+		return checkOnePath(self.libPath, name,libext)
 
 	def setCVLibraries(self):
 		self.libraries=[self.libpath('libtesseract'),self.libpath('liblept')]
@@ -421,7 +442,7 @@ def main():
 		gvl=GenVariablesDarwin(osname,fp_config_h,fp_main_h,sources)
 		tesseract_module, data_files=gvl.do()
 
-	elif isLinux:
+	elif isLinux or osname=="mingw" :
 		gvl=GenVariablesLinux(osname,fp_config_h,fp_main_h,sources)
 		tesseract_module, data_files=gvl.do()
 

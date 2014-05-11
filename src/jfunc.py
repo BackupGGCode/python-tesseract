@@ -1,6 +1,6 @@
 from __future__ import print_function
 import platform, os, commands,glob
-import __builtin__ 
+import __builtin__,subprocess
 DEBUG=True
 WARNING_LEVEL=10
 colors={'LIST':'\033[95m',
@@ -20,6 +20,7 @@ colorkeys=colors.keys()
 class jfunc():
 	def __init__(self):
 		self.osname=self.getOsName()
+		print(self.osname)
 		self.defineSitePackagesLocations()
 		
 	def type(self,a):
@@ -62,7 +63,7 @@ class jfunc():
 				"/usr/lib/python2.7/dist-packages",
 				"/usr/lib/python2.7/site-packages",
 				]
-		elif osname=="windows":
+		elif osname=="windows" or osname=="mingw":
 			self.sitepackagesLocations=[
 				os.path.expanduser("~\\appdata\\roaming\\python\\python27\\site-packages"),
 				"C:\\Python27\\Lib\\site-packages"
@@ -73,9 +74,17 @@ class jfunc():
 			
 
 	def getOsName(self):
-		return platform.uname()[0].lower().strip()
+		osname=platform.uname()[0].lower().strip()
+		if osname=="windows":
+			if self.isMinGW():
+				osname="mingw"
+		return osname
 	
-		
+	def isMinGW(self):
+		results=subprocess.Popen("gcc --version", stdout=subprocess.PIPE).stdout.read()
+		if "MinGW" in results:
+			return True
+			
 	def runCmd4Files(self,pwd,cmd,mfiles):
 		for mfile in mfiles:
 			#print mfile
@@ -100,14 +109,17 @@ class jfunc():
 	def runRm4Files(self,pwd,mfiles):
 		self.puts([self.osname,len(self.osname)])
 		self.puts("------------------")
-		if self.osname != "windows":
-			self.puts("????")
-			rmFileCmd="rm -rf"
-			self.puts("removed")
-		else:
+		
+			
+		if self.osname == "windows" or self.osname=="mingw":
 			self.puts([self.osname,len(self.osname)])
 			self.puts("........")
 			rmFileCmd="del /S /Q"
+		else:
+			self.puts("????")
+			rmFileCmd="rm -rf"
+			self.puts("removed")
+		
 		self.puts("****************")
 		self.runCmd4Files(pwd,rmFileCmd,mfiles)
 		self.puts("*****-----***********")
@@ -121,9 +133,10 @@ def puts(*argv,**kwargs):
 	j.puts(*argv,**kwargs)
 
 if __name__ == "__main__":
-	puts("os is %s"%osname,11)
-	puts("Warining Level is %s"%8,8)
-	puts("Warining Level is %s"%11,11)
-	puts(1.21,3,"apple",[1,2,3],192)
-	puts(1.21,3,"apple",[1,2,3],192,END=" ")
-	puts(1.21,3,"apple",[1,2,3],192,START="*"*10,END="%s,\n"%("^"*10))
+	#puts("os is %s"%osname,11)
+	#puts("Warining Level is %s"%8,8)
+	#puts("Warining Level is %s"%11,11)
+	#puts(1.21,3,"apple",[1,2,3],192)
+	#puts(1.21,3,"apple",[1,2,3],192,END=" ")
+	#puts(1.21,3,"apple",[1,2,3],192,START="*"*10,END="%s,\n"%("^"*10))
+	print(j.osname)
