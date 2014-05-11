@@ -184,8 +184,12 @@ class GenVariablesLinux:
 		assert False, 'Include directory %s was not found' % mlib
 
 	def libpath(self, mlib):
-		return checkPath(self.libs,mlib)
-
+		ret=checkPath(self.libs,mlib)
+		if not ret:
+			print "(*)"*100
+			print("Waring!!!! canot find %s in %s"%(repr(mlib), repr(self.libs)))
+		return ret
+		
 	def isOpenCVInstalled(self):
 		hasOpenCV = 0
 		if self.inclpath("opencv2/core/core_c.h"):
@@ -287,7 +291,6 @@ class GenVariablesDarwin(GenVariablesLinux):
 
 def checkOnePath(mpath,mlib,mext):
 	path_to = os.path.join(mpath,mlib)
-	#print "****************path_to=%s %s\n"%(repr(path_to),os.path.exists(path_to+"."+mext))
 	if os.path.exists(path_to+"."+mext):
 		return path_to
 	else:
@@ -296,9 +299,11 @@ def checkOnePath(mpath,mlib,mext):
 		print files
 		print mext
 		if files and len(files) > 0:
-			print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>%s"%files[0]
-
+			print ">>>%s"%files[0]
 			return files[0][:-4]
+		else:
+			print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> No lib path for path_to=%s mext=%s"%(repr(path_to),repr(mext))
+			sys.exit(-1)
 
 class GenVariablesWindows:
 	def __init__(self,osname,fp_config_h,fp_main_h,sources):
@@ -313,6 +318,7 @@ class GenVariablesWindows:
 		description = """Python Wrapper for Tesseract-OCR """
 		self.sources.append('ms_fmemopen.c')
 		self.pathOffset="..\\vs2008"
+		#self.pathOffset="..\\mingw"
 		self.initialize()
 		self.setCVLibraries()
 		self.setIncls()

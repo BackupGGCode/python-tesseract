@@ -13,6 +13,7 @@
 #include "publictypes.h"
 //#include "thresholder.h"
 //#include "baseapi_mini.h"
+//#include "capi.h"
 #include "baseapi.h"
 //#include "cv_original.h"
 #include "main.h"
@@ -57,6 +58,8 @@ char* retParser(const char* a);
 //%include "thresholder.h"
 %include "baseapi_mini.h"
 //%include "cv_original.h"
+//%include "capi.h"
+//%include "baseapi.h"
 %include "main.h"
 
 //#confOfText=tesseract.intArray_frompointer(confOfText)

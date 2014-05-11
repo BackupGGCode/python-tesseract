@@ -49,4 +49,4 @@ print 'Unreachable objects:', n
 print 'Remaining Garbage:', 
 pprint.pprint(gc.garbage)
 print
-
+api.End()
