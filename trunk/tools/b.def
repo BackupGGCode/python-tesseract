@@ -1,0 +1,16 @@
+LIBRARY libtesseract-3.dll
+EXPORTS
+CharNormDesc
+ExtractorDefs
+FeatureDisplayWindow
+GeoFeatDesc
+IntFeatDesc
+IntMatchWindow
+MicroFeatureDesc
+OutlineFeatDesc
+PicoFeatDesc
+PicoFeatureLength
+ProtoDisplayWindow
+TessBaseAPIAdaptToWordStr
+TessBaseAPIAllWordConfidences
+TessBaseAPIAnalyseLayout

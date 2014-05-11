@@ -3471,6 +3471,7 @@ SWIGINTERN intArray *intArray_frompointer(int *t){
 #include "publictypes.h"
 //#include "thresholder.h"
 //#include "baseapi_mini.h"
+//#include "capi.h"
 #include "baseapi.h"
 //#include "cv_original.h"
 #include "main.h"
@@ -3932,6 +3933,28 @@ SWIGINTERN PyObject *_wrap_PTIsTextType(PyObject *SWIGUNUSEDPARM(self), PyObject
   } 
   arg1 = static_cast< PolyBlockType >(val1);
   result = (bool)PTIsTextType(arg1);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PTIsPulloutType(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PolyBlockType arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:PTIsPulloutType",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PTIsPulloutType" "', argument " "1"" of type '" "PolyBlockType""'");
+  } 
+  arg1 = static_cast< PolyBlockType >(val1);
+  result = (bool)PTIsPulloutType(arg1);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -6513,98 +6536,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SetCvImage(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  PyObject *arg1 = (PyObject *) 0 ;
-  tesseract::TessBaseAPI *arg2 = (tesseract::TessBaseAPI *) 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:SetCvImage",&obj0,&obj1)) SWIG_fail;
-  arg1 = obj0;
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SetCvImage" "', argument " "2"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg2 = reinterpret_cast< tesseract::TessBaseAPI * >(argp2);
-  SetCvImage(arg1,arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_SetVariable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  char *arg1 = (char *) 0 ;
-  char *arg2 = (char *) 0 ;
-  tesseract::TessBaseAPI *arg3 = (tesseract::TessBaseAPI *) 0 ;
-  int res1 ;
-  char *buf1 = 0 ;
-  int alloc1 = 0 ;
-  int res2 ;
-  char *buf2 = 0 ;
-  int alloc2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  bool result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:SetVariable",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_AsCharPtrAndSize(obj0, &buf1, NULL, &alloc1);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SetVariable" "', argument " "1"" of type '" "char const *""'");
-  }
-  arg1 = reinterpret_cast< char * >(buf1);
-  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SetVariable" "', argument " "2"" of type '" "char const *""'");
-  }
-  arg2 = reinterpret_cast< char * >(buf2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "SetVariable" "', argument " "3"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg3 = reinterpret_cast< tesseract::TessBaseAPI * >(argp3);
-  result = (bool)SetVariable((char const *)arg1,(char const *)arg2,arg3);
-  resultobj = SWIG_From_bool(static_cast< bool >(result));
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
-  return resultobj;
-fail:
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_GetUTF8Text(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  tesseract::TessBaseAPI *arg1 = (tesseract::TessBaseAPI *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  char *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:GetUTF8Text",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__TessBaseAPI, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GetUTF8Text" "', argument " "1"" of type '" "tesseract::TessBaseAPI *""'"); 
-  }
-  arg1 = reinterpret_cast< tesseract::TessBaseAPI * >(argp1);
-  result = (char *)GetUTF8Text(arg1);
-  resultobj = SWIG_FromCharPtr((const char *)result);
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
 	 { (char *)"new_intp", _wrap_new_intp, METH_VARARGS, NULL},
@@ -6624,6 +6555,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PTIsLineType", _wrap_PTIsLineType, METH_VARARGS, NULL},
 	 { (char *)"PTIsImageType", _wrap_PTIsImageType, METH_VARARGS, NULL},
 	 { (char *)"PTIsTextType", _wrap_PTIsTextType, METH_VARARGS, NULL},
+	 { (char *)"PTIsPulloutType", _wrap_PTIsPulloutType, METH_VARARGS, NULL},
 	 { (char *)"new_TessBaseAPI", _wrap_new_TessBaseAPI, METH_VARARGS, NULL},
 	 { (char *)"delete_TessBaseAPI", _wrap_delete_TessBaseAPI, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_Version", _wrap_TessBaseAPI_Version, METH_VARARGS, NULL},
@@ -6691,9 +6623,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ProcessPagesFileStream", _wrap_ProcessPagesFileStream, METH_VARARGS, NULL},
 	 { (char *)"ProcessPagesBuffer", _wrap_ProcessPagesBuffer, METH_VARARGS, NULL},
 	 { (char *)"ProcessPagesRaw", _wrap_ProcessPagesRaw, METH_VARARGS, NULL},
-	 { (char *)"SetCvImage", _wrap_SetCvImage, METH_VARARGS, NULL},
-	 { (char *)"SetVariable", _wrap_SetVariable, METH_VARARGS, NULL},
-	 { (char *)"GetUTF8Text", _wrap_GetUTF8Text, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -7560,6 +7489,8 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PSM_SINGLE_WORD",SWIG_From_int(static_cast< int >(tesseract::PSM_SINGLE_WORD)));
   SWIG_Python_SetConstant(d, "PSM_CIRCLE_WORD",SWIG_From_int(static_cast< int >(tesseract::PSM_CIRCLE_WORD)));
   SWIG_Python_SetConstant(d, "PSM_SINGLE_CHAR",SWIG_From_int(static_cast< int >(tesseract::PSM_SINGLE_CHAR)));
+  SWIG_Python_SetConstant(d, "PSM_SPARSE_TEXT",SWIG_From_int(static_cast< int >(tesseract::PSM_SPARSE_TEXT)));
+  SWIG_Python_SetConstant(d, "PSM_SPARSE_TEXT_OSD",SWIG_From_int(static_cast< int >(tesseract::PSM_SPARSE_TEXT_OSD)));
   SWIG_Python_SetConstant(d, "PSM_COUNT",SWIG_From_int(static_cast< int >(tesseract::PSM_COUNT)));
   SWIG_Python_SetConstant(d, "RIL_BLOCK",SWIG_From_int(static_cast< int >(tesseract::RIL_BLOCK)));
   SWIG_Python_SetConstant(d, "RIL_PARA",SWIG_From_int(static_cast< int >(tesseract::RIL_PARA)));
