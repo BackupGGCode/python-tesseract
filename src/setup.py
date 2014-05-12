@@ -137,28 +137,30 @@ class UninstallCommand(_clean):
 class GenVariablesLinux:
 	def __init__(self, osname,fp_config_h,fp_main_h,sources):
 		self.sources=sources
-		if osname=="mingw":
-			self.sources.append('ms_fmemopen.c')
-			self.mingwPath=os.path.abspath("../mingw/")
-			self.mingwLibPath=os.path.join(self.mingwPath,"x64","libs")
-		
-		
 		self.include_dirs=['.']
 		self.data_files=[]
 		self.osname=osname
 		self.fp_config_h=fp_config_h
 		self.fp_main_h=fp_main_h
-		self.initialize()
 		self.fp_config_h.write("#include <Python.h>\n")
-		self.libraries=['stdc++','tesseract','lept','ws2_32','png16','z']
+		self.libraries=['stdc++','tesseract','lept']
 		self.clang_incls=['tesseract','leptonica']
+			
+		if osname=="mingw":
+			self.sources.append('ms_fmemopen.c')
+			self.mingwPath=os.path.abspath("../x86_64-w64-mingw32.shared")
+			self.mingwLibPath=os.path.join(self.mingwPath,"x64","lib")
+			self.libraries+=['ws2_32','png','z',"jpeg","tiff","webp"]
+			self.pathOffset=self.mingwPath
+
+		self.initialize()
 		self.setIncls()
 		self.idefine(fp_config_h,osname)
 		if osname!="mingw" and self.isOpenCVInstalled() :
 			self.setCVLibraries()
 		self.fp_config_h.close()
 		self.fp_main_h.close()
-
+		
 	def setIncls(self):
 		for incl in self.clang_incls:
 			mincl=self.inclpath(incl)
@@ -177,13 +179,22 @@ class GenVariablesLinux:
 		prefix=sys.prefix
 		self.incls = ['/usr/include', '/usr/local/include']
 		if osname=="mingw":
-			self.incls.append(os.path.join(self.mingwPath,"includes"))
+			print "mingwPath=%s"%self.mingwPath
+			self.incls.append(os.path.join(self.mingwPath,"include"))
 		self.libs=['/usr/lib', '/usr/local/lib']
 		if "cygwin" in osname:
-			self.include_dirs.append(os.path.join(".","cygwin","includes"))
+			self.include_dirs.append(os.path.join(".","cygwin","include"))
 			self.include_dirs.append(os.path.join("cygwin/includes/"))
 		elif osname=="mingw":
+			xDir="x64"
+			self.inclPath=os.path.join(self.pathOffset,"include")
+			self.libPath=os.path.join(self.pathOffset,xDir,"lib")
+			self.dllPath=os.path.join(self.pathOffset,xDir,"dll")
+			self.pydPath=os.path.join(self.pathOffset,xDir,"pyd")
 			self.fp_config_h.write('#include "fmemopen.h"\n')
+			self.data_files=[("DLLS", listFiles(self.pydPath)),
+			#("Lib\site-packages", listFiles("../dlls"))]
+			(".", listFiles(self.dllPath))]
 
 	def inclpath(self,mlib):
 		ipath=checkPath(self.incls,mlib)

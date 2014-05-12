@@ -1,6 +1,6 @@
 #pragma once
-#include "fmemopen.h"
 #include <Python.h>
+#include "fmemopen.h"
 #ifndef __mingw__
 	#define __mingw__
 #endif
