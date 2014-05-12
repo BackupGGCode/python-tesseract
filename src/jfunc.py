@@ -99,10 +99,11 @@ class jfunc():
 					print("%s cannot be removed"%mfile)
 
 	def runRm4Dirs(self,pwd,mfiles):
-		if self.osname != "windows":
-			rmDirCmd="rm -rf"
-		else:
+		if self.osname == "windows" or self.osname=="mingw":
 			rmDirCmd="rd /S /Q"
+		else:
+			rmDirCmd="rm -rf"
+			
 
 		self.runCmd4Files(pwd,rmDirCmd,mfiles)
 

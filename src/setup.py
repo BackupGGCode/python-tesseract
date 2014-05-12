@@ -150,7 +150,7 @@ class GenVariablesLinux:
 		self.fp_main_h=fp_main_h
 		self.initialize()
 		self.fp_config_h.write("#include <Python.h>\n")
-		self.libraries=['stdc++','tesseract','lept']
+		self.libraries=['stdc++','tesseract','lept','ws2_32','png16','z']
 		self.clang_incls=['tesseract','leptonica']
 		self.setIncls()
 		self.idefine(fp_config_h,osname)
@@ -353,10 +353,10 @@ class GenVariablesWindows:
 		else:
 			xDir="x64"
 		print("--os is %s"%xDir)
-		self.inclPath=os.path.join(self.pathOffset,"includes")
-		self.libPath=os.path.join(self.pathOffset,xDir,"libs")
-		self.dllPath=os.path.join(self.pathOffset,xDir,"dlls")
-		self.pydPath=os.path.join(self.pathOffset,xDir,"pyds")
+		self.inclPath=os.path.join(self.pathOffset,"include")
+		self.libPath=os.path.join(self.pathOffset,xDir,"lib")
+		self.dllPath=os.path.join(self.pathOffset,xDir,"dll")
+		self.pydPath=os.path.join(self.pathOffset,xDir,"pyd")
 		self.fp_config_h.write('#include "fmemopen.h"\n')
 		self.data_files=[("DLLS", listFiles(self.pydPath)),
 			#("Lib\site-packages", listFiles("../dlls"))]
