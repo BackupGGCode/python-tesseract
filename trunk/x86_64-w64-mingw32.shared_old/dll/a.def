@@ -1,0 +1,2 @@
+; dlltool -z a.def --export-all-symbol ..\..\tools\libtesseract-3.dll
+EXPORTS
