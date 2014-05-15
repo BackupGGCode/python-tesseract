@@ -15,6 +15,8 @@
 //#include "baseapi_mini.h"
 //#include "capi.h"
 #include "baseapi.h"
+#include "unichar.h"
+#include "resultiterator.h"
 //#include "cv_original.h"
 #include "main.h"
 char* retParser(const char* a);
@@ -60,6 +62,7 @@ char* retParser(const char* a);
 //%include "cv_original.h"
 //%include "capi.h"
 //%include "baseapi.h"
+%include "resultiterator.h"
 %include "main.h"
 
 //#confOfText=tesseract.intArray_frompointer(confOfText)

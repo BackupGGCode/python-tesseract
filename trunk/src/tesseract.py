@@ -325,6 +325,39 @@ def TessBaseAPI_DeleteBlockList(*args):
   return _tesseract.TessBaseAPI_DeleteBlockList(*args)
 TessBaseAPI_DeleteBlockList = _tesseract.TessBaseAPI_DeleteBlockList
 
+class ResultIterator(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ResultIterator, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, ResultIterator, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined")
+    __repr__ = _swig_repr
+    __swig_getmethods__["StartOfParagraph"] = lambda x: _tesseract.ResultIterator_StartOfParagraph
+    if _newclass:StartOfParagraph = staticmethod(_tesseract.ResultIterator_StartOfParagraph)
+    __swig_destroy__ = _tesseract.delete_ResultIterator
+    __del__ = lambda self : None;
+    def Begin(self): return _tesseract.ResultIterator_Begin(self)
+    def Next(self, *args): return _tesseract.ResultIterator_Next(self, *args)
+    def IsAtBeginningOf(self, *args): return _tesseract.ResultIterator_IsAtBeginningOf(self, *args)
+    def IsAtFinalElement(self, *args): return _tesseract.ResultIterator_IsAtFinalElement(self, *args)
+    def GetUTF8Text(self, *args): return _tesseract.ResultIterator_GetUTF8Text(self, *args)
+    def ParagraphIsLtr(self): return _tesseract.ResultIterator_ParagraphIsLtr(self)
+    __swig_getmethods__["CalculateTextlineOrder"] = lambda x: _tesseract.ResultIterator_CalculateTextlineOrder
+    if _newclass:CalculateTextlineOrder = staticmethod(_tesseract.ResultIterator_CalculateTextlineOrder)
+ResultIterator_swigregister = _tesseract.ResultIterator_swigregister
+ResultIterator_swigregister(ResultIterator)
+
+def ResultIterator_StartOfParagraph(*args):
+  return _tesseract.ResultIterator_StartOfParagraph(*args)
+ResultIterator_StartOfParagraph = _tesseract.ResultIterator_StartOfParagraph
+
+def ResultIterator_CalculateTextlineOrder(*args):
+  return _tesseract.ResultIterator_CalculateTextlineOrder(*args)
+ResultIterator_CalculateTextlineOrder = _tesseract.ResultIterator_CalculateTextlineOrder
+ResultIterator.kMinorRunStart = _tesseract.cvar.ResultIterator_kMinorRunStart
+ResultIterator.kMinorRunEnd = _tesseract.cvar.ResultIterator_kMinorRunEnd
+ResultIterator.kComplexWord = _tesseract.cvar.ResultIterator_kComplexWord
+
 
 def isLibTiff():
   return _tesseract.isLibTiff()

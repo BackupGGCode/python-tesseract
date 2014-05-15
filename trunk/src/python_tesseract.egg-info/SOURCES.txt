@@ -3,8 +3,12 @@ a.exe
 aclocal.m4
 ag5_fmemopen.c
 bad.png
+baseapi.h.original
 baseapi_mini.h
+baseapi_mini.h1
+baseapi_mini.h2
 baseapi_mini_20140511.h
+baseapi_mini_good.h
 buildDeb
 buildWinInst.bat
 buildall

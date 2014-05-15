@@ -59,16 +59,6 @@ typedef INT_FEATURE_STRUCT *INT_FEATURE;
 typedef INT_FEATURE_STRUCT INT_FEATURE_ARRAY[MAX_NUM_INT_FEATURES];
 struct TBLOB;
 
-#ifdef TESS_EXPORTS
-#define TESS_API __declspec(dllexport)
-#elif defined(TESS_IMPORTS)
-#define TESS_API __declspec(dllimport)
-#else
-#define TESS_API
-#define TESS_LOCAL
-#endif
-
-
 namespace tesseract {
 
 class CubeRecoContext;
@@ -829,7 +819,7 @@ class TESS_API TessBaseAPI {
                                     int** y1,
                                     PAGE_RES* page_res);
 
-  TESS_LOCAL const PAGE_RES* GetPageRes() const {
+  const PAGE_RES* GetPageRes() const {
     return page_res_;
   };
   /* @} */

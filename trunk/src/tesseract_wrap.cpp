@@ -2938,39 +2938,42 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_Boxa swig_types[1]
 #define SWIGTYPE_p_ETEXT_DESC swig_types[2]
 #define SWIGTYPE_p_FILE swig_types[3]
-#define SWIGTYPE_p_GenericVectorT_STRING_t swig_types[4]
-#define SWIGTYPE_p_INT_FEATURE_STRUCT swig_types[5]
-#define SWIGTYPE_p_OSResults swig_types[6]
-#define SWIGTYPE_p_Pix swig_types[7]
-#define SWIGTYPE_p_ROW swig_types[8]
-#define SWIGTYPE_p_STRING swig_types[9]
-#define SWIGTYPE_p_TBLOB swig_types[10]
-#define SWIGTYPE_p_TessCallback4T_UNICHARSET_const_R_int_tesseract__PageIterator_p_Pix_p_t swig_types[11]
-#define SWIGTYPE_p_a_MAX_NUM_INT_FEATURES__INT_FEATURE_STRUCT swig_types[12]
-#define SWIGTYPE_p_bool swig_types[13]
-#define SWIGTYPE_p_char swig_types[14]
-#define SWIGTYPE_p_double swig_types[15]
-#define SWIGTYPE_p_float swig_types[16]
-#define SWIGTYPE_p_int swig_types[17]
-#define SWIGTYPE_p_intArray swig_types[18]
-#define SWIGTYPE_p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__WERD_CHOICE_LIST_r_q_const__UNICHARSET_p_BlamerBundle__void swig_types[19]
-#define SWIGTYPE_p_p_Pixa swig_types[20]
-#define SWIGTYPE_p_p_bool swig_types[21]
-#define SWIGTYPE_p_p_char swig_types[22]
-#define SWIGTYPE_p_p_int swig_types[23]
-#define SWIGTYPE_p_p_intArray swig_types[24]
-#define SWIGTYPE_p_p_void swig_types[25]
-#define SWIGTYPE_p_tesseract__CubeRecoContext swig_types[26]
-#define SWIGTYPE_p_tesseract__Dawg swig_types[27]
-#define SWIGTYPE_p_tesseract__MutableIterator swig_types[28]
-#define SWIGTYPE_p_tesseract__PageIterator swig_types[29]
-#define SWIGTYPE_p_tesseract__ResultIterator swig_types[30]
-#define SWIGTYPE_p_tesseract__TessBaseAPI swig_types[31]
-#define SWIGTYPE_p_tesseract__TessResultRenderer swig_types[32]
-#define SWIGTYPE_p_tesseract__Tesseract swig_types[33]
-#define SWIGTYPE_p_unsigned_char swig_types[34]
-static swig_type_info *swig_types[36];
-static swig_module_info swig_module = {swig_types, 35, 0, 0, 0, 0};
+#define SWIGTYPE_p_GenericVectorEqEqT_int_t swig_types[4]
+#define SWIGTYPE_p_GenericVectorT_STRING_t swig_types[5]
+#define SWIGTYPE_p_GenericVectorT_StrongScriptDirection_t swig_types[6]
+#define SWIGTYPE_p_INT_FEATURE_STRUCT swig_types[7]
+#define SWIGTYPE_p_OSResults swig_types[8]
+#define SWIGTYPE_p_Pix swig_types[9]
+#define SWIGTYPE_p_ROW swig_types[10]
+#define SWIGTYPE_p_STRING swig_types[11]
+#define SWIGTYPE_p_TBLOB swig_types[12]
+#define SWIGTYPE_p_TessCallback4T_UNICHARSET_const_R_int_tesseract__PageIterator_p_Pix_p_t swig_types[13]
+#define SWIGTYPE_p_a_MAX_NUM_INT_FEATURES__INT_FEATURE_STRUCT swig_types[14]
+#define SWIGTYPE_p_bool swig_types[15]
+#define SWIGTYPE_p_char swig_types[16]
+#define SWIGTYPE_p_double swig_types[17]
+#define SWIGTYPE_p_float swig_types[18]
+#define SWIGTYPE_p_int swig_types[19]
+#define SWIGTYPE_p_intArray swig_types[20]
+#define SWIGTYPE_p_m_Wordrec__f_r_q_const__MATRIX_r_q_const__WERD_CHOICE_LIST_r_q_const__UNICHARSET_p_BlamerBundle__void swig_types[21]
+#define SWIGTYPE_p_p_Pixa swig_types[22]
+#define SWIGTYPE_p_p_bool swig_types[23]
+#define SWIGTYPE_p_p_char swig_types[24]
+#define SWIGTYPE_p_p_int swig_types[25]
+#define SWIGTYPE_p_p_intArray swig_types[26]
+#define SWIGTYPE_p_p_void swig_types[27]
+#define SWIGTYPE_p_tesseract__CubeRecoContext swig_types[28]
+#define SWIGTYPE_p_tesseract__Dawg swig_types[29]
+#define SWIGTYPE_p_tesseract__LTRResultIterator swig_types[30]
+#define SWIGTYPE_p_tesseract__MutableIterator swig_types[31]
+#define SWIGTYPE_p_tesseract__PageIterator swig_types[32]
+#define SWIGTYPE_p_tesseract__ResultIterator swig_types[33]
+#define SWIGTYPE_p_tesseract__TessBaseAPI swig_types[34]
+#define SWIGTYPE_p_tesseract__TessResultRenderer swig_types[35]
+#define SWIGTYPE_p_tesseract__Tesseract swig_types[36]
+#define SWIGTYPE_p_unsigned_char swig_types[37]
+static swig_type_info *swig_types[39];
+static swig_module_info swig_module = {swig_types, 38, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3475,6 +3478,8 @@ SWIGINTERN intArray *intArray_frompointer(int *t){
 //#include "baseapi_mini.h"
 //#include "capi.h"
 #include "baseapi.h"
+#include "unichar.h"
+#include "resultiterator.h"
 //#include "cv_original.h"
 #include "main.h"
 char* retParser(const char* a);
@@ -7694,6 +7699,319 @@ SWIGINTERN PyObject *TessBaseAPI_swigregister(PyObject *SWIGUNUSEDPARM(self), Py
   return SWIG_Py_Void();
 }
 
+SWIGINTERN PyObject *_wrap_ResultIterator_StartOfParagraph(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  tesseract::LTRResultIterator *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  tesseract::ResultIterator *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:ResultIterator_StartOfParagraph",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_tesseract__LTRResultIterator,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ResultIterator_StartOfParagraph" "', argument " "1"" of type '" "tesseract::LTRResultIterator const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ResultIterator_StartOfParagraph" "', argument " "1"" of type '" "tesseract::LTRResultIterator const &""'"); 
+  }
+  arg1 = reinterpret_cast< tesseract::LTRResultIterator * >(argp1);
+  result = (tesseract::ResultIterator *)tesseract::ResultIterator::StartOfParagraph((tesseract::LTRResultIterator const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_tesseract__ResultIterator, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_ResultIterator(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  tesseract::ResultIterator *arg1 = (tesseract::ResultIterator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_ResultIterator",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ResultIterator, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ResultIterator" "', argument " "1"" of type '" "tesseract::ResultIterator *""'"); 
+  }
+  arg1 = reinterpret_cast< tesseract::ResultIterator * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ResultIterator_Begin(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  tesseract::ResultIterator *arg1 = (tesseract::ResultIterator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:ResultIterator_Begin",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ResultIterator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ResultIterator_Begin" "', argument " "1"" of type '" "tesseract::ResultIterator *""'"); 
+  }
+  arg1 = reinterpret_cast< tesseract::ResultIterator * >(argp1);
+  (arg1)->Begin();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ResultIterator_Next(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  tesseract::ResultIterator *arg1 = (tesseract::ResultIterator *) 0 ;
+  tesseract::PageIteratorLevel arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ResultIterator_Next",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ResultIterator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ResultIterator_Next" "', argument " "1"" of type '" "tesseract::ResultIterator *""'"); 
+  }
+  arg1 = reinterpret_cast< tesseract::ResultIterator * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ResultIterator_Next" "', argument " "2"" of type '" "tesseract::PageIteratorLevel""'");
+  } 
+  arg2 = static_cast< tesseract::PageIteratorLevel >(val2);
+  result = (bool)(arg1)->Next(arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ResultIterator_IsAtBeginningOf(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  tesseract::ResultIterator *arg1 = (tesseract::ResultIterator *) 0 ;
+  tesseract::PageIteratorLevel arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ResultIterator_IsAtBeginningOf",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ResultIterator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ResultIterator_IsAtBeginningOf" "', argument " "1"" of type '" "tesseract::ResultIterator const *""'"); 
+  }
+  arg1 = reinterpret_cast< tesseract::ResultIterator * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ResultIterator_IsAtBeginningOf" "', argument " "2"" of type '" "tesseract::PageIteratorLevel""'");
+  } 
+  arg2 = static_cast< tesseract::PageIteratorLevel >(val2);
+  result = (bool)((tesseract::ResultIterator const *)arg1)->IsAtBeginningOf(arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ResultIterator_IsAtFinalElement(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  tesseract::ResultIterator *arg1 = (tesseract::ResultIterator *) 0 ;
+  tesseract::PageIteratorLevel arg2 ;
+  tesseract::PageIteratorLevel arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:ResultIterator_IsAtFinalElement",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ResultIterator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ResultIterator_IsAtFinalElement" "', argument " "1"" of type '" "tesseract::ResultIterator const *""'"); 
+  }
+  arg1 = reinterpret_cast< tesseract::ResultIterator * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ResultIterator_IsAtFinalElement" "', argument " "2"" of type '" "tesseract::PageIteratorLevel""'");
+  } 
+  arg2 = static_cast< tesseract::PageIteratorLevel >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "ResultIterator_IsAtFinalElement" "', argument " "3"" of type '" "tesseract::PageIteratorLevel""'");
+  } 
+  arg3 = static_cast< tesseract::PageIteratorLevel >(val3);
+  result = (bool)((tesseract::ResultIterator const *)arg1)->IsAtFinalElement(arg2,arg3);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ResultIterator_GetUTF8Text(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  tesseract::ResultIterator *arg1 = (tesseract::ResultIterator *) 0 ;
+  tesseract::PageIteratorLevel arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ResultIterator_GetUTF8Text",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ResultIterator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ResultIterator_GetUTF8Text" "', argument " "1"" of type '" "tesseract::ResultIterator const *""'"); 
+  }
+  arg1 = reinterpret_cast< tesseract::ResultIterator * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ResultIterator_GetUTF8Text" "', argument " "2"" of type '" "tesseract::PageIteratorLevel""'");
+  } 
+  arg2 = static_cast< tesseract::PageIteratorLevel >(val2);
+  result = (char *)((tesseract::ResultIterator const *)arg1)->GetUTF8Text(arg2);
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ResultIterator_ParagraphIsLtr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  tesseract::ResultIterator *arg1 = (tesseract::ResultIterator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:ResultIterator_ParagraphIsLtr",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_tesseract__ResultIterator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ResultIterator_ParagraphIsLtr" "', argument " "1"" of type '" "tesseract::ResultIterator const *""'"); 
+  }
+  arg1 = reinterpret_cast< tesseract::ResultIterator * >(argp1);
+  result = (bool)((tesseract::ResultIterator const *)arg1)->ParagraphIsLtr();
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ResultIterator_CalculateTextlineOrder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  bool arg1 ;
+  GenericVector< StrongScriptDirection > *arg2 = 0 ;
+  GenericVectorEqEq< int > *arg3 = (GenericVectorEqEq< int > *) 0 ;
+  bool val1 ;
+  int ecode1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:ResultIterator_CalculateTextlineOrder",&obj0,&obj1,&obj2)) SWIG_fail;
+  ecode1 = SWIG_AsVal_bool(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "ResultIterator_CalculateTextlineOrder" "', argument " "1"" of type '" "bool""'");
+  } 
+  arg1 = static_cast< bool >(val1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_GenericVectorT_StrongScriptDirection_t,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ResultIterator_CalculateTextlineOrder" "', argument " "2"" of type '" "GenericVector< StrongScriptDirection > const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ResultIterator_CalculateTextlineOrder" "', argument " "2"" of type '" "GenericVector< StrongScriptDirection > const &""'"); 
+  }
+  arg2 = reinterpret_cast< GenericVector< StrongScriptDirection > * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_GenericVectorEqEqT_int_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ResultIterator_CalculateTextlineOrder" "', argument " "3"" of type '" "GenericVectorEqEq< int > *""'"); 
+  }
+  arg3 = reinterpret_cast< GenericVectorEqEq< int > * >(argp3);
+  tesseract::ResultIterator::CalculateTextlineOrder(arg1,(GenericVector< StrongScriptDirection > const &)*arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN int Swig_var_ResultIterator_kMinorRunStart_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable ResultIterator_kMinorRunStart is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *Swig_var_ResultIterator_kMinorRunStart_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_From_int(static_cast< int >(tesseract::ResultIterator::kMinorRunStart));
+  return pyobj;
+}
+
+
+SWIGINTERN int Swig_var_ResultIterator_kMinorRunEnd_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable ResultIterator_kMinorRunEnd is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *Swig_var_ResultIterator_kMinorRunEnd_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_From_int(static_cast< int >(tesseract::ResultIterator::kMinorRunEnd));
+  return pyobj;
+}
+
+
+SWIGINTERN int Swig_var_ResultIterator_kComplexWord_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable ResultIterator_kComplexWord is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *Swig_var_ResultIterator_kComplexWord_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_From_int(static_cast< int >(tesseract::ResultIterator::kComplexWord));
+  return pyobj;
+}
+
+
+SWIGINTERN PyObject *ResultIterator_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_tesseract__ResultIterator, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
 SWIGINTERN PyObject *_wrap_isLibTiff(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   bool result;
@@ -8125,6 +8443,16 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TessBaseAPI_FindLinesCreateBlockList", _wrap_TessBaseAPI_FindLinesCreateBlockList, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_DeleteBlockList", _wrap_TessBaseAPI_DeleteBlockList, METH_VARARGS, NULL},
 	 { (char *)"TessBaseAPI_swigregister", TessBaseAPI_swigregister, METH_VARARGS, NULL},
+	 { (char *)"ResultIterator_StartOfParagraph", _wrap_ResultIterator_StartOfParagraph, METH_VARARGS, NULL},
+	 { (char *)"delete_ResultIterator", _wrap_delete_ResultIterator, METH_VARARGS, NULL},
+	 { (char *)"ResultIterator_Begin", _wrap_ResultIterator_Begin, METH_VARARGS, NULL},
+	 { (char *)"ResultIterator_Next", _wrap_ResultIterator_Next, METH_VARARGS, NULL},
+	 { (char *)"ResultIterator_IsAtBeginningOf", _wrap_ResultIterator_IsAtBeginningOf, METH_VARARGS, NULL},
+	 { (char *)"ResultIterator_IsAtFinalElement", _wrap_ResultIterator_IsAtFinalElement, METH_VARARGS, NULL},
+	 { (char *)"ResultIterator_GetUTF8Text", _wrap_ResultIterator_GetUTF8Text, METH_VARARGS, NULL},
+	 { (char *)"ResultIterator_ParagraphIsLtr", _wrap_ResultIterator_ParagraphIsLtr, METH_VARARGS, NULL},
+	 { (char *)"ResultIterator_CalculateTextlineOrder", _wrap_ResultIterator_CalculateTextlineOrder, METH_VARARGS, NULL},
+	 { (char *)"ResultIterator_swigregister", ResultIterator_swigregister, METH_VARARGS, NULL},
 	 { (char *)"isLibTiff", _wrap_isLibTiff, METH_VARARGS, NULL},
 	 { (char *)"isLibLept", _wrap_isLibLept, METH_VARARGS, NULL},
 	 { (char *)"AllWordConfidences", _wrap_AllWordConfidences, METH_VARARGS, NULL},
@@ -8152,7 +8480,9 @@ static swig_type_info _swigt__p_BLOCK_LIST = {"_p_BLOCK_LIST", "BLOCK_LIST *", 0
 static swig_type_info _swigt__p_Boxa = {"_p_Boxa", "Boxa *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ETEXT_DESC = {"_p_ETEXT_DESC", "ETEXT_DESC *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FILE = {"_p_FILE", "FILE *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_GenericVectorEqEqT_int_t = {"_p_GenericVectorEqEqT_int_t", "GenericVectorEqEq< int > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_GenericVectorT_STRING_t = {"_p_GenericVectorT_STRING_t", "GenericVector< STRING > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_GenericVectorT_StrongScriptDirection_t = {"_p_GenericVectorT_StrongScriptDirection_t", "GenericVector< StrongScriptDirection > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_INT_FEATURE_STRUCT = {"_p_INT_FEATURE_STRUCT", "INT_FEATURE_STRUCT *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OSResults = {"_p_OSResults", "OSResults *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Pix = {"_p_Pix", "Pix *", 0, 0, (void*)0, 0};
@@ -8176,6 +8506,7 @@ static swig_type_info _swigt__p_p_intArray = {"_p_p_intArray", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_void = {"_p_p_void", "void **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__CubeRecoContext = {"_p_tesseract__CubeRecoContext", "tesseract::CubeRecoContext *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__Dawg = {"_p_tesseract__Dawg", "tesseract::Dawg *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_tesseract__LTRResultIterator = {"_p_tesseract__LTRResultIterator", "tesseract::LTRResultIterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__MutableIterator = {"_p_tesseract__MutableIterator", "tesseract::MutableIterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__PageIterator = {"_p_tesseract__PageIterator", "tesseract::PageIterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tesseract__ResultIterator = {"_p_tesseract__ResultIterator", "tesseract::ResultIterator *", 0, 0, (void*)0, 0};
@@ -8189,7 +8520,9 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Boxa,
   &_swigt__p_ETEXT_DESC,
   &_swigt__p_FILE,
+  &_swigt__p_GenericVectorEqEqT_int_t,
   &_swigt__p_GenericVectorT_STRING_t,
+  &_swigt__p_GenericVectorT_StrongScriptDirection_t,
   &_swigt__p_INT_FEATURE_STRUCT,
   &_swigt__p_OSResults,
   &_swigt__p_Pix,
@@ -8213,6 +8546,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_p_void,
   &_swigt__p_tesseract__CubeRecoContext,
   &_swigt__p_tesseract__Dawg,
+  &_swigt__p_tesseract__LTRResultIterator,
   &_swigt__p_tesseract__MutableIterator,
   &_swigt__p_tesseract__PageIterator,
   &_swigt__p_tesseract__ResultIterator,
@@ -8226,7 +8560,9 @@ static swig_cast_info _swigc__p_BLOCK_LIST[] = {  {&_swigt__p_BLOCK_LIST, 0, 0, 
 static swig_cast_info _swigc__p_Boxa[] = {  {&_swigt__p_Boxa, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ETEXT_DESC[] = {  {&_swigt__p_ETEXT_DESC, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FILE[] = {  {&_swigt__p_FILE, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_GenericVectorEqEqT_int_t[] = {  {&_swigt__p_GenericVectorEqEqT_int_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_GenericVectorT_STRING_t[] = {  {&_swigt__p_GenericVectorT_STRING_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_GenericVectorT_StrongScriptDirection_t[] = {  {&_swigt__p_GenericVectorT_StrongScriptDirection_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_INT_FEATURE_STRUCT[] = {  {&_swigt__p_INT_FEATURE_STRUCT, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OSResults[] = {  {&_swigt__p_OSResults, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Pix[] = {  {&_swigt__p_Pix, 0, 0, 0},{0, 0, 0, 0}};
@@ -8250,6 +8586,7 @@ static swig_cast_info _swigc__p_p_int[] = {  {&_swigt__p_p_intArray, _p_p_intArr
 static swig_cast_info _swigc__p_p_void[] = {  {&_swigt__p_p_void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__CubeRecoContext[] = {  {&_swigt__p_tesseract__CubeRecoContext, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__Dawg[] = {  {&_swigt__p_tesseract__Dawg, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_tesseract__LTRResultIterator[] = {  {&_swigt__p_tesseract__LTRResultIterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__MutableIterator[] = {  {&_swigt__p_tesseract__MutableIterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__PageIterator[] = {  {&_swigt__p_tesseract__PageIterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tesseract__ResultIterator[] = {  {&_swigt__p_tesseract__ResultIterator, 0, 0, 0},{0, 0, 0, 0}};
@@ -8263,7 +8600,9 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Boxa,
   _swigc__p_ETEXT_DESC,
   _swigc__p_FILE,
+  _swigc__p_GenericVectorEqEqT_int_t,
   _swigc__p_GenericVectorT_STRING_t,
+  _swigc__p_GenericVectorT_StrongScriptDirection_t,
   _swigc__p_INT_FEATURE_STRUCT,
   _swigc__p_OSResults,
   _swigc__p_Pix,
@@ -8287,6 +8626,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_p_void,
   _swigc__p_tesseract__CubeRecoContext,
   _swigc__p_tesseract__Dawg,
+  _swigc__p_tesseract__LTRResultIterator,
   _swigc__p_tesseract__MutableIterator,
   _swigc__p_tesseract__PageIterator,
   _swigc__p_tesseract__ResultIterator,
@@ -9034,6 +9374,9 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "OEM_CUBE_ONLY",SWIG_From_int(static_cast< int >(tesseract::OEM_CUBE_ONLY)));
   SWIG_Python_SetConstant(d, "OEM_TESSERACT_CUBE_COMBINED",SWIG_From_int(static_cast< int >(tesseract::OEM_TESSERACT_CUBE_COMBINED)));
   SWIG_Python_SetConstant(d, "OEM_DEFAULT",SWIG_From_int(static_cast< int >(tesseract::OEM_DEFAULT)));
+  SWIG_addvarlink(SWIG_globals(),(char*)"ResultIterator_kMinorRunStart",Swig_var_ResultIterator_kMinorRunStart_get, Swig_var_ResultIterator_kMinorRunStart_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"ResultIterator_kMinorRunEnd",Swig_var_ResultIterator_kMinorRunEnd_get, Swig_var_ResultIterator_kMinorRunEnd_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"ResultIterator_kComplexWord",Swig_var_ResultIterator_kComplexWord_get, Swig_var_ResultIterator_kComplexWord_set);
 #if PY_VERSION_HEX >= 0x03000000
   return m;
 #else

@@ -59,6 +59,7 @@ typedef INT_FEATURE_STRUCT *INT_FEATURE;
 typedef INT_FEATURE_STRUCT INT_FEATURE_ARRAY[MAX_NUM_INT_FEATURES];
 struct TBLOB;
 
+
 namespace tesseract {
 
 class CubeRecoContext;
