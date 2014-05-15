@@ -9,14 +9,7 @@
 #endif
 #pragma once
 #include <Python.h>
-#ifndef __linux__
-	#define __linux__
+#include "fmemopen.h"
+#ifndef __mingw__
+	#define __mingw__
 #endif
-#ifndef __opencv2__
-	#define __opencv2__
-#endif
-#include <opencv2/core/core_c.h>
-#ifndef __opencv__
-	#define __opencv__
-#endif
-#include <opencv/cv.h>

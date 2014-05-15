@@ -62,7 +62,7 @@ int *retVectParser(const int* a) {
 	return vector;
 }
 */
-
+/*
 int Iter_next(tesseract::ResultIterator* ri, tesseract::PageIteratorLevel  level)
 {
     if(ri->Next(level) == true)
@@ -70,7 +70,7 @@ int Iter_next(tesseract::ResultIterator* ri, tesseract::PageIteratorLevel  level
     else
         return 0;
 }
-
+*/
 int*  AllWordConfidences(tesseract::TessBaseAPI* api) {
 	return api->AllWordConfidences();
 	//return mstr.string();

@@ -5,21 +5,21 @@ written by FreeToGo@gmail.com
 """
 PACKAGE="python-tesseract"
 #VERSION=os.getcwd().split("-")[-1]
-VERSION="0.8"
+VERSION="0.9"
 from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform,glob,commands,sys,distutils
 import os
 import jfunc
 j=jfunc.jfunc()
 puts=j.puts
-
+USE_CV=False
 
 osname=j.osname
 #library_dirs=[]
 #include_dirs=['.']
 
 IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
-			"int Iter_next(tesseract::ResultIterator* ri, tesseract::PageIteratorLevel  level);",
+		#	"int Iter_next(tesseract::ResultIterator* ri, tesseract::PageIteratorLevel  level);",
 			"int*  AllWordConfidences(tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api);",
@@ -60,6 +60,10 @@ def listFiles(mdir):
 	files=os.listdir(mdir);
 	list_files=[]
 	for mfile in files:
+		if not USE_CV and "opencv" in mfile:
+			print mfile,
+			print "&"*200
+			continue			
 		list_files.append(os.path.join(mdir,mfile))
 	return list_files
 
@@ -85,7 +89,7 @@ def my_clean():
 	j.runRm4Dirs(pwd,rmDirs)
 	print "remove Files"
 	j.runRm4Files(pwd,rmFiles)
-	print "Done"
+	print "[my_clea]Done"
 	#old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
 	#for package in old_packages:
 		#os.system(package)
@@ -98,6 +102,7 @@ def my_uninstall():
 		print rmPath
 		j.runRm4Dirs(rmPath,files)
 		j.runRm4Files(rmPath,files)
+	print "Uninstalling is done" 
 
 class CleanCommand(_clean):
 	description = "custom clean command that forcefully removes dist/build directories"
@@ -114,6 +119,8 @@ class CleanCommand(_clean):
 	def run(self):
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 		my_clean()
+		print "Cleaning is done"
+		pass
 		#_clean.run(self)
 
 class UninstallCommand(_clean):
@@ -131,6 +138,7 @@ class UninstallCommand(_clean):
 	def run(self):
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 		my_uninstall()
+		print "*"*100
 			#_clean.run(self)
 
 
@@ -153,19 +161,24 @@ class GenVariablesLinux:
 			self.mingwLibPath=os.path.join(self.mingwPath,"x64","lib")
 			self.libraries+=['ws2_32','png','z',"jpeg","tiff","webp"]
 			self.pathOffset=self.mingwPath
-
+			self.clang_incls.append(os.path.join(self.mingwPath,'include'))
 		self.initialize()
+		if USE_CV and self.isOpenCVInstalled() :
+			self.setCVLibraries()
+			self.libraries+=["opencv_core244"]
+		
+		
 		self.setIncls()
 		self.idefine(fp_config_h,osname)
-		if osname!="mingw" and self.isOpenCVInstalled() :
-			self.setCVLibraries()
+		#if osname!="mingw" and self.isOpenCVInstalled() :
 		self.fp_config_h.close()
 		self.fp_main_h.close()
 
 	def setIncls(self):
 		for incl in self.clang_incls:
 			mincl=self.inclpath(incl)
-			#print "mincl=%s\n"%repr(mincl)
+			print "!"*500
+			print "mincl=%s\n"%repr(mincl)
 			if mincl:
 				self.include_dirs.append(mincl)
 
@@ -179,14 +192,15 @@ class GenVariablesLinux:
 
 		prefix=sys.prefix
 		self.incls = ['/usr/include', '/usr/local/include']
-		if osname=="mingw":
-			print "mingwPath=%s"%self.mingwPath
-			self.incls.append(os.path.join(self.mingwPath,"include"))
 		self.libs=['/usr/lib', '/usr/local/lib']
+			
 		if "cygwin" in osname:
 			self.include_dirs.append(os.path.join(".","cygwin","include"))
 			self.include_dirs.append(os.path.join("cygwin/includes/"))
 		elif osname=="mingw":
+			print "mingwPath=%s"%self.mingwPath
+			self.incls.append(os.path.join(self.mingwPath,"include"))
+		
 			xDir="x64"
 			self.inclPath=os.path.join(self.pathOffset,"include")
 			self.libPath=os.path.join(self.pathOffset,xDir,"lib")
@@ -196,6 +210,7 @@ class GenVariablesLinux:
 			self.data_files=[("DLLS", listFiles(self.pydPath)),
 			#("Lib\site-packages", listFiles("../dlls"))]
 			(".", listFiles(self.dllPath))]
+			self.libs.append(self.libPath)
 
 	def inclpath(self,mlib):
 		ipath=checkPath(self.incls,mlib)
@@ -207,6 +222,11 @@ class GenVariablesLinux:
 		assert False, 'Include directory %s was not found' % mlib
 
 	def libpath(self, mlib):
+		print "()"*100
+		print self.libs
+		print "(x)"*100
+		print self.libPath
+		
 		ret=checkPath(self.libs,mlib)
 		if not ret:
 			print "(*)"*100
@@ -214,8 +234,11 @@ class GenVariablesLinux:
 		return ret
 
 	def isOpenCVInstalled(self):
+		if not USE_CV:
+			return 0
 		hasOpenCV = 0
 		if self.inclpath("opencv2/core/core_c.h"):
+			print "%"*200
 			self.idefine(self.fp_config_h,"opencv2")
 			self.fp_config_h.write("#include <opencv2/core/core_c.h>\n")
 			self.clang_incls.append('opencv2')
@@ -223,43 +246,49 @@ class GenVariablesLinux:
 			hasOpenCV = 1
 
 		if self.inclpath("opencv/cv.h") :
+			print "@"*200
 			self.idefine(self.fp_config_h,"opencv")
 			self.fp_config_h.write("#include <opencv/cv.h>\n")
 			self.clang_incls.append('opencv')
 			writeIncludeLines(self.fp_main_h,cvIncludeLines)
 			hasOpenCV = 1
+		if hasOpenCV:
+			print "*"*200
 		return hasOpenCV
 
 	def setCVLibraries(self):
-		cv_pc=pkgconfig("opencv")
-		cv_pc_keys=cv_pc.keys()
-		print "~~~cv_pc~~~"
-		print cv_pc
-		print cv_pc_keys
-		if 'libraries' in cv_pc_keys:
-			self.libraries= self.libraries + cv_pc['libraries']
-		elif 'extra_link_args' in cv_pc_keys:
-			for item in cv_pc['extra_link_args']:
-				libname="open"+item.split("libopen")[1].split(".")[0]
-				print "add lib: %s"%libname
-				self.libraries.append(libname)
+		if not USE_CV:
+			return
+		if osname is not "mingw":
+			cv_pc=pkgconfig("opencv")
+			cv_pc_keys=cv_pc.keys()
+			print "~~~cv_pc~~~"
+			print cv_pc
+			print cv_pc_keys
+			if 'libraries' in cv_pc_keys:
+				self.libraries= self.libraries + cv_pc['libraries']
+			elif 'extra_link_args' in cv_pc_keys:
+				for item in cv_pc['extra_link_args']:
+					libname="open"+item.split("libopen")[1].split(".")[0]
+					print "add lib: %s"%libname
+					self.libraries.append(libname)
 		else:
 			print "No pkg-config support!"
 			#if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
-			if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  :
-				if 'opencv_core' not in libraries:
-					self.libraries.append('opencv_contrib')
-					self.libraries.append('opencv_highgui')
-					self.libraries.append('opencv_calib3d')
-					#self.libraries.append('opencv_nonfree')
-					self.libraries.append('opencv_flann')
-					self.libraries.append('opencv_gpu')
-					self.libraries.append('opencv_features2d')
-					self.libraries.append('opencv_video')
-					self.libraries.append('opencv_objdetect')
-					self.libraries.append('opencv_core')
-					self.libraries.append('opencv_ml')
-					self.libraries.append('opencv_legacy')
+			if self.libpath('libopencv_core.so') or self.libpath('libopencv_core.dylib') or self.libpath('libopencv_core.dll.a')  :
+				#if 'opencv_core' not in libraries:
+				self.libraries.append('opencv_contrib')
+				self.libraries.append('opencv_highgui')
+				self.libraries.append('opencv_calib3d')
+				#self.libraries.append('opencv_nonfree')
+				self.libraries.append('opencv_flann')
+				self.libraries.append('opencv_gpu')
+				self.libraries.append('opencv_features2d')
+				self.libraries.append('opencv_video')
+				self.libraries.append('opencv_objdetect')
+				self.libraries.append('opencv_core')
+				self.libraries.append('opencv_ml')
+				self.libraries.append('opencv_legacy')
 
 		print "===========%s==========="%self.libraries
 		print self.include_dirs
@@ -269,6 +298,8 @@ class GenVariablesLinux:
 		extra_link_args=[]
 		if osname=="mingw":
 			extra_link_args.append("-L%s"%self.mingwLibPath)
+			#extra_compile_args.append("-static-libgcc")
+			#extra_compile_args.append("-optl-static")
 		tesseract_module = Extension('_tesseract',
 				sources=self.sources,
 				#extra_compile_args=["-DEBUG -O0 -pg "],
@@ -280,7 +311,8 @@ class GenVariablesLinux:
 								"-c++",
 								 "-I"+self.inclpath('tesseract'),
 				#				"-I"+os.path.dirname(config.__file__),
-								"-I"+self.inclpath('leptonica')],
+								"-I"+self.inclpath('leptonica'),
+								"-I"+self.inclpath('opencv2')],
 				include_dirs=self.include_dirs,
 				#library_dirs=library_dirs,
 				libraries=self.libraries,
@@ -395,6 +427,8 @@ class GenVariablesWindows:
 	def setCVLibraries(self):
 		self.libraries=[self.libpath('libtesseract'),self.libpath('liblept')]
 		incl="."
+		if not USE_CV:
+			return
 		cv2IncPath=self.inclpath("opencv2\core\core_c.h")
 		print cv2IncPath
 		if  os.path.exists(cv2IncPath):
@@ -421,7 +455,8 @@ class GenVariablesWindows:
 					"-c++",
 					"-I"+self.inclpath('tesseract'),
 				#	"-I"+os.path.dirname(config.__file__),
-					"-I"+self.inclpath('leptonica')
+					"-I"+self.inclpath('leptonica'),
+				#	"-I"+self.inclpath('opencv2')
 				],
 			include_dirs=self.include_dirs,
 			libraries=self.libraries,
@@ -474,8 +509,15 @@ r"""
 		tesseract_module, data_files=gvw.do()
 
 	if data_files:
-		print "data_files=%s"%repr(data_files)
-
+		new_data_files=[]
+		for data_file in data_files:
+			if not USE_CV and "opencv" in data_file :
+				cotinue
+			else:
+				new_data_files.append(data_file)
+		print "$$$data_files=%s"%repr(data_files)
+		data_files=new_data_files
+		
 	setup (name = PACKAGE,
 			version = VERSION,
 			author	  = "FreeToGo Nowhere",

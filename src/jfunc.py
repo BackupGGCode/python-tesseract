@@ -3,6 +3,7 @@ import platform, os, commands,glob
 import __builtin__,subprocess
 DEBUG=True
 WARNING_LEVEL=10
+USE_MINGW=True
 colors={'LIST':'\033[95m',
 		'BLACK':'\033[0m',
 		'FLOAT' : '\033[95m',
@@ -82,7 +83,7 @@ class jfunc():
 	
 	def isMinGW(self):
 		results=subprocess.Popen("gcc --version", stdout=subprocess.PIPE).stdout.read()
-		if "MinGW" in results:
+		if USE_MINGW and "MinGW" in results:
 			return True
 			
 	def runCmd4Files(self,pwd,cmd,mfiles):
