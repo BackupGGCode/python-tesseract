@@ -56,7 +56,6 @@ class WERD_CHOICE_LIST;
 
 struct INT_FEATURE_STRUCT;
 typedef INT_FEATURE_STRUCT *INT_FEATURE;
-typedef INT_FEATURE_STRUCT INT_FEATURE_ARRAY[MAX_NUM_INT_FEATURES];
 struct TBLOB;
 
 namespace tesseract {
@@ -333,7 +332,6 @@ class TESS_API TessBaseAPI {
    * full image, so it may be followed immediately by a GetUTF8Text, and it
    * will automatically perform recognition.
    */
-
   void SetImage(const unsigned char* imagedata, int width, int height,
                 int bytes_per_pixel, int bytes_per_line);
 
@@ -347,7 +345,6 @@ class TESS_API TessBaseAPI {
    * Because of that, an implementation that sources and targets Pix may end up
    * with less copies than an implementation that does not.
    */
-
   void SetImage(const Pix* pix);
 
   /**
@@ -712,9 +709,7 @@ class TESS_API TessBaseAPI {
    * for normalization. The denorm is an optional parameter in which the
    * normalization-antidote is returned.
    */
- //static void NormalizeTBLOB(TBLOB *tblob, ROW *row, bool numeric_mode, DENORM *denorm);
- //static void NormalizeTBLOB(TBLOB *tblob, ROW *row, bool numeric_mode);
-
+  static void NormalizeTBLOB(TBLOB *tblob, ROW *row, bool numeric_mode);
 
   Tesseract* const tesseract() const {
     return tesseract_;
@@ -819,7 +814,7 @@ class TESS_API TessBaseAPI {
                                     int** y1,
                                     PAGE_RES* page_res);
 
-  const PAGE_RES* GetPageRes() const {
+  TESS_LOCAL const PAGE_RES* GetPageRes() const {
     return page_res_;
   };
   /* @} */

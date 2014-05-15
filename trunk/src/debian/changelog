@@ -1,6 +1,7 @@
-python-tesseract (0.8-3.3ubuntu3) UNRELEASED; urgency=medium
+python-tesseract (0.9-0.1ubuntu) UNRELEASED; urgency=medium
 
   * Updating for Trusty
+  * support ResultIterator
 
  -- eli <eli@eli-iMac>  Wed, 07 May 2014 04:24:04 +0800
 

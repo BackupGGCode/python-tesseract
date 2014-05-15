@@ -14,9 +14,12 @@
 //#include "thresholder.h"
 //#include "baseapi_mini.h"
 //#include "capi.h"
+#include "ltrresultiterator.h"
+#include "resultiterator.h"
 #include "baseapi.h"
 #include "unichar.h"
-#include "resultiterator.h"
+
+
 //#include "cv_original.h"
 #include "main.h"
 char* retParser(const char* a);
@@ -42,15 +45,22 @@ char* retParser(const char* a);
   $1 = &templen;
 }
 */
-%typemap(out) int* AllWordConfidences {
-  int i;
-  //$1, $1_dim0, $1_dim1
-  int templen = 0;
-  while ($1[templen] >=0) templen++;
+%typemap(freearg) int* {
+	free((int *) $source);
+}
+#%typemap(out) int* AllWordConfidences {
+%typemap(out) int* {
+  int i, len;
+  //$1, $1_dim0, $1_dim1  //$source is clearer than $1 to me
+  len = 0;
+  //while ($1[len] >=0) len++;
+  //while ($source[len]) len++;
+  while ($source[len]>=0) len++;
   //templen=100;
-  $result = PyList_New(templen);
-  for (i = 0; i < templen ; i++) {
-    PyObject *o = PyInt_FromLong((int) $1[i]);
+  $result = PyList_New(len);
+  for (i = 0; i < len ; i++) {
+    //PyObject *o = PyInt_FromLong((int) $1[i]);
+    PyObject *o = PyInt_FromLong((int) $source[i]);
     PyList_SetItem($result,i,o);
   }
 }
@@ -58,11 +68,9 @@ char* retParser(const char* a);
 %include "config.h"
 %include "publictypes.h"
 //%include "thresholder.h"
-%include "baseapi_mini.h"
-//%include "cv_original.h"
-//%include "capi.h"
-//%include "baseapi.h"
+%include "ltrresultiterator.h"
 %include "resultiterator.h"
+%include "baseapi_mini.h"
 %include "main.h"
 
 //#confOfText=tesseract.intArray_frompointer(confOfText)

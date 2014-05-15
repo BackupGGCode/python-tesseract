@@ -19,6 +19,7 @@ osname=j.osname
 #include_dirs=['.']
 
 IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
+			"int Iter_next(tesseract::ResultIterator* ri, tesseract::PageIteratorLevel  level);",
 			"int*  AllWordConfidences(tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesPix(const char* image,tesseract::TessBaseAPI* api);",
@@ -145,7 +146,7 @@ class GenVariablesLinux:
 		self.fp_config_h.write("#include <Python.h>\n")
 		self.libraries=['stdc++','tesseract','lept']
 		self.clang_incls=['tesseract','leptonica']
-			
+
 		if osname=="mingw":
 			self.sources.append('ms_fmemopen.c')
 			self.mingwPath=os.path.abspath("../x86_64-w64-mingw32.shared")
@@ -160,7 +161,7 @@ class GenVariablesLinux:
 			self.setCVLibraries()
 		self.fp_config_h.close()
 		self.fp_main_h.close()
-		
+
 	def setIncls(self):
 		for incl in self.clang_incls:
 			mincl=self.inclpath(incl)
@@ -211,7 +212,7 @@ class GenVariablesLinux:
 			print "(*)"*100
 			print("Waring!!!! canot find %s in %s"%(repr(mlib), repr(self.libs)))
 		return ret
-		
+
 	def isOpenCVInstalled(self):
 		hasOpenCV = 0
 		if self.inclpath("opencv2/core/core_c.h"):
@@ -357,7 +358,7 @@ class GenVariablesWindows:
 	def idefine(self, fp, name):
 		fp.write("#define __%s__\n\n"%name)
 
-		
+
 	def initialize(self):
 		if "64" not in sys.version:
 			xDir="x86"
@@ -474,7 +475,7 @@ r"""
 
 	if data_files:
 		print "data_files=%s"%repr(data_files)
-	
+
 	setup (name = PACKAGE,
 			version = VERSION,
 			author	  = "FreeToGo Nowhere",

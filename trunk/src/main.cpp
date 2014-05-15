@@ -38,7 +38,7 @@ bool isLibTiff() {
 
 char* retParser(const char* a) {
 	size_t mlen=strlen(a);
-	if (mlen==0) 
+	if (mlen==0)
 		return 0;
 	//char *retStr=new char[mlen+1];
 	char *retStr=(char *)malloc(sizeof(char) * ( mlen + 1 ));
@@ -56,13 +56,20 @@ char* retParser(const char* a) {
 /*
 int *retVectParser(const int* a) {
 	int mlen=sizeof(a)/sizeof(*a);
-	if (mlen==0) 
+	if (mlen==0)
 		return '\0';
 	vector<int> retVect(a,a+mlen)
 	return vector;
 }
 */
 
+int Iter_next(tesseract::ResultIterator* ri, tesseract::PageIteratorLevel  level)
+{
+    if(ri->Next(level) == true)
+        return 1;
+    else
+        return 0;
+}
 
 int*  AllWordConfidences(tesseract::TessBaseAPI* api) {
 	return api->AllWordConfidences();
