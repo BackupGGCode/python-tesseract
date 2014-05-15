@@ -441,7 +441,18 @@ def main():
 
 	fp_config_h=open("config.h","w")
 	fp_main_h=open("main.h","w")
-
+	fp_config_h.write(
+r"""
+#ifdef TESS_EXPORTS
+#define TESS_API __declspec(dllexport)
+#elif defined(TESS_IMPORTS)
+#define TESS_API __declspec(dllimport)
+#else
+#define TESS_API
+#define TESS_LOCAL
+#endif
+"""
+)
 
 	fp_config_h.write("#pragma once\n")
 	writeIncludeLines(fp_main_h,IncludeLines)
