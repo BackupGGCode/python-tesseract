@@ -1,9 +1,9 @@
 Package: python-tesseract
-Version: 0.8-3.3ubuntu3
+Version: 0.9-0.1ubuntu
 Architecture: amd64
 Maintainer: FreeToGo <FreeToGo@gmail.com>
-Installed-Size: 193
-Depends: python (<< 2.8), python:any (>= 2.7.5-5~), python (>= 2.7~), libc6 (>= 2.14), libgcc1 (>= 1:4.1.1), liblept4, libopencv-core2.4, libstdc++6 (>= 4.1.1), libtesseract3, tesseract-ocr, leptonica-progs
+Installed-Size: 270
+Depends: python:any (>= 2.7.5-5~), python (<< 2.8), python (>= 2.7~), libc6 (>= 2.14), libgcc1 (>= 1:4.1.1), liblept4, libopencv-core2.4, libstdc++6 (>= 4.1.1), libtesseract3, tesseract-ocr, leptonica-progs
 Provides: python-tesseract
 Section: python
 Priority: optional

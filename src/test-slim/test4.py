@@ -5,7 +5,7 @@ image0=cv2.imread("eurotext.jpg")
 #### you may need to thicken the border in order to make tesseract feel happy to ocr your image #####
 offset=20
 height,width,channel = image0.shape
-image1=cv2.copyMakeBorder(image0,offset,offset,offset,offset,cv2.BORDER_CONSTANT,value=(255,255,255)) 
+image1=cv2.copyMakeBorder(image0,offset,offset,offset,offset,cv2.BORDER_CONSTANT,value=(255,255,255))
 
 api = tesseract.TessBaseAPI()
 api.Init(".","eng",tesseract.OEM_DEFAULT)
@@ -22,16 +22,17 @@ tesseract.SetCvImage(iplimage,api)
 api.Recognize(None)
 ri=api.GetIterator()
 level=tesseract.RIL_WORD
+count=0
 while (ri):
-	print ri
 	word = ri.GetUTF8Text(level)
-	print "word=",word
-	#conf = ri.Confidence(level)
+	conf = ri.Confidence(level)
+	print "[%03d]:\tword(confidence)=%s(%.2f%%)"%(count,word,conf)
 	#ri.BoundingBox(level,x1,y1,x2,y2)
-	print "ri.Next(level)=",ri.Next(level)
-	print ri
-	ri.Next(level)
-#print("word: '%s';  \tconf: %.2f; BoundingBox: %d,%d,%d,%d;\n"%
-#               (word, conf, x1, y1, x2, y2))
-image=None
+	count+=1
+	if not ri.Next(level):
+		break
+
+iplimage=None
+api.End()
+
 
