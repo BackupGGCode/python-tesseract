@@ -21,28 +21,30 @@
 #define TESSERACT_CCUTIL_PLATFORM_H__
 
 #define DLLSYM
-#ifdef _WIN32
-#ifdef __GNUC__
-#define ultoa _ultoa
-typedef struct _BLOB {
-  unsigned int cbSize;
-  char *pBlobData;
-} BLOB, *LPBLOB;
-#endif  /* __GNUC__ */
-#define SIGNED
-#define snprintf _snprintf
-#if (_MSC_VER <= 1400)
-#define vsnprintf _vsnprintf
-#endif /* _WIN32 */
+#ifndef _WIN32
+	#ifdef __GNUC__
+	#define ultoa _ultoa
+	typedef struct _BLOB {
+	  unsigned int cbSize;
+	  char *pBlobData;
+	} BLOB, *LPBLOB;
+	#endif  /* __GNUC__ */
 #else
-#define __UNIX__
-#include <limits.h>
-#ifndef PATH_MAX
-#define MAX_PATH 4096
-#else
-#define MAX_PATH PATH_MAX
+	#define SIGNED
+	#define snprintf _snprintf
+	#if (_MSC_VER <= 1400)
+	#define vsnprintf _vsnprintf
+	#endif /* _WIN32 */
 #endif
-#define SIGNED signed
+
+#ifdef __UNIX__
+	#include <limits.h>
+	#ifndef PATH_MAX
+		#define MAX_PATH 4096
+	#else
+		#define MAX_PATH PATH_MAX
+	#endif
+	#define SIGNED signed
 #endif
 
 #if defined(_WIN32) || defined(__CYGWIN__)

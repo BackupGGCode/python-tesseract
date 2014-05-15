@@ -14,8 +14,8 @@
 //#include "thresholder.h"
 //#include "baseapi_mini.h"
 //#include "capi.h"
-#include "ltrresultiterator.h"
-#include "resultiterator.h"
+//#include "ltrresultiterator.h"
+//#include "resultiterator.h"
 #include "baseapi.h"
 #include "unichar.h"
 
