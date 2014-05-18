@@ -1,5 +1,5 @@
+ag5_fmemopen.c
 main.cpp
-ms_fmemopen.c
 setup.cfg
 setup.py
 tesseract.i

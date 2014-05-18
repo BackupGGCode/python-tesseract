@@ -9,15 +9,8 @@
 #endif
 #pragma once
 #include <Python.h>
-#ifndef __opencv2__
-	#define __opencv2__
-#endif
-#include <opencv2/core/core_c.h>
-#ifndef __opencv__
-	#define __opencv__
-#endif
-#include <opencv/cv.h>
 #include "fmemopen.h"
-#ifndef __mingw__
-	#define __mingw__
+#define HAVE_LIBLEPT
+#ifndef __darwin__
+	#define __darwin__
 #endif

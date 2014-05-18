@@ -70,7 +70,7 @@ char* retParser(const char* a);
 //%include "thresholder.h"
 %include "ltrresultiterator.h"
 %include "resultiterator.h"
-%include "baseapi_mini.h"
+%include "baseapi_mini_darwin.h"
 %include "main.h"
 
 //#confOfText=tesseract.intArray_frompointer(confOfText)
