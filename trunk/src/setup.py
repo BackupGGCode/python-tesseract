@@ -12,7 +12,7 @@ import os
 import jfunc
 j=jfunc.jfunc()
 puts=j.puts
-USE_CV=False
+USE_CV=True
 
 osname=j.osname
 #library_dirs=[]
@@ -154,19 +154,9 @@ class GenVariablesLinux:
 		self.fp_config_h.write("#include <Python.h>\n")
 		self.libraries=['stdc++','tesseract','lept']
 		self.clang_incls=['tesseract','leptonica']
-
-		if osname=="mingw":
-			self.sources.append('ms_fmemopen.c')
-			self.mingwPath=os.path.abspath("../x86_64-w64-mingw32.shared")
-			self.mingwLibPath=os.path.join(self.mingwPath,"x64","lib")
-			self.libraries+=['ws2_32','png','z',"jpeg","tiff","webp"]
-			self.pathOffset=self.mingwPath
-			self.clang_incls.append(os.path.join(self.mingwPath,'include'))
 		self.initialize()
-		if USE_CV and self.isOpenCVInstalled() :
-			self.setCVLibraries()
-			self.libraries+=["opencv_core244"]
-		
+		if osname=="mingw":
+			self.mingw_initialise()
 		
 		self.setIncls()
 		self.idefine(fp_config_h,osname)
@@ -174,6 +164,33 @@ class GenVariablesLinux:
 		self.fp_config_h.close()
 		self.fp_main_h.close()
 
+	def mingw_initialise(self):
+		self.sources.append('ms_fmemopen.c')
+		self.mingwPath=os.path.abspath("../x86_64-w64-mingw32.static")
+		self.mingwLibPath=os.path.join(self.mingwPath,"lib")
+		#self.libraries+=['ws2_32','png','z',"jpeg","tiff","webp"]
+		self.libraries+=['opengl32','glu32','ws2_32','z','jpeg']
+		self.pathOffset=self.mingwPath
+		self.clang_incls.append(os.path.join(self.mingwPath,'include'))
+		print "mingwPath=%s"%self.mingwPath
+		self.incls.append(os.path.join(self.mingwPath,"include"))
+		if USE_CV and self.isOpenCVInstalled() :
+		#if USE_CV  :
+			self.setCVLibraries()
+			self.libraries=["opencv_core248"]+self.libraries
+	
+		
+	
+		xDir=""
+		self.inclPath=os.path.join(self.pathOffset,xDir,"include")
+		self.libPath=os.path.join(self.pathOffset,xDir,"lib")
+		#self.dllPath=os.path.join(self.pathOffset,xDir,"dll")
+		self.pydPath=os.path.join(self.pathOffset,xDir,"pyd")
+		self.fp_config_h.write('#include "fmemopen.h"\n')
+		self.data_files=[("DLLS", listFiles(self.pydPath))]
+		#("Lib\site-packages", listFiles("../dlls"))]
+		#(".", listFiles(self.dllPath))]
+		self.libs.append(self.libPath)
 	def setIncls(self):
 		for incl in self.clang_incls:
 			mincl=self.inclpath(incl)
@@ -197,23 +214,13 @@ class GenVariablesLinux:
 		if "cygwin" in osname:
 			self.include_dirs.append(os.path.join(".","cygwin","include"))
 			self.include_dirs.append(os.path.join("cygwin/includes/"))
-		elif osname=="mingw":
-			print "mingwPath=%s"%self.mingwPath
-			self.incls.append(os.path.join(self.mingwPath,"include"))
 		
-			xDir="x64"
-			self.inclPath=os.path.join(self.pathOffset,"include")
-			self.libPath=os.path.join(self.pathOffset,xDir,"lib")
-			self.dllPath=os.path.join(self.pathOffset,xDir,"dll")
-			self.pydPath=os.path.join(self.pathOffset,xDir,"pyd")
-			self.fp_config_h.write('#include "fmemopen.h"\n')
-			self.data_files=[("DLLS", listFiles(self.pydPath)),
-			#("Lib\site-packages", listFiles("../dlls"))]
-			(".", listFiles(self.dllPath))]
-			self.libs.append(self.libPath)
 
 	def inclpath(self,mlib):
-		ipath=checkPath(self.incls,mlib)
+		try:
+			ipath=checkPath(self.incls,mlib)
+		except:
+			print self.incls,mlib
 		#print self.incls,mlib
 		if ipath:
 			return ipath
@@ -225,7 +232,8 @@ class GenVariablesLinux:
 		print "()"*100
 		print self.libs
 		print "(x)"*100
-		print self.libPath
+		if hasattr(self,"libPath"):
+			print self.libPath
 		
 		ret=checkPath(self.libs,mlib)
 		if not ret:
@@ -237,6 +245,7 @@ class GenVariablesLinux:
 		if not USE_CV:
 			return 0
 		hasOpenCV = 0
+		print "$"*200
 		if self.inclpath("opencv2/core/core_c.h"):
 			print "%"*200
 			self.idefine(self.fp_config_h,"opencv2")
@@ -298,6 +307,7 @@ class GenVariablesLinux:
 		extra_link_args=[]
 		if osname=="mingw":
 			extra_link_args.append("-L%s"%self.mingwLibPath)
+			extra_compile_args.append("-D MS_WIN64")
 			#extra_compile_args.append("-static-libgcc")
 			#extra_compile_args.append("-optl-static")
 		tesseract_module = Extension('_tesseract',
@@ -451,6 +461,7 @@ class GenVariablesWindows:
 			#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
 			#extra_compile_args = [ "-O0", '-funroll-loops','-g'],
 			#extra_compile_args = ["-Wall", "-Wextra"],
+			
 			swig_opts=[
 					"-c++",
 					"-I"+self.inclpath('tesseract'),
