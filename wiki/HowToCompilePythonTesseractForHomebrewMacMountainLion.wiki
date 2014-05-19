@@ -19,9 +19,9 @@ rm leptonica.rb
 wget -N https://bitbucket.org/3togo/python-tesseract/downloads/tesseract.rb
 wget -N https://bitbucket.org/3togo/python-tesseract/downloads/leptonica.rb
 brew install tesseract leptonica
-
+}}}
 ===Option 2===
-
+{{{
 Use my homebrewed version
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 }}}
