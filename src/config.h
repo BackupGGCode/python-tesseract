@@ -9,8 +9,6 @@
 #endif
 #pragma once
 #include <Python.h>
-#include "fmemopen.h"
-#define HAVE_LIBLEPT
 #ifndef __opencv2__
 	#define __opencv2__
 #endif
@@ -19,6 +17,7 @@
 	#define __opencv__
 #endif
 #include <opencv/cv.h>
-#ifndef __darwin__
-	#define __darwin__
+#include "fmemopen.h"
+#ifndef __mingw__
+	#define __mingw__
 #endif

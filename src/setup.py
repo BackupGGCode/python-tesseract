@@ -173,7 +173,11 @@ class GenVariablesLinux:
 
 	def mingw_initialise(self):
 		self.sources.append('ms_fmemopen.c')
-		self.mingwPath=os.path.abspath("../x86_64-w64-mingw32.static")
+		if "64" in sys.version:
+			self.mingwPath=os.path.abspath("../x86_64-w64-mingw32.static")
+		else:
+			self.mingwPath=os.path.abspath("../i686-pc-mingw32.static")
+		
 		self.mingwLibPath=os.path.join(self.mingwPath,"lib")
 		#self.libraries+=['ws2_32','png','z',"jpeg","tiff","webp"]
 		self.libraries+=['opengl32','glu32','ws2_32','z','jpeg']
@@ -311,7 +315,7 @@ class GenVariablesLinux:
 		extra_link_args=[]
 		if osname=="mingw":
 			extra_link_args.append("-L%s"%self.mingwLibPath)
-			extra_compile_args.append("-D MS_WIN64")
+			#extra_compile_args.append("-D MS_WIN64")
 			#extra_compile_args.append("-static-libgcc")
 			#extra_compile_args.append("-optl-static")
 		tesseract_module = Extension('_tesseract',
