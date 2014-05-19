@@ -6,7 +6,6 @@ launch xCode, then go to Preferences -> Downloads and install "Command Line Tool
 Restart Terminal and you will be able to use Make.
 
 1. Install HomeBrew plus leptonica 1.7 and tesseract 3.03
-{{{
 _the homebrew version of leptonica and tesseract are very old. You need to "hombrew" yours_ 
 Option 1: 
 {{{
