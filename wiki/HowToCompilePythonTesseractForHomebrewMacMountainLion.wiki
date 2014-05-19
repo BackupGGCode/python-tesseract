@@ -12,7 +12,7 @@ _the homebrew version of leptonica and tesseract are very old. You need to "homb
 cd /usr/local/.git && sed -i .bak 's|Homebrew|3togo|g' config
  
 }}}
-==Option 2:---
+===Option 2:===
 {{{
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew install tesseract leptonica
