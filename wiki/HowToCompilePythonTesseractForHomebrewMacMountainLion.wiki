@@ -83,17 +83,3 @@ wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 #sudo easy_install https://bitbucket.org/3togo/python-tesseract/downloads/python-tesseract_0.8-3.0-py2.7_macosx-10.9-intel.egg
 sudo easy_install https://python-tesseract.googlecode.com/svn/trunk/src/dist/python_tesseract-0.9-py2.7-macosx-10.9-x86_64.egg
 }}}
-or 
-{{{
-pyfileHttp=https://python-tesseract.googlecode.com/files
-ptzip=python-tesseract_0.8-1.8.homebrew.macosx-10.9-intel.tar.gz   #<--- for ios 10.9
-#ptzip=python-tesseract_0.8-1.8.homebrew.macosx-10.8-x86_64.tar.gz      #<---- for ios 10.8.5
-wget $pyfileHttp/$ptzip
-sudo tar zxvf $ptzip -C /
-wget $pyfileHttp/test-slim.7z
-brew install p7zip
-7z x test-slim.7z
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-python test.py
-
-}}}
