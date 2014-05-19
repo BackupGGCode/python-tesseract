@@ -67,6 +67,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 }}}
 
 4.
+Install python-tesseract
 Either
 {{{
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python
