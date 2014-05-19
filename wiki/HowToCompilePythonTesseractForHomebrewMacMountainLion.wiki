@@ -5,13 +5,11 @@
 launch xCode, then go to Preferences -> Downloads and install "Command Line Tools". 
 Restart Terminal and you will be able to use Make.
 
-==1. Install HomeBrew plus leptonica 1.7 and tesseract 3.03==
+==1. Install HomeBrew plus update the formulae(leptonica 1.7 and tesseract 3.03)==
 _the homebrew version of leptonica and tesseract are very old. You need to "hombrew" yours_ 
 ===Option 1:=== 
 {{{
 cd /usr/local/.git && sed -i .bak 's|Homebrew|3togo|g' config
-brew -v update
-brew -v upgrade
  
 }}}
 ==Option 2:---
@@ -28,7 +26,7 @@ wget -N https://bitbucket.org/3togo/python-tesseract/downloads/leptonica.rb
 }}}
 ===Option 3===
 {{{
-Use my homebrewed version
+Use my homebrewed version if you have not yet installed any homebrew
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 }}}
 
@@ -45,7 +43,6 @@ export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 
 3. Install misc
 {{{
-
 brew -v update && brew -v upgrade
 brew install wget axel swig subversion
 brew install leptonica tesseract  
