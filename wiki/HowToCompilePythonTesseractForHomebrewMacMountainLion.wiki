@@ -11,13 +11,14 @@ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 }}}
 2. remove old python (optional)
 {{{
+brew uninstall opencv
 brew rm python
 brew install python
 pip install numpy 
 or 
 pip install numpy --upgrade
 
-brew uninstall opencv
+
 
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 }}}
