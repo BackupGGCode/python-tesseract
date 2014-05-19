@@ -338,7 +338,7 @@ class GenVariablesDarwin(GenVariablesLinux):
 	def __init__(self, osname,fp_config_h,fp_main_h,sources):
 		#print "()"*10,get_config_vars('CFLAGS')
 		removeFlag("-mno-fused-madd",'CFLAGS')
-		os.system("sed -i .bak 's/baseapi_mini.h/baseapi_mini_darwin.h/g' tesseract.i")
+		#os.system("sed -i .bak 's/baseapi_mini.h/baseapi_mini_darwin.h/g' tesseract.i")
 		os.environ["ARCHFLAGS"]="-arch x86_64"
 		brew_prefix=commands.getstatusoutput('brew --prefix')[1]
 		python_version=commands.getstatusoutput('python --version')[1].split(" ")[1]
