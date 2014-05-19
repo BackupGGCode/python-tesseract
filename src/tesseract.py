@@ -149,6 +149,10 @@ PTIsImageType = _tesseract.PTIsImageType
 def PTIsTextType(*args):
   return _tesseract.PTIsTextType(*args)
 PTIsTextType = _tesseract.PTIsTextType
+
+def PTIsPulloutType(*args):
+  return _tesseract.PTIsPulloutType(*args)
+PTIsPulloutType = _tesseract.PTIsPulloutType
 ORIENTATION_PAGE_UP = _tesseract.ORIENTATION_PAGE_UP
 ORIENTATION_PAGE_RIGHT = _tesseract.ORIENTATION_PAGE_RIGHT
 ORIENTATION_PAGE_DOWN = _tesseract.ORIENTATION_PAGE_DOWN
@@ -170,6 +174,8 @@ PSM_SINGLE_LINE = _tesseract.PSM_SINGLE_LINE
 PSM_SINGLE_WORD = _tesseract.PSM_SINGLE_WORD
 PSM_CIRCLE_WORD = _tesseract.PSM_CIRCLE_WORD
 PSM_SINGLE_CHAR = _tesseract.PSM_SINGLE_CHAR
+PSM_SPARSE_TEXT = _tesseract.PSM_SPARSE_TEXT
+PSM_SPARSE_TEXT_OSD = _tesseract.PSM_SPARSE_TEXT_OSD
 PSM_COUNT = _tesseract.PSM_COUNT
 RIL_BLOCK = _tesseract.RIL_BLOCK
 RIL_PARA = _tesseract.RIL_PARA
@@ -209,7 +215,10 @@ class LTRResultIterator(_object):
     def GetParamsTrainingBundle(self): return _tesseract.LTRResultIterator_GetParamsTrainingBundle(self)
     def GetBlamerDebug(self): return _tesseract.LTRResultIterator_GetBlamerDebug(self)
     def GetBlamerMisadaptionDebug(self): return _tesseract.LTRResultIterator_GetBlamerMisadaptionDebug(self)
+    def HasTruthString(self): return _tesseract.LTRResultIterator_HasTruthString(self)
+    def EquivalentToTruth(self, *args): return _tesseract.LTRResultIterator_EquivalentToTruth(self, *args)
     def WordTruthUTF8Text(self): return _tesseract.LTRResultIterator_WordTruthUTF8Text(self)
+    def WordNormedUTF8Text(self): return _tesseract.LTRResultIterator_WordNormedUTF8Text(self)
     def WordLattice(self, *args): return _tesseract.LTRResultIterator_WordLattice(self, *args)
     def SymbolIsSuperscript(self): return _tesseract.LTRResultIterator_SymbolIsSuperscript(self)
     def SymbolIsSubscript(self): return _tesseract.LTRResultIterator_SymbolIsSubscript(self)
@@ -272,7 +281,6 @@ ResultIterator.kMinorRunStart = _tesseract.cvar.ResultIterator_kMinorRunStart
 ResultIterator.kMinorRunEnd = _tesseract.cvar.ResultIterator_kMinorRunEnd
 ResultIterator.kComplexWord = _tesseract.cvar.ResultIterator_kComplexWord
 
-MAX_NUM_INT_FEATURES = _tesseract.MAX_NUM_INT_FEATURES
 class TessBaseAPI(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, TessBaseAPI, name, value)
@@ -287,9 +295,19 @@ class TessBaseAPI(_object):
     __del__ = lambda self : None;
     __swig_getmethods__["Version"] = lambda x: _tesseract.TessBaseAPI_Version
     if _newclass:Version = staticmethod(_tesseract.TessBaseAPI_Version)
+    __swig_getmethods__["getOpenCLDevice"] = lambda x: _tesseract.TessBaseAPI_getOpenCLDevice
+    if _newclass:getOpenCLDevice = staticmethod(_tesseract.TessBaseAPI_getOpenCLDevice)
+    __swig_getmethods__["CatchSignals"] = lambda x: _tesseract.TessBaseAPI_CatchSignals
+    if _newclass:CatchSignals = staticmethod(_tesseract.TessBaseAPI_CatchSignals)
     def SetInputName(self, *args): return _tesseract.TessBaseAPI_SetInputName(self, *args)
+    def GetInputName(self): return _tesseract.TessBaseAPI_GetInputName(self)
+    def SetInputImage(self, *args): return _tesseract.TessBaseAPI_SetInputImage(self, *args)
+    def GetInputImage(self): return _tesseract.TessBaseAPI_GetInputImage(self)
+    def GetSourceYResolution(self): return _tesseract.TessBaseAPI_GetSourceYResolution(self)
+    def GetDatapath(self): return _tesseract.TessBaseAPI_GetDatapath(self)
     def SetOutputName(self, *args): return _tesseract.TessBaseAPI_SetOutputName(self, *args)
     def SetVariable(self, *args): return _tesseract.TessBaseAPI_SetVariable(self, *args)
+    def SetDebugVariable(self, *args): return _tesseract.TessBaseAPI_SetDebugVariable(self, *args)
     def GetIntVariable(self, *args): return _tesseract.TessBaseAPI_GetIntVariable(self, *args)
     def GetBoolVariable(self, *args): return _tesseract.TessBaseAPI_GetBoolVariable(self, *args)
     def GetDoubleVariable(self, *args): return _tesseract.TessBaseAPI_GetDoubleVariable(self, *args)
@@ -297,18 +315,28 @@ class TessBaseAPI(_object):
     def PrintVariables(self, *args): return _tesseract.TessBaseAPI_PrintVariables(self, *args)
     def GetVariableAsString(self, *args): return _tesseract.TessBaseAPI_GetVariableAsString(self, *args)
     def Init(self, *args): return _tesseract.TessBaseAPI_Init(self, *args)
+    def GetInitLanguagesAsString(self): return _tesseract.TessBaseAPI_GetInitLanguagesAsString(self)
+    def GetLoadedLanguagesAsVector(self, *args): return _tesseract.TessBaseAPI_GetLoadedLanguagesAsVector(self, *args)
+    def GetAvailableLanguagesAsVector(self, *args): return _tesseract.TessBaseAPI_GetAvailableLanguagesAsVector(self, *args)
     def InitLangMod(self, *args): return _tesseract.TessBaseAPI_InitLangMod(self, *args)
     def InitForAnalysePage(self): return _tesseract.TessBaseAPI_InitForAnalysePage(self)
+    def ReadConfigFile(self, *args): return _tesseract.TessBaseAPI_ReadConfigFile(self, *args)
+    def ReadDebugConfigFile(self, *args): return _tesseract.TessBaseAPI_ReadDebugConfigFile(self, *args)
     def SetPageSegMode(self, *args): return _tesseract.TessBaseAPI_SetPageSegMode(self, *args)
     def GetPageSegMode(self): return _tesseract.TessBaseAPI_GetPageSegMode(self)
     def TesseractRect(self, *args): return _tesseract.TessBaseAPI_TesseractRect(self, *args)
     def ClearAdaptiveClassifier(self): return _tesseract.TessBaseAPI_ClearAdaptiveClassifier(self)
     def SetImage(self, *args): return _tesseract.TessBaseAPI_SetImage(self, *args)
+    def SetSourceResolution(self, *args): return _tesseract.TessBaseAPI_SetSourceResolution(self, *args)
     def SetRectangle(self, *args): return _tesseract.TessBaseAPI_SetRectangle(self, *args)
     def GetThresholdedImage(self): return _tesseract.TessBaseAPI_GetThresholdedImage(self)
     def GetRegions(self, *args): return _tesseract.TessBaseAPI_GetRegions(self, *args)
+    def GetTextlines(self, *args): return _tesseract.TessBaseAPI_GetTextlines(self, *args)
+    def GetStrips(self, *args): return _tesseract.TessBaseAPI_GetStrips(self, *args)
     def GetWords(self, *args): return _tesseract.TessBaseAPI_GetWords(self, *args)
     def GetConnectedComponents(self, *args): return _tesseract.TessBaseAPI_GetConnectedComponents(self, *args)
+    def GetComponentImages(self, *args): return _tesseract.TessBaseAPI_GetComponentImages(self, *args)
+    def GetThresholdedImageScaleFactor(self): return _tesseract.TessBaseAPI_GetThresholdedImageScaleFactor(self)
     def DumpPGM(self, *args): return _tesseract.TessBaseAPI_DumpPGM(self, *args)
     def AnalyseLayout(self): return _tesseract.TessBaseAPI_AnalyseLayout(self)
     def Recognize(self, *args): return _tesseract.TessBaseAPI_Recognize(self, *args)
@@ -316,6 +344,7 @@ class TessBaseAPI(_object):
     def ProcessPages(self, *args): return _tesseract.TessBaseAPI_ProcessPages(self, *args)
     def ProcessPage(self, *args): return _tesseract.TessBaseAPI_ProcessPage(self, *args)
     def GetIterator(self): return _tesseract.TessBaseAPI_GetIterator(self)
+    def GetMutableIterator(self): return _tesseract.TessBaseAPI_GetMutableIterator(self)
     def GetUTF8Text(self): return _tesseract.TessBaseAPI_GetUTF8Text(self)
     def GetHOCRText(self, *args): return _tesseract.TessBaseAPI_GetHOCRText(self, *args)
     def GetBoxText(self, *args): return _tesseract.TessBaseAPI_GetBoxText(self, *args)
@@ -325,11 +354,15 @@ class TessBaseAPI(_object):
     def AdaptToWordStr(self, *args): return _tesseract.TessBaseAPI_AdaptToWordStr(self, *args)
     def Clear(self): return _tesseract.TessBaseAPI_Clear(self)
     def End(self): return _tesseract.TessBaseAPI_End(self)
+    __swig_getmethods__["ClearPersistentCache"] = lambda x: _tesseract.TessBaseAPI_ClearPersistentCache
+    if _newclass:ClearPersistentCache = staticmethod(_tesseract.TessBaseAPI_ClearPersistentCache)
     def IsValidWord(self, *args): return _tesseract.TessBaseAPI_IsValidWord(self, *args)
     def GetTextDirection(self, *args): return _tesseract.TessBaseAPI_GetTextDirection(self, *args)
     def DetectOS(self, *args): return _tesseract.TessBaseAPI_DetectOS(self, *args)
+    def GetFeaturesForBlob(self, *args): return _tesseract.TessBaseAPI_GetFeaturesForBlob(self, *args)
     __swig_getmethods__["FindRowForBox"] = lambda x: _tesseract.TessBaseAPI_FindRowForBox
     if _newclass:FindRowForBox = staticmethod(_tesseract.TessBaseAPI_FindRowForBox)
+    def RunAdaptiveClassifier(self, *args): return _tesseract.TessBaseAPI_RunAdaptiveClassifier(self, *args)
     def GetUnichar(self, *args): return _tesseract.TessBaseAPI_GetUnichar(self, *args)
     def GetDawg(self, *args): return _tesseract.TessBaseAPI_GetDawg(self, *args)
     def NumDawgs(self): return _tesseract.TessBaseAPI_NumDawgs(self)
@@ -337,6 +370,8 @@ class TessBaseAPI(_object):
     if _newclass:MakeTessOCRRow = staticmethod(_tesseract.TessBaseAPI_MakeTessOCRRow)
     __swig_getmethods__["MakeTBLOB"] = lambda x: _tesseract.TessBaseAPI_MakeTBLOB
     if _newclass:MakeTBLOB = staticmethod(_tesseract.TessBaseAPI_MakeTBLOB)
+    __swig_getmethods__["NormalizeTBLOB"] = lambda x: _tesseract.TessBaseAPI_NormalizeTBLOB
+    if _newclass:NormalizeTBLOB = staticmethod(_tesseract.TessBaseAPI_NormalizeTBLOB)
     def tesseract(self): return _tesseract.TessBaseAPI_tesseract(self)
     def oem(self): return _tesseract.TessBaseAPI_oem(self)
     def InitTruthCallback(self, *args): return _tesseract.TessBaseAPI_InitTruthCallback(self, *args)
@@ -353,6 +388,18 @@ def TessBaseAPI_Version():
   return _tesseract.TessBaseAPI_Version()
 TessBaseAPI_Version = _tesseract.TessBaseAPI_Version
 
+def TessBaseAPI_getOpenCLDevice(*args):
+  return _tesseract.TessBaseAPI_getOpenCLDevice(*args)
+TessBaseAPI_getOpenCLDevice = _tesseract.TessBaseAPI_getOpenCLDevice
+
+def TessBaseAPI_CatchSignals():
+  return _tesseract.TessBaseAPI_CatchSignals()
+TessBaseAPI_CatchSignals = _tesseract.TessBaseAPI_CatchSignals
+
+def TessBaseAPI_ClearPersistentCache():
+  return _tesseract.TessBaseAPI_ClearPersistentCache()
+TessBaseAPI_ClearPersistentCache = _tesseract.TessBaseAPI_ClearPersistentCache
+
 def TessBaseAPI_FindRowForBox(*args):
   return _tesseract.TessBaseAPI_FindRowForBox(*args)
 TessBaseAPI_FindRowForBox = _tesseract.TessBaseAPI_FindRowForBox
@@ -364,6 +411,10 @@ TessBaseAPI_MakeTessOCRRow = _tesseract.TessBaseAPI_MakeTessOCRRow
 def TessBaseAPI_MakeTBLOB(*args):
   return _tesseract.TessBaseAPI_MakeTBLOB(*args)
 TessBaseAPI_MakeTBLOB = _tesseract.TessBaseAPI_MakeTBLOB
+
+def TessBaseAPI_NormalizeTBLOB(*args):
+  return _tesseract.TessBaseAPI_NormalizeTBLOB(*args)
+TessBaseAPI_NormalizeTBLOB = _tesseract.TessBaseAPI_NormalizeTBLOB
 
 def TessBaseAPI_DeleteBlockList(*args):
   return _tesseract.TessBaseAPI_DeleteBlockList(*args)
@@ -401,6 +452,18 @@ ProcessPagesBuffer = _tesseract.ProcessPagesBuffer
 def ProcessPagesRaw(*args):
   return _tesseract.ProcessPagesRaw(*args)
 ProcessPagesRaw = _tesseract.ProcessPagesRaw
+
+def SetCvImage(*args):
+  return _tesseract.SetCvImage(*args)
+SetCvImage = _tesseract.SetCvImage
+
+def SetVariable(*args):
+  return _tesseract.SetVariable(*args)
+SetVariable = _tesseract.SetVariable
+
+def GetUTF8Text(*args):
+  return _tesseract.GetUTF8Text(*args)
+GetUTF8Text = _tesseract.GetUTF8Text
 # This file is compatible with both classic and new-style classes.
 
 

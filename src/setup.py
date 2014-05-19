@@ -63,7 +63,7 @@ def listFiles(mdir):
 		if not USE_CV and "opencv" in mfile:
 			print mfile,
 			print "&"*200
-			continue			
+			continue
 		list_files.append(os.path.join(mdir,mfile))
 	return list_files
 
@@ -102,7 +102,7 @@ def my_uninstall():
 		print rmPath
 		j.runRm4Dirs(rmPath,files)
 		j.runRm4Files(rmPath,files)
-	print "Uninstalling is done" 
+	print "Uninstalling is done"
 
 class CleanCommand(_clean):
 	description = "custom clean command that forcefully removes dist/build directories"
@@ -157,7 +157,14 @@ class GenVariablesLinux:
 		self.initialize()
 		if osname=="mingw":
 			self.mingw_initialise()
-		
+			if USE_CV and self.isOpenCVInstalled() :
+				self.setCVLibraries()
+				self.libraries=["opencv_core248"]+self.libraries
+			self.setPaths()
+		else:
+			if USE_CV and self.isOpenCVInstalled() :
+				self.setCVLibraries()
+
 		self.setIncls()
 		self.idefine(fp_config_h,osname)
 		#if osname!="mingw" and self.isOpenCVInstalled() :
@@ -174,13 +181,10 @@ class GenVariablesLinux:
 		self.clang_incls.append(os.path.join(self.mingwPath,'include'))
 		print "mingwPath=%s"%self.mingwPath
 		self.incls.append(os.path.join(self.mingwPath,"include"))
-		if USE_CV and self.isOpenCVInstalled() :
-		#if USE_CV  :
-			self.setCVLibraries()
-			self.libraries=["opencv_core248"]+self.libraries
-	
-		
-	
+
+
+	def setPaths(self):
+
 		xDir=""
 		self.inclPath=os.path.join(self.pathOffset,xDir,"include")
 		self.libPath=os.path.join(self.pathOffset,xDir,"lib")
@@ -210,11 +214,11 @@ class GenVariablesLinux:
 		prefix=sys.prefix
 		self.incls = ['/usr/include', '/usr/local/include']
 		self.libs=['/usr/lib', '/usr/local/lib']
-			
+
 		if "cygwin" in osname:
 			self.include_dirs.append(os.path.join(".","cygwin","include"))
 			self.include_dirs.append(os.path.join("cygwin/includes/"))
-		
+
 
 	def inclpath(self,mlib):
 		try:
@@ -234,7 +238,7 @@ class GenVariablesLinux:
 		print "(x)"*100
 		if hasattr(self,"libPath"):
 			print self.libPath
-		
+
 		ret=checkPath(self.libs,mlib)
 		if not ret:
 			print "(*)"*100
@@ -462,7 +466,7 @@ class GenVariablesWindows:
 			#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
 			#extra_compile_args = [ "-O0", '-funroll-loops','-g'],
 			#extra_compile_args = ["-Wall", "-Wextra"],
-			
+
 			swig_opts=[
 					"-c++",
 					"-I"+self.inclpath('tesseract'),
@@ -529,7 +533,7 @@ r"""
 				new_data_files.append(data_file)
 		print "$$$data_files=%s"%repr(data_files)
 		data_files=new_data_files
-		
+
 	setup (name = PACKAGE,
 			version = VERSION,
 			author	  = "FreeToGo Nowhere",
