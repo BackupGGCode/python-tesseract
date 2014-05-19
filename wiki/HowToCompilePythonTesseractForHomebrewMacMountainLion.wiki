@@ -41,7 +41,7 @@ pip install numpy --upgrade
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 }}}
 
-3. Install misc
+==3. Install misc==
 {{{
 brew -v update && brew -v upgrade
 brew install wget axel swig subversion
@@ -67,7 +67,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 }}}
 
 4.
-Install python-tesseract
+==Install python-tesseract==
 Either
 {{{
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python
