@@ -9,6 +9,13 @@ Restart Terminal and you will be able to use Make.
 _the homebrew version of leptonica and tesseract are very old. You need to "hombrew" yours_ 
 ===Option 1:=== 
 {{{
+cd /usr/local/.git && sed -i .bak 's|Homebrew|3togo|g' config
+brew -v update
+brew -v upgrade
+ 
+}}}
+==Option 2:---
+{{{
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew install tesseract leptonica
 brew uninstall tesseract leptonica
@@ -19,7 +26,7 @@ rm leptonica.rb
 wget -N https://bitbucket.org/3togo/python-tesseract/downloads/tesseract.rb
 wget -N https://bitbucket.org/3togo/python-tesseract/downloads/leptonica.rb
 }}}
-===Option 2===
+===Option 3===
 {{{
 Use my homebrewed version
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
