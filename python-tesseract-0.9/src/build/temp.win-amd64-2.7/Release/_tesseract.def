@@ -1,0 +1,3 @@
+LIBRARY _tesseract.pyd
+EXPORTS
+init_tesseract
