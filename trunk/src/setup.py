@@ -315,7 +315,8 @@ class GenVariablesLinux:
 		extra_link_args=[]
 		if osname=="mingw":
 			extra_link_args.append("-L%s"%self.mingwLibPath)
-			#extra_compile_args.append("-D MS_WIN64")
+			if "64" in sys.version:
+				extra_compile_args.append("-D MS_WIN64")
 			#extra_compile_args.append("-static-libgcc")
 			#extra_compile_args.append("-optl-static")
 		tesseract_module = Extension('_tesseract',
