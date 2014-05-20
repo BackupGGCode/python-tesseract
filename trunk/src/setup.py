@@ -174,9 +174,9 @@ class GenVariablesLinux:
 	def mingw_initialise(self):
 		self.sources.append('ms_fmemopen.c')
 		if "64" in sys.version:
-			self.mingwPath=os.path.abspath("../x86_64-w64-mingw32.static")
+			self.mingwPath=os.path.abspath("../mingw32/x86_64-w64-mingw32.static")
 		else:
-			self.mingwPath=os.path.abspath("../i686-pc-mingw32.static")
+			self.mingwPath=os.path.abspath("../mingw32/i686-pc-mingw32.static")
 		
 		self.mingwLibPath=os.path.join(self.mingwPath,"lib")
 		#self.libraries+=['ws2_32','png','z',"jpeg","tiff","webp"]
