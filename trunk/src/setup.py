@@ -507,7 +507,9 @@ r"""
 #else
 #define TESS_API
 #define TESS_LOCAL
+#define LEPT_DLL
 #endif
+
 """
 )
 

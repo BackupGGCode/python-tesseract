@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 #from __future__ import print_function
 import tesseract
-import ctypes
 import os
 import gc
 import pprint
