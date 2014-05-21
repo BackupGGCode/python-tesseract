@@ -6,7 +6,9 @@
 #else
 #define TESS_API
 #define TESS_LOCAL
+#define LEPT_DLL
 #endif
+
 #pragma once
 #include <Python.h>
 #ifndef __opencv2__
@@ -17,7 +19,6 @@
 	#define __opencv__
 #endif
 #include <opencv/cv.h>
-#include "fmemopen.h"
-#ifndef __mingw__
-	#define __mingw__
+#ifndef __linux__
+	#define __linux__
 #endif

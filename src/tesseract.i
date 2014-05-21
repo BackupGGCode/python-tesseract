@@ -10,11 +10,14 @@
 
 %{
 #include "config.h"
+//#include "pix.h"
+#include "allheaders.h"
 #include "publictypes.h"
 //#include "thresholder.h"
 //#include "baseapi_mini_darwin.h"
 //#include "capi.h"
-//#include "ltrresultiterator.h"
+//#include pageiterator.h
+#include "ltrresultiterator.h"
 //#include "resultiterator.h"
 #include "baseapi.h"
 #include "unichar.h"
@@ -23,6 +26,7 @@
 //#include "cv_original.h"
 #include "main.h"
 char* retParser(const char* a);
+
 
 %}
 /* Input typemap: convert from Python input object to C/C++ IplImage
@@ -45,29 +49,26 @@ char* retParser(const char* a);
   $1 = &templen;
 }
 */
-%typemap(freearg) int* {
-	free((int *) $source);
-}
+
 #%typemap(out) int* AllWordConfidences {
 %typemap(out) int* {
   int i, len;
-  //$1, $1_dim0, $1_dim1  //$source is clearer than $1 to me
+  //$1, $1_dim0, $1_dim1 
   len = 0;
-  //while ($1[len] >=0) len++;
-  //while ($source[len]) len++;
-  while ($source[len]>=0) len++;
-  //templen=100;
+  while ($1[len]>=0) len++;
   $result = PyList_New(len);
   for (i = 0; i < len ; i++) {
-    //PyObject *o = PyInt_FromLong((int) $1[i]);
-    PyObject *o = PyInt_FromLong((int) $source[i]);
+    PyObject *o = PyInt_FromLong((int) $1[i]);
     PyList_SetItem($result,i,o);
   }
 }
 
 %include "config.h"
+//%include "pix.h"
+%include "allheaders_mini.h"
 %include "publictypes.h"
 //%include "thresholder.h"
+%include pageiterator.h
 %include "ltrresultiterator.h"
 %include "resultiterator.h"
 %include "baseapi_mini.h"
