@@ -332,8 +332,8 @@ class TESS_API TessBaseAPI {
    * full image, so it may be followed immediately by a GetUTF8Text, and it
    * will automatically perform recognition.
    */
-  //void SetImage(const unsigned char* imagedata, int width, int height,
-   //             int bytes_per_pixel, int bytes_per_line);
+  void SetImage(const unsigned char* imagedata, int width, int height,
+               int bytes_per_pixel, int bytes_per_line);
 
   /**
    * Provide an image for Tesseract to recognize. As with SetImage above,

@@ -1,3 +1,9 @@
+python-tesseract (0.9-0.2ubuntu5) UNRELEASED; urgency=medium
+
+  * start support api.SetImage()
+
+ -- eli <eli@eli-iMac>  Thu, 22 May 2014 02:39:43 +0800
+
 python-tesseract (0.9-0.2ubuntu4) UNRELEASED; urgency=medium
 
   * wrap leptonica into tesseract
