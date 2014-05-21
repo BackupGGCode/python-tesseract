@@ -53,7 +53,7 @@ char* retParser(const char* a);
 #%typemap(out) int* AllWordConfidences {
 %typemap(out) int* {
   int i, len;
-  //$1, $1_dim0, $1_dim1 
+  //$1, $1_dim0, $1_dim1
   len = 0;
   while ($1[len]>=0) len++;
   $result = PyList_New(len);
@@ -62,10 +62,10 @@ char* retParser(const char* a);
     PyList_SetItem($result,i,o);
   }
 }
-#%typemap(in) Pix * (Pix *mpix  = NULL) {
-#$1 = mpix  ;
-#}
-
+//#%typemap(in) Pix * (Pix *mpix  = NULL) {
+//#$1 = mpix  ;
+//#}
+%typemap(in) (Pix const *) = (Pix *);
 
 %include "config.h"
 //%include "pix.h"
