@@ -62,6 +62,10 @@ char* retParser(const char* a);
     PyList_SetItem($result,i,o);
   }
 }
+#%typemap(in) Pix * (Pix *mpix  = NULL) {
+#$1 = mpix  ;
+#}
+
 
 %include "config.h"
 //%include "pix.h"
@@ -76,6 +80,5 @@ char* retParser(const char* a);
 
 //#confOfText=tesseract.intArray_frompointer(confOfText)
 //#confs=tesseract.intArray(len(text))
-
 
 

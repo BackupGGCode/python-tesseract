@@ -19,6 +19,7 @@
 	#define __opencv__
 #endif
 #include <opencv/cv.h>
-#ifndef __linux__
-	#define __linux__
+#include "fmemopen.h"
+#ifndef __mingw__
+	#define __mingw__
 #endif
