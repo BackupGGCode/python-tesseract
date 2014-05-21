@@ -62,13 +62,10 @@ char* retParser(const char* a);
     PyList_SetItem($result,i,o);
   }
 }
-//#%typemap(in) Pix * (Pix *mpix  = NULL) {
-//#$1 = mpix  ;
-//#}
-%typemap(in) (Pix const *) = (Pix *);
+
 
 %include "config.h"
-//%include "pix.h"
+%include "pix.h"
 %include "allheaders_mini.h"
 %include "publictypes.h"
 //%include "thresholder.h"
@@ -82,3 +79,7 @@ char* retParser(const char* a);
 //#confs=tesseract.intArray(len(text))
 
 
+//#%typemap(in) SwigPyObject Pix * (Pix *mpix  = NULL) {
+//#$1 = mpix  ;
+//#}
+//%typemap(in) (Pix const *) = (Pix *);
