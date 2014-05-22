@@ -1,28 +1,40 @@
+python-tesseract (0.9-0.2ubuntu7) UNRELEASED; urgency=medium
+
+  * minor changes 
+
+ -- eli <eli@nowhere.com>  Fri, 23 May 2014 00:06:09 +0800
+
+python-tesseract (0.9-0.2ubuntu6) UNRELEASED; urgency=medium
+
+  * support both python2 and python3
+
+ -- eli <eli@nowhere.com>  Thu, 22 May 2014 22:45:07 +0800
+
 python-tesseract (0.9-0.2ubuntu5) UNRELEASED; urgency=medium
 
   * start support api.SetImage()
 
- -- eli <eli@eli-iMac>  Thu, 22 May 2014 02:39:43 +0800
+ -- eli <eli@nowhere.com>  Thu, 22 May 2014 02:39:43 +0800
 
 python-tesseract (0.9-0.2ubuntu4) UNRELEASED; urgency=medium
 
   * wrap leptonica into tesseract
 
- -- eli <eli@eli-Dell390>  Wed, 21 May 2014 17:30:01 +0800
+ -- eli <eli@nowhere.com>  Wed, 21 May 2014 17:30:01 +0800
 
 python-tesseract (0.9-0.2ubuntu3) UNRELEASED; urgency=medium
 
   * Updating for Trusty
   * support ResultIterator 
 
- -- eli <eli@eli-Dell390>  Wed, 21 May 2014 17:27:08 +0800
+ -- eli <eli@nowhere.com>  Wed, 21 May 2014 17:27:08 +0800
 
 python-tesseract (0.9-0.1ubuntu3) UNRELEASED; urgency=medium
 
   * Finally, I got time to tidy up the script
  
 
- -- eli <eli@eli-iMac>  Wed, 07 May 2014 04:23:04 +0800
+ -- eli <eli@nowhere.com>  Wed, 07 May 2014 04:23:04 +0800
 
 python-tesseract (0.8-1) unstable; urgency=low
 
