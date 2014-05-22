@@ -14,7 +14,6 @@
 #include "allheaders.h"
 #include "publictypes.h"
 //#include "thresholder.h"
-//#include "baseapi_mini_darwin.h"
 //#include "capi.h"
 //#include pageiterator.h
 #include "ltrresultiterator.h"
@@ -42,13 +41,6 @@ char* retParser(const char* a);
         SWIG_exception( SWIG_TypeError, "%%typemap: could not convert input argument to an IplImage");
     }
 }
-/*
-%include <stdint.i>
-%typemap(in,numinputs=0,noblock=1) size_t *len  {
-  size_t templen;
-  $1 = &templen;
-}
-*/
 
 #%typemap(out) int* AllWordConfidences {
 %typemap(out) int* {
@@ -68,18 +60,10 @@ char* retParser(const char* a);
 %include "pix.h"
 %include "allheaders_mini.h"
 %include "publictypes.h"
-//%include "thresholder.h"
-%include pageiterator.h
+%include "thresholder.h"
+%include "pageiterator.h"
 %include "ltrresultiterator.h"
 %include "resultiterator.h"
 %include "baseapi_mini.h"
 %include "main.h"
 
-//#confOfText=tesseract.intArray_frompointer(confOfText)
-//#confs=tesseract.intArray(len(text))
-
-
-//#%typemap(in) SwigPyObject Pix * (Pix *mpix  = NULL) {
-//#$1 = mpix  ;
-//#}
-//%typemap(in) (Pix const *) = (Pix *);

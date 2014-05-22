@@ -270,7 +270,7 @@ void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api)
     }
 
 }
-
+/*
 void SetImage(PyObject* o, tesseract::TessBaseAPI* api)
 {
       //const Pix *ipl = (const Pix *)o;
@@ -279,7 +279,7 @@ void SetImage(PyObject* o, tesseract::TessBaseAPI* api)
 
 
 }
-
+*/
 
 /*
 namespace bp = boost::python;

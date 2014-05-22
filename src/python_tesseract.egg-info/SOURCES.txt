@@ -131,6 +131,7 @@ test-slim/test.py
 test-slim/test2.py
 test-slim/test3.py
 test-slim/test4.py
+test-slim/test5.py
 test-slim/dllDump/depends.chm
 test-slim/dllDump/depends.dll
 test-slim/dllDump/depends.exe
