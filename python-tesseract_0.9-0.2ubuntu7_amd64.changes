@@ -16,17 +16,17 @@ Changes:
  .
    * minor changes
 Checksums-Sha1: 
- abb18fa6f5cb9be69d02ecc3b70a12806834fc46 1123 python-tesseract_0.9-0.2ubuntu7.dsc
- 5058b002ec521804d754e550b501d761310487e5 3833 python-tesseract_0.9-0.2ubuntu7.debian.tar.gz
- 470419d7a6e02d6e1116185d453e1a8ed62655fc 442658 python-tesseract_0.9-0.2ubuntu7_amd64.deb
- 453a26b8d00f3c4f5b83c8c82c34cd48a136d8e3 477724 python3-tesseract_0.9-0.2ubuntu7_amd64.deb
+ ac36ef077140aababbbd5d76169371a7c21c33b6 1097 python-tesseract_0.9-0.2ubuntu7.dsc
+ ce5615aeaffa257c3602603edb63ba1a28834aeb 3536 python-tesseract_0.9-0.2ubuntu7.diff.gz
+ fd011bf375fb138d9737b769e01841a41254e001 475948 python-tesseract_0.9-0.2ubuntu7_amd64.deb
+ 7965dc6cb195404bdc62264ff8c0da552ce680aa 476916 python3-tesseract_0.9-0.2ubuntu7_amd64.deb
 Checksums-Sha256: 
- 64e6e5a6e775ff54c42724631f35ba2c90b8dd2847e5f866ab17518372ec339f 1123 python-tesseract_0.9-0.2ubuntu7.dsc
- 9918a0aa57b6d688f3d34ea8ff0e1ae144cbef14e21ed07262979c8a159fa615 3833 python-tesseract_0.9-0.2ubuntu7.debian.tar.gz
- b38fefda69e7af43d968d382f060b8893b9517ad74439ed3efc67af02997f436 442658 python-tesseract_0.9-0.2ubuntu7_amd64.deb
- 22022c12d52a9d1c8f9d225a08e54e8d17444acb19a130d38d729714bfabe0cc 477724 python3-tesseract_0.9-0.2ubuntu7_amd64.deb
+ 13697191e36152e1bf5086470d106c6589663a0d94358f271dccf8604a432e3f 1097 python-tesseract_0.9-0.2ubuntu7.dsc
+ 4965aa93b7d8294b65cc052f34b7bfe52bd2ae3eb22d24ee1995a5e929a578a9 3536 python-tesseract_0.9-0.2ubuntu7.diff.gz
+ baa63040bfcf30014876200caaf4de3ae9abce693801441c70077b71c3275ba9 475948 python-tesseract_0.9-0.2ubuntu7_amd64.deb
+ b6cc297c071d13f372c7577e7820d0cdf172cb0f17366b3055a4629a5dcc417f 476916 python3-tesseract_0.9-0.2ubuntu7_amd64.deb
 Files: 
- 740619401b6966076c771168d5e5bf66 1123 python optional python-tesseract_0.9-0.2ubuntu7.dsc
- 1ac062e7d4bbed7e7c683edf2c55792f 3833 python optional python-tesseract_0.9-0.2ubuntu7.debian.tar.gz
- 1cbae79e115606f8126b7f9575390fba 442658 python optional python-tesseract_0.9-0.2ubuntu7_amd64.deb
- 8f3c6c560aa2b81358a11fe3adfec1d5 477724 python optional python3-tesseract_0.9-0.2ubuntu7_amd64.deb
+ 6295bd205254564a497356ebd79dc203 1097 python optional python-tesseract_0.9-0.2ubuntu7.dsc
+ 116b5e60f12d66b0e2f6462e4ce0527e 3536 python optional python-tesseract_0.9-0.2ubuntu7.diff.gz
+ e57907733f17ae11bb1df86a425fba56 475948 python optional python-tesseract_0.9-0.2ubuntu7_amd64.deb
+ dd736e6c0fff9c2760caa5fa39ddb669 476916 python optional python3-tesseract_0.9-0.2ubuntu7_amd64.deb

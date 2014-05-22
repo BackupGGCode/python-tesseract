@@ -46,7 +46,7 @@ for r in gc.get_referents(api):
     pprint.pprint(r)
 n = gc.collect()
 print('Unreachable objects:', n)
-print('Remaining Garbage:', end=' ') 
+print('Remaining Garbage:') 
 pprint.pprint(gc.garbage)
 print()
 
