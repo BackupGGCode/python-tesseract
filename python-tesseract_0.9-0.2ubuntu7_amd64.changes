@@ -1,0 +1,32 @@
+Format: 1.8
+Date: Fri, 23 May 2014 00:06:09 +0800
+Source: python-tesseract
+Binary: python-tesseract python3-tesseract
+Architecture: source amd64
+Version: 0.9-0.2ubuntu7
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: FreeToGo <FreeToGo@gmail.com>
+Changed-By: eli <eli@nowhere.com>
+Description: 
+ python-tesseract - Tesseract for Python
+ python3-tesseract - Tesseract for Python3
+Changes: 
+ python-tesseract (0.9-0.2ubuntu7) UNRELEASED; urgency=medium
+ .
+   * minor changes
+Checksums-Sha1: 
+ abb18fa6f5cb9be69d02ecc3b70a12806834fc46 1123 python-tesseract_0.9-0.2ubuntu7.dsc
+ 5058b002ec521804d754e550b501d761310487e5 3833 python-tesseract_0.9-0.2ubuntu7.debian.tar.gz
+ 470419d7a6e02d6e1116185d453e1a8ed62655fc 442658 python-tesseract_0.9-0.2ubuntu7_amd64.deb
+ 453a26b8d00f3c4f5b83c8c82c34cd48a136d8e3 477724 python3-tesseract_0.9-0.2ubuntu7_amd64.deb
+Checksums-Sha256: 
+ 64e6e5a6e775ff54c42724631f35ba2c90b8dd2847e5f866ab17518372ec339f 1123 python-tesseract_0.9-0.2ubuntu7.dsc
+ 9918a0aa57b6d688f3d34ea8ff0e1ae144cbef14e21ed07262979c8a159fa615 3833 python-tesseract_0.9-0.2ubuntu7.debian.tar.gz
+ b38fefda69e7af43d968d382f060b8893b9517ad74439ed3efc67af02997f436 442658 python-tesseract_0.9-0.2ubuntu7_amd64.deb
+ 22022c12d52a9d1c8f9d225a08e54e8d17444acb19a130d38d729714bfabe0cc 477724 python3-tesseract_0.9-0.2ubuntu7_amd64.deb
+Files: 
+ 740619401b6966076c771168d5e5bf66 1123 python optional python-tesseract_0.9-0.2ubuntu7.dsc
+ 1ac062e7d4bbed7e7c683edf2c55792f 3833 python optional python-tesseract_0.9-0.2ubuntu7.debian.tar.gz
+ 1cbae79e115606f8126b7f9575390fba 442658 python optional python-tesseract_0.9-0.2ubuntu7_amd64.deb
+ 8f3c6c560aa2b81358a11fe3adfec1d5 477724 python optional python3-tesseract_0.9-0.2ubuntu7_amd64.deb

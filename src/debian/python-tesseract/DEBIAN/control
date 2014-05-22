@@ -3,7 +3,7 @@ Version: 0.9-0.2ubuntu7
 Architecture: amd64
 Maintainer: FreeToGo <FreeToGo@gmail.com>
 Installed-Size: 3747
-Depends: python (<< 2.8), python (>= 2.7~), libc6 (>= 2.14), libgcc1 (>= 1:4.1.1), liblept4, libopencv-core2.4, libstdc++6 (>= 4.1.1), libtesseract3
+Depends: python (>= 2.7~), python (<< 2.8), libc6 (>= 2.14), libgcc1 (>= 1:4.1.1), liblept4, libopencv-core2.4, libstdc++6 (>= 4.1.1), libtesseract3
 Section: python
 Priority: optional
 Homepage: http://code.google.com/p/python-tesseract/
