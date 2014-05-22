@@ -4,11 +4,11 @@
 
 Although python3-opencv is not ready, I still decide to go ahead to prepare python3-tesseract.
 
-Below is the download link
+==the download link==
 [https://bitbucket.org/3togo/python-tesseract/downloads/python3-tesseract_0.9-0.2ubuntu7_amd64.deb python3-tesseract_0.9-0.2ubuntu7_amd64.deb]
 
 
-Test1 
+==Test1== 
 {{{
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -48,7 +48,7 @@ api.End()
 
 }}}
 
-Test 2
+==Test 2==
 {{{
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
