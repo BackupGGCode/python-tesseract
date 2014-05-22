@@ -2,7 +2,7 @@
 
 = Python3-Tesseract =
 
-Although python3-opencv is not ready, I still decide to go ahead to prepare for python3-tesseract.
+Although python3-opencv is not ready, I still decide to go ahead to build python3-tesseract first.
 
 ==the download link==
 [https://bitbucket.org/3togo/python-tesseract/downloads/python3-tesseract_0.9-0.2ubuntu7_amd64.deb python3-tesseract_0.9-0.2ubuntu7_amd64.deb]
