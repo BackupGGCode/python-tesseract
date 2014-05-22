@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import print_function
 """
 setup.py file for SWIG
 written by FreeToGo@gmail.com
@@ -7,7 +8,7 @@ PACKAGE="python-tesseract"
 #VERSION=os.getcwd().split("-")[-1]
 VERSION="0.9"
 from setuptools import setup, Extension, Command, find_packages
-import sys,os,platform,glob,commands,sys,distutils
+import sys,os,platform,glob,subprocess,sys,distutils
 import os
 import jfunc
 j=jfunc.jfunc()
@@ -45,15 +46,19 @@ def writeIncludeLines(fp,lines) :
 	for line in lines:
 		fp.write(line+"\n");
 
+def cmd(cmdList):
+	process = subprocess.Popen(cmdList.split(), stdout=subprocess.PIPE)
+	out, err = process.communicate()
+	return out
 def pkgconfig(*packages, **kw):
 	flag_map = {'-I': 'include_dirs', '-L': 'library_dirs', '-l': 'libraries'}
-	for token in commands.getoutput("pkg-config --libs --cflags %s" % ' '.join(packages)).split():
-		if flag_map.has_key(token[:2]):
+	for token in cmd("pkg-config --libs --cflags %s" % ' '.join(packages)).split():
+		if token[:2] in flag_map:
 			kw.setdefault(flag_map.get(token[:2]), []).append(token[2:])
 		else: # throw others to extra_link_args
 			kw.setdefault('extra_link_args', []).append(token)
 
-	for k, v in kw.iteritems(): # remove duplicated
+	for k, v in kw.items(): # remove duplicated
 		kw[k] = list(set(v))
 	return kw
 
@@ -62,8 +67,8 @@ def listFiles(mdir):
 	list_files=[]
 	for mfile in files:
 		if not USE_CV and "opencv" in mfile:
-			print mfile,
-			print "&"*200
+			print(mfile, end=' ')
+			print("&"*200)
 			continue
 		list_files.append(os.path.join(mdir,mfile))
 	return list_files
@@ -83,27 +88,27 @@ from distutils.command.clean import clean as _clean
 def my_clean():
 	#print "runtime directory:",os.path.dirname(os.path.realpath(__file__))
 	pwd=os.path.abspath(os.path.dirname(sys.argv[0]))
-	print pwd
+	print(pwd)
 	rmDirs="build dist deb_dist tesseract.egg-info python_tesseract.egg-info".split(" ")
 	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz* *.pyc".split(" ")
-	print "remove Dirs"
+	print("remove Dirs")
 	j.runRm4Dirs(pwd,rmDirs)
-	print "remove Files"
+	print("remove Files")
 	j.runRm4Files(pwd,rmFiles)
-	print "[my_clea]Done"
+	print("[my_clean]Done")
 	#old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
 	#for package in old_packages:
 		#os.system(package)
-
+	
 def my_uninstall():
 	rmPaths=[]
 	files=["*tesseract*"]
 	#if osname=='darwin' and j.brew_prefix:
 	for rmPath in j.sitepackagesLocations:
-		print rmPath
+		print(rmPath)
 		j.runRm4Dirs(rmPath,files)
 		j.runRm4Files(rmPath,files)
-	print "Uninstalling is done"
+	print("Uninstalling is done")
 
 class CleanCommand(_clean):
 	description = "custom clean command that forcefully removes dist/build directories"
@@ -120,8 +125,9 @@ class CleanCommand(_clean):
 	def run(self):
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 		my_clean()
-		print "Cleaning is done"
+		print("Cleaning is done")
 		pass
+		return 0
 		#_clean.run(self)
 
 class UninstallCommand(_clean):
@@ -139,7 +145,7 @@ class UninstallCommand(_clean):
 	def run(self):
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 		my_uninstall()
-		print "*"*100
+		print("*"*100)
 			#_clean.run(self)
 
 
@@ -184,7 +190,7 @@ class GenVariablesLinux:
 		self.libraries+=['opengl32','glu32','ws2_32','z','jpeg']
 		self.pathOffset=self.mingwPath
 		self.clang_incls.append(os.path.join(self.mingwPath,'include'))
-		print "mingwPath=%s"%self.mingwPath
+		print("mingwPath=%s"%self.mingwPath)
 		self.incls.append(os.path.join(self.mingwPath,"include"))
 
 
@@ -203,8 +209,8 @@ class GenVariablesLinux:
 	def setIncls(self):
 		for incl in self.clang_incls:
 			mincl=self.inclpath(incl)
-			print "!"*500
-			print "mincl=%s\n"%repr(mincl)
+			print("!"*500)
+			print("mincl=%s\n"%repr(mincl))
 			if mincl:
 				self.include_dirs.append(mincl)
 
@@ -229,7 +235,7 @@ class GenVariablesLinux:
 		try:
 			ipath=checkPath(self.incls,mlib)
 		except:
-			print self.incls,mlib
+			print(self.incls,mlib)
 		#print self.incls,mlib
 		if ipath:
 			return ipath
@@ -238,25 +244,25 @@ class GenVariablesLinux:
 		assert False, 'Include directory %s was not found' % mlib
 
 	def libpath(self, mlib):
-		print "()"*100
-		print self.libs
-		print "(x)"*100
+		print("()"*100)
+		print(self.libs)
+		print("(x)"*100)
 		if hasattr(self,"libPath"):
-			print self.libPath
+			print(self.libPath)
 
 		ret=checkPath(self.libs,mlib)
 		if not ret:
-			print "(*)"*100
-			print("Waring!!!! canot find %s in %s"%(repr(mlib), repr(self.libs)))
+			print("(*)"*100)
+			print(("Waring!!!! canot find %s in %s"%(repr(mlib), repr(self.libs))))
 		return ret
 
 	def isOpenCVInstalled(self):
 		if not USE_CV:
 			return 0
 		hasOpenCV = 0
-		print "$"*200
+		print("$"*200)
 		if self.inclpath("opencv2/core/core_c.h"):
-			print "%"*200
+			print("%"*200)
 			self.idefine(self.fp_config_h,"opencv2")
 			self.fp_config_h.write("#include <opencv2/core/core_c.h>\n")
 			self.clang_incls.append('opencv2')
@@ -264,14 +270,14 @@ class GenVariablesLinux:
 			hasOpenCV = 1
 
 		if self.inclpath("opencv/cv.h") :
-			print "@"*200
+			print("@"*200)
 			self.idefine(self.fp_config_h,"opencv")
 			self.fp_config_h.write("#include <opencv/cv.h>\n")
 			self.clang_incls.append('opencv')
 			writeIncludeLines(self.fp_main_h,cvIncludeLines)
 			hasOpenCV = 1
 		if hasOpenCV:
-			print "*"*200
+			print("*"*200)
 		return hasOpenCV
 
 	def setCVLibraries(self):
@@ -279,19 +285,19 @@ class GenVariablesLinux:
 			return
 		if osname is not "mingw":
 			cv_pc=pkgconfig("opencv")
-			cv_pc_keys=cv_pc.keys()
-			print "~~~cv_pc~~~"
-			print cv_pc
-			print cv_pc_keys
+			cv_pc_keys=list(cv_pc.keys())
+			print("~~~cv_pc~~~")
+			print(cv_pc)
+			print(cv_pc_keys)
 			if 'libraries' in cv_pc_keys:
 				self.libraries= self.libraries + cv_pc['libraries']
 			elif 'extra_link_args' in cv_pc_keys:
 				for item in cv_pc['extra_link_args']:
 					libname="open"+item.split("libopen")[1].split(".")[0]
-					print "add lib: %s"%libname
+					print("add lib: %s"%libname)
 					self.libraries.append(libname)
 		else:
-			print "No pkg-config support!"
+			print("No pkg-config support!")
 			#if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
 			if self.libpath('libopencv_core.so') or self.libpath('libopencv_core.dylib') or self.libpath('libopencv_core.dll.a')  :
 				#if 'opencv_core' not in libraries:
@@ -308,8 +314,8 @@ class GenVariablesLinux:
 				self.libraries.append('opencv_ml')
 				self.libraries.append('opencv_legacy')
 
-		print "===========%s==========="%self.libraries
-		print self.include_dirs
+		print("===========%s==========="%self.libraries)
+		print(self.include_dirs)
 
 	def do(self):
 		extra_compile_args=["-Wall", "-O0", '-funroll-loops','-g']
@@ -346,8 +352,8 @@ class GenVariablesDarwin(GenVariablesLinux):
 		removeFlag("-mno-fused-madd",'CFLAGS')
 		#os.system("sed -i .bak 's/baseapi_mini.h/baseapi_mini_darwin.h/g' tesseract.i")
 		os.environ["ARCHFLAGS"]="-arch x86_64"
-		brew_prefix=commands.getstatusoutput('brew --prefix')[1]
-		python_version=commands.getstatusoutput('python --version')[1].split(" ")[1]
+		brew_prefix=subprocess.getstatusoutput('brew --prefix')[1]
+		python_version=subprocess.getstatusoutput('python --version')[1].split(" ")[1]
 		python_version="python"+".".join(python_version.split(".")[:-1])
 		sitePackagesPath=os.path.join(brew_prefix,"lib",python_version,"site-packages")
 		if "PYTHONPATH" in os.environ:
@@ -375,14 +381,14 @@ def checkOnePath(mpath,mlib,mext):
 		return path_to
 	else:
 		files=glob.glob(path_to+"*"+"."+mext)
-		print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-		print files
-		print mext
+		print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+		print(files)
+		print(mext)
 		if files and len(files) > 0:
-			print ">>>%s"%files[0]
+			print(">>>%s"%files[0])
 			return files[0][:-4]
 		else:
-			print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> No lib path for path_to=%s mext=%s"%(repr(path_to),repr(mext))
+			print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> No lib path for path_to=%s mext=%s"%(repr(path_to),repr(mext)))
 			#sys.exit(-1)
 
 class GenVariablesWindows:
@@ -417,7 +423,7 @@ class GenVariablesWindows:
 			xDir="x86"
 		else:
 			xDir="x64"
-		print("--os is %s"%xDir)
+		print(("--os is %s"%xDir))
 		self.inclPath=os.path.join(self.pathOffset,"include")
 		self.libPath=os.path.join(self.pathOffset,xDir,"lib")
 		self.dllPath=os.path.join(self.pathOffset,xDir,"dll")
@@ -451,7 +457,7 @@ class GenVariablesWindows:
 		if not USE_CV:
 			return
 		cv2IncPath=self.inclpath("opencv2\core\core_c.h")
-		print cv2IncPath
+		print(cv2IncPath)
 		if  os.path.exists(cv2IncPath):
 			self.idefine(self.fp_config_h,"opencv2")
 			self.fp_config_h.write('#include "%s"\n'%cv2IncPath)
@@ -495,7 +501,7 @@ def main():
 	removeFlag('-Wstrict-prototypes','OPT')
 
 
-	print "Current Version : %s"%VERSION
+	print("Current Version : %s"%VERSION)
 
 	fp_config_h=open("config.h","w")
 	fp_main_h=open("main.h","w")
@@ -509,6 +515,9 @@ r"""
 #define TESS_API
 #define TESS_LOCAL
 #define LEPT_DLL
+#define CV_EXPORTS
+#define CV_EXPORTS_W
+#define CV_EXPORTS_AS
 #endif
 
 """
@@ -518,7 +527,7 @@ r"""
 	writeIncludeLines(fp_main_h,IncludeLines)
 	isLinux=osname in ["linux","cygwin"]
 
-	print "os=%s"%osname
+	print("os=%s"%osname)
 
 	if osname=="darwin":
 		gvl=GenVariablesDarwin(osname,fp_config_h,fp_main_h,sources)
@@ -539,7 +548,7 @@ r"""
 				cotinue
 			else:
 				new_data_files.append(data_file)
-		print "$$$data_files=%s"%repr(data_files)
+		print("$$$data_files=%s"%repr(data_files))
 		data_files=new_data_files
 
 	setup (name = PACKAGE,
