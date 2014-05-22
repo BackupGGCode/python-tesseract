@@ -16,37 +16,37 @@ api.Init(".","eng",tesseract.OEM_DEFAULT)
 api.SetPageSegMode(tesseract.PSM_AUTO)
 mImgFile = "eurotext.jpg"
 
-print "Test ProcessPagesWrapper"
+print("Test ProcessPagesWrapper")
 result = tesseract.ProcessPagesWrapper(mImgFile,api)
-print "result(ProcessPagesWrapper)=",result
+print("result(ProcessPagesWrapper)=",result)
 
-print "Test ProcessPagesFileStream"
+print("Test ProcessPagesFileStream")
 result = tesseract.ProcessPagesFileStream(mImgFile,api)
-print "result(ProcessPagesFileStream)=",result
+print("result(ProcessPagesFileStream)=",result)
 
 #print "Test ProcessPagesRaw2"
 #result = tesseract.ProcessPagesRaw2(mImgFile,api)
 #print "result(ProcessPagesRaw2)",result
 
-print "Test ProcessPagesBuffer"
+print("Test ProcessPagesBuffer")
 f=open(mImgFile,"rb")
 mBuffer=f.read()
 f.close()
 result = tesseract.ProcessPagesBuffer(mBuffer,len(mBuffer),api)
 mBuffer=None
-print "result(ProcessPagesBuffer)=",result
+print("result(ProcessPagesBuffer)=",result)
 
 
 
-print "Test ProcessPagesRaw"
+print("Test ProcessPagesRaw")
 result = tesseract.ProcessPagesRaw(mImgFile,api)
-print "result(ProcessPagesRaw)",result
+print("result(ProcessPagesRaw)",result)
 
 for r in gc.get_referents(api):
     pprint.pprint(r)
 n = gc.collect()
-print 'Unreachable objects:', n
-print 'Remaining Garbage:', 
+print('Unreachable objects:', n)
+print('Remaining Garbage:', end=' ') 
 pprint.pprint(gc.garbage)
-print
+print()
 
