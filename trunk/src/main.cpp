@@ -243,11 +243,13 @@ static int convert_to_IplImage(PyObject *o, IplImage **dst)
 
     if (!is_iplimage(o)) {
 	return -1; //failmsg("Argument must be IplImage");
+  /*    //no longer supported in python3
     } else if (PyString_Check(ipl->data)) {
 	cvSetData(ipl->a, PyString_AsString(ipl->data) + ipl->offset, ipl->a->widthStep);
 	assert(cvGetErrStatus() == 0);
 	*dst = ipl->a;
 	return 1;
+*/
     } else if (ipl->data && PyObject_AsWriteBuffer(ipl->data, &buffer, &buffer_len) == 0) {
 	cvSetData(ipl->a, (void*)((char*)buffer + ipl->offset), ipl->a->widthStep);
 	assert(cvGetErrStatus() == 0);

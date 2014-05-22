@@ -11,10 +11,10 @@ api = tesseract.TessBaseAPI()
 api.Init(".","eng",tesseract.OEM_DEFAULT)
 api.SetPageSegMode(tesseract.PSM_AUTO)
 height1,width1,channel1=image1.shape
-print image1.shape
-print image1.dtype.itemsize
+print(image1.shape)
+print(image1.dtype.itemsize)
 width_step = width*image1.dtype.itemsize
-print width_step
+print(width_step)
 
 iplimage = cv.CreateImageHeader((width1,height1), cv.IPL_DEPTH_8U, channel1)
 cv.SetData(iplimage, image1.tostring(),image1.dtype.itemsize * channel1 * (width1))
@@ -26,7 +26,7 @@ count=0
 while (ri):
 	word = ri.GetUTF8Text(level)
 	conf = ri.Confidence(level)
-	print "[%03d]:\tword(confidence)=%s(%.2f%%)"%(count,word,conf)
+	print("[%03d]:\tword(confidence)=%s(%.2f%%)"%(count,word,conf))
 	#ri.BoundingBox(level,x1,y1,x2,y2)
 	count+=1
 	if not ri.Next(level):

@@ -1,6 +1,7 @@
 from __future__ import print_function
-import platform, os, commands,glob
-import __builtin__,subprocess
+import platform, os, subprocess,glob
+import subprocess
+
 DEBUG=True
 WARNING_LEVEL=10
 USE_MINGW=True
@@ -17,7 +18,7 @@ colors={'LIST':'\033[95m',
 		'FAIL' :'\033[91m',
 		'ENDC' : '\033[0m',
 		}
-colorkeys=colors.keys()
+colorkeys=list(colors.keys())
 class jfunc():
 	def __init__(self):
 		self.osname=self.getOsName()
@@ -31,7 +32,7 @@ class jfunc():
 		END=kwargs.get("END","\t")
 		START=kwargs.get("START","")
 		mlen=len(argv)
-		if mlen> 1 and isinstance( argv[-1], ( int, long ) ):
+		if mlen> 1 and isinstance( argv[-1], int ):
 			warning=argv[-1]
 			argv=argv[:-1]
 		else:
@@ -45,13 +46,13 @@ class jfunc():
 			if argType in colorkeys:
 				START_=colors[argType]+"[%s]"%argType+START
 				END_=END+colors['ENDC']
-			__builtin__.print(START_,repr(arg).strip(),end=END_)
-		__builtin__.print()
+			builtins.print(START_,repr(arg).strip(),end=END_)
+		builtins.print()
 
 	def defineSitePackagesLocations(self):
 		osname=self.osname
 		if osname=="darwin":
-			brew_prefix=commands.getstatusoutput('brew --prefix')[1]
+			brew_prefix=subprocess.getstatusoutput('brew --prefix')[1]
 			self.sitepackagesLocations=[
 				os.path.expanduser("~/Library/Python/2.7/lib/python/site-packages"),
 				"/usr/local/lib/python2.7/site-packages/",
@@ -129,7 +130,7 @@ class jfunc():
 j=jfunc()
 osname=j.osname
 sitepackagesLocations=j.sitepackagesLocations
-__builtin__.print("Your os is:%s"%osname)
+print("Your os is:%s"%osname)
 
 def puts(*argv,**kwargs):
 	j.puts(*argv,**kwargs)

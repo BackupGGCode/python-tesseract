@@ -7,6 +7,9 @@
 #define TESS_API
 #define TESS_LOCAL
 #define LEPT_DLL
+#define CV_EXPORTS
+#define CV_EXPORTS_W
+#define CV_EXPORTS_AS
 #endif
 
 #pragma once
