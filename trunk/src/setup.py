@@ -52,7 +52,9 @@ def cmd(cmdList):
 	return out
 def pkgconfig(*packages, **kw):
 	flag_map = {'-I': 'include_dirs', '-L': 'library_dirs', '-l': 'libraries'}
-	for token in cmd("pkg-config --libs --cflags %s" % ' '.join(packages)).split():
+	ret=cmd("pkg-config --libs --cflags %s" % ' '.join(packages))
+	print("ret",ret)
+	for token in ret.split():
 		if token[:2] in flag_map:
 			kw.setdefault(flag_map.get(token[:2]), []).append(token[2:])
 		else: # throw others to extra_link_args
@@ -269,13 +271,13 @@ class GenVariablesLinux:
 			writeIncludeLines(self.fp_main_h,cvIncludeLines)
 			hasOpenCV = 1
 
-		if self.inclpath("opencv/cv.h") :
-			print("@"*200)
-			self.idefine(self.fp_config_h,"opencv")
-			self.fp_config_h.write("#include <opencv/cv.h>\n")
-			self.clang_incls.append('opencv')
-			writeIncludeLines(self.fp_main_h,cvIncludeLines)
-			hasOpenCV = 1
+		#if self.inclpath("opencv/cv.h") :
+			#print("@"*200)
+			#self.idefine(self.fp_config_h,"opencv")
+			#self.fp_config_h.write("#include <opencv/cv.h>\n")
+			#self.clang_incls.append('opencv')
+			#writeIncludeLines(self.fp_main_h,cvIncludeLines)
+			#hasOpenCV = 1
 		if hasOpenCV:
 			print("*"*200)
 		return hasOpenCV
@@ -290,12 +292,18 @@ class GenVariablesLinux:
 			print(cv_pc)
 			print(cv_pc_keys)
 			if 'libraries' in cv_pc_keys:
-				self.libraries= self.libraries + cv_pc['libraries']
+				for item in cv_pc['libraries']:
+					print(item)
+					self.libraries.append(item) 
 			elif 'extra_link_args' in cv_pc_keys:
 				for item in cv_pc['extra_link_args']:
-					libname="open"+item.split("libopen")[1].split(".")[0]
+					print ("Item=",item)
+					subItems=item.decode('utf-8').split("open")
+					print (subItems)
+					libname="open"+subItems[1].split(".")[0]
 					print("add lib: %s"%libname)
-					self.libraries.append(libname)
+					if libname!="opencv":
+						self.libraries.append(libname)
 		else:
 			print("No pkg-config support!")
 			#if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
@@ -560,8 +568,6 @@ r"""
 			description = description,
 			ext_modules = [tesseract_module],
 			py_modules = ["tesseract"],
-			license="LGPL/MIT",
-			keywords=['tesseract', 'ocr' ],
 			cmdclass={
 			'clean': CleanCommand,
 			'uninstall' : UninstallCommand
@@ -570,9 +576,22 @@ r"""
 				find_packages(
 					#exclude=['distribute_setup']
 				),
-				data_files=data_files
+				data_files=data_files,
 			#	 data_files=[('.',['test.py','eurotext.tif','eurotext.jpg']),],
 			#data_files=data_files
+			license='MIT',
+			keywords='geocode geocoding gis geographical maps earth distance',
+			classifiers=["Development Status :: 5 - Production/Stable",
+				"Intended Audience :: Developers",
+				"Intended Audience :: Science/Research",
+				"License :: OSI Approved :: MIT License",
+				"Operating System :: OS Independent",
+				"Programming Language :: Python",
+				"Topic :: Scientific/Engineering :: GIS",
+				"Topic :: Software Development :: Libraries :: Python Modules",
+				"Programming Language :: Python :: 2",
+				"Programming Language :: Python :: 3",
+				]
 		   )
 
 

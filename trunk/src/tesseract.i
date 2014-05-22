@@ -15,7 +15,7 @@
 #include "publictypes.h"
 //#include "thresholder.h"
 //#include "capi.h"
-#include pageiterator.h
+//#include pageiterator.h
 #include "ltrresultiterator.h"
 //#include "resultiterator.h"
 #include "baseapi.h"
