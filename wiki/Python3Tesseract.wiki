@@ -1,0 +1,78 @@
+#Beta Testing of Python3-Tesseract
+
+= Python3-Tesseract =
+
+Although python3-opencv is not ready, I still decide to go ahead to prepare python3-tesseract.
+
+Below is the download link
+{{{
+[https://bitbucket.org/3togo/python-tesseract/downloads/python3-tesseract_0.9-0.2ubuntu7_amd64.deb python3-tesseract_0.9-0.2ubuntu7_amd64.deb]
+}}}
+
+Test1 
+{{{
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#from __future__ import print_function
+import tesseract
+import os
+import gc
+import pprint
+
+api = tesseract.TessBaseAPI()
+api.SetOutputName("outputName");
+#api.Init(".","eng")
+api.Init(".","eng",tesseract.OEM_DEFAULT)
+api.SetPageSegMode(tesseract.PSM_AUTO)
+mImgFile = "eurotext.jpg"
+
+print("Test ProcessPagesWrapper")
+result = tesseract.ProcessPagesWrapper(mImgFile,api)
+print("result(ProcessPagesWrapper)=",result)
+
+print("Test ProcessPagesFileStream")
+result = tesseract.ProcessPagesFileStream(mImgFile,api)
+print("result(ProcessPagesFileStream)=",result)
+
+print("Test ProcessPagesRaw")
+result = tesseract.ProcessPagesRaw(mImgFile,api)
+print("result(ProcessPagesRaw)",result)
+
+for r in gc.get_referents(api):
+    pprint.pprint(r)
+n = gc.collect()
+print('Unreachable objects:', n)
+print('Remaining Garbage:')
+pprint.pprint(gc.garbage)
+print()
+api.End()
+
+}}}
+
+Test 2
+{{{
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#from __future__ import print_function
+import tesseract
+import gc
+import pprint
+
+api = tesseract.TessBaseAPI()
+api.SetOutputName("outputName");
+#api.Init(".","eng")
+api.Init(".","eng",tesseract.OEM_DEFAULT)
+api.SetPageSegMode(tesseract.PSM_AUTO)
+mImgFile = "eurotext.jpg"
+
+print("Method 1: Leptonica->pixRead")
+pixImage=tesseract.pixRead(mImgFile)
+print("Type of pixiamge=",type(pixImage))
+print("repr(pixiamge)=",repr(pixImage))
+api.SetImage(pixImage)
+outText=api.GetUTF8Text()
+print(("OCR output:\n%s"%outText));
+api.End()
+outText=None
+tesseract.pixDestroy(pixImage)
+}}}
