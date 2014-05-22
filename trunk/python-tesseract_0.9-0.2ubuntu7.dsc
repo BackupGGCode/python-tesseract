@@ -1,4 +1,4 @@
-Format: 3.0 (quilt)
+Format: 1.0
 Source: python-tesseract
 Binary: python-tesseract, python3-tesseract
 Architecture: amd64
@@ -12,10 +12,10 @@ Package-List:
  python3-tesseract deb python optional
 Checksums-Sha1: 
  047904e71ddca7b376379acb0236653ddcddded5 19856386 python-tesseract_0.9.orig.tar.gz
- 5058b002ec521804d754e550b501d761310487e5 3833 python-tesseract_0.9-0.2ubuntu7.debian.tar.gz
+ ce5615aeaffa257c3602603edb63ba1a28834aeb 3536 python-tesseract_0.9-0.2ubuntu7.diff.gz
 Checksums-Sha256: 
  5456c3047dc4dd448342a64d5ad271ecd94f937b880baf6a1a54e4450ec5bd59 19856386 python-tesseract_0.9.orig.tar.gz
- 9918a0aa57b6d688f3d34ea8ff0e1ae144cbef14e21ed07262979c8a159fa615 3833 python-tesseract_0.9-0.2ubuntu7.debian.tar.gz
+ 4965aa93b7d8294b65cc052f34b7bfe52bd2ae3eb22d24ee1995a5e929a578a9 3536 python-tesseract_0.9-0.2ubuntu7.diff.gz
 Files: 
  866f33fa6daaf45052992c0024ea47b1 19856386 python-tesseract_0.9.orig.tar.gz
- 1ac062e7d4bbed7e7c683edf2c55792f 3833 python-tesseract_0.9-0.2ubuntu7.debian.tar.gz
+ 116b5e60f12d66b0e2f6462e4ce0527e 3536 python-tesseract_0.9-0.2ubuntu7.diff.gz

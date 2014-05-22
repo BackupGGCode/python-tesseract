@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 #from __future__ import print_function
 import tesseract
-import ctypes
 import os
 import gc
 import pprint
@@ -47,7 +46,7 @@ for r in gc.get_referents(api):
     pprint.pprint(r)
 n = gc.collect()
 print('Unreachable objects:', n)
-print('Remaining Garbage:', end=' ')
+print('Remaining Garbage:')
 pprint.pprint(gc.garbage)
 print()
 api.End()

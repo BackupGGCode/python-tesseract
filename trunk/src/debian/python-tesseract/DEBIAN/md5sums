@@ -2,6 +2,7 @@
 f1103186f1b32960dba9523c8ee3d601  usr/lib/python2.7/dist-packages/python_tesseract-0.9.egg-info/PKG-INFO
 68b329da9893e34099c7d8ad5cb9c940  usr/lib/python2.7/dist-packages/python_tesseract-0.9.egg-info/dependency_links.txt
 fe2b77c11ed15fcebebb09b40e5bd606  usr/lib/python2.7/dist-packages/python_tesseract-0.9.egg-info/top_level.txt
+e2a22fa0deb227b7952c40addfbcb0e0  usr/lib/python2.7/dist-packages/tesseract.py
 281ea68a37d3288596673f027d03cce3  usr/share/doc/python-tesseract/changelog.Debian.gz
 4a4dd3598707603b3f76a2378a4504aa  usr/share/doc/python-tesseract/changelog.gz
 b3855b821953917992b33fbf042023a4  usr/share/doc/python-tesseract/copyright

@@ -57,24 +57,24 @@ mincl='/usr/include/opencv2'
 running clean
 /home/eli/svn/python-tesseract/src
 remove Dirs
-rm -rf /home/eli/svn/python-tesseract/src/python_tesseract.egg-info
 remove Files
 rm -rf /home/eli/svn/python-tesseract/src/main.h
 rm -rf /home/eli/svn/python-tesseract/src/config.h
-rm -rf /home/eli/svn/python-tesseract/src/tesseract.py
-rm -rf /home/eli/svn/python-tesseract/src/tesseract_wrap.cpp
 rm -rf /home/eli/svn/python-tesseract/src/jfunc.pyc
 [my_clean]Done
 Cleaning is done
 make[1]: Leaving directory `/home/eli/svn/python-tesseract/src'
    dh_clean
  dpkg-source -b src
+dpkg-source: warning: no source format specified in debian/source/format, see dpkg-source(1)
 dpkg-source: warning: Version number suggests Ubuntu changes, but Maintainer: does not have Ubuntu address
 dpkg-source: warning: Version number suggests Ubuntu changes, but there is no XSBC-Original-Maintainer field
-dpkg-source: info: using source format `3.0 (quilt)'
-dpkg-source: info: building python-tesseract using existing ./python-tesseract_0.9.orig.tar.gz
+dpkg-source: warning: source directory 'src' is not <sourcepackage>-<upstreamversion> 'python-tesseract-0.9'
+dpkg-source: warning: .orig directory name src.orig is not <package>-<upstreamversion> (wanted python-tesseract-0.9.orig)
+dpkg-source: info: using source format `1.0'
+dpkg-source: info: building python-tesseract using existing python-tesseract_0.9.orig.tar.gz
+dpkg-source: info: building python-tesseract in python-tesseract_0.9-0.2ubuntu7.diff.gz
 dpkg-source: warning: ignoring deletion of file configure.scan
-dpkg-source: warning: ignoring deletion of file control.old
 dpkg-source: warning: ignoring deletion of file configure.in
 dpkg-source: warning: ignoring deletion of file config.guess
 dpkg-source: warning: ignoring deletion of file config.py
@@ -83,7 +83,52 @@ dpkg-source: warning: ignoring deletion of file control
 dpkg-source: warning: ignoring deletion of file config.sub
 dpkg-source: warning: ignoring deletion of file config.h.in
 dpkg-source: warning: ignoring deletion of file config.status
-dpkg-source: info: building python-tesseract in python-tesseract_0.9-0.2ubuntu7.debian.tar.gz
+dpkg-source: warning: ignoring deletion of file debian/control.in
+dpkg-source: warning: ignoring deletion of directory debian/python3-tesseract
+dpkg-source: warning: ignoring deletion of directory debian/python3-tesseract/usr
+dpkg-source: warning: ignoring deletion of directory debian/python3-tesseract/usr/lib
+dpkg-source: warning: ignoring deletion of directory debian/python3-tesseract/usr/lib/python3
+dpkg-source: warning: ignoring deletion of directory debian/python3-tesseract/usr/lib/python3/dist-packages
+dpkg-source: warning: ignoring deletion of file debian/python3-tesseract/usr/lib/python3/dist-packages/_tesseract.cpython-34m-x86_64-linux-gnu.so
+dpkg-source: warning: ignoring deletion of file debian/python3-tesseract/usr/lib/python3/dist-packages/tesseract.py
+dpkg-source: warning: ignoring deletion of directory debian/python3-tesseract/usr/lib/python3/dist-packages/__pycache__
+dpkg-source: warning: ignoring deletion of directory debian/python3-tesseract/usr/lib/python3/dist-packages/python_tesseract-0.9.egg-info
+dpkg-source: warning: ignoring deletion of file debian/python3-tesseract/usr/lib/python3/dist-packages/python_tesseract-0.9.egg-info/top_level.txt
+dpkg-source: warning: ignoring deletion of file debian/python3-tesseract/usr/lib/python3/dist-packages/python_tesseract-0.9.egg-info/SOURCES.txt
+dpkg-source: warning: ignoring deletion of file debian/python3-tesseract/usr/lib/python3/dist-packages/python_tesseract-0.9.egg-info/PKG-INFO
+dpkg-source: warning: ignoring deletion of file debian/python3-tesseract/usr/lib/python3/dist-packages/python_tesseract-0.9.egg-info/dependency_links.txt
+dpkg-source: warning: executable mode 0744 of '.pc/.quilt_patches' will not be represented in diff
+dpkg-source: warning: executable mode 0744 of '.pc/.quilt_series' will not be represented in diff
+dpkg-source: warning: executable mode 0744 of '.pc/.version' will not be represented in diff
+dpkg-source: warning: executable mode 0744 of '.pc/applied-patches' will not be represented in diff
+dpkg-source: warning: newly created empty file '.pc/c/control.old' will not be represented in diff
+dpkg-source: warning: newly created empty file '.pc/c/debianPatches_old/control' will not be represented in diff
+dpkg-source: warning: newly created empty file '.pc/c/debianPatches_old/control.in' will not be represented in diff
+dpkg-source: warning: newly created empty file '.pc/c/debianPatches_old/copyright' will not be represented in diff
+dpkg-source: warning: newly created empty file '.pc/c/debianPatches_old/rules' will not be represented in diff
+dpkg-source: warning: newly created empty file '.pc/c/debianPatches_old/rules4final' will not be represented in diff
+dpkg-source: warning: executable mode 0755 of 'debian/control.in.old' will not be represented in diff
+dpkg-source: warning: executable mode 0755 of 'debian/patches/c' will not be represented in diff
+dpkg-source: warning: executable mode 0755 of 'debian/patches/series' will not be represented in diff
+dpkg-source: warning: executable mode 0755 of 'debian/source/formatold' will not be represented in diff
+dpkg-source: warning: executable mode 0755 of 'debianPatches_old/control' will not be represented in diff
+dpkg-source: warning: executable mode 0755 of 'debianPatches_old/control.in' will not be represented in diff
+dpkg-source: warning: executable mode 0755 of 'debianPatches_old/copyright' will not be represented in diff
+dpkg-source: warning: executable mode 0755 of 'debianPatches_old/rules' will not be represented in diff
+dpkg-source: warning: executable mode 0755 of 'debianPatches_old/rules4final' will not be represented in diff
+dpkg-source: warning: the diff modifies the following upstream files: 
+ .pc/.quilt_patches
+ .pc/.quilt_series
+ .pc/.version
+ .pc/applied-patches
+ debianPatches_old/control
+ debianPatches_old/control.in
+ debianPatches_old/copyright
+ debianPatches_old/rules
+ debianPatches_old/rules4final
+ setup.py
+ test-slim/test.py
+dpkg-source: info: use the '3.0 (quilt)' format to have separate and documented changes to upstream files, see dpkg-source(1)
 dpkg-source: info: building python-tesseract in python-tesseract_0.9-0.2ubuntu7.dsc
  debian/rules build
 dh build --with python2,python3
@@ -93,6 +138,7 @@ dh build --with python2,python3
 make[1]: Entering directory `/home/eli/svn/python-tesseract/src'
 set -ex; \
 	for python in python2.7 python3.4; do \
+		$python setup.py build; \
 		$python setup.py build; \
 	done
 + python2.7 setup.py build
@@ -154,6 +200,53 @@ x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall
 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -fPIC -I. -I/usr/include/tesseract -I/usr/include/leptonica -I/usr/include/opencv2 -I/usr/include/python2.7 -c main.cpp -o build/temp.linux-x86_64-2.7/main.o -Wall -O0 -funroll-loops -g
 creating build/lib.linux-x86_64-2.7
 c++ -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -D_FORTIFY_SOURCE=2 -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security build/temp.linux-x86_64-2.7/tesseract_wrap.o build/temp.linux-x86_64-2.7/main.o -lstdc++ -ltesseract -llept -lopencv_superres -lopencv_video -lopencv_videostab -lopencv_ml -lopencv_ocl -lopencv_contrib -lopencv_flann -lopencv_calib3d -lopencv_imgproc -lopencv_core -lopencv_legacy -lopencv_stitching -lopencv_features2d -lopencv_photo -lopencv_ts -lopencv_objdetect -lopencv_highgui -lopencv_gpu -o build/lib.linux-x86_64-2.7/_tesseract.so
++ python2.7 setup.py build
+linux
+Your os is:linux
+linux
+Current Version : 0.9
+os=linux
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+********************************************************************************************************************************************************************************************************
+ret -I/usr/include/opencv  /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so /usr/lib/x86_64-linux-gnu/libopencv_contrib.so /usr/lib/x86_64-linux-gnu/libopencv_core.so /usr/lib/x86_64-linux-gnu/libopencv_features2d.so /usr/lib/x86_64-linux-gnu/libopencv_flann.so /usr/lib/x86_64-linux-gnu/libopencv_gpu.so /usr/lib/x86_64-linux-gnu/libopencv_highgui.so /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so /usr/lib/x86_64-linux-gnu/libopencv_legacy.so /usr/lib/x86_64-linux-gnu/libopencv_ml.so /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so /usr/lib/x86_64-linux-gnu/libopencv_ocl.so /usr/lib/x86_64-linux-gnu/libopencv_photo.so /usr/lib/x86_64-linux-gnu/libopencv_stitching.so /usr/lib/x86_64-linux-gnu/libopencv_superres.so /usr/lib/x86_64-linux-gnu/libopencv_ts.so /usr/lib/x86_64-linux-gnu/libopencv_video.so /usr/lib/x86_64-linux-gnu/libopencv_videostab.so -lopencv_calib3d -lopencv_contrib -lopencv_core -lopencv_features2d -lopencv_flann -lopencv_gpu -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_objdetect -lopencv_ocl -lopencv_photo -lopencv_stitching -lopencv_superres -lopencv_ts -lopencv_video -lopencv_videostab  
+
+~~~cv_pc~~~
+{'extra_link_args': ['/usr/lib/x86_64-linux-gnu/libopencv_highgui.so', '/usr/lib/x86_64-linux-gnu/libopencv_gpu.so', '/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so', '/usr/lib/x86_64-linux-gnu/libopencv_stitching.so', '/usr/lib/x86_64-linux-gnu/libopencv_features2d.so', '/usr/lib/x86_64-linux-gnu/libopencv_legacy.so', '/usr/lib/x86_64-linux-gnu/libopencv_contrib.so', '/usr/lib/x86_64-linux-gnu/libopencv_videostab.so', '/usr/lib/x86_64-linux-gnu/libopencv_ts.so', '/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so', '/usr/lib/x86_64-linux-gnu/libopencv_flann.so', '/usr/lib/x86_64-linux-gnu/libopencv_superres.so', '/usr/lib/x86_64-linux-gnu/libopencv_video.so', '/usr/lib/x86_64-linux-gnu/libopencv_ml.so', '/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so', '/usr/lib/x86_64-linux-gnu/libopencv_photo.so', '/usr/lib/x86_64-linux-gnu/libopencv_core.so', '/usr/lib/x86_64-linux-gnu/libopencv_ocl.so'], 'libraries': ['opencv_superres', 'opencv_video', 'opencv_videostab', 'opencv_ml', 'opencv_ocl', 'opencv_contrib', 'opencv_flann', 'opencv_calib3d', 'opencv_imgproc', 'opencv_core', 'opencv_legacy', 'opencv_stitching', 'opencv_features2d', 'opencv_photo', 'opencv_ts', 'opencv_objdetect', 'opencv_highgui', 'opencv_gpu'], 'include_dirs': ['/usr/include/opencv']}
+['extra_link_args', 'libraries', 'include_dirs']
+opencv_superres
+opencv_video
+opencv_videostab
+opencv_ml
+opencv_ocl
+opencv_contrib
+opencv_flann
+opencv_calib3d
+opencv_imgproc
+opencv_core
+opencv_legacy
+opencv_stitching
+opencv_features2d
+opencv_photo
+opencv_ts
+opencv_objdetect
+opencv_highgui
+opencv_gpu
+===========['stdc++', 'tesseract', 'lept', 'opencv_superres', 'opencv_video', 'opencv_videostab', 'opencv_ml', 'opencv_ocl', 'opencv_contrib', 'opencv_flann', 'opencv_calib3d', 'opencv_imgproc', 'opencv_core', 'opencv_legacy', 'opencv_stitching', 'opencv_features2d', 'opencv_photo', 'opencv_ts', 'opencv_objdetect', 'opencv_highgui', 'opencv_gpu']===========
+['.']
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+mincl='/usr/include/tesseract'
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+mincl='/usr/include/leptonica'
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+mincl='/usr/include/opencv2'
+
+running build
+running build_py
+copying tesseract.py -> build/lib.linux-x86_64-2.7
+running build_ext
 + python3.4 setup.py build
 linux
 Your os is:linux
@@ -165,120 +258,120 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 ********************************************************************************************************************************************************************************************************
 ret b'-I/usr/include/opencv  /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so /usr/lib/x86_64-linux-gnu/libopencv_contrib.so /usr/lib/x86_64-linux-gnu/libopencv_core.so /usr/lib/x86_64-linux-gnu/libopencv_features2d.so /usr/lib/x86_64-linux-gnu/libopencv_flann.so /usr/lib/x86_64-linux-gnu/libopencv_gpu.so /usr/lib/x86_64-linux-gnu/libopencv_highgui.so /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so /usr/lib/x86_64-linux-gnu/libopencv_legacy.so /usr/lib/x86_64-linux-gnu/libopencv_ml.so /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so /usr/lib/x86_64-linux-gnu/libopencv_ocl.so /usr/lib/x86_64-linux-gnu/libopencv_photo.so /usr/lib/x86_64-linux-gnu/libopencv_stitching.so /usr/lib/x86_64-linux-gnu/libopencv_superres.so /usr/lib/x86_64-linux-gnu/libopencv_ts.so /usr/lib/x86_64-linux-gnu/libopencv_video.so /usr/lib/x86_64-linux-gnu/libopencv_videostab.so -lopencv_calib3d -lopencv_contrib -lopencv_core -lopencv_features2d -lopencv_flann -lopencv_gpu -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_objdetect -lopencv_ocl -lopencv_photo -lopencv_stitching -lopencv_superres -lopencv_ts -lopencv_video -lopencv_videostab  \n'
 ~~~cv_pc~~~
-{'extra_link_args': [b'-lopencv_contrib', b'/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so', b'/usr/lib/x86_64-linux-gnu/libopencv_flann.so', b'/usr/lib/x86_64-linux-gnu/libopencv_stitching.so', b'-lopencv_stitching', b'-lopencv_features2d', b'/usr/lib/x86_64-linux-gnu/libopencv_features2d.so', b'/usr/lib/x86_64-linux-gnu/libopencv_core.so', b'/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so', b'/usr/lib/x86_64-linux-gnu/libopencv_ocl.so', b'-lopencv_highgui', b'/usr/lib/x86_64-linux-gnu/libopencv_highgui.so', b'-lopencv_gpu', b'-lopencv_ts', b'-lopencv_calib3d', b'/usr/lib/x86_64-linux-gnu/libopencv_superres.so', b'-lopencv_objdetect', b'/usr/lib/x86_64-linux-gnu/libopencv_gpu.so', b'-lopencv_ocl', b'-lopencv_core', b'/usr/lib/x86_64-linux-gnu/libopencv_video.so', b'-lopencv_photo', b'-lopencv_flann', b'/usr/lib/x86_64-linux-gnu/libopencv_videostab.so', b'-lopencv_imgproc', b'/usr/lib/x86_64-linux-gnu/libopencv_legacy.so', b'/usr/lib/x86_64-linux-gnu/libopencv_ts.so', b'-lopencv_superres', b'/usr/lib/x86_64-linux-gnu/libopencv_ml.so', b'-lopencv_video', b'/usr/lib/x86_64-linux-gnu/libopencv_contrib.so', b'-lopencv_ml', b'/usr/lib/x86_64-linux-gnu/libopencv_photo.so', b'-lopencv_videostab', b'-I/usr/include/opencv', b'/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so', b'-lopencv_legacy']}
+{'extra_link_args': [b'-lopencv_videostab', b'-lopencv_contrib', b'/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so', b'/usr/lib/x86_64-linux-gnu/libopencv_contrib.so', b'-I/usr/include/opencv', b'-lopencv_video', b'/usr/lib/x86_64-linux-gnu/libopencv_video.so', b'-lopencv_ts', b'-lopencv_superres', b'-lopencv_legacy', b'-lopencv_stitching', b'/usr/lib/x86_64-linux-gnu/libopencv_stitching.so', b'-lopencv_objdetect', b'/usr/lib/x86_64-linux-gnu/libopencv_legacy.so', b'-lopencv_gpu', b'/usr/lib/x86_64-linux-gnu/libopencv_gpu.so', b'/usr/lib/x86_64-linux-gnu/libopencv_ml.so', b'-lopencv_highgui', b'-lopencv_imgproc', b'/usr/lib/x86_64-linux-gnu/libopencv_videostab.so', b'/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so', b'-lopencv_calib3d', b'/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so', b'/usr/lib/x86_64-linux-gnu/libopencv_flann.so', b'/usr/lib/x86_64-linux-gnu/libopencv_superres.so', b'-lopencv_features2d', b'-lopencv_photo', b'/usr/lib/x86_64-linux-gnu/libopencv_ocl.so', b'-lopencv_ml', b'/usr/lib/x86_64-linux-gnu/libopencv_photo.so', b'-lopencv_ocl', b'/usr/lib/x86_64-linux-gnu/libopencv_core.so', b'/usr/lib/x86_64-linux-gnu/libopencv_features2d.so', b'/usr/lib/x86_64-linux-gnu/libopencv_highgui.so', b'/usr/lib/x86_64-linux-gnu/libopencv_ts.so', b'-lopencv_core', b'-lopencv_flann']}
 ['extra_link_args']
+Item= b'-lopencv_videostab'
+['-l', 'cv_videostab']
+add lib: opencv_videostab
 Item= b'-lopencv_contrib'
 ['-l', 'cv_contrib']
 add lib: opencv_contrib
 Item= b'/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so'
 ['/usr/lib/x86_64-linux-gnu/lib', 'cv_imgproc.so']
 add lib: opencv_imgproc
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_flann.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_flann.so']
-add lib: opencv_flann
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_stitching.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_stitching.so']
-add lib: opencv_stitching
-Item= b'-lopencv_stitching'
-['-l', 'cv_stitching']
-add lib: opencv_stitching
-Item= b'-lopencv_features2d'
-['-l', 'cv_features2d']
-add lib: opencv_features2d
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_features2d.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_features2d.so']
-add lib: opencv_features2d
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_core.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_core.so']
-add lib: opencv_core
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_objdetect.so']
-add lib: opencv_objdetect
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ocl.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_ocl.so']
-add lib: opencv_ocl
-Item= b'-lopencv_highgui'
-['-l', 'cv_highgui']
-add lib: opencv_highgui
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_highgui.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_highgui.so']
-add lib: opencv_highgui
-Item= b'-lopencv_gpu'
-['-l', 'cv_gpu']
-add lib: opencv_gpu
-Item= b'-lopencv_ts'
-['-l', 'cv_ts']
-add lib: opencv_ts
-Item= b'-lopencv_calib3d'
-['-l', 'cv_calib3d']
-add lib: opencv_calib3d
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_superres.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_superres.so']
-add lib: opencv_superres
-Item= b'-lopencv_objdetect'
-['-l', 'cv_objdetect']
-add lib: opencv_objdetect
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_gpu.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_gpu.so']
-add lib: opencv_gpu
-Item= b'-lopencv_ocl'
-['-l', 'cv_ocl']
-add lib: opencv_ocl
-Item= b'-lopencv_core'
-['-l', 'cv_core']
-add lib: opencv_core
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_contrib.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_contrib.so']
+add lib: opencv_contrib
+Item= b'-I/usr/include/opencv'
+['-I/usr/include/', 'cv']
+add lib: opencv
+Item= b'-lopencv_video'
+['-l', 'cv_video']
+add lib: opencv_video
 Item= b'/usr/lib/x86_64-linux-gnu/libopencv_video.so'
 ['/usr/lib/x86_64-linux-gnu/lib', 'cv_video.so']
 add lib: opencv_video
-Item= b'-lopencv_photo'
-['-l', 'cv_photo']
-add lib: opencv_photo
-Item= b'-lopencv_flann'
-['-l', 'cv_flann']
-add lib: opencv_flann
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_videostab.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_videostab.so']
-add lib: opencv_videostab
-Item= b'-lopencv_imgproc'
-['-l', 'cv_imgproc']
-add lib: opencv_imgproc
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_legacy.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_legacy.so']
-add lib: opencv_legacy
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ts.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_ts.so']
+Item= b'-lopencv_ts'
+['-l', 'cv_ts']
 add lib: opencv_ts
 Item= b'-lopencv_superres'
 ['-l', 'cv_superres']
 add lib: opencv_superres
+Item= b'-lopencv_legacy'
+['-l', 'cv_legacy']
+add lib: opencv_legacy
+Item= b'-lopencv_stitching'
+['-l', 'cv_stitching']
+add lib: opencv_stitching
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_stitching.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_stitching.so']
+add lib: opencv_stitching
+Item= b'-lopencv_objdetect'
+['-l', 'cv_objdetect']
+add lib: opencv_objdetect
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_legacy.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_legacy.so']
+add lib: opencv_legacy
+Item= b'-lopencv_gpu'
+['-l', 'cv_gpu']
+add lib: opencv_gpu
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_gpu.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_gpu.so']
+add lib: opencv_gpu
 Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ml.so'
 ['/usr/lib/x86_64-linux-gnu/lib', 'cv_ml.so']
 add lib: opencv_ml
-Item= b'-lopencv_video'
-['-l', 'cv_video']
-add lib: opencv_video
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_contrib.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_contrib.so']
-add lib: opencv_contrib
+Item= b'-lopencv_highgui'
+['-l', 'cv_highgui']
+add lib: opencv_highgui
+Item= b'-lopencv_imgproc'
+['-l', 'cv_imgproc']
+add lib: opencv_imgproc
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_videostab.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_videostab.so']
+add lib: opencv_videostab
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_objdetect.so']
+add lib: opencv_objdetect
+Item= b'-lopencv_calib3d'
+['-l', 'cv_calib3d']
+add lib: opencv_calib3d
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_calib3d.so']
+add lib: opencv_calib3d
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_flann.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_flann.so']
+add lib: opencv_flann
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_superres.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_superres.so']
+add lib: opencv_superres
+Item= b'-lopencv_features2d'
+['-l', 'cv_features2d']
+add lib: opencv_features2d
+Item= b'-lopencv_photo'
+['-l', 'cv_photo']
+add lib: opencv_photo
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ocl.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_ocl.so']
+add lib: opencv_ocl
 Item= b'-lopencv_ml'
 ['-l', 'cv_ml']
 add lib: opencv_ml
 Item= b'/usr/lib/x86_64-linux-gnu/libopencv_photo.so'
 ['/usr/lib/x86_64-linux-gnu/lib', 'cv_photo.so']
 add lib: opencv_photo
-Item= b'-lopencv_videostab'
-['-l', 'cv_videostab']
-add lib: opencv_videostab
-Item= b'-I/usr/include/opencv'
-['-I/usr/include/', 'cv']
-add lib: opencv
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_calib3d.so']
-add lib: opencv_calib3d
-Item= b'-lopencv_legacy'
-['-l', 'cv_legacy']
-add lib: opencv_legacy
-===========['stdc++', 'tesseract', 'lept', 'opencv_contrib', 'opencv_imgproc', 'opencv_flann', 'opencv_stitching', 'opencv_stitching', 'opencv_features2d', 'opencv_features2d', 'opencv_core', 'opencv_objdetect', 'opencv_ocl', 'opencv_highgui', 'opencv_highgui', 'opencv_gpu', 'opencv_ts', 'opencv_calib3d', 'opencv_superres', 'opencv_objdetect', 'opencv_gpu', 'opencv_ocl', 'opencv_core', 'opencv_video', 'opencv_photo', 'opencv_flann', 'opencv_videostab', 'opencv_imgproc', 'opencv_legacy', 'opencv_ts', 'opencv_superres', 'opencv_ml', 'opencv_video', 'opencv_contrib', 'opencv_ml', 'opencv_photo', 'opencv_videostab', 'opencv_calib3d', 'opencv_legacy']===========
+Item= b'-lopencv_ocl'
+['-l', 'cv_ocl']
+add lib: opencv_ocl
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_core.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_core.so']
+add lib: opencv_core
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_features2d.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_features2d.so']
+add lib: opencv_features2d
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_highgui.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_highgui.so']
+add lib: opencv_highgui
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ts.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_ts.so']
+add lib: opencv_ts
+Item= b'-lopencv_core'
+['-l', 'cv_core']
+add lib: opencv_core
+Item= b'-lopencv_flann'
+['-l', 'cv_flann']
+add lib: opencv_flann
+===========['stdc++', 'tesseract', 'lept', 'opencv_videostab', 'opencv_contrib', 'opencv_imgproc', 'opencv_contrib', 'opencv_video', 'opencv_video', 'opencv_ts', 'opencv_superres', 'opencv_legacy', 'opencv_stitching', 'opencv_stitching', 'opencv_objdetect', 'opencv_legacy', 'opencv_gpu', 'opencv_gpu', 'opencv_ml', 'opencv_highgui', 'opencv_imgproc', 'opencv_videostab', 'opencv_objdetect', 'opencv_calib3d', 'opencv_calib3d', 'opencv_flann', 'opencv_superres', 'opencv_features2d', 'opencv_photo', 'opencv_ocl', 'opencv_ml', 'opencv_photo', 'opencv_ocl', 'opencv_core', 'opencv_features2d', 'opencv_highgui', 'opencv_ts', 'opencv_core', 'opencv_flann']===========
 ['.']
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 mincl='/usr/include/tesseract'
@@ -304,7 +397,148 @@ x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes 
 cc1plus: warning: command line option ‘-Wstrict-prototypes’ is valid for C/ObjC but not for C++ [enabled by default]
 x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -fPIC -I. -I/usr/include/tesseract -I/usr/include/leptonica -I/usr/include/opencv2 -I/usr/include/python3.4m -c main.cpp -o build/temp.linux-x86_64-3.4/main.o -Wall -O0 -funroll-loops -g
 cc1plus: warning: command line option ‘-Wstrict-prototypes’ is valid for C/ObjC but not for C++ [enabled by default]
-x86_64-linux-gnu-g++ -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.4/tesseract_wrap.o build/temp.linux-x86_64-3.4/main.o -lstdc++ -ltesseract -llept -lopencv_contrib -lopencv_imgproc -lopencv_flann -lopencv_stitching -lopencv_stitching -lopencv_features2d -lopencv_features2d -lopencv_core -lopencv_objdetect -lopencv_ocl -lopencv_highgui -lopencv_highgui -lopencv_gpu -lopencv_ts -lopencv_calib3d -lopencv_superres -lopencv_objdetect -lopencv_gpu -lopencv_ocl -lopencv_core -lopencv_video -lopencv_photo -lopencv_flann -lopencv_videostab -lopencv_imgproc -lopencv_legacy -lopencv_ts -lopencv_superres -lopencv_ml -lopencv_video -lopencv_contrib -lopencv_ml -lopencv_photo -lopencv_videostab -lopencv_calib3d -lopencv_legacy -o build/lib.linux-x86_64-3.4/_tesseract.cpython-34m.so
+x86_64-linux-gnu-g++ -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.4/tesseract_wrap.o build/temp.linux-x86_64-3.4/main.o -lstdc++ -ltesseract -llept -lopencv_videostab -lopencv_contrib -lopencv_imgproc -lopencv_contrib -lopencv_video -lopencv_video -lopencv_ts -lopencv_superres -lopencv_legacy -lopencv_stitching -lopencv_stitching -lopencv_objdetect -lopencv_legacy -lopencv_gpu -lopencv_gpu -lopencv_ml -lopencv_highgui -lopencv_imgproc -lopencv_videostab -lopencv_objdetect -lopencv_calib3d -lopencv_calib3d -lopencv_flann -lopencv_superres -lopencv_features2d -lopencv_photo -lopencv_ocl -lopencv_ml -lopencv_photo -lopencv_ocl -lopencv_core -lopencv_features2d -lopencv_highgui -lopencv_ts -lopencv_core -lopencv_flann -o build/lib.linux-x86_64-3.4/_tesseract.cpython-34m.so
+/usr/lib/python3.4/imp.py:32: PendingDeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  PendingDeprecationWarning)
++ python3.4 setup.py build
+linux
+Your os is:linux
+linux
+Current Version : 0.9
+os=linux
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+********************************************************************************************************************************************************************************************************
+ret b'-I/usr/include/opencv  /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so /usr/lib/x86_64-linux-gnu/libopencv_contrib.so /usr/lib/x86_64-linux-gnu/libopencv_core.so /usr/lib/x86_64-linux-gnu/libopencv_features2d.so /usr/lib/x86_64-linux-gnu/libopencv_flann.so /usr/lib/x86_64-linux-gnu/libopencv_gpu.so /usr/lib/x86_64-linux-gnu/libopencv_highgui.so /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so /usr/lib/x86_64-linux-gnu/libopencv_legacy.so /usr/lib/x86_64-linux-gnu/libopencv_ml.so /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so /usr/lib/x86_64-linux-gnu/libopencv_ocl.so /usr/lib/x86_64-linux-gnu/libopencv_photo.so /usr/lib/x86_64-linux-gnu/libopencv_stitching.so /usr/lib/x86_64-linux-gnu/libopencv_superres.so /usr/lib/x86_64-linux-gnu/libopencv_ts.so /usr/lib/x86_64-linux-gnu/libopencv_video.so /usr/lib/x86_64-linux-gnu/libopencv_videostab.so -lopencv_calib3d -lopencv_contrib -lopencv_core -lopencv_features2d -lopencv_flann -lopencv_gpu -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_objdetect -lopencv_ocl -lopencv_photo -lopencv_stitching -lopencv_superres -lopencv_ts -lopencv_video -lopencv_videostab  \n'
+~~~cv_pc~~~
+{'extra_link_args': [b'/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so', b'/usr/lib/x86_64-linux-gnu/libopencv_features2d.so', b'/usr/lib/x86_64-linux-gnu/libopencv_ml.so', b'-I/usr/include/opencv', b'-lopencv_contrib', b'-lopencv_legacy', b'-lopencv_video', b'-lopencv_ocl', b'-lopencv_objdetect', b'/usr/lib/x86_64-linux-gnu/libopencv_legacy.so', b'-lopencv_ml', b'/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so', b'-lopencv_gpu', b'/usr/lib/x86_64-linux-gnu/libopencv_core.so', b'-lopencv_photo', b'/usr/lib/x86_64-linux-gnu/libopencv_gpu.so', b'-lopencv_highgui', b'/usr/lib/x86_64-linux-gnu/libopencv_highgui.so', b'/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so', b'-lopencv_stitching', b'-lopencv_videostab', b'/usr/lib/x86_64-linux-gnu/libopencv_superres.so', b'-lopencv_superres', b'/usr/lib/x86_64-linux-gnu/libopencv_photo.so', b'/usr/lib/x86_64-linux-gnu/libopencv_ocl.so', b'/usr/lib/x86_64-linux-gnu/libopencv_stitching.so', b'/usr/lib/x86_64-linux-gnu/libopencv_ts.so', b'-lopencv_features2d', b'/usr/lib/x86_64-linux-gnu/libopencv_contrib.so', b'/usr/lib/x86_64-linux-gnu/libopencv_flann.so', b'-lopencv_calib3d', b'-lopencv_imgproc', b'-lopencv_ts', b'/usr/lib/x86_64-linux-gnu/libopencv_video.so', b'-lopencv_core', b'/usr/lib/x86_64-linux-gnu/libopencv_videostab.so', b'-lopencv_flann']}
+['extra_link_args']
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_calib3d.so']
+add lib: opencv_calib3d
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_features2d.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_features2d.so']
+add lib: opencv_features2d
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ml.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_ml.so']
+add lib: opencv_ml
+Item= b'-I/usr/include/opencv'
+['-I/usr/include/', 'cv']
+add lib: opencv
+Item= b'-lopencv_contrib'
+['-l', 'cv_contrib']
+add lib: opencv_contrib
+Item= b'-lopencv_legacy'
+['-l', 'cv_legacy']
+add lib: opencv_legacy
+Item= b'-lopencv_video'
+['-l', 'cv_video']
+add lib: opencv_video
+Item= b'-lopencv_ocl'
+['-l', 'cv_ocl']
+add lib: opencv_ocl
+Item= b'-lopencv_objdetect'
+['-l', 'cv_objdetect']
+add lib: opencv_objdetect
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_legacy.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_legacy.so']
+add lib: opencv_legacy
+Item= b'-lopencv_ml'
+['-l', 'cv_ml']
+add lib: opencv_ml
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_objdetect.so']
+add lib: opencv_objdetect
+Item= b'-lopencv_gpu'
+['-l', 'cv_gpu']
+add lib: opencv_gpu
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_core.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_core.so']
+add lib: opencv_core
+Item= b'-lopencv_photo'
+['-l', 'cv_photo']
+add lib: opencv_photo
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_gpu.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_gpu.so']
+add lib: opencv_gpu
+Item= b'-lopencv_highgui'
+['-l', 'cv_highgui']
+add lib: opencv_highgui
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_highgui.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_highgui.so']
+add lib: opencv_highgui
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_imgproc.so']
+add lib: opencv_imgproc
+Item= b'-lopencv_stitching'
+['-l', 'cv_stitching']
+add lib: opencv_stitching
+Item= b'-lopencv_videostab'
+['-l', 'cv_videostab']
+add lib: opencv_videostab
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_superres.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_superres.so']
+add lib: opencv_superres
+Item= b'-lopencv_superres'
+['-l', 'cv_superres']
+add lib: opencv_superres
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_photo.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_photo.so']
+add lib: opencv_photo
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ocl.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_ocl.so']
+add lib: opencv_ocl
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_stitching.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_stitching.so']
+add lib: opencv_stitching
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ts.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_ts.so']
+add lib: opencv_ts
+Item= b'-lopencv_features2d'
+['-l', 'cv_features2d']
+add lib: opencv_features2d
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_contrib.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_contrib.so']
+add lib: opencv_contrib
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_flann.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_flann.so']
+add lib: opencv_flann
+Item= b'-lopencv_calib3d'
+['-l', 'cv_calib3d']
+add lib: opencv_calib3d
+Item= b'-lopencv_imgproc'
+['-l', 'cv_imgproc']
+add lib: opencv_imgproc
+Item= b'-lopencv_ts'
+['-l', 'cv_ts']
+add lib: opencv_ts
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_video.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_video.so']
+add lib: opencv_video
+Item= b'-lopencv_core'
+['-l', 'cv_core']
+add lib: opencv_core
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_videostab.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_videostab.so']
+add lib: opencv_videostab
+Item= b'-lopencv_flann'
+['-l', 'cv_flann']
+add lib: opencv_flann
+===========['stdc++', 'tesseract', 'lept', 'opencv_calib3d', 'opencv_features2d', 'opencv_ml', 'opencv_contrib', 'opencv_legacy', 'opencv_video', 'opencv_ocl', 'opencv_objdetect', 'opencv_legacy', 'opencv_ml', 'opencv_objdetect', 'opencv_gpu', 'opencv_core', 'opencv_photo', 'opencv_gpu', 'opencv_highgui', 'opencv_highgui', 'opencv_imgproc', 'opencv_stitching', 'opencv_videostab', 'opencv_superres', 'opencv_superres', 'opencv_photo', 'opencv_ocl', 'opencv_stitching', 'opencv_ts', 'opencv_features2d', 'opencv_contrib', 'opencv_flann', 'opencv_calib3d', 'opencv_imgproc', 'opencv_ts', 'opencv_video', 'opencv_core', 'opencv_videostab', 'opencv_flann']===========
+['.']
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+mincl='/usr/include/tesseract'
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+mincl='/usr/include/leptonica'
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+mincl='/usr/include/opencv2'
+
+running build
+running build_py
+copying tesseract.py -> build/lib.linux-x86_64-3.4
+running build_ext
 /usr/lib/python3.4/imp.py:32: PendingDeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
   PendingDeprecationWarning)
 make[1]: Leaving directory `/home/eli/svn/python-tesseract/src'
@@ -379,7 +613,9 @@ creating debian/python-tesseract/usr
 creating debian/python-tesseract/usr/lib
 creating debian/python-tesseract/usr/lib/python2.7
 creating debian/python-tesseract/usr/lib/python2.7/dist-packages
+copying build/lib.linux-x86_64-2.7/tesseract.py -> debian/python-tesseract/usr/lib/python2.7/dist-packages
 copying build/lib.linux-x86_64-2.7/_tesseract.so -> debian/python-tesseract/usr/lib/python2.7/dist-packages
+byte-compiling debian/python-tesseract/usr/lib/python2.7/dist-packages/tesseract.py to tesseract.pyc
 running install_egg_info
 running egg_info
 creating python_tesseract.egg-info
@@ -406,120 +642,120 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 ********************************************************************************************************************************************************************************************************
 ret b'-I/usr/include/opencv  /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so /usr/lib/x86_64-linux-gnu/libopencv_contrib.so /usr/lib/x86_64-linux-gnu/libopencv_core.so /usr/lib/x86_64-linux-gnu/libopencv_features2d.so /usr/lib/x86_64-linux-gnu/libopencv_flann.so /usr/lib/x86_64-linux-gnu/libopencv_gpu.so /usr/lib/x86_64-linux-gnu/libopencv_highgui.so /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so /usr/lib/x86_64-linux-gnu/libopencv_legacy.so /usr/lib/x86_64-linux-gnu/libopencv_ml.so /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so /usr/lib/x86_64-linux-gnu/libopencv_ocl.so /usr/lib/x86_64-linux-gnu/libopencv_photo.so /usr/lib/x86_64-linux-gnu/libopencv_stitching.so /usr/lib/x86_64-linux-gnu/libopencv_superres.so /usr/lib/x86_64-linux-gnu/libopencv_ts.so /usr/lib/x86_64-linux-gnu/libopencv_video.so /usr/lib/x86_64-linux-gnu/libopencv_videostab.so -lopencv_calib3d -lopencv_contrib -lopencv_core -lopencv_features2d -lopencv_flann -lopencv_gpu -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_objdetect -lopencv_ocl -lopencv_photo -lopencv_stitching -lopencv_superres -lopencv_ts -lopencv_video -lopencv_videostab  \n'
 ~~~cv_pc~~~
-{'extra_link_args': [b'-lopencv_video', b'/usr/lib/x86_64-linux-gnu/libopencv_contrib.so', b'/usr/lib/x86_64-linux-gnu/libopencv_highgui.so', b'/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so', b'-lopencv_objdetect', b'-lopencv_flann', b'/usr/lib/x86_64-linux-gnu/libopencv_videostab.so', b'-lopencv_core', b'/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so', b'-lopencv_gpu', b'-lopencv_contrib', b'/usr/lib/x86_64-linux-gnu/libopencv_flann.so', b'-lopencv_ts', b'-I/usr/include/opencv', b'-lopencv_calib3d', b'/usr/lib/x86_64-linux-gnu/libopencv_ocl.so', b'-lopencv_ml', b'/usr/lib/x86_64-linux-gnu/libopencv_legacy.so', b'/usr/lib/x86_64-linux-gnu/libopencv_features2d.so', b'/usr/lib/x86_64-linux-gnu/libopencv_ts.so', b'/usr/lib/x86_64-linux-gnu/libopencv_photo.so', b'/usr/lib/x86_64-linux-gnu/libopencv_superres.so', b'-lopencv_features2d', b'-lopencv_legacy', b'-lopencv_stitching', b'/usr/lib/x86_64-linux-gnu/libopencv_stitching.so', b'/usr/lib/x86_64-linux-gnu/libopencv_ml.so', b'-lopencv_photo', b'-lopencv_superres', b'/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so', b'/usr/lib/x86_64-linux-gnu/libopencv_gpu.so', b'-lopencv_ocl', b'/usr/lib/x86_64-linux-gnu/libopencv_core.so', b'-lopencv_highgui', b'/usr/lib/x86_64-linux-gnu/libopencv_video.so', b'-lopencv_imgproc', b'-lopencv_videostab']}
+{'extra_link_args': [b'-lopencv_highgui', b'/usr/lib/x86_64-linux-gnu/libopencv_ocl.so', b'/usr/lib/x86_64-linux-gnu/libopencv_gpu.so', b'/usr/lib/x86_64-linux-gnu/libopencv_features2d.so', b'-lopencv_ml', b'/usr/lib/x86_64-linux-gnu/libopencv_contrib.so', b'-lopencv_flann', b'-I/usr/include/opencv', b'/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so', b'/usr/lib/x86_64-linux-gnu/libopencv_flann.so', b'-lopencv_imgproc', b'/usr/lib/x86_64-linux-gnu/libopencv_legacy.so', b'/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so', b'/usr/lib/x86_64-linux-gnu/libopencv_core.so', b'-lopencv_videostab', b'-lopencv_superres', b'-lopencv_photo', b'-lopencv_features2d', b'-lopencv_legacy', b'/usr/lib/x86_64-linux-gnu/libopencv_photo.so', b'/usr/lib/x86_64-linux-gnu/libopencv_highgui.so', b'-lopencv_stitching', b'-lopencv_video', b'/usr/lib/x86_64-linux-gnu/libopencv_ts.so', b'/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so', b'-lopencv_objdetect', b'/usr/lib/x86_64-linux-gnu/libopencv_videostab.so', b'-lopencv_ts', b'/usr/lib/x86_64-linux-gnu/libopencv_ml.so', b'/usr/lib/x86_64-linux-gnu/libopencv_video.so', b'-lopencv_calib3d', b'-lopencv_ocl', b'/usr/lib/x86_64-linux-gnu/libopencv_superres.so', b'/usr/lib/x86_64-linux-gnu/libopencv_stitching.so', b'-lopencv_core', b'-lopencv_gpu', b'-lopencv_contrib']}
 ['extra_link_args']
-Item= b'-lopencv_video'
-['-l', 'cv_video']
-add lib: opencv_video
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_contrib.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_contrib.so']
-add lib: opencv_contrib
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_highgui.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_highgui.so']
+Item= b'-lopencv_highgui'
+['-l', 'cv_highgui']
 add lib: opencv_highgui
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_imgproc.so']
-add lib: opencv_imgproc
-Item= b'-lopencv_objdetect'
-['-l', 'cv_objdetect']
-add lib: opencv_objdetect
-Item= b'-lopencv_flann'
-['-l', 'cv_flann']
-add lib: opencv_flann
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_videostab.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_videostab.so']
-add lib: opencv_videostab
-Item= b'-lopencv_core'
-['-l', 'cv_core']
-add lib: opencv_core
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_objdetect.so']
-add lib: opencv_objdetect
-Item= b'-lopencv_gpu'
-['-l', 'cv_gpu']
-add lib: opencv_gpu
-Item= b'-lopencv_contrib'
-['-l', 'cv_contrib']
-add lib: opencv_contrib
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_flann.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_flann.so']
-add lib: opencv_flann
-Item= b'-lopencv_ts'
-['-l', 'cv_ts']
-add lib: opencv_ts
-Item= b'-I/usr/include/opencv'
-['-I/usr/include/', 'cv']
-add lib: opencv
-Item= b'-lopencv_calib3d'
-['-l', 'cv_calib3d']
-add lib: opencv_calib3d
 Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ocl.so'
 ['/usr/lib/x86_64-linux-gnu/lib', 'cv_ocl.so']
 add lib: opencv_ocl
-Item= b'-lopencv_ml'
-['-l', 'cv_ml']
-add lib: opencv_ml
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_legacy.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_legacy.so']
-add lib: opencv_legacy
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_gpu.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_gpu.so']
+add lib: opencv_gpu
 Item= b'/usr/lib/x86_64-linux-gnu/libopencv_features2d.so'
 ['/usr/lib/x86_64-linux-gnu/lib', 'cv_features2d.so']
 add lib: opencv_features2d
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ts.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_ts.so']
-add lib: opencv_ts
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_photo.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_photo.so']
-add lib: opencv_photo
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_superres.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_superres.so']
+Item= b'-lopencv_ml'
+['-l', 'cv_ml']
+add lib: opencv_ml
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_contrib.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_contrib.so']
+add lib: opencv_contrib
+Item= b'-lopencv_flann'
+['-l', 'cv_flann']
+add lib: opencv_flann
+Item= b'-I/usr/include/opencv'
+['-I/usr/include/', 'cv']
+add lib: opencv
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_imgproc.so']
+add lib: opencv_imgproc
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_flann.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_flann.so']
+add lib: opencv_flann
+Item= b'-lopencv_imgproc'
+['-l', 'cv_imgproc']
+add lib: opencv_imgproc
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_legacy.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_legacy.so']
+add lib: opencv_legacy
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_calib3d.so']
+add lib: opencv_calib3d
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_core.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_core.so']
+add lib: opencv_core
+Item= b'-lopencv_videostab'
+['-l', 'cv_videostab']
+add lib: opencv_videostab
+Item= b'-lopencv_superres'
+['-l', 'cv_superres']
 add lib: opencv_superres
+Item= b'-lopencv_photo'
+['-l', 'cv_photo']
+add lib: opencv_photo
 Item= b'-lopencv_features2d'
 ['-l', 'cv_features2d']
 add lib: opencv_features2d
 Item= b'-lopencv_legacy'
 ['-l', 'cv_legacy']
 add lib: opencv_legacy
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_photo.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_photo.so']
+add lib: opencv_photo
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_highgui.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_highgui.so']
+add lib: opencv_highgui
 Item= b'-lopencv_stitching'
 ['-l', 'cv_stitching']
 add lib: opencv_stitching
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_stitching.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_stitching.so']
-add lib: opencv_stitching
+Item= b'-lopencv_video'
+['-l', 'cv_video']
+add lib: opencv_video
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ts.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_ts.so']
+add lib: opencv_ts
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_objdetect.so']
+add lib: opencv_objdetect
+Item= b'-lopencv_objdetect'
+['-l', 'cv_objdetect']
+add lib: opencv_objdetect
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_videostab.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_videostab.so']
+add lib: opencv_videostab
+Item= b'-lopencv_ts'
+['-l', 'cv_ts']
+add lib: opencv_ts
 Item= b'/usr/lib/x86_64-linux-gnu/libopencv_ml.so'
 ['/usr/lib/x86_64-linux-gnu/lib', 'cv_ml.so']
 add lib: opencv_ml
-Item= b'-lopencv_photo'
-['-l', 'cv_photo']
-add lib: opencv_photo
-Item= b'-lopencv_superres'
-['-l', 'cv_superres']
-add lib: opencv_superres
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_calib3d.so']
-add lib: opencv_calib3d
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_gpu.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_gpu.so']
-add lib: opencv_gpu
-Item= b'-lopencv_ocl'
-['-l', 'cv_ocl']
-add lib: opencv_ocl
-Item= b'/usr/lib/x86_64-linux-gnu/libopencv_core.so'
-['/usr/lib/x86_64-linux-gnu/lib', 'cv_core.so']
-add lib: opencv_core
-Item= b'-lopencv_highgui'
-['-l', 'cv_highgui']
-add lib: opencv_highgui
 Item= b'/usr/lib/x86_64-linux-gnu/libopencv_video.so'
 ['/usr/lib/x86_64-linux-gnu/lib', 'cv_video.so']
 add lib: opencv_video
-Item= b'-lopencv_imgproc'
-['-l', 'cv_imgproc']
-add lib: opencv_imgproc
-Item= b'-lopencv_videostab'
-['-l', 'cv_videostab']
-add lib: opencv_videostab
-===========['stdc++', 'tesseract', 'lept', 'opencv_video', 'opencv_contrib', 'opencv_highgui', 'opencv_imgproc', 'opencv_objdetect', 'opencv_flann', 'opencv_videostab', 'opencv_core', 'opencv_objdetect', 'opencv_gpu', 'opencv_contrib', 'opencv_flann', 'opencv_ts', 'opencv_calib3d', 'opencv_ocl', 'opencv_ml', 'opencv_legacy', 'opencv_features2d', 'opencv_ts', 'opencv_photo', 'opencv_superres', 'opencv_features2d', 'opencv_legacy', 'opencv_stitching', 'opencv_stitching', 'opencv_ml', 'opencv_photo', 'opencv_superres', 'opencv_calib3d', 'opencv_gpu', 'opencv_ocl', 'opencv_core', 'opencv_highgui', 'opencv_video', 'opencv_imgproc', 'opencv_videostab']===========
+Item= b'-lopencv_calib3d'
+['-l', 'cv_calib3d']
+add lib: opencv_calib3d
+Item= b'-lopencv_ocl'
+['-l', 'cv_ocl']
+add lib: opencv_ocl
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_superres.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_superres.so']
+add lib: opencv_superres
+Item= b'/usr/lib/x86_64-linux-gnu/libopencv_stitching.so'
+['/usr/lib/x86_64-linux-gnu/lib', 'cv_stitching.so']
+add lib: opencv_stitching
+Item= b'-lopencv_core'
+['-l', 'cv_core']
+add lib: opencv_core
+Item= b'-lopencv_gpu'
+['-l', 'cv_gpu']
+add lib: opencv_gpu
+Item= b'-lopencv_contrib'
+['-l', 'cv_contrib']
+add lib: opencv_contrib
+===========['stdc++', 'tesseract', 'lept', 'opencv_highgui', 'opencv_ocl', 'opencv_gpu', 'opencv_features2d', 'opencv_ml', 'opencv_contrib', 'opencv_flann', 'opencv_imgproc', 'opencv_flann', 'opencv_imgproc', 'opencv_legacy', 'opencv_calib3d', 'opencv_core', 'opencv_videostab', 'opencv_superres', 'opencv_photo', 'opencv_features2d', 'opencv_legacy', 'opencv_photo', 'opencv_highgui', 'opencv_stitching', 'opencv_video', 'opencv_ts', 'opencv_objdetect', 'opencv_objdetect', 'opencv_videostab', 'opencv_ts', 'opencv_ml', 'opencv_video', 'opencv_calib3d', 'opencv_ocl', 'opencv_superres', 'opencv_stitching', 'opencv_core', 'opencv_gpu', 'opencv_contrib']===========
 ['.']
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 mincl='/usr/include/tesseract'
@@ -544,8 +780,8 @@ byte-compiling debian/python3-tesseract/usr/lib/python3/dist-packages/tesseract.
 running install_egg_info
 running egg_info
 writing dependency_links to python_tesseract.egg-info/dependency_links.txt
-writing python_tesseract.egg-info/PKG-INFO
 writing top-level names to python_tesseract.egg-info/top_level.txt
+writing python_tesseract.egg-info/PKG-INFO
 writing manifest file 'python_tesseract.egg-info/SOURCES.txt'
 Copying python_tesseract.egg-info to debian/python3-tesseract/usr/lib/python3/dist-packages/python_tesseract-0.9.egg-info
 running install_scripts
@@ -575,8 +811,8 @@ I: dh_python2 fs:297: renaming _tesseract.so to _tesseract.x86_64-linux-gnu.so
    dh_gencontrol
 dpkg-gencontrol: warning: Depends field of package python-tesseract: unknown substitution variable ${tesseract-ocr:Depends}
 dpkg-gencontrol: warning: Depends field of package python-tesseract: unknown substitution variable ${leptonica-progs:Depends}
-dpkg-gencontrol: warning: package python-tesseract: unused substitution variable ${python:Provides}
 dpkg-gencontrol: warning: package python-tesseract: unused substitution variable ${python:Versions}
+dpkg-gencontrol: warning: package python-tesseract: unused substitution variable ${python:Provides}
 dpkg-gencontrol: warning: Depends field of package python3-tesseract: unknown substitution variable ${tesseract-ocr:Depends}
 dpkg-gencontrol: warning: Depends field of package python3-tesseract: unknown substitution variable ${leptonica-progs:Depends}
 dpkg-gencontrol: warning: package python3-tesseract: unused substitution variable ${python3:Versions}
@@ -594,11 +830,14 @@ W: python-tesseract source: outdated-autotools-helper-file config.guess 2009-12-
 W: python-tesseract source: configure-generated-file-in-source config.log
 W: python-tesseract source: configure-generated-file-in-source config.status
 W: python-tesseract source: outdated-autotools-helper-file config.sub 2010-01-22
+E: python-tesseract source: source-is-missing debian/python3-tesseract/usr/lib/python3/dist-packages/_tesseract.cpython-34m-x86_64-linux-gnu.so
 W: python-tesseract source: package-file-is-executable debian/changelog
 W: python-tesseract source: package-file-is-executable debian/control
 W: python-tesseract source: package-file-is-executable debian/copyright
-W: python3-tesseract: extended-description-line-too-long
-W: python3-tesseract: zero-byte-file-in-doc-directory usr/share/doc/python3-tesseract/changelog.gz
+E: python-tesseract source: unknown-file-in-debian-source formatold
+W: python-tesseract source: quilt-series-but-no-build-dep
 W: python-tesseract: extended-description-line-too-long
 W: python-tesseract: zero-byte-file-in-doc-directory usr/share/doc/python-tesseract/changelog.gz
+W: python3-tesseract: extended-description-line-too-long
+W: python3-tesseract: zero-byte-file-in-doc-directory usr/share/doc/python3-tesseract/changelog.gz
 Finished running lintian.
