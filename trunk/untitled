@@ -1,0 +1,11 @@
+x86_64-linux-gnu-g++ -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,
+-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -fstack-protector
+ --param=ssp-buffer-size=4 -Wformat -Werror=format-security 
+ -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.4/tesseract_wrap.o build/temp.linux-x86_64-3.4/main.o
+  -lstdc++ -ltesseract -llept -lopencv_gpu -lopencv_superres -lopencv_features2d -lopencv_core 
+  -lopencv_objdetect -lopencv_calib3d -lopencv_ts -lopencv_ocl -lopencv_calib3d -lopencv_imgproc 
+  -lopencv_highgui -lopencv_video -lopencv_contrib -lopencv_photo -lopencv_ml -lopencv_videostab 
+  -lopencv_superres -lopencv_core -lopencv_features2d -lopencv_stitching -lopencv_flann -lopencv_gpu 
+  -lopencv_flann -lopencv_ocl -lopencv_photo -lopencv_legacy -lopencv_video -lopencv_imgproc
+   -lopencv -lopencv_stitching -lopencv_contrib -lopencv_objdetect -lopencv_highgui 
+   -lopencv_videostab -lopencv_ts -lopencv_ml -lopencv_legacy -o build/lib.linux-x86_64-3.4/_tesseract.cpython-34m.so

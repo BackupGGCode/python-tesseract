@@ -20,7 +20,6 @@ buildWinInst.bat
 buildall
 compile_test_cv_cpp
 config.h
-config.log
 cv_original.cpp.obsolete
 cv_original.obsolete
 debianRulesBackUp

@@ -38,7 +38,12 @@ def ocr():
 
 	image=cv.LoadImage("eurotext.jpg", cv.CV_LOAD_IMAGE_GRAYSCALE)
 	tesseract.SetCvImage(image,api)
-	text=api.GetUTF8Text()
+	api.Recognize(None)
+	ri=api.GetIterator()
+	level=tesseract.RIL_WORD
+	print ri
+	print level
+	text=ri.GetUTF8Text()
 	conf=api.MeanTextConf()
 	print text,len(text)
 	print "Cofidence Level: %d %%"%conf
