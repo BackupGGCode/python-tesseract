@@ -3,7 +3,7 @@
 [https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=VD2Y4PZSK7T86&lc=HK&item_name=To%20support%20the%20development%20of%20python%2dtesseract&amount=5%2e00&currency_code=USD&button_subtype=products&add=1&bn=PP%2dShopCartBF%3abtn_cart_LG%2egif%3aNonHosted http://python-tesseract.googlecode.com/files/sf_coffee_small.jpg]     [https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=VD2Y4PZSK7T86&lc=HK&item_name=To%20support%20the%20development%20of%20python%2dtesseract&amount=5%2e00&currency_code=USKD&button_subtype=products&add=1&bn=PP%2dShopCartBF%3abtn_cart_LG%2egif%3aNonHosted If you find python-tesseract useful, please consider ]*_[https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=VD2Y4PZSK7T86&lc=HK&item_name=To%20support%20the%20development%20of%20python%2dtesseract&amount=5%2e00&currency_code=USKD&button_subtype=products&add=1&bn=PP%2dShopCartBF%3abtn_cart_LG%2egif%3aNonHosted buying me a coffee.]_*
 = V0.9 =
 
-This versions wrap all the methods/functions included in
+This version wraps all the methods/functions included in
 {{{
 %include "pix.h"
 %include "publictypes.h"
