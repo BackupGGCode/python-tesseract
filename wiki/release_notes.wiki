@@ -1,4 +1,5 @@
 #summary About the recent development of the project
+#labels Featured,Phase-Design,Phase-Implementation
 
 = V0.9 =
 
