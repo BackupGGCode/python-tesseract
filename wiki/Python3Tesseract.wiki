@@ -6,7 +6,7 @@
 Although python3-opencv is not ready, I still decide to go ahead to build python3-tesseract first.
 
 ==the download link==
-[https://bitbucket.org/3togo/python-tesseract/downloads/python3-tesseract_0.9-0.2ubuntu7_amd64.deb python3-tesseract_0.9-0.2ubuntu7_amd64.deb]
+[https://bitbucket.org/3togo/python-tesseract/downloads/python3-tesseract_0.9-0.2ubuntu8_amd64.deb python3-tesseract_0.9-0.2ubuntu8_amd64.deb]
 
 ==Test1==
 {{{
@@ -87,6 +87,24 @@ api.End()
 
 }}}
 ==Test 4==
+{{{
+#!/usr/bin/env python
+import os, tesseract
+lang = "eng"
+filename = "eurotext.jpg"
+TESSDATA_PREFIX = "."
+tesseract_version = tesseract.TessVersion()
+api = tesseract.TessBaseAPICreate()
+rc = tesseract.TessBaseAPIInit3(api, TESSDATA_PREFIX, lang)
+if (rc):
+    tesseract.TessBaseAPIDelete(api)
+    print("Could not initialize tesseract.\n")
+    exit(3)
+print('Tesseract-ocr version', tesseract_version)
+text_out = tesseract.TessBaseAPIProcessPages(api, filename, None, 0)
+print(text_out)
+}}}
+==Test 5==
 {{{
 import tesseract
 import re
