@@ -1,4 +1,5 @@
 #summary How to compile python-tesseract for Homebrew(Mac Mountain Lion/Maverick)
+#labels Featured
 
 =How to compile python-tesseract (for Mac Mountain Lion/Maverick )=
 
