@@ -14,6 +14,7 @@ This versions wrap all the methods/functions included in
 }}}
 
 and most of the methods/funcitions included  in 
+*
 {{{
 %include "baseapi.h"
 }}}
@@ -33,6 +34,7 @@ and most of the methods/funcitions included  in
   void SetProbabilityInContextFunc(ProbabilityInContextFunc f);
   void SetFillLatticeFunc(FillLatticeFunc f);
 }}}
+*
 {{{
 %include "allheaders.h"
 }}}
