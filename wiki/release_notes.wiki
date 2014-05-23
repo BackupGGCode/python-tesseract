@@ -33,11 +33,7 @@ and most of the methods/functions included  in
 {{{
   typedef int (Dict::*DictFunc)(void* void_dawg_args,
                               UNICHAR_ID unichar_id, bool word_end) const;
-  typedef double (Dict::*ProbabilityInContextFunc)(const char* lang,
-                                                 const char* context,
-                                                 int context_bytes,
-                                                 const char* character, 
-                                                 int character_bytes);
+  typedef double (Dict::*ProbabilityInContextFunc);
 
   void SetThresholder(ImageThresholder* thresholder)
 
