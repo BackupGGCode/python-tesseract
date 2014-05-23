@@ -13,7 +13,7 @@ This version wraps all the methods/functions included in
 %include "resultiterator.h"
 }}}
 
-and most of the methods/funcitions included  in 
+and most of the methods/functions included  in 
 *
 {{{
 %include "baseapi.h"
