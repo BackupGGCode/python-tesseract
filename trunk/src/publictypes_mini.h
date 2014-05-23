@@ -38,7 +38,6 @@ const int kPointsPerInch = 72;
  * below, as well as kPolyBlockNames in publictypes.cpp.
  * Used extensively by ColPartition, and POLY_BLOCK.
 */
-/*
 enum PolyBlockType {
   PT_UNKNOWN,        // Type is not yet known. Keep as the first element.
   PT_FLOWING_TEXT,   // Text that lives inside a column.
@@ -57,7 +56,7 @@ enum PolyBlockType {
   PT_NOISE,          // Lies outside of any column.
   PT_COUNT
 };
-*/
+
 /** Returns true if PolyBlockType is of horizontal line type */
 inline bool PTIsLineType(PolyBlockType type) {
   return type == PT_HORZ_LINE || type == PT_VERT_LINE;

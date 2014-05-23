@@ -13,8 +13,8 @@ argv=sys.argv
 def main():
 	argLen=len(argv)
 	if argLen <2 :
-		print "Need at least 2 parameters not %d"%argLen
-		print argv
+		print("Need at least 2 parameters not %d"%argLen)
+		print(argv)
 		return
 	cmd=argv[1]
 	pwd=os.path.dirname(os.path.realpath(__file__))
@@ -29,12 +29,11 @@ def main():
 		src.setup.my_uninstall()
 		
 		return
-	print ".........."
-	src.setup.main()
+	print("..........")
 	if cmd=="clean":
 		os.chdir("../")
 		src.setup.my_clean()
 		os.system("rm python-tesseract_*")
-
+	src.setup.main()
 if __name__=="__main__":
 	main()
