@@ -527,13 +527,13 @@ r"""
 #define TESS_API
 #define TESS_LOCAL
 #define LEPT_DLL
-#define CV_EXPORTS
-#define CV_EXPORTS_W
-#define CV_EXPORTS_AS
+
 #define TESS_CAPI_INCLUDE_BASEAPI
 #endif
 """
-
+#define CV_EXPORTS
+#define CV_EXPORTS_W
+#define CV_EXPORTS_AS
 )
 
 	fp_config_h.write("#pragma once\n")
