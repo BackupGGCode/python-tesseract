@@ -1,0 +1,35 @@
+#summary About the recent development of the project
+
+= V0.9 =
+
+This versions wrap all the methods/functions included in
+%include "pix.h"
+%include "publictypes.h"
+%include "thresholder.h"
+%include "pageiterator.h"
+%include "ltrresultiterator.h"
+%include "resultiterator.h"
+
+and most of the in 
+%include "baseapi.h"
+ except:
+{{{
+  typedef int (Dict::*DictFunc)(void* void_dawg_args,
+                              UNICHAR_ID unichar_id, bool word_end) const;
+  typedef double (Dict::*ProbabilityInContextFunc)(const char* lang,
+                                                 const char* context,
+                                                 int context_bytes,
+                                                 const char* character, 
+                                                 int character_bytes);
+
+    void SetThresholder(ImageThresholder* thresholder)
+
+  void SetDictFunc(DictFunc f);
+  void SetProbabilityInContextFunc(ProbabilityInContextFunc f);
+  void SetFillLatticeFunc(FillLatticeFunc f);
+}}}
+%include "allheaders.h"
+ except:
+{{{ 
+LEPT_DLL extern void setPixMemoryManager ( void * (  ( *allocator ) ( size_t ) ), void  (  ( *deallocator ) ( void * ) ) );
+}}}
