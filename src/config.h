@@ -7,9 +7,7 @@
 #define TESS_API
 #define TESS_LOCAL
 #define LEPT_DLL
-#define CV_EXPORTS
-#define CV_EXPORTS_W
-#define CV_EXPORTS_AS
+
 #define TESS_CAPI_INCLUDE_BASEAPI
 #endif
 #pragma once
@@ -18,6 +16,7 @@
 	#define __opencv2__
 #endif
 #include <opencv2/core/core_c.h>
-#ifndef __linux__
-	#define __linux__
+#include "fmemopen.h"
+#ifndef __mingw__
+	#define __mingw__
 #endif
