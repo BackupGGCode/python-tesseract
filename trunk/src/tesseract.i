@@ -10,14 +10,14 @@
 
 %{
 #include "config.h"
-//#include "pix.h"
+#include "pix.h"
 #include "allheaders.h"
 #include "publictypes.h"
 //#include "thresholder.h"
 //#include "capi.h"
 //#include pageiterator.h
 #include "ltrresultiterator.h"
-//#include "resultiterator.h"
+#include "resultiterator.h"
 #include "baseapi.h"
 #include "unichar.h"
 
