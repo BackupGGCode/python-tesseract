@@ -10,16 +10,17 @@
 
 %{
 #include "config.h"
-#include "pix.h"
+//#include "pix.h"
 #include "allheaders.h"
 #include "publictypes.h"
-//#include "thresholder.h"
-//#include "capi.h"
+#include "thresholder.h"
+#include "capi.h"
 //#include pageiterator.h
 #include "ltrresultiterator.h"
 #include "resultiterator.h"
 #include "baseapi.h"
 #include "unichar.h"
+#include "renderer.h"
 
 
 //#include "cv_original.h"
@@ -60,9 +61,11 @@ char* retParser(const char* a);
 %include "pix.h"
 %include "allheaders_mini.h"
 %include "publictypes.h"
+%include "baseapi_mini.h"
+%include "capi_mini.h"
 %include "thresholder.h"
 %include "pageiterator.h"
 %include "ltrresultiterator.h"
 %include "resultiterator.h"
-%include "baseapi_mini.h"
+%include "renderer.h"
 %include "main.h"

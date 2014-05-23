@@ -71,10 +71,9 @@ typedef enum TessPageSegMode       { PSM_OSD_ONLY, PSM_AUTO_OSD, PSM_AUTO_ONLY, 
                                      PSM_SINGLE_BLOCK, PSM_SINGLE_LINE, PSM_SINGLE_WORD, PSM_CIRCLE_WORD, PSM_SINGLE_CHAR, PSM_SPARSE_TEXT,
                                      PSM_SPARSE_TEXT_OSD, PSM_COUNT } TessPageSegMode;
 typedef enum TessPageIteratorLevel { RIL_BLOCK, RIL_PARA, RIL_TEXTLINE, RIL_WORD, RIL_SYMBOL} TessPageIteratorLevel;
-/*typedef enum TessPolyBlockType     { PT_UNKNOWN, PT_FLOWING_TEXT, PT_HEADING_TEXT, PT_PULLOUT_TEXT, PT_TABLE, PT_VERTICAL_TEXT,
+typedef enum TessPolyBlockType     { PT_UNKNOWN, PT_FLOWING_TEXT, PT_HEADING_TEXT, PT_PULLOUT_TEXT, PT_TABLE, PT_VERTICAL_TEXT,
                                      PT_CAPTION_TEXT, PT_FLOWING_IMAGE, PT_HEADING_IMAGE, PT_PULLOUT_IMAGE, PT_HORZ_LINE, PT_VERT_LINE,
                                      PT_NOISE, PT_COUNT } TessPolyBlockType;
-*/
 typedef enum TessOrientation       { ORIENTATION_PAGE_UP, ORIENTATION_PAGE_RIGHT, ORIENTATION_PAGE_DOWN, ORIENTATION_PAGE_LEFT } TessOrientation;
 typedef enum TessWritingDirection  { WRITING_DIRECTION_LEFT_TO_RIGHT, WRITING_DIRECTION_RIGHT_TO_LEFT, WRITING_DIRECTION_TOP_TO_BOTTOM } TessWritingDirection;
 typedef enum TessTextlineOrder     { TEXTLINE_ORDER_LEFT_TO_RIGHT, TEXTLINE_ORDER_RIGHT_TO_LEFT, TEXTLINE_ORDER_TOP_TO_BOTTOM } TessTextlineOrder;
@@ -87,7 +86,8 @@ struct Pixa;
 
 /* General free functions */
 
-TESS_API const char* TESS_CALL TessVersion();
+TESS_API const char*
+               TESS_CALL TessVersion();
 TESS_API void  TESS_CALL TessDeleteText(char* text);
 TESS_API void  TESS_CALL TessDeleteTextArray(char** arr);
 TESS_API void  TESS_CALL TessDeleteIntArray(int* arr);
@@ -150,13 +150,14 @@ TESS_API BOOL  TESS_CALL TessBaseAPIPrintVariablesToFile(const TessBaseAPI* hand
 #ifdef TESS_CAPI_INCLUDE_BASEAPI
 TESS_API BOOL  TESS_CALL TessBaseAPIGetVariableAsString(TessBaseAPI* handle, const char* name, STRING* val);
 #endif
-
+/*
 #ifdef TESS_CAPI_INCLUDE_BASEAPI
 TESS_API int   TESS_CALL TessBaseAPIInit(TessBaseAPI* handle, const char* datapath, const char* language,
                                          TessOcrEngineMode mode, char** configs, int configs_size,
                                          const STRING* vars_vec, size_t vars_vec_size,
                                          const STRING* vars_values, size_t vars_values_size, BOOL set_only_init_params);
 #endif
+*/
 TESS_API int   TESS_CALL TessBaseAPIInit1(TessBaseAPI* handle, const char* datapath, const char* language, TessOcrEngineMode oem,
                                           char** configs, int configs_size);
 TESS_API int   TESS_CALL TessBaseAPIInit2(TessBaseAPI* handle, const char* datapath, const char* language, TessOcrEngineMode oem);
@@ -267,7 +268,7 @@ TESS_API void  TESS_CALL TessBaseAPISetDictFunc(TessBaseAPI* handle, TessDictFun
 TESS_API void  TESS_CALL TessBaseAPIClearPersistentCache(TessBaseAPI* handle);
 TESS_API void  TESS_CALL TessBaseAPISetProbabilityInContextFunc(TessBaseAPI* handle, TessProbabilityInContextFunc f);
 
-TESS_API void  TESS_CALL TessBaseAPISetFillLatticeFunc(TessBaseAPI* handle, TessFillLatticeFunc f);
+//TESS_API void  TESS_CALL TessBaseAPISetFillLatticeFunc(TessBaseAPI* handle, TessFillLatticeFunc f);
 TESS_API BOOL  TESS_CALL TessBaseAPIDetectOS(TessBaseAPI* handle, OSResults* results);
 
 TESS_API void  TESS_CALL TessBaseAPIGetFeaturesForBlob(TessBaseAPI* handle, TBLOB* blob, INT_FEATURE_STRUCT* int_features,

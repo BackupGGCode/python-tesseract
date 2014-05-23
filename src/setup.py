@@ -10,7 +10,10 @@ VERSION="0.9"
 from setuptools import setup, Extension, Command, find_packages
 import sys,os,platform,glob,subprocess,sys,distutils
 import os
-import jfunc
+try:
+	import jfunc
+except:
+	import src.jfunc as jfunc
 j=jfunc.jfunc()
 puts=j.puts
 USE_CV=True
@@ -527,9 +530,10 @@ r"""
 #define CV_EXPORTS
 #define CV_EXPORTS_W
 #define CV_EXPORTS_AS
+#define TESS_CAPI_INCLUDE_BASEAPI
 #endif
-
 """
+
 )
 
 	fp_config_h.write("#pragma once\n")

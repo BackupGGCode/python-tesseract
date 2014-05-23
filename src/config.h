@@ -10,8 +10,8 @@
 #define CV_EXPORTS
 #define CV_EXPORTS_W
 #define CV_EXPORTS_AS
+#define TESS_CAPI_INCLUDE_BASEAPI
 #endif
-
 #pragma once
 #include <Python.h>
 #ifndef __opencv2__

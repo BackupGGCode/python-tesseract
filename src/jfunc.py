@@ -59,12 +59,17 @@ class jfunc():
 				"/Library/Python/2.7/site-packages"
 				]
 		elif osname=="linux":
-			self.sitepackagesLocations=[
-				os.path.expanduser("~/.local/lib/python2.7/site-packages"),
-				"/usr/local/lib/python2.7/dist-packages",
-				"/usr/lib/python2.7/dist-packages",
-				"/usr/lib/python2.7/site-packages",
-				]
+			pyVers=["2.7","3","3.4"]
+			pyDirFmt=[os.path.expanduser("~/.local/lib/python%%/site-packages"),
+				"/usr/local/lib/python%%/dist-packages",
+				"/usr/lib/python%%/dist-packages",
+				"/usr/lib/python%%/site-packages"]
+			self.sitepackagesLocations=[]
+			for pyVer in pyVers:
+				self.sitepackagesLocations+= [ mdir.replace("%%",pyVer) for mdir in pyDirFmt ]
+			print(self.sitepackagesLocations)
+			
+				
 		elif osname=="windows" or osname=="mingw":
 			self.sitepackagesLocations=[
 				os.path.expanduser("~\\appdata\\roaming\\python\\python27\\site-packages"),
