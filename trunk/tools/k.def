@@ -1,2 +1,0 @@
-; dlltool --export-all-symbol -z k.def ..\mingw\x64\dlls\libgcc_s_seh-1.dll
-EXPORTS
