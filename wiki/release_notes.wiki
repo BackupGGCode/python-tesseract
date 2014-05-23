@@ -14,7 +14,8 @@ This versions wrap all the methods/functions included in
 }}}
 
 and most of the methods/funcitions included  in 
-{{{%include "baseapi.h"
+{{{
+%include "baseapi.h"
 }}}
  except:
 {{{
@@ -32,7 +33,8 @@ and most of the methods/funcitions included  in
   void SetProbabilityInContextFunc(ProbabilityInContextFunc f);
   void SetFillLatticeFunc(FillLatticeFunc f);
 }}}
-{{{%include "allheaders.h"
+{{{
+%include "allheaders.h"
 }}}
  except:
 {{{ 
