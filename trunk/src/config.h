@@ -16,7 +16,6 @@
 	#define __opencv2__
 #endif
 #include <opencv2/core/core_c.h>
-#include "fmemopen.h"
-#ifndef __mingw__
-	#define __mingw__
+#ifndef __linux__
+	#define __linux__
 #endif

@@ -1,5 +1,5 @@
-python3:Versions=3.4
+python3:Depends=python3:any (>= 3.4~), python3 (>= 3.4~), python3 (<< 3.5), python3:any (>= 3.3.2-2~)
 python3:Provides=python3.4-tesseract
-python3:Depends=python3:any (>= 3.3.2-2~), python3:any (>= 3.4~), python3 (>= 3.4~), python3 (<< 3.5)
+python3:Versions=3.4
 shlibs:Depends=libc6 (>= 2.14), libgcc1 (>= 1:4.1.1), liblept4, libopencv-core2.4, libstdc++6 (>= 4.1.1), libtesseract3
 misc:Depends=
