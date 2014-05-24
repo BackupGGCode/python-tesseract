@@ -104,7 +104,7 @@ def my_clean():
 	#old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
 	#for package in old_packages:
 		#os.system(package)
-	
+
 def my_uninstall():
 	rmPaths=[]
 	files=["*tesseract*"]
@@ -191,7 +191,7 @@ class GenVariablesLinux:
 			self.mingwPath=os.path.abspath("../mingw32/x86_64-w64-mingw32.static")
 		else:
 			self.mingwPath=os.path.abspath("../mingw32/i686-pc-mingw32.static")
-		
+
 		self.mingwLibPath=os.path.join(self.mingwPath,"lib")
 		#self.libraries+=['ws2_32','png','z',"jpeg","tiff","webp"]
 		self.libraries+=['opengl32','glu32','ws2_32','z','jpeg']
@@ -299,7 +299,7 @@ class GenVariablesLinux:
 			if 'libraries' in cv_pc_keys:
 				for item in cv_pc['libraries']:
 					print(item)
-					self.libraries.append(item) 
+					self.libraries.append(item)
 			elif 'extra_link_args' in cv_pc_keys:
 				for item in cv_pc['extra_link_args']:
 					print ("Item=",item)
@@ -339,7 +339,7 @@ class GenVariablesLinux:
 				extra_compile_args.append("-D MS_WIN64")
 			#extra_compile_args.append("-static-libgcc")
 			#extra_compile_args.append("-optl-static")
-		
+
 		tesseract_module = Extension('_tesseract',
 				sources=self.sources,
 				#extra_compile_args=["-DEBUG -O0 -pg "],
@@ -602,5 +602,23 @@ r"""
 		   )
 
 
-if __name__ == "__main__":
+
+def check_and_run():
+	MIN_TESS_VERSION="3.03"
+	TESS_LINK="https://bitbucket.org/3togo/python-tesseract/downloads/tesseract-3.03-rc1.tar.gz"
+	your_tess_version=j.getTesseractVersion()
+	if  your_tess_version< MIN_TESS_VERSION:
+		print("Tesseract version installed is %s"%your_tess_version)
+		print("However, the minimal version needed is %s"%MIN_TESS_VERSION)
+		print("You may need to build it manually.")
+		print("If so, you could download from the source program from the link as follow:")
+		print(TESS_LINK)
+		return
+
+
+
 	main()
+
+
+if __name__ == "__main__":
+	check_and_run()
