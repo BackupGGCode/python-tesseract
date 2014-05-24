@@ -293,6 +293,7 @@ class GenVariablesLinux:
 		if osname is not "mingw":
 			cv_pc=pkgconfig("opencv")
 			cv_pc_keys=list(cv_pc.keys())
+			splitKey="libopen"
 			print("~~~cv_pc~~~")
 			print(cv_pc)
 			print(cv_pc_keys)
@@ -303,7 +304,7 @@ class GenVariablesLinux:
 			elif 'extra_link_args' in cv_pc_keys:
 				for item in cv_pc['extra_link_args']:
 					print ("Item=",item)
-					subItems=item.decode('utf-8').split("open")
+					subItems=item.decode('utf-8').split(splitKey)
 					print (subItems)
 					libname="open"+subItems[1].split(".")[0]
 					print("add lib: %s"%libname)
@@ -366,8 +367,10 @@ class GenVariablesDarwin(GenVariablesLinux):
 		removeFlag("-mno-fused-madd",'CFLAGS')
 		#os.system("sed -i .bak 's/baseapi_mini.h/baseapi_mini_darwin.h/g' tesseract.i")
 		os.environ["ARCHFLAGS"]="-arch x86_64"
-		brew_prefix=subprocess.getstatusoutput('brew --prefix')[1]
-		python_version=subprocess.getstatusoutput('python --version')[1].split(" ")[1]
+		#brew_prefix=subprocess.getstatusoutput('brew --prefix')[1]
+		#python_version=subprocess.getstatusoutput('python --version')[1].split(" ")[1]
+		brew_prefix=j.cmd('brew --prefix')
+		python_version=j.cmd('python --version')
 		python_version="python"+".".join(python_version.split(".")[:-1])
 		sitePackagesPath=os.path.join(brew_prefix,"lib",python_version,"site-packages")
 		if "PYTHONPATH" in os.environ:
