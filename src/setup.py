@@ -113,6 +113,8 @@ def my_uninstall():
 		print(rmPath)
 		j.runRm4Dirs(rmPath,files)
 		j.runRm4Files(rmPath,files)
+	os.remove("config.h")
+	os.remove("main.h")
 	print("Uninstalling is done")
 
 class CleanCommand(_clean):

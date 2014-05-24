@@ -11,8 +11,8 @@ Package-List:
  python-tesseract deb python optional
  python3-tesseract deb python optional
 Checksums-Sha1: 
- ad4dd0b59aaaa3ab55ad9f7b732772500954fbd2 31916731 python-tesseract_0.9-0.2ubuntu8.tar.gz
+ 93e5f40daaae4fda98fac01387ae0941c12c98a2 31350741 python-tesseract_0.9-0.2ubuntu8.tar.gz
 Checksums-Sha256: 
- 91751c93e3581c99ecd4cdf4460b73f68c857e9d193dedb7dfef4dc98ff4222d 31916731 python-tesseract_0.9-0.2ubuntu8.tar.gz
+ 32c73592a8142f44dd9aff9802f338f985cb91df23a70176d2d0d4c3021e28f8 31350741 python-tesseract_0.9-0.2ubuntu8.tar.gz
 Files: 
- 598dce5f9fc8a8b20206c817ea3699a9 31916731 python-tesseract_0.9-0.2ubuntu8.tar.gz
+ b3e0c299515c931267a1669f39c16ef8 31350741 python-tesseract_0.9-0.2ubuntu8.tar.gz
