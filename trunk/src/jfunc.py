@@ -146,9 +146,9 @@ class jfunc():
 		return None
 	def cmd(self, cmdStr):
 		result=subprocess.check_output(cmdStr.split(),stderr=subprocess.STDOUT)
-		return result
-		
-		
+		return result.decode('utf-8')
+
+
 j=jfunc()
 osname=j.osname
 sitepackagesLocations=j.sitepackagesLocations

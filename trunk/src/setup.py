@@ -293,7 +293,7 @@ class GenVariablesLinux:
 		if osname is not "mingw":
 			cv_pc=pkgconfig("opencv")
 			cv_pc_keys=list(cv_pc.keys())
-			splitKey="libopen"
+
 			print("~~~cv_pc~~~")
 			print(cv_pc)
 			print(cv_pc_keys)
@@ -303,8 +303,16 @@ class GenVariablesLinux:
 					self.libraries.append(item)
 			elif 'extra_link_args' in cv_pc_keys:
 				for item in cv_pc['extra_link_args']:
+					item=item.decode('utf-8')
 					print ("Item=",item)
-					subItems=item.decode('utf-8').split(splitKey)
+					if "open" not in item:
+						continue
+					if "libopen" in item:
+						splitKey="libopen"
+					else:
+						splitKey="open"
+
+					subItems=item.split(splitKey)
 					print (subItems)
 					libname="open"+subItems[1].split(".")[0]
 					print("add lib: %s"%libname)
