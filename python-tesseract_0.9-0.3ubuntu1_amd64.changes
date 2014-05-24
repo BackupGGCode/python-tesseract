@@ -1,0 +1,33 @@
+Format: 1.8
+Date: Sun, 25 May 2014 02:42:57 +0800
+Source: python-tesseract
+Binary: python-tesseract python3-tesseract
+Architecture: source amd64
+Version: 0.9-0.3ubuntu1
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: FreeToGo <FreeToGo@gmail.com>
+Changed-By: eli <eli@eli-iMac.com>
+Description: 
+ python-tesseract - Tesseract for Python
+ python3-tesseract - Tesseract for Python3
+Changes: 
+ python-tesseract (0.9-0.3ubuntu1) UNRELEASED; urgency=medium
+ .
+   * minor changes
+   *
+Checksums-Sha1: 
+ b6b37b91192a3ed679963811a886c58b32739342 838 python-tesseract_0.9-0.3ubuntu1.dsc
+ 06d43c0939bc912ba5ff4925ec05cbf24b89d0bc 27796559 python-tesseract_0.9-0.3ubuntu1.tar.gz
+ b8f32f446f26354c7f1c5a5b228fc51270cb19a8 492008 python-tesseract_0.9-0.3ubuntu1_amd64.deb
+ 01870e5e5eb3de03c20754e0b2f8ea9d4fddc01f 495140 python3-tesseract_0.9-0.3ubuntu1_amd64.deb
+Checksums-Sha256: 
+ f3c393fb1c9cb4ec0fb48616a5afaa9162968fb2fa07298c7f7c85daa328cebd 838 python-tesseract_0.9-0.3ubuntu1.dsc
+ cc99eba7210047efb5bde6898b61b610138473a94892430af2309df86601ec5b 27796559 python-tesseract_0.9-0.3ubuntu1.tar.gz
+ 306870073b1c5c5dd7cffff449b634593b5ebfab6f0319c2290094daa260bd50 492008 python-tesseract_0.9-0.3ubuntu1_amd64.deb
+ 94bf74f08472ae5a734834928518a2586d4cd021a477bca6b6b780e734c3e762 495140 python3-tesseract_0.9-0.3ubuntu1_amd64.deb
+Files: 
+ 738d78ca17efffaec7f4cc4356e296c8 838 python optional python-tesseract_0.9-0.3ubuntu1.dsc
+ eb0123ce3bbaad316b13477b1a240e0c 27796559 python optional python-tesseract_0.9-0.3ubuntu1.tar.gz
+ 4e130595b176884f4fbc4b50285c22ca 492008 python optional python-tesseract_0.9-0.3ubuntu1_amd64.deb
+ d99a0fa1874cd0a40268b5f2775f67c0 495140 python optional python3-tesseract_0.9-0.3ubuntu1_amd64.deb

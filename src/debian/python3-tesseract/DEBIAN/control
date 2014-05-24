@@ -1,6 +1,6 @@
 Package: python3-tesseract
 Source: python-tesseract
-Version: 0.9-0.3ubuntu0
+Version: 0.9-0.3ubuntu1
 Architecture: amd64
 Maintainer: FreeToGo <FreeToGo@gmail.com>
 Installed-Size: 4265

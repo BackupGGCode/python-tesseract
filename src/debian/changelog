@@ -1,8 +1,9 @@
-python-tesseract (0.9-0.3ubuntu0) UNRELEASED; urgency=medium
+python-tesseract (0.9-0.3ubuntu1) UNRELEASED; urgency=medium
 
   * minor changes
+  * 
 
- -- eli <eli@eli-iMac>  Sun, 25 May 2014 01:59:27 +0800
+ -- eli <eli@eli-iMac.com>  Sun, 25 May 2014 02:42:57 +0800
 
 python-tesseract (0.9-0.2ubuntu8) UNRELEASED; urgency=medium
 
