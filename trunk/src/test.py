@@ -1,14 +1,14 @@
-import jfunc as j
-puts=j.puts
+import subprocess
+def getTesseractVersion():
+	result=subprocess.check_output("tesseract -v".split(),stderr=subprocess.STDOUT)
+	for item in result.split("\n"):
+		subItems=item.split()
+		if len(subItems)!=2:
+			continue
+		name, version=subItems
+		if name.strip().lower()=="tesseract":
+			return version.strip()
 
+	return None
 
-puts("Warining Level is %s"%8,8)
-puts("Warining Level is %s"%11,11)
-puts(1.21,3,"apple",[1,2,3],{1:1,2:2},192)
-puts(1.21,3,"apple",[1,2,3],192,END=",")
-puts(1.21,3,"apple",[1,2,3],192,END=" ")
-puts(1.21,3,"apple",[1,2,3],192,START="*"*10,END="%s,\n"%("^"*10))
-
-
-
-
+print getTesseractVersion()

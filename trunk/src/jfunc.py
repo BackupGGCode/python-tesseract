@@ -22,9 +22,9 @@ colorkeys=list(colors.keys())
 class jfunc():
 	def __init__(self):
 		self.osname=self.getOsName()
-		print(self.osname)
+		#print(self.osname)
 		self.defineSitePackagesLocations()
-		
+
 	def type(self,a):
 		return repr(type(a)).split(" ")[-1][1:-2].upper()
 
@@ -37,10 +37,10 @@ class jfunc():
 			argv=argv[:-1]
 		else:
 			warning=0
-							
+
 		if not DEBUG or (warning < WARNING_LEVEL):
-			return 
-		
+			return
+
 		for arg in argv:
 			argType=self.type(arg)
 			if argType in colorkeys:
@@ -67,9 +67,9 @@ class jfunc():
 			self.sitepackagesLocations=[]
 			for pyVer in pyVers:
 				self.sitepackagesLocations+= [ mdir.replace("%%",pyVer) for mdir in pyDirFmt ]
-			print(self.sitepackagesLocations)
-			
-				
+			#print(self.sitepackagesLocations)
+
+
 		elif osname=="windows" or osname=="mingw":
 			self.sitepackagesLocations=[
 				os.path.expanduser("~\\appdata\\roaming\\python\\python27\\site-packages"),
@@ -78,7 +78,7 @@ class jfunc():
 		else:
 			self.sitepackagaesLocations=[]
 
-			
+
 
 	def getOsName(self):
 		osname=platform.uname()[0].lower().strip()
@@ -86,12 +86,12 @@ class jfunc():
 			if self.isMinGW():
 				osname="mingw"
 		return osname
-	
+
 	def isMinGW(self):
 		results=subprocess.Popen("gcc --version", stdout=subprocess.PIPE).stdout.read()
 		if USE_MINGW and "MinGW" in results:
 			return True
-			
+
 	def runCmd4Files(self,pwd,cmd,mfiles):
 		for mfile in mfiles:
 			#print mfile
@@ -110,15 +110,15 @@ class jfunc():
 			rmDirCmd="rd /S /Q"
 		else:
 			rmDirCmd="rm -rf"
-			
+
 
 		self.runCmd4Files(pwd,rmDirCmd,mfiles)
 
 	def runRm4Files(self,pwd,mfiles):
 		self.puts([self.osname,len(self.osname)])
 		self.puts("------------------")
-		
-			
+
+
 		if self.osname == "windows" or self.osname=="mingw":
 			self.puts([self.osname,len(self.osname)])
 			self.puts("........")
@@ -127,11 +127,22 @@ class jfunc():
 			self.puts("????")
 			rmFileCmd="rm -rf"
 			self.puts("removed")
-		
+
 		self.puts("****************")
 		self.runCmd4Files(pwd,rmFileCmd,mfiles)
 		self.puts("*****-----***********")
 
+	def getTesseractVersion(self):
+		result=subprocess.check_output("tesseract -v".split(),stderr=subprocess.STDOUT)
+		for item in result.split("\n"):
+			subItems=item.split()
+			if len(subItems)!=2:
+				continue
+			name, version=subItems
+			if name.strip().lower()=="tesseract":
+				return version.strip()
+
+		return None
 j=jfunc()
 osname=j.osname
 sitepackagesLocations=j.sitepackagesLocations
