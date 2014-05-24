@@ -122,6 +122,7 @@ debian/python3-tesseract/usr/share/doc/python3-tesseract/changelog.Debian.gz
 debian/python3-tesseract/usr/share/doc/python3-tesseract/changelog.gz
 debian/python3-tesseract/usr/share/doc/python3-tesseract/copyright
 debian/source/format
+debian/source.bad/format.bad
 debianPatches/control
 debianPatches/control.in
 debianPatches/copyright

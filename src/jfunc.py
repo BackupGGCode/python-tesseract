@@ -52,7 +52,8 @@ class jfunc():
 	def defineSitePackagesLocations(self):
 		osname=self.osname
 		if osname=="darwin":
-			brew_prefix=subprocess.getstatusoutput('brew --prefix')[1]
+			#brew_prefix=subprocess.getstatusoutput('brew --prefix')[1]
+			brew_prefix=self.cmd('brew --prefix')
 			self.sitepackagesLocations=[
 				os.path.expanduser("~/Library/Python/2.7/lib/python/site-packages"),
 				"/usr/local/lib/python2.7/site-packages/",
@@ -133,7 +134,7 @@ class jfunc():
 		self.puts("*****-----***********")
 
 	def getTesseractVersion(self):
-		result=subprocess.check_output("tesseract -v".split(),stderr=subprocess.STDOUT)
+		result=self.cmd("tesseract -v")
 		for item in result.split("\n"):
 			subItems=item.split()
 			if len(subItems)!=2:
@@ -143,6 +144,11 @@ class jfunc():
 				return version.strip()
 
 		return None
+	def cmd(self, cmdStr):
+		result=subprocess.check_output(cmdStr.split(),stderr=subprocess.STDOUT)
+		return result
+		
+		
 j=jfunc()
 osname=j.osname
 sitepackagesLocations=j.sitepackagesLocations

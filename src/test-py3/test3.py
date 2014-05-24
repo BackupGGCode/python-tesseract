@@ -4,6 +4,9 @@ from string import punctuation
 from distutils.sysconfig import get_config_vars
 import subprocess,platform,os
 
+def cmd(cmdStr):
+		result=subprocess.check_output(cmdStr.split(),stderr=subprocess.STDOUT)
+		return result
 
 def removeFlag(flagName,mflag):
 	(opt,) = get_config_vars(mflag)
@@ -58,16 +61,16 @@ def ocr():
 
 
 def setEnvironmentDarwin():
-	brew_prefix=subprocess.getstatusoutput('brew --prefix')[1]
+	brew_prefix=cmd('brew --prefix')
 	if not brew_prefix:
 		return 
 	print("homebrew installed")
-	opencv_version=subprocess.getstatusoutput('brew ls --versions opencv')[1]
+	opencv_version=cmd('brew ls --versions opencv')
 	if not opencv_version:
 		print("please install opencv by \n'brew install homebrew/science/opencv'")
 	else:
 		print("your opencv version is %s"%opencv_version)
-	python_version=subprocess.getstatusoutput('python --version')[1].split(" ")[1]
+	python_version=cmd('python --version')
 	python_version="python"+".".join(python_version.split(".")[:-1])
 	print(python_version)		
 	PYTHONPATH=os.path.join(brew_prefix,"lib",python_version,"site-packages")
@@ -84,7 +87,7 @@ def setEnvironmentDarwin():
 		fp.close()
 	
 	if PYTHONPATH not in os.environ['PYTHONPATH']:
-		os.environ['PYTHONPATH']=" ".join(PYTHONPATH,os.environ['PYTHONPATH'])
+		os.environ['PYTHONPATH']=PYTHONPATH+":"+os.environ['PYTHONPATH']
 		print(os.environ['PYTHONPATH'])
 
 
