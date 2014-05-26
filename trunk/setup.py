@@ -5,10 +5,15 @@ written by FreeToGo@gmail.com
 """
 import sys
 import os
-import src.jfunc as j
+import src.jfunc
+j=src.jfunc.jfunc()
 osname=j.osname
 argv=sys.argv
-
+def setInit():
+	if not os.path.exists("__init__.py"):
+		fp=open("__init__.py","w")
+		fp.write('\n')
+		fp.close()
 
 def main():
 	argLen=len(argv)
@@ -20,21 +25,19 @@ def main():
 	pwd=os.path.dirname(os.path.realpath(__file__))
 	srcPath=os.path.join(pwd,'src')
 	os.chdir(srcPath)
-	if not os.path.exists("__init__.py"):
-		fp=open("__init__.py","w")
-		fp.write('\n')
-		fp.close()
+	setInit()
 	import src.setup,sys
 	if cmd=="uninstall":
 		src.setup.my_uninstall()
-		
 		return
 	print("..........")
 	if cmd=="clean":
-		j.remove("*.deb")
 		os.chdir("../")
 		src.setup.my_clean()
-		os.system("rm python-tesseract_*")
+		j.remove("python-tesseract_*")
+		print("*"*100,os.getcwd)
+		j.remove("*.deb")
+		
 	src.setup.main()
 if __name__=="__main__":
 	main()
