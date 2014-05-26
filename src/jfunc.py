@@ -27,6 +27,7 @@ class jfunc():
 	
 	def listDoer(self,doer,anyFile):
 		mfiles=glob.glob(anyFile)
+		print(mfiles)
 		for mfile in mfiles:
 			doer(mfile)
 	def remove(self,mfile):
