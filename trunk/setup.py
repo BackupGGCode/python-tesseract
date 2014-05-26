@@ -31,8 +31,8 @@ def main():
 		return
 	print("..........")
 	if cmd=="clean":
-		os.chdir("../")
 		j.remove("*.deb")
+		os.chdir("../")
 		src.setup.my_clean()
 		os.system("rm python-tesseract_*")
 	src.setup.main()
