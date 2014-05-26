@@ -1,0 +1,13 @@
+#! /bin/bash
+python setup.py clean
+python setup.py uninstall
+svn rm python*tesseract*
+svn rm src/main.h
+svn rm src/config.h
+svn rm src/tesseract_wrap.cpp
+svn rm src/tesseract.py
+svn rm src/*.pyc
+svn rm src/build
+#svn rm src/python_tesseract.egg-info
+svn ci
+

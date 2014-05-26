@@ -1,0 +1,23 @@
+#! /bin/bash
+VER=0.9
+oldDir=$(basename `pwd`)
+echo "Old Dir=$oldDir"
+newDir="python-tesseract-${VER}"
+dirChanged=false
+if [ "$oldDir" != "$newDir" ] ; then
+	dirChanged=true
+	cd .. && mv "$oldDir" "$newDir" && cd "$newDir" 
+fi
+cd src
+svn remove svn-commit.tmp
+chmod 644  debian/changelog
+chmod 644  debian/control
+chmod 644  debian/copyright
+debuild -us -uc
+echo "Restoring Directory"
+pwd
+if [ $dirChanged ] ; then
+	cd ../../ && mv "$newDir" "$oldDir"  && cd "$oldDir" 
+	cd ../
+fi 
+
