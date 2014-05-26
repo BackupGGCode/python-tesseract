@@ -1,8 +1,8 @@
-9cca1f03b016e8982db1e795d325e3fe  usr/lib/python2.7/dist-packages/_tesseract.x86_64-linux-gnu.so
+3199de2bbff4dab7822a6b0bc19c951f  usr/lib/python2.7/dist-packages/_tesseract.x86_64-linux-gnu.so
 f1103186f1b32960dba9523c8ee3d601  usr/lib/python2.7/dist-packages/python_tesseract-0.9.egg-info/PKG-INFO
 68b329da9893e34099c7d8ad5cb9c940  usr/lib/python2.7/dist-packages/python_tesseract-0.9.egg-info/dependency_links.txt
 fe2b77c11ed15fcebebb09b40e5bd606  usr/lib/python2.7/dist-packages/python_tesseract-0.9.egg-info/top_level.txt
-8b197d08ca12fe477204975c5420c7bd  usr/lib/python2.7/dist-packages/tesseract.py
-d9cdf518121d1b02e9e749e785523c12  usr/share/doc/python-tesseract/changelog.Debian.gz
+787fda61a689ead665b0fe793d5afbed  usr/lib/python2.7/dist-packages/tesseract.py
+7ac47fb0a18bd051b6b6c52af9046b61  usr/share/doc/python-tesseract/changelog.Debian.gz
 4a4dd3598707603b3f76a2378a4504aa  usr/share/doc/python-tesseract/changelog.gz
 b3855b821953917992b33fbf042023a4  usr/share/doc/python-tesseract/copyright

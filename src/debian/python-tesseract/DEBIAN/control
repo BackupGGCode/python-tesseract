@@ -1,13 +1,15 @@
 Package: python-tesseract
-Version: 0.9-0.3ubuntu1
+Version: 0.9-0.3ubuntu3
 Architecture: amd64
 Maintainer: FreeToGo <FreeToGo@gmail.com>
 Installed-Size: 4265
-Depends: python (<< 2.8), python (>= 2.7~), python:any (>= 2.7.5-5~), libc6 (>= 2.14), libgcc1 (>= 1:4.1.1), liblept4, libopencv-core2.4, libstdc++6 (>= 4.1.1), libtesseract3
+Depends: python (>= 2.7~), python:any (>= 2.7.5-5~), python (<< 2.8), libc6 (>= 2.14), libgcc1 (>= 1:4.1.1), liblept4, libopencv-core2.4, libstdc++6 (>= 4.1.1), libtesseract3
 Section: python
 Priority: optional
 Homepage: http://code.google.com/p/python-tesseract/
 Description: Tesseract for Python
- Python-tesseract is a wrapper class for Tesseract OCR that allows any conventional image files
- (JPG, GIF ,PNG , TIFF and etc) to be read and decoded into readable languages.
- No temporary file will be created during the OCR processing.
+ Python-tesseract is a wrapper class for Tesseract OCR
+ that allows any conventional image files (JPG, GIF, PNG,
+ TIFF and etc) to be read and decoded into readable l
+ anguages. No temporary file will be created during the
+ OCR processing.
