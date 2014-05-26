@@ -316,8 +316,9 @@ class GenVariablesLinux:
 					print (subItems)
 					libname="open"+subItems[1].split(".")[0]
 					print("add lib: %s"%libname)
-					if libname!="opencv":
-						self.libraries.append(libname)
+					if libname=="opencv":
+						continue
+					self.libraries.append(libname)
 		else:
 			print("No pkg-config support!")
 			#if libpath('libopencv_core.so') or libpath('libopencv_core.dylib') or libpath('libopencv_core.dll.a')  or hasOpenCV:
