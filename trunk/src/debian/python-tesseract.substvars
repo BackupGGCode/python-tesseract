@@ -1,5 +1,5 @@
-python:Depends=python (>= 2.7~), python:any (>= 2.7.5-5~), python:any (>= 2.7~), python (<< 2.8), python:any (<< 2.8)
-python:Versions=2.7
 python:Provides=python2.7-tesseract
+python:Versions=2.7
+python:Depends=python (>= 2.7~), python:any (<< 2.8), python:any (>= 2.7~), python (<< 2.8), python:any (>= 2.7.5-5~)
 shlibs:Depends=libc6 (>= 2.14), libgcc1 (>= 1:4.1.1), liblept4, libopencv-core2.4, libstdc++6 (>= 4.1.1), libtesseract3
 misc:Depends=

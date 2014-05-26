@@ -522,8 +522,8 @@ def main():
 	data_files=None
 	tesseract_module=None
 	sources=['tesseract.i','main.cpp']
-	description = r"""${python:Provides} Wrapper for Python-${python:Versions}"""
-
+	#description = r"""${python:Provides} Wrapper for Python-${python:Versions}"""
+	description = r"""Python Wrapper for Tesseract"""
 
 	removeFlag('-Wstrict-prototypes','OPT')
 
