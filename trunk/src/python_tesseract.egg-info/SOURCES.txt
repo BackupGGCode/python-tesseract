@@ -1,3 +1,4 @@
+README
 RELEASES
 __init__.py
 __init__.pyc
@@ -14,7 +15,7 @@ buildWinInst.bat
 buildall
 capi_mini.h
 compile_test_cv_cpp
-config.h
+control.old
 cv_original.cpp.obsolete
 cv_original.obsolete
 debianRulesBackUp
@@ -37,7 +38,6 @@ liblept168.dll.dump.txt
 ltmain.sh
 ltrresultiterator_mini.h
 main.cpp
-main.h
 makefile.shsh
 ms_fmemopen.c
 numpy.i
@@ -57,7 +57,6 @@ setup.pyc
 setup2.py
 setup_py_patch
 stdeb.cfg
-svn-commit.tmp
 temp.txt
 tesseract.i
 tesseract.i.bak

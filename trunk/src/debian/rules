@@ -1,11 +1,15 @@
 #!/usr/bin/make -f
+DEB_PYTHON_SYSTEM=pysupport
+#include /usr/share/cdbs/1/rules/debhelper.mk
+#include /usr/share/cdbs/1/class/python-distutils.mk
 
 export PYTHONWARNINGS=d
 PYVERS := $(shell pyversions -r)
 PY3VERS := $(shell py3versions -r)
 
 %:
-	dh $@ --with python2,python3
+	dh $@ --with python2,python3 --buildsystem=pybuild
+	export PYBUILD_NAME=tesseract
 
 override_dh_auto_build:
 # I need to build twice to play safe
