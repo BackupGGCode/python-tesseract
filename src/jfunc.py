@@ -24,7 +24,22 @@ class jfunc():
 		self.osname=self.getOsName()
 		#print(self.osname)
 		self.defineSitePackagesLocations()
-
+	
+	def listDoer(self,doer,anyFile):
+		mfiles=glob.glob(anyFile)
+		for mfile in mfiles:
+			doer(mfile)
+	def remove(self,mfile):
+		self.listDoer(self.removeOneFile,mfile)
+		
+	def removeOneFile(self, mfile):
+		try:
+			os.remove(mfile)
+		except:
+			print("Cannot Remove: %s"%mfile)
+			if not os.path.exists(mfile):
+				print("File not existed")
+				
 	def type(self,a):
 		return repr(type(a)).split(" ")[-1][1:-2].upper()
 
