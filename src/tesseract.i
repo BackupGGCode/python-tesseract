@@ -9,6 +9,14 @@
 
 
 %{
+
+
+#define TESS_API
+#define TESS_LOCAL
+#define LEPT_DLL
+#define TESS_CAPI_INCLUDE_BASEAPI
+
+
 #include "config.h"
 //#include "pix.h"
 #include "allheaders.h"
@@ -43,6 +51,7 @@ char* retParser(const char* a);
     }
 }
 
+
 #%typemap(out) int* AllWordConfidences {
 %typemap(out) int* {
   int i, len;
@@ -56,10 +65,15 @@ char* retParser(const char* a);
   }
 }
 
-
+#define TESS_API
+#define TESS_LOCAL
+#define LEPT_DLL
+#define TESS_CAPI_INCLUDE_BASEAPI
+%ignore setPixMemoryManager;
 %include "config.h"
 %include "pix.h"
 %include "allheaders_mini.h"
+//%include "allheaders.h"
 %include "publictypes.h"
 %include "baseapi_mini.h"
 %include "capi_mini.h"
