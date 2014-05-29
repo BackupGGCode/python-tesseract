@@ -18,9 +18,9 @@ image1=image0
 image1=cv2.copyMakeBorder(image0,offset,offset,offset,offset,cv2.BORDER_CONSTANT,value=(255,255,255)) 
 
 cv2.namedWindow("Test")
-cv2.imshow("Test", image1)
-cv2.waitKey(0)
-cv2.destroyWindow("Test")
+#cv2.imshow("Test", image1)
+#cv2.waitKey(0)
+#cv2.destroyWindow("Test")
 #####################################################################################################
 api = tesseract.TessBaseAPI()
 api.Init(".","eng",tesseract.OEM_DEFAULT)

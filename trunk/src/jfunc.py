@@ -104,6 +104,7 @@ class jfunc():
 				osname="mingw"
 		return osname
 
+	
 	def isMinGW(self):
 		results=subprocess.Popen("gcc --version", stdout=subprocess.PIPE).stdout.read()
 		if USE_MINGW and "MinGW" in results:
