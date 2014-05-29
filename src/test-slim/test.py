@@ -16,8 +16,8 @@ api.SetPageSegMode(tesseract.PSM_AUTO)
 print("Test api.ProcessPages")
 mImgFile = "eurotext.jpg"
 result=api.ProcessPages(mImgFile, None, 0)
-print(result)
-print("*"*100)
+print(("result(api.ProcessPages)=",result))
+
 print("Test ProcessPagesWrapper")
 result = tesseract.ProcessPagesWrapper(mImgFile,api)
 print(("result(ProcessPagesWrapper)=",result))

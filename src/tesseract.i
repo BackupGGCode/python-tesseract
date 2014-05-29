@@ -51,6 +51,14 @@ char* retParser(const char* a);
     }
 }
 
+%typemap(in, numinputs=0) STRING *text_out (STRING temp) {
+  $1 = &temp;
+}
+
+%typemap(argout) STRING *text_out {
+ $result = PyString_FromString($1->string());
+}
+
 
 #%typemap(out) int* AllWordConfidences {
 %typemap(out) int* {

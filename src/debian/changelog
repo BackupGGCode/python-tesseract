@@ -1,14 +1,18 @@
+python-tesseract (0.9-0.4ubuntu0) UNRELEASED; urgency=medium
+
+  *  add support of api.ProcessPages
+
+ -- eli <eli@eli_ThinkPad_X230.com>  Thu, 29 May 2014 23:10:48 +0800
+
 python-tesseract (0.9-0.3ubuntu3) UNRELEASED; urgency=medium
 
   * tidying up the setup script
-  * 
 
  -- eli <eli@eli.Dell390.com>  Mon, 26 May 2014 15:25:15 +0800
 
 python-tesseract (0.9-0.3ubuntu1) UNRELEASED; urgency=medium
 
   * minor changes
-  * 
 
  -- eli <eli@eli-iMac.com>  Sun, 25 May 2014 02:42:57 +0800
 

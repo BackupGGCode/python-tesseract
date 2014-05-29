@@ -122,6 +122,12 @@ def my_uninstall():
 	j.remove("*.pyc")
 	print("Uninstalling is done")
 
+def idefine(fp,name):
+		fp.write("#ifndef __%s__\n"%name)
+		fp.write("\t#define __%s__\n"%name)
+		fp.write("#endif\n")
+
+
 class CustomBuild(build):
     def run(self):
         self.run_command('build_ext')  # must build twice  <-- swig bug 
@@ -549,6 +555,11 @@ def main():
 
 	fp_config_h=open("config.h","w")
 	fp_main_h=open("main.h","w")
+	if sys.version_info.major==2 :
+		idefine(fp_config_h,"python2")
+	else:
+		USE_CV=False
+	
 	#fp_config_h.write(
 #r"""
 ##ifdef TESS_EXPORTS
@@ -654,4 +665,5 @@ def check_and_run():
 
 
 if __name__ == "__main__":
+	
 	check_and_run()

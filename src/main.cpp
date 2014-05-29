@@ -7,7 +7,12 @@
 
 // Include automatically generated configuration file if running autoconf
 #include "config.h"
-
+/*
+const char *p_enc="utf-8";
+#define _PyUnicode_AsBytes(obj) PyUnicode_AsEncodedString(obj, p_enc, NULL)
+#define PyString_AsString(obj) PyBytes_AsString(_PyUnicode_AsBytes(obj))
+#define PyString_Size(obj) PyBytes_GET_SIZE(_PyUnicode_AsBytes(obj))
+*/
 #include "allheaders.h"
 #include "baseapi.h"
 #include "img.h"
@@ -211,7 +216,7 @@ char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
 	return retStr;
  }
 */
-
+#if defined(__python2__)
 #if defined(__opencv__) || defined(__opencv2__)
 //#ifdef __opencv2__
  /* from PyBLOB project
@@ -235,6 +240,7 @@ static int is_iplimage(PyObject *o)
 
 /* convert_to_IplImage(): convert a PyObject* to IplImage*/
 /* Note: this has been copied verbatim from <opencv_root>/interfaces/python/cv.cpp */
+
 static int convert_to_IplImage(PyObject *o, IplImage **dst)
 {
     iplimage_t *ipl = (iplimage_t*)o;
@@ -242,34 +248,48 @@ static int convert_to_IplImage(PyObject *o, IplImage **dst)
     Py_ssize_t buffer_len;
 
     if (!is_iplimage(o)) {
-	return -1; //failmsg("Argument must be IplImage");
-  /*    //no longer supported in python3
-    } else if (PyString_Check(ipl->data)) {
-	cvSetData(ipl->a, PyString_AsString(ipl->data) + ipl->offset, ipl->a->widthStep);
-	assert(cvGetErrStatus() == 0);
-	*dst = ipl->a;
-	return 1;
-*/
-    } else if (ipl->data && PyObject_AsWriteBuffer(ipl->data, &buffer, &buffer_len) == 0) {
-	cvSetData(ipl->a, (void*)((char*)buffer + ipl->offset), ipl->a->widthStep);
-	assert(cvGetErrStatus() == 0);
-	*dst = ipl->a;
-	return 1;
-    } else {
-	return -1;// failmsg("IplImage argument has no data");
-    }
+		puts("Argument must be IplImage");
+		return -1;
+	} //failmsg("Argument must be IplImage");
+      //no longer supported in python3    // PyUnicode_FromString
+    if (PyString_Check(ipl->data)) {
+    //if (PyUnicode_Check(ipl->data)) {
+		cvSetData(ipl->a, PyString_AsString(ipl->data) + ipl->offset, ipl->a->widthStep);
+		assert(cvGetErrStatus() == 0);
+		*dst = ipl->a;
+		return 1;
+	}
+	
+	if (! ipl->data) {
+		puts("IplImage argument has no data");
+		return -1;// failmsg("IplImage argument has no data");
+    }		
+		
+	if ( PyObject_AsWriteBuffer(ipl->data, &buffer, &buffer_len) == 0) {
+		cvSetData(ipl->a, (void*)((char*)buffer + ipl->offset), ipl->a->widthStep);
+		assert(cvGetErrStatus() == 0);
+		*dst = ipl->a;
+		return 1;
+	} 
+	else  {
+		puts("Unknown Error! Cannot convert IplImage!");
+		return -1;
+	}
+		
+
 }
 
 void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api)
 {
     IplImage* img;
     int res =  convert_to_IplImage(o, &img);
-
     //if succesfull
     if ( res == 1 )
     {
       api->SetImage( (unsigned char*) img->imageData,  img->width, img->height, img->nChannels, img->widthStep);
-    }
+    } else {
+		puts("Cannot convert Image to IPL");
+	}
 
 }
 /*
@@ -325,4 +345,5 @@ bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api
   return res;
 }
 
+#endif
 #endif
