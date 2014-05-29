@@ -10,6 +10,7 @@ svn rm src/tesseract.py
 svn rm src/*.pyc
 svn rm src/build
 svn rm python-tesseract*build
+svn rm src/debian/python*-tesseract*
 #svn rm src/python_tesseract.egg-info
 svn ci
 
