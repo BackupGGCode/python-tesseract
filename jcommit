@@ -5,6 +5,7 @@ svn rm python*tesseract*
 svn rm src/main.h
 svn rm src/config.h
 svn rm src/tesseract*wrap.cpp
+svn rm src/tesseract_wrap.cpp
 svn rm src/tesseract.py
 svn rm src/*.pyc
 svn rm src/build
