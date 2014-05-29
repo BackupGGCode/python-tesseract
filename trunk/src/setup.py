@@ -375,6 +375,7 @@ class GenVariablesLinux:
 				extra_link_args = extra_link_args,
 				swig_opts=[
 								"-c++",
+				#				"-DTESS_API","-DTESS_LOCAL","-DTESS_DLL","-DTESS_CAPI_INCLUDE_BASEAPI",
 								 "-I"+self.inclpath('tesseract'),
 				#				"-I"+os.path.dirname(config.__file__),
 								"-I"+self.inclpath('leptonica'),
@@ -523,6 +524,7 @@ class GenVariablesWindows:
 
 			swig_opts=[
 					"-c++",
+				#	"-DTESS_API","-DTESS_LOCAL","-DTESS_DLL","-DTESS_CAPI_INCLUDE_BASEAPI",
 					"-I"+self.inclpath('tesseract'),
 				#	"-I"+os.path.dirname(config.__file__),
 					"-I"+self.inclpath('leptonica'),
@@ -547,24 +549,24 @@ def main():
 
 	fp_config_h=open("config.h","w")
 	fp_main_h=open("main.h","w")
-	fp_config_h.write(
-r"""
-#ifdef TESS_EXPORTS
-#define TESS_API __declspec(dllexport)
-#elif defined(TESS_IMPORTS)
-#define TESS_API __declspec(dllimport)
-#else
-#define TESS_API
-#define TESS_LOCAL
-#define LEPT_DLL
+	#fp_config_h.write(
+#r"""
+##ifdef TESS_EXPORTS
+##define TESS_API __declspec(dllexport)
+##elif defined(TESS_IMPORTS)
+##define TESS_API __declspec(dllimport)
+##else
+##define TESS_API
+##define TESS_LOCAL
+##define LEPT_DLL
 
-#define TESS_CAPI_INCLUDE_BASEAPI
-#endif
-"""
+##define TESS_CAPI_INCLUDE_BASEAPI
+##endif
+#"""
 #define CV_EXPORTS
 #define CV_EXPORTS_W
 #define CV_EXPORTS_AS
-)
+#)
 
 	fp_config_h.write("#pragma once\n")
 	writeIncludeLines(fp_main_h,IncludeLines)
