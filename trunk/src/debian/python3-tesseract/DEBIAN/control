@@ -1,10 +1,10 @@
 Package: python3-tesseract
 Source: python-tesseract
-Version: 0.9-0.3ubuntu3
+Version: 0.9-0.4ubuntu0
 Architecture: amd64
 Maintainer: FreeToGo <FreeToGo@gmail.com>
-Installed-Size: 4265
-Depends: python3 (>= 3.4~), python3 (<< 3.5), libc6 (>= 2.14), libgcc1 (>= 1:4.1.1), liblept4, libopencv-core2.4, libstdc++6 (>= 4.1.1), libtesseract3
+Installed-Size: 4261
+Depends: python3 (>= 3.4~), python3 (<< 3.5), libc6 (>= 2.14), libgcc1 (>= 1:4.1.1), liblept4, libstdc++6 (>= 4.1.1), libtesseract3
 Section: python
 Priority: optional
 Homepage: http://code.google.com/p/python-tesseract/
