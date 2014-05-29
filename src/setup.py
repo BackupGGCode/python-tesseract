@@ -620,8 +620,8 @@ def main():
 			cmdclass={
 			'clean': CleanCommand,
 			'uninstall' : UninstallCommand,
-			'build': CustomBuild,					#cater for the swig bug
-			'install': CustomInstall				#need a smarter method
+			#'build': CustomBuild,					#cater for the swig bug
+			#'install': CustomInstall				#need a smarter method
 			},
 			packages =
 				find_packages(

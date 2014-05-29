@@ -84,8 +84,6 @@ debian/python3-tesseract.postinst.debhelper
 debian/python3-tesseract.prerm.debhelper
 debian/python3-tesseract.substvars
 debian/rules
-debian/patches/c
-debian/patches/series
 debian/python-tesseract/DEBIAN/control
 debian/python-tesseract/DEBIAN/md5sums
 debian/python-tesseract/DEBIAN/postinst
