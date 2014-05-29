@@ -77,7 +77,7 @@ char* retParser(const char* a);
 #define TESS_LOCAL
 #define LEPT_DLL
 #define TESS_CAPI_INCLUDE_BASEAPI
-%ignore setPixMemoryManager;
+%ignore "setPixMemoryManager";
 %include "config.h"
 %include "pix.h"
 %include "allheaders_mini.h"
