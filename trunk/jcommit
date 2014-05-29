@@ -12,7 +12,7 @@ svn rm src/debian/python*-tesseract*
 svn add *
 svn add src/*
 svn rm src/tesseract*wrap.cpp --force
-svn rm src/tesseract_wrap.cpp --force
+svn rm src/tesseract.py --force
 
 #svn rm src/python_tesseract.egg-info
 svn ci
