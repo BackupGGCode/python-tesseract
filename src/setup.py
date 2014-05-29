@@ -8,6 +8,10 @@ PACKAGE="python-tesseract"
 #VERSION=os.getcwd().split("-")[-1]
 VERSION="0.9"
 from setuptools import setup, Extension, Command, find_packages
+from distutils.command.build import build
+from setuptools.command.install import install
+from setuptools.command.build_ext import build_ext
+
 import sys,os,platform,glob,subprocess,sys,distutils
 import os
 try:
@@ -117,6 +121,17 @@ def my_uninstall():
 	j.remove("main.h")
 	j.remove("*.pyc")
 	print("Uninstalling is done")
+
+class CustomBuild(build):
+    def run(self):
+        self.run_command('build_ext')  # must build twice  <-- swig bug 
+        build.run(self)
+
+
+class CustomInstall(install):
+    def run(self):
+        self.run_command('build_ext') 
+        self.do_egg_install()
 
 class CleanCommand(_clean):
 	description = "custom clean command that forcefully removes dist/build directories"
@@ -588,9 +603,12 @@ r"""
 			description = description,
 			ext_modules = [tesseract_module],
 			py_modules = ["tesseract"],
+			#install_requires=['tesseract', 'leptonica'],
 			cmdclass={
 			'clean': CleanCommand,
-			'uninstall' : UninstallCommand
+			'uninstall' : UninstallCommand,
+			'build': CustomBuild,					#cater for the swig bug
+			'install': CustomInstall				#need a smarter method
 			},
 			packages =
 				find_packages(

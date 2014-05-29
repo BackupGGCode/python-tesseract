@@ -1,4 +1,3 @@
-README
 RELEASES
 __init__.py
 __init__.pyc
