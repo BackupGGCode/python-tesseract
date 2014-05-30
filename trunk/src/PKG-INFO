@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: python-tesseract
+Version: 0.9
+Summary: Python Tesseract
+Home-page: http://code.google.com/p/python-tesseract/
+Author: FreeToGo
+Author-email: freetogo@gmail.com
+License: MIT
+Download-URL: http://code.google.com/p/geopy/downloads/list
+Description: Python Wrapper For Tesseract
+Keywords: Python, Library, Wrapper, OpenCV, Tesseract, Leptonica, Kaptcha
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3

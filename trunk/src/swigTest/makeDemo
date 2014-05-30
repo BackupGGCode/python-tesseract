@@ -1,0 +1,6 @@
+MFILE=demo
+swig -c++ -python ${MFILE}.i
+g++ -fpic -c ${MFILE}_wrap.cxx \
+        `pkg-config --cflags python3`
+
+g++ -shared ${MFILE}_wrap.o -o _${MFILE}.so 

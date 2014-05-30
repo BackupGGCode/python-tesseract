@@ -1,0 +1,6 @@
+MFILE=example
+swig -python ${MFILE}.i
+gcc -fpic -c ${MFILE}.c ${MFILE}_wrap.c \
+        `pkg-config --cflags python3`
+
+ld -shared $MFILE.o ${MFILE}_wrap.o -o _${MFILE}.so 
