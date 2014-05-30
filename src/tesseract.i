@@ -50,6 +50,20 @@ char* retParser(const char* a);
         SWIG_exception( SWIG_TypeError, "%%typemap: could not convert input argument to an IplImage");
     }
 }
+#%typemap(python,out) unsigned int = int;     
+/*
+%typemap(out) string * {
+   $result = PyString_FromString($1->c_str());
+}
+%typemap(python,out) STRING* {
+	const char*a=$1.string();
+	size_t mlen=strlen(a);
+	if (mlen==0)
+		return 0;
+	char *resultr=(char *)malloc(sizeof(char) * ( mlen + 1 ));
+	memcpy(result,a,mlen);
+}
+*/
 
 %typemap(in, numinputs=0) STRING *text_out (STRING temp) {
   $1 = &temp;
@@ -72,6 +86,23 @@ char* retParser(const char* a);
     PyList_SetItem($result,i,o);
   }
 }
+%{
+#define TESS_API
+#define TESS_LOCAL
+#define LEPT_DLL
+#define TESS_CAPI_INCLUDE_BASEAPI
+#include "config.h"
+//#include "pix.h"
+#include "allheaders.h"
+#include "publictypes.h"
+#include "thresholder.h"
+#include "capi.h"
+//#include pageiterator.h
+#include "ltrresultiterator.h"
+#include "resultiterator.h"
+#include "baseapi.h"
+#include "unichar.h"
+#include "renderer.h"
 
 #define TESS_API
 #define TESS_LOCAL
@@ -79,12 +110,25 @@ char* retParser(const char* a);
 #define TESS_CAPI_INCLUDE_BASEAPI
 //%ignore LEPT_DLL extern void setPixMemoryManager ( void * (  ( *allocator ) ( size_t ) ), void  (  ( *deallocator ) ( void * ) ) );
 //%rename("$ignore", regextarget=1) ".*setPixMemoryManager$";
+//#include "cv_original.h"
+#include "main.h"
+char* retParser(const char* a);
+
+
+%}
+//%ignore LEPT_DLL extern void setPixMemoryManager ( void * (  ( *allocator ) ( size_t ) ), void  (  ( *deallocator ) ( void * ) ) );
+//%ignore setPixMemoryManager;
+#define TESS_API
+#define TESS_LOCAL
+#define LEPT_DLL
+#define TESS_CAPI_INCLUDE_BASEAPI
 %include "config.h"
 %include "pix.h"
 %include "allheaders_mini.h"
 //%include "allheaders.h"
 %include "publictypes.h"
 %include "baseapi_mini.h"
+//%include "baseapi.h"
 %include "capi_mini.h"
 %include "thresholder.h"
 %include "pageiterator.h"
@@ -92,3 +136,4 @@ char* retParser(const char* a);
 %include "resultiterator.h"
 %include "renderer.h"
 %include "main.h"
+
