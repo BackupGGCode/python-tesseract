@@ -1,19 +1,18 @@
 #! /bin/bash
 python setup.py clean
 python setup.py uninstall
-svn rm python*tesseract*
-svn rm src/main.h
-svn rm src/config.h
-svn rm src/tesseract.py
-svn rm src/*.pyc
-svn rm src/build
-svn rm python-tesseract*build
-svn rm src/debian/python*-tesseract*
-svn add *
-svn add src/*
-svn rm src/tesseract*wrap.cpp --force
-svn rm src/tesseract.py --force
+svn delete python*tesseract* --force
+svn delete src/main.h --force
+svn delete src/config.h --force
+svn delete src/tesseract.py --force
+svn delete src/*.pyc --force
+svn delete src/build --force
+svn delete python-tesseract*build --force
+svn delete src/debian/python*-tesseract* --force
+svn add --force * --auto-props --parents --depth infinity -q
+svn delete src/tesseract*wrap* --force
+svn delete src/tesseract.py --force
 
-#svn rm src/python_tesseract.egg-info
+#svn delete src/python_tesseract.egg-info
 svn ci
 
