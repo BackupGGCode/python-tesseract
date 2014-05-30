@@ -1,8 +1,0 @@
-pyversions=2.7
-
-/usr/lib/pyshared/python2.7/_tesseract.so
-/usr/share/pyshared/python_tesseract-tesseract.egg-info/PKG-INFO
-/usr/share/pyshared/python_tesseract-tesseract.egg-info/SOURCES.txt
-/usr/share/pyshared/python_tesseract-tesseract.egg-info/dependency_links.txt
-/usr/share/pyshared/python_tesseract-tesseract.egg-info/top_level.txt
-/usr/share/pyshared/tesseract.py
