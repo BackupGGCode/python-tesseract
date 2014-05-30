@@ -545,12 +545,10 @@ def main():
 	data_files=None
 	tesseract_module=None
 	sources=['tesseract.i','main.cpp']
-	#description = r"""${python:Provides} Wrapper for Python-${python:Versions}"""
-	description = r"""Python Wrapper for Tesseract"""
+	description = r"""${python:Provides} Wrapper for Python-${python:Versions}"""
+	#description = r"""Python Wrapper for Tesseract"""
 
 	removeFlag('-Wstrict-prototypes','OPT')
-
-
 	print("Current Version : %s"%VERSION)
 
 	fp_config_h=open("config.h","w")
@@ -620,8 +618,8 @@ def main():
 			cmdclass={
 			'clean': CleanCommand,
 			'uninstall' : UninstallCommand,
-			#'build': CustomBuild,					#cater for the swig bug
-			#'install': CustomInstall				#need a smarter method
+			'build': CustomBuild,					#cater for the swig bug
+			'install': CustomInstall				#need a smarter method
 			},
 			packages =
 				find_packages(
