@@ -1,7 +1,8 @@
 from __future__ import print_function
 import platform, os, subprocess,glob
-import subprocess
+import subprocess, glob
 
+WIN64=True
 DEBUG=True
 WARNING_LEVEL=10
 USE_MINGW=True
@@ -19,12 +20,29 @@ colors={'LIST':'\033[95m',
 		'ENDC' : '\033[0m',
 		}
 colorkeys=list(colors.keys())
+
 class jfunc():
 	def __init__(self):
 		self.osname=self.getOsName()
 		#print(self.osname)
 		self.defineSitePackagesLocations()
-	
+		self.python_version=self.getPythonVersion()
+			
+	def getPythonPathForWindows(self):
+		self.pythonBinPaths={}
+		pythonPaths=glob.glob("c:\python*")
+		if not pythonPaths:
+			return None
+		for pythonPath in pythonPaths:
+			cmdList=[pythonPath+'\python','-c','import struct;print(8*struct.calcsize("P"))']
+			archit=int(j.cmdRaw(cmdList))
+			self.pythonBinPaths[archit]=pythonPath
+			
+		
+	def getPythonVersion(self):
+		python_version=self.cmd('python --version')
+		return "python"+".".join(python_version.split(".")[:-1])
+
 	def listDoer(self,doer,anyFile):
 		mfiles=glob.glob(anyFile)
 		print(mfiles)
@@ -106,6 +124,7 @@ class jfunc():
 
 	
 	def isMinGW(self):
+		return False
 		results=subprocess.Popen("gcc --version", stdout=subprocess.PIPE).stdout.read()
 		if USE_MINGW and "MinGW" in results:
 			return True
@@ -162,9 +181,11 @@ class jfunc():
 
 		return None
 	def cmd(self, cmdStr):
-		result=subprocess.check_output(cmdStr.split(),stderr=subprocess.STDOUT)
-		return result.decode('utf-8')
+		return self.cmdRaw(cmdStr.split())
 
+	def cmdRaw(self,cmdList):
+		result=subprocess.check_output(cmdList,stderr=subprocess.STDOUT)
+		return result.decode('utf-8').strip()
 
 j=jfunc()
 osname=j.osname
@@ -174,6 +195,8 @@ print("Your os is:%s"%osname)
 def puts(*argv,**kwargs):
 	j.puts(*argv,**kwargs)
 
+
+	
 if __name__ == "__main__":
 	#puts("os is %s"%osname,11)
 	#puts("Warining Level is %s"%8,8)
@@ -182,3 +205,6 @@ if __name__ == "__main__":
 	#puts(1.21,3,"apple",[1,2,3],192,END=" ")
 	#puts(1.21,3,"apple",[1,2,3],192,START="*"*10,END="%s,\n"%("^"*10))
 	print(j.osname)
+	j.getPythonPathForWindows()
+	#print(j.python_version)
+	print(j.pythonBinPaths)	

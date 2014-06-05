@@ -1,4 +1,4 @@
-python "setenvWin32.py"
+python "jfunc.py"
 
 pause
 del "%0"

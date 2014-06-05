@@ -1,15 +1,7 @@
+#ifndef __python2__
+	#define __python2__
+#endif
 #pragma once
-#ifndef __darwin__
-	#define __darwin__
-#endif
+#define __windows__
+
 #include "fmemopen.h"
-#define HAVE_LIBLEPT
-#ifndef __opencv2__
-	#define __opencv2__
-#endif
-#include <opencv2/core/core_c.h>
-#ifndef __opencv__
-	#define __opencv__
-#endif
-#include <opencv/cv.h>
-#include <Python.h>

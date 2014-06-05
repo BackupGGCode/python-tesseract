@@ -21,7 +21,7 @@ except:
 j=jfunc.jfunc()
 puts=j.puts
 USE_CV=True
-
+python_version=j.python_version
 osname=j.osname
 #library_dirs=[]
 #include_dirs=['.']
@@ -402,8 +402,6 @@ class GenVariablesDarwin(GenVariablesLinux):
 		#brew_prefix=subprocess.getstatusoutput('brew --prefix')[1]
 		#python_version=subprocess.getstatusoutput('python --version')[1].split(" ")[1]
 		brew_prefix=j.cmd('brew --prefix')
-		python_version=j.cmd('python --version')
-		python_version="python"+".".join(python_version.split(".")[:-1])
 		sitePackagesPath=os.path.join(brew_prefix,"lib",python_version,"site-packages")
 		if "PYTHONPATH" in os.environ:
 			os.environ["PYTHONPATH"]="%s:%s"%(sitePackagesPath,os.environ["PYTHONPATH"])
