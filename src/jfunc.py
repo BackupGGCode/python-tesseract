@@ -1,6 +1,6 @@
 from __future__ import print_function
 import platform, os, subprocess,glob
-import subprocess, glob
+import subprocess, glob, struct
 
 WIN64=True
 DEBUG=True
@@ -20,14 +20,19 @@ colors={'LIST':'\033[95m',
 		'ENDC' : '\033[0m',
 		}
 colorkeys=list(colors.keys())
-
+mingwPath={32:r'c:\Program Files (x86)\mingw-w64\i686-4.9.0-posix-dwarf-rt_v3-rev1\mingw32\bin',
+			64:r'C:\Program Files\mingw-w64\x86_64-4.9.0-posix-seh-rt_v3-rev1\mingw64\bin'}
 class jfunc():
 	def __init__(self):
+		self.python_version=self.getPythonVersion()
+		self.python_archit=self.getPythonArchit()
 		self.osname=self.getOsName()
 		#print(self.osname)
 		self.defineSitePackagesLocations()
-		self.python_version=self.getPythonVersion()
 			
+	def getPythonArchit(self):
+		return 8*struct.calcsize("P")
+		
 	def getPythonPathForWindows(self):
 		self.pythonBinPaths={}
 		pythonPaths=glob.glob("c:\python*")
@@ -124,8 +129,9 @@ class jfunc():
 
 	
 	def isMinGW(self):
-		return False
-		results=subprocess.Popen("gcc --version", stdout=subprocess.PIPE).stdout.read()
+		cmdStr=mingwPath[self.python_archit]+"/gcc --version"
+		print(cmdStr)
+		results=subprocess.Popen(cmdStr, stdout=subprocess.PIPE).stdout.read()
 		if USE_MINGW and "MinGW" in results:
 			return True
 

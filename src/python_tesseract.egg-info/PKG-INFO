@@ -1,7 +1,7 @@
 Metadata-Version: 1.1
 Name: python-tesseract
 Version: 0.9
-Summary: Python Wrapper for Tesseract
+Summary: ${python:Provides} Wrapper for Python-${python:Versions}
 Home-page: UNKNOWN
 Author: FreeToGo Nowhere
 Author-email: freetogo@gmail.com
