@@ -50,7 +50,7 @@ char* retParser(const char* a);
         SWIG_exception( SWIG_TypeError, "%%typemap: could not convert input argument to an IplImage");
     }
 }
-#%typemap(python,out) unsigned int = int;     
+#%typemap(python,out) unsigned int = int;
 /*
 %typemap(out) string * {
    $result = PyString_FromString($1->c_str());
@@ -104,11 +104,8 @@ char* retParser(const char* a);
 #include "unichar.h"
 #include "renderer.h"
 
-#define TESS_API
-#define TESS_LOCAL
-#define LEPT_DLL
-#define TESS_CAPI_INCLUDE_BASEAPI
 //%ignore LEPT_DLL extern void setPixMemoryManager ( void * (  ( *allocator ) ( size_t ) ), void  (  ( *deallocator ) ( void * ) ) );
+//%ignore setPixMemoryManager;
 //%rename("$ignore", regextarget=1) ".*setPixMemoryManager$";
 //#include "cv_original.h"
 #include "main.h"
@@ -118,6 +115,7 @@ char* retParser(const char* a);
 %}
 //%ignore LEPT_DLL extern void setPixMemoryManager ( void * (  ( *allocator ) ( size_t ) ), void  (  ( *deallocator ) ( void * ) ) );
 //%ignore setPixMemoryManager;
+%rename ("$ignore") setPixMemoryManager;
 #define TESS_API
 #define TESS_LOCAL
 #define LEPT_DLL
@@ -127,6 +125,7 @@ char* retParser(const char* a);
 %include "allheaders_mini.h"
 //%include "allheaders.h"
 %include "publictypes.h"
+//%include "baseapi.h"
 %include "baseapi_mini.h"
 //%include "baseapi.h"
 %include "capi_mini.h"
