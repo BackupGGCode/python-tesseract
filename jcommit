@@ -14,5 +14,5 @@ svn delete src/tesseract*wrap* --force
 svn delete src/tesseract.py --force
 
 #svn delete src/python_tesseract.egg-info
-svn ci
+svn ci -m "..."
 
