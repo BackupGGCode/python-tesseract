@@ -83,11 +83,10 @@ int*  AllWordConfidences(tesseract::TessBaseAPI* api) {
 }
 
 char* ProcessPagesWrapper(const char* image,tesseract::TessBaseAPI* api) {
-	//printf("ok->%s",text_out);
 	STRING mstr;
 	api->ProcessPages(image, NULL, 0, &mstr);
 	//return mstr.string();
-	//return retParser(mstr.string());
+	printf("<<%s>>",mstr.string());
 	return retParser(mstr.string());
  }
 

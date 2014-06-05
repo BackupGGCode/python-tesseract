@@ -191,12 +191,14 @@ class GenVariablesLinux:
 		self.libraries=['stdc++','tesseract','lept']
 		self.clang_incls=['tesseract','leptonica']
 		self.initialize()
+		self.extra_link_args=[]
 		if osname=="mingw":
 			self.mingw_initialise()
 			if USE_CV and self.isOpenCVInstalled() :
 				self.setCVLibraries()
 				self.libraries=["opencv_core248"]+self.libraries
 			self.setPaths()
+			
 		else:
 			if USE_CV and self.isOpenCVInstalled() :
 				self.setCVLibraries()
@@ -364,9 +366,10 @@ class GenVariablesLinux:
 
 	def do(self):
 		extra_compile_args=["-Wall", "-O0", '-funroll-loops','-g']
-		extra_link_args=[]
+		
 		if osname=="mingw":
-			extra_link_args.append("-L%s"%self.mingwLibPath)
+			self.extra_link_args.append("-L%s"%self.mingwLibPath)
+			#self.extra_link_args.append("-static-libgcc")
 			if "64" in sys.version:
 				extra_compile_args.append("-D MS_WIN64")
 			#extra_compile_args.append("-static-libgcc")
@@ -378,7 +381,7 @@ class GenVariablesLinux:
 				#extra_compile_args=["-O0","-g"],
 				#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
 				extra_compile_args = extra_compile_args,
-				extra_link_args = extra_link_args,
+				extra_link_args = self.extra_link_args,
 				swig_opts=[
 								"-c++",
 				#				"-DTESS_API","-DTESS_LOCAL","-DTESS_DLL","-DTESS_CAPI_INCLUDE_BASEAPI",
@@ -450,8 +453,18 @@ class GenVariablesWindows:
 		name='python'
 		description = """Python Wrapper for Tesseract-OCR """
 		self.sources.append('ms_fmemopen.c')
+		self.swig_opts=[
+					"-c++",
+				#	"-DTESS_API","-DTESS_LOCAL","-DTESS_DLL","-DTESS_CAPI_INCLUDE_BASEAPI",
+					"-I"+self.inclpath('tesseract'),
+				#	"-I"+os.path.dirname(config.__file__),
+					"-I"+self.inclpath('leptonica'),
+				#	"-I"+self.inclpath('opencv2')
+				]
+		self.extra_compile_args=[]
 		if osname=="mingw":
 			self.pathOffset="..\\mingw"
+			#self.extra_compile_args.append("-static-libgcc")
 		else:
 			self.pathOffset="..\\vs2008"
 		self.initialize()
@@ -518,6 +531,7 @@ class GenVariablesWindows:
 			writeIncludeLines(self.fp_main_h,cvIncludeLines)
 
 	def do(self):
+		print("<>"*200)
 		tesseract_module = Extension( '_tesseract',
 			sources=self.sources,
 			#extra_compile_args=["-DEBUG -O0 -pg "],
@@ -525,18 +539,12 @@ class GenVariablesWindows:
 			#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
 			#extra_compile_args = [ "-O0", '-funroll-loops','-g'],
 			#extra_compile_args = ["-Wall", "-Wextra"],
-
-			swig_opts=[
-					"-c++",
-				#	"-DTESS_API","-DTESS_LOCAL","-DTESS_DLL","-DTESS_CAPI_INCLUDE_BASEAPI",
-					"-I"+self.inclpath('tesseract'),
-				#	"-I"+os.path.dirname(config.__file__),
-					"-I"+self.inclpath('leptonica'),
-				#	"-I"+self.inclpath('opencv2')
-				],
+			extra_compile_args=self.extra_compile_args,
+			swig_opts=self.swig_opts,
 			include_dirs=self.include_dirs,
 			libraries=self.libraries,
 			)
+		print("$"*100,self.extra_compile_args)
 		return tesseract_module, self.data_files
 
 def main():
@@ -553,6 +561,7 @@ def main():
 	fp_main_h=open("main.h","w")
 	if sys.version_info.major==2 :
 		idefine(fp_config_h,"python2")
+		USE_CV=True
 	else:
 		USE_CV=False
 	
@@ -644,6 +653,7 @@ def main():
 
 
 def check_and_run():
+		
 	MIN_TESS_VERSION="3.03"
 	TESS_LINK="https://bitbucket.org/3togo/python-tesseract/downloads/tesseract-3.03-rc1.tar.gz"
 	your_tess_version=j.getTesseractVersion()
@@ -657,9 +667,12 @@ def check_and_run():
 
 
 
-	main()
+	
 
 
 if __name__ == "__main__":
-	
-	check_and_run()
+	#j=jfunc.jfunc()
+	#print(j.getOsName())
+	if osname  not in  [ "windows", "mingw"]:
+		check_and_run()
+	main()
