@@ -10,8 +10,7 @@ Description: UNKNOWN
 Keywords: geocode geocoding gis geographical maps earth distance
 Platform: UNKNOWN
 Classifier: Development Status :: 5 - Production/Stable
-Classifier: Intended Audience :: Developers
-Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Science/Research/Deveopers
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python
