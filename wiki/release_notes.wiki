@@ -42,10 +42,9 @@ and most of the methods/functions included  in
   void SetFillLatticeFunc(FillLatticeFunc f);
 }}}
 *
-{{{
+
 ~~%include "allheaders.h"~~
-}}}
+
 ~~ except:~~
-{{{ 
+ 
 ~~LEPT_DLL extern void setPixMemoryManager;~~
-}}}
