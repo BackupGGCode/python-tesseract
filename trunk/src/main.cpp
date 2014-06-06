@@ -178,6 +178,7 @@ char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api) {
 	//dump_buffer(buffer,size);
 	char* retStr;
 	printf("size=%d\n",size);
+	
 	retStr=ProcessPagesBuffer(buffer,size, api);
 	//printf("retStr length=%lu\n",strlen(retStr));
 	delete[] buffer;

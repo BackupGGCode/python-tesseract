@@ -192,6 +192,7 @@ class GenVariablesLinux:
 		self.clang_incls=['tesseract','leptonica']
 		self.initialize()
 		self.extra_link_args=[]
+		self.extra_compile_args=[]
 		if osname=="mingw":
 			self.mingw_initialise()
 			if USE_CV and self.isOpenCVInstalled() :
@@ -365,13 +366,13 @@ class GenVariablesLinux:
 		print(self.include_dirs)
 
 	def do(self):
-		extra_compile_args=["-Wall", "-O0", '-funroll-loops','-g']
+		#extra_compile_args=["-Wall", "-O0", '-funroll-loops','-g']
 		
 		if osname=="mingw":
 			self.extra_link_args.append("-L%s"%self.mingwLibPath)
-			#self.extra_link_args.append("-static-libgcc")
+			#self.extra_link_args+=["-static-libgcc","-nostdlib"]
 			if "64" in sys.version:
-				extra_compile_args.append("-D MS_WIN64")
+				self.extra_compile_args.append("-D MS_WIN64")
 			#extra_compile_args.append("-static-libgcc")
 			#extra_compile_args.append("-optl-static")
 
@@ -380,7 +381,7 @@ class GenVariablesLinux:
 				#extra_compile_args=["-DEBUG -O0 -pg "],
 				#extra_compile_args=["-O0","-g"],
 				#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
-				extra_compile_args = extra_compile_args,
+				extra_compile_args = self.extra_compile_args,
 				extra_link_args = self.extra_link_args,
 				swig_opts=[
 								"-c++",
@@ -625,8 +626,8 @@ def main():
 			cmdclass={
 			'clean': CleanCommand,
 			'uninstall' : UninstallCommand,
-			'build': CustomBuild,					#cater for the swig bug
-			'install': CustomInstall				#need a smarter method
+			#'build': CustomBuild,					#cater for the swig bug
+			#'install': CustomInstall				#need a smarter method
 			},
 			packages =
 				find_packages(

@@ -20,13 +20,14 @@ colors={'LIST':'\033[95m',
 		'ENDC' : '\033[0m',
 		}
 colorkeys=list(colors.keys())
-mingwPath={32:r'c:\Program Files (x86)\mingw-w64\i686-4.9.0-posix-dwarf-rt_v3-rev1\mingw32\bin',
-			64:r'C:\Program Files\mingw-w64\x86_64-4.9.0-posix-seh-rt_v3-rev1\mingw64\bin'}
+mingwPath={32:r'c:\Program Files (x86)\mingw-w64\i686-4.9.0-posix-dwarf-rt_v3-rev2\mingw32\bin',
+			64:r'C:\Program Files\mingw-w64\x86_64-4.9.0-posix-seh-rt_v3-rev2\mingw64\bin'}
 class jfunc():
 	def __init__(self):
 		self.python_version=self.getPythonVersion()
 		self.python_archit=self.getPythonArchit()
 		self.osname=self.getOsName()
+		self.getPythonPathForWindows()
 		#print(self.osname)
 		self.defineSitePackagesLocations()
 			
@@ -40,7 +41,7 @@ class jfunc():
 			return None
 		for pythonPath in pythonPaths:
 			cmdList=[pythonPath+'\python','-c','import struct;print(8*struct.calcsize("P"))']
-			archit=int(j.cmdRaw(cmdList))
+			archit=int(self.cmdRaw(cmdList))
 			self.pythonBinPaths[archit]=pythonPath
 			
 		
@@ -112,9 +113,12 @@ class jfunc():
 
 		elif osname=="windows" or osname=="mingw":
 			self.sitepackagesLocations=[
-				os.path.expanduser("~\\appdata\\roaming\\python\\python27\\site-packages"),
-				"C:\\Python27\\Lib\\site-packages"
-				]
+				os.path.expanduser("~\\appdata\\roaming\\python\\python27\\site-packages")]
+			for archit in self.pythonBinPaths.keys():
+				mpath=os.path.join(self.pythonBinPaths[archit] ,"Lib","site-packages")
+				print("mpath:",mpath)
+				self.sitepackagesLocations.append(mpath)
+				
 		else:
 			self.sitepackagaesLocations=[]
 
