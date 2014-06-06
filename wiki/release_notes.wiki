@@ -43,9 +43,9 @@ and most of the methods/functions included  in
 }}}
 *
 {{{
-%include "allheaders.h"
+~~%include "allheaders.h"~~
 }}}
- except:
+~~ except:~~
 {{{ 
-LEPT_DLL extern void setPixMemoryManager;
+~~LEPT_DLL extern void setPixMemoryManager;~~
 }}}
