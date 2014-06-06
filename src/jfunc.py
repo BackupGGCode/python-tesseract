@@ -20,14 +20,18 @@ colors={'LIST':'\033[95m',
 		'ENDC' : '\033[0m',
 		}
 colorkeys=list(colors.keys())
-mingwPath={32:r'c:\Program Files (x86)\mingw-w64\i686-4.9.0-posix-dwarf-rt_v3-rev2\mingw32\bin',
-			64:r'C:\Program Files\mingw-w64\x86_64-4.9.0-posix-seh-rt_v3-rev2\mingw64\bin'}
+
+
+
+	
 class jfunc():
 	def __init__(self):
+		self.mingwPaths=self.getMingwPaths()
 		self.python_version=self.getPythonVersion()
 		self.python_archit=self.getPythonArchit()
 		self.osname=self.getOsName()
-		self.getPythonPathForWindows()
+		self.pythonBinPaths=self.getPythonPathForWindows()
+		
 		#print(self.osname)
 		self.defineSitePackagesLocations()
 			
@@ -35,15 +39,27 @@ class jfunc():
 		return 8*struct.calcsize("P")
 		
 	def getPythonPathForWindows(self):
-		self.pythonBinPaths={}
+		pythonBinPaths={}
 		pythonPaths=glob.glob("c:\python*")
 		if not pythonPaths:
 			return None
 		for pythonPath in pythonPaths:
 			cmdList=[pythonPath+'\python','-c','import struct;print(8*struct.calcsize("P"))']
 			archit=int(self.cmdRaw(cmdList))
-			self.pythonBinPaths[archit]=pythonPath
-			
+			pythonBinPaths[archit]=pythonPath
+		return pythonBinPaths
+		
+	def getMingwPaths(self):
+		mingwPaths={}
+		mingwPaths[32]=[]
+		mingwPaths[64]=[]
+		mdirs=sorted(glob.glob(r'c:\Program Files*\mingw-w64\*\mingw*\bin'))
+		for mdir in mdirs:
+			if "mingw32" in mdir:
+				mingwPaths[32].append(mdir)
+			elif "mingw64" in mdir:
+				mingwPaths[64].append(mdir)
+		return mingwPaths
 		
 	def getPythonVersion(self):
 		python_version=self.cmd('python --version')
@@ -133,7 +149,7 @@ class jfunc():
 
 	
 	def isMinGW(self):
-		cmdStr=mingwPath[self.python_archit]+"/gcc --version"
+		cmdStr=self.mingwPaths[self.python_archit][-1]+"/gcc --version"
 		print(cmdStr)
 		results=subprocess.Popen(cmdStr, stdout=subprocess.PIPE).stdout.read()
 		if USE_MINGW and "MinGW" in results:
@@ -199,6 +215,7 @@ class jfunc():
 
 j=jfunc()
 osname=j.osname
+mingwPaths=j.mingwPaths
 sitepackagesLocations=j.sitepackagesLocations
 print("Your os is:%s"%osname)
 

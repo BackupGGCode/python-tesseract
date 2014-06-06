@@ -373,21 +373,17 @@ class GenVariablesLinux:
 			#self.extra_link_args+=["-static-libgcc","-nostdlib"]
 			if "64" in sys.version:
 				self.extra_compile_args.append("-D MS_WIN64")
-			#extra_compile_args.append("-static-libgcc")
-			#extra_compile_args.append("-optl-static")
+			
 
 		tesseract_module = Extension('_tesseract',
 				sources=self.sources,
 				#extra_compile_args=["-DEBUG -O0 -pg "],
-				#extra_compile_args=["-O0","-g"],
 				#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
 				extra_compile_args = self.extra_compile_args,
 				extra_link_args = self.extra_link_args,
 				swig_opts=[
 								"-c++",
-				#				"-DTESS_API","-DTESS_LOCAL","-DTESS_DLL","-DTESS_CAPI_INCLUDE_BASEAPI",
-								 "-I"+self.inclpath('tesseract'),
-				#				"-I"+os.path.dirname(config.__file__),
+								"-I"+self.inclpath('tesseract'),
 								"-I"+self.inclpath('leptonica'),
 								"-I"+self.inclpath('opencv2')],
 				include_dirs=self.include_dirs,
@@ -532,20 +528,16 @@ class GenVariablesWindows:
 			writeIncludeLines(self.fp_main_h,cvIncludeLines)
 
 	def do(self):
-		print("<>"*200)
 		tesseract_module = Extension( '_tesseract',
 			sources=self.sources,
 			#extra_compile_args=["-DEBUG -O0 -pg "],
-			#extra_compile_args=["-O0","-g"],
 			#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
 			#extra_compile_args = [ "-O0", '-funroll-loops','-g'],
-			#extra_compile_args = ["-Wall", "-Wextra"],
 			extra_compile_args=self.extra_compile_args,
 			swig_opts=self.swig_opts,
 			include_dirs=self.include_dirs,
 			libraries=self.libraries,
 			)
-		print("$"*100,self.extra_compile_args)
 		return tesseract_module, self.data_files
 
 def main():
@@ -566,24 +558,6 @@ def main():
 	else:
 		USE_CV=False
 	
-	#fp_config_h.write(
-#r"""
-##ifdef TESS_EXPORTS
-##define TESS_API __declspec(dllexport)
-##elif defined(TESS_IMPORTS)
-##define TESS_API __declspec(dllimport)
-##else
-##define TESS_API
-##define TESS_LOCAL
-##define LEPT_DLL
-
-##define TESS_CAPI_INCLUDE_BASEAPI
-##endif
-#"""
-#define CV_EXPORTS
-#define CV_EXPORTS_W
-#define CV_EXPORTS_AS
-#)
 
 	fp_config_h.write("#pragma once\n")
 	writeIncludeLines(fp_main_h,IncludeLines)
@@ -613,6 +587,15 @@ def main():
 		print("$$$data_files=%s"%repr(data_files))
 		data_files=new_data_files
 
+	cmdclass={
+			'clean': CleanCommand,
+			'uninstall' : UninstallCommand,		
+			 }
+	if len(sys.argv) < 2 or "bdist" not in sys.argv[1] :		
+			cmdclass['build']=CustomBuild					#cater for the swig bug
+			cmdclass['install']=CustomInstall				#need a smarter method
+			
+	
 	setup (name = PACKAGE,
 			version = VERSION,
 			author	  = "FreeToGo Nowhere",
@@ -623,12 +606,7 @@ def main():
 			ext_modules = [tesseract_module],
 			py_modules = ["tesseract"],
 			#install_requires=['tesseract', 'leptonica'],
-			cmdclass={
-			'clean': CleanCommand,
-			'uninstall' : UninstallCommand,
-			#'build': CustomBuild,					#cater for the swig bug
-			#'install': CustomInstall				#need a smarter method
-			},
+			cmdclass=cmdclass,
 			packages =
 				find_packages(
 					#exclude=['distribute_setup']
@@ -639,8 +617,7 @@ def main():
 			license='MIT',
 			keywords='geocode geocoding gis geographical maps earth distance',
 			classifiers=["Development Status :: 5 - Production/Stable",
-				"Intended Audience :: Developers",
-				"Intended Audience :: Science/Research",
+				"Intended Audience :: Science/Research/Deveopers",
 				"License :: OSI Approved :: MIT License",
 				"Operating System :: OS Independent",
 				"Programming Language :: Python",
