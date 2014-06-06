@@ -63,8 +63,8 @@
 #include "unichar.h"
 #include "renderer.h"
 
+
 //%ignore LEPT_DLL extern void setPixMemoryManager ( void * (  ( *allocator ) ( size_t ) ), void  (  ( *deallocator ) ( void * ) ) );
-//%ignore setPixMemoryManager;
 //%rename("$ignore", regextarget=1) ".*setPixMemoryManager$";
 //#include "cv_original.h"
 #include "main.h"
@@ -74,7 +74,10 @@ char* retParser(const char* a);
 %}
 //%ignore LEPT_DLL extern void setPixMemoryManager ( void * (  ( *allocator ) ( size_t ) ), void  (  ( *deallocator ) ( void * ) ) );
 //%ignore setPixMemoryManager;
-%rename ("$ignore") setPixMemoryManager;
+//%rename ("$ignore") setPixMemoryManager;
+//%ignore Dict;
+//%ignore DictFunc;
+
 #define TESS_API
 #define TESS_LOCAL
 #define LEPT_DLL
