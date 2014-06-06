@@ -75,6 +75,7 @@ class Wordrec;
 /*
 typedef int (Dict::*DictFunc)(void* void_dawg_args,
                               UNICHAR_ID unichar_id, bool word_end) const;
+
 typedef double (Dict::*ProbabilityInContextFunc)(const char* lang,
                                                  const char* context,
                                                  int context_bytes,
