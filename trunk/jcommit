@@ -2,6 +2,8 @@
 python setup.py clean
 python setup.py uninstall
 svn delete python*tesseract* --force
+svn delete src/.pybuild --force
+svn delete src/debian/*.egg --force
 svn delete src/main.h --force
 svn delete src/config.h --force
 svn delete src/tesseract.py --force
