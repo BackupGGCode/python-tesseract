@@ -1,8 +1,9 @@
-python-tesseract (0.9-0.4ubuntu0) UNRELEASED; urgency=medium
+python-tesseract (0.9-0.4ubuntu1) UNRELEASED; urgency=medium
 
   *  add support of api.ProcessPages
+  * 
 
- -- eli <eli@eliThinkPadX230.com>  Thu, 29 May 2014 23:10:48 +0800
+ -- eli <eli@eliThinkPadX230.com>  Fri, 30 May 2014 02:49:27 +0800
 
 python-tesseract (0.9-0.3ubuntu3) UNRELEASED; urgency=medium
 
