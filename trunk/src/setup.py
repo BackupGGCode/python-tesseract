@@ -591,9 +591,11 @@ def main():
 			'clean': CleanCommand,
 			'uninstall' : UninstallCommand,		
 			 }
-	if len(sys.argv) < 2 or "bdist" not in sys.argv[1] :		
-			cmdclass['build']=CustomBuild					#cater for the swig bug
-			cmdclass['install']=CustomInstall				#need a smarter method
+	if len(sys.argv) < 2 or ("bdist" not in sys.argv[1] and "debuild" not in sys.argv[0])   :		
+			print("^"*100)
+			print(sys.argv)
+			#cmdclass['build']=CustomBuild					#cater for the swig bug
+			#cmdclass['install']=CustomInstall				#need a smarter method
 			
 	
 	setup (name = PACKAGE,
