@@ -46,10 +46,12 @@ brew install opencv
 }}}
 ==3. install python libs==
 {{{
-pip install --upgrade setuptools
+echo "export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH" >> ~/.bash_profile
+echo "export PATH=/usr/local/share/python:/usr/local/bin:$PATH" >> ~/.bash_profile
+setuptools
 pip install numpy --upgrade
 pip install scipy pandas cython patsy matplotlib #optional
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+
 }}}
 ### testing ###
 {{{
