@@ -50,7 +50,7 @@ echo 'export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH' >> ~
 echo 'export PATH=/usr/local/share/python:/usr/local/bin:$PATH' >> ~/.bash_profile
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH'
 export PATH=/usr/local/share/python:/usr/local/bin:$PATH
-setuptools
+easy_install pip
 pip install numpy --upgrade
 pip install scipy pandas cython patsy matplotlib #optional
 
