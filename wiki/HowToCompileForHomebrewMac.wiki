@@ -35,6 +35,7 @@ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 ==2. Install misc==
 {{{
 brew -v update && brew -v upgrade
+brew rm opencv python    #optional
 brew install python libpng freetype pkgconfig brew install wget axel swig subversion
 brew install leptonica tesseract  
 brew install opencv
@@ -45,8 +46,6 @@ brew install opencv
 }}}
 ==3. install python libs==
 {{{
-brew rm opencv python    #optional
-brew install python
 pip install --upgrade setuptools
 pip install numpy --upgrade
 pip install scipy pandas cython patsy matplotlib #optional
