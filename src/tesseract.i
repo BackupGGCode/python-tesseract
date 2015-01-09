@@ -6,7 +6,7 @@
 %include "cdata.i"
 %array_class(int, intArray);
 %newobject retParser;
-
+%ignore setPixMemoryManager;
 
 /* Input typemap: convert from Python input object to C/C++ IplImage
 
@@ -46,6 +46,7 @@
 }
 
 %{
+
 #define TESS_API
 #define TESS_LOCAL
 #define LEPT_DLL
@@ -65,18 +66,14 @@
 
 
 //%ignore LEPT_DLL extern void setPixMemoryManager ( void * (  ( *allocator ) ( size_t ) ), void  (  ( *deallocator ) ( void * ) ) );
-//%rename("$ignore", regextarget=1) ".*setPixMemoryManager$";
+
 //#include "cv_original.h"
 #include "main.h"
 char* retParser(const char* a);
 
-
 %}
 //%ignore LEPT_DLL extern void setPixMemoryManager ( void * (  ( *allocator ) ( size_t ) ), void  (  ( *deallocator ) ( void * ) ) );
-//%ignore setPixMemoryManager;
-//%rename ("$ignore") setPixMemoryManager;
-//%ignore Dict;
-//%ignore DictFunc;
+
 
 #define TESS_API
 #define TESS_LOCAL
@@ -90,7 +87,8 @@ char* retParser(const char* a);
 //%include "baseapi.h"
 %include "baseapi_mini.h"
 //%include "baseapi.h"
-%include "capi_mini.h"
+%include "capi.h"
+//%include "capi_mini.h"
 %include "thresholder.h"
 %include "pageiterator.h"
 %include "ltrresultiterator.h"

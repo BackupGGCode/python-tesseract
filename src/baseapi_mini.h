@@ -1,3 +1,4 @@
+#include "config.h"
 ///////////////////////////////////////////////////////////////////////
 // File:        baseapi.h
 // Description: Simple API for calling tesseract.
@@ -19,7 +20,7 @@
 
 #ifndef TESSERACT_API_BASEAPI_H__
 #define TESSERACT_API_BASEAPI_H__
-#include "config.h"
+
 #include <stdio.h>
 // To avoid collision with other typenames include the ABSOLUTE MINIMUM
 // complexity of includes here. Use forward declarations wherever possible
@@ -62,7 +63,7 @@ namespace tesseract {
 
 class CubeRecoContext;
 class Dawg;
-class Dict;
+//class Dict;
 class EquationDetect;
 class PageIterator;
 class LTRResultIterator;
@@ -72,16 +73,16 @@ class TessResultRenderer;
 class Tesseract;
 class Trie;
 class Wordrec;
-/*
-typedef int (Dict::*DictFunc)(void* void_dawg_args,
-                              UNICHAR_ID unichar_id, bool word_end) const;
-
-typedef double (Dict::*ProbabilityInContextFunc)(const char* lang,
-                                                 const char* context,
-                                                 int context_bytes,
-                                                 const char* character,
-                                                 int character_bytes);
-*/
+//
+//typedef int (Dict::*DictFunc)(void* void_dawg_args,
+//                              UNICHAR_ID unichar_id, bool word_end) const;
+//typedef double (Dict::*ProbabilityInContextFunc)(const char* lang,
+//                                                 const char* context,
+//                                                 int context_bytes,
+//                                                 const char* character,
+//                                                 int character_bytes);
+//typedef float (Dict::*ParamsModelClassifyFunc)(
+//    const char *lang, void *path);
 typedef void (Wordrec::*FillLatticeFunc)(const MATRIX &ratings,
                                          const WERD_CHOICE_LIST &best_choices,
                                          const UNICHARSET &unicharset,
@@ -334,7 +335,7 @@ class TESS_API TessBaseAPI {
    * will automatically perform recognition.
    */
   void SetImage(const unsigned char* imagedata, int width, int height,
-               int bytes_per_pixel, int bytes_per_line);
+                int bytes_per_pixel, int bytes_per_line);
 
   /**
    * Provide an image for Tesseract to recognize. As with SetImage above,
@@ -360,23 +361,21 @@ class TESS_API TessBaseAPI {
    * can be recognized with the same image.
    */
   void SetRectangle(int left, int top, int width, int height);
+//
+//  /**
+//   * In extreme cases only, usually with a subclass of Thresholder, it
+//   * is possible to provide a different Thresholder. The Thresholder may
+//   * be preloaded with an image, settings etc, or they may be set after.
+//   * Note that Tesseract takes ownership of the Thresholder and will
+//   * delete it when it it is replaced or the API is destructed.
+//   */
+//  void SetThresholder(ImageThresholder* thresholder) {
+//    if (thresholder_ != NULL)
+//      delete thresholder_;
+//    thresholder_ = thresholder;
+//    ClearResults();
+//  }
 
-  /**
-   * In extreme cases only, usually with a subclass of Thresholder, it
-   * is possible to provide a different Thresholder. The Thresholder may
-   * be preloaded with an image, settings etc, or they may be set after.
-   * Note that Tesseract takes ownership of the Thresholder and will
-   * delete it when it it is replaced or the API is destructed.
-   */
-/*
-  void SetThresholder(ImageThresholder* thresholder) {
-    if (thresholder_ != NULL)
-      delete thresholder_;
-    thresholder_ = thresholder;
-    ClearResults();
-  }
-
-*/
   /**
    * Get a copy of the internal thresholded image from Tesseract.
    * Caller takes ownership of the Pix and must pixDestroy it.
@@ -652,16 +651,18 @@ class TESS_API TessBaseAPI {
   int IsValidWord(const char *word);
 
   bool GetTextDirection(int* out_offset, float* out_slope);
+//
+//  /** Sets Dict::letter_is_okay_ function to point to the given function. */
+//  void SetDictFunc(DictFunc f);
+//
+//  /** Sets Dict::probability_in_context_ function to point to the given
+//   * function.
+//   */
+//  void SetProbabilityInContextFunc(ProbabilityInContextFunc f);
 
-  /** Sets Dict::letter_is_okay_ function to point to the given function. */
-  //void SetDictFunc(DictFunc f);
-
-  /** Sets Dict::probability_in_context_ function to point to the given
-   * function.
-   */
-  //void SetProbabilityInContextFunc(ProbabilityInContextFunc f);
   /** Sets Wordrec::fill_lattice_ function to point to the given function. */
-//  void SetFillLatticeFunc(FillLatticeFunc f);
+  void SetFillLatticeFunc(FillLatticeFunc f);
+
   /**
    * Estimates the Orientation And Script of the image.
    * @return true if the image was processed successfully.
@@ -825,7 +826,7 @@ class TESS_API TessBaseAPI {
   Tesseract*        tesseract_;       ///< The underlying data object.
   Tesseract*        osd_tesseract_;   ///< For orientation & script detection.
   EquationDetect*   equ_detect_;      ///<The equation detector.
-  ImageThresholder* thresholder_;     ///< Image thresholding module.
+//  ImageThresholder* thresholder_;     ///< Image thresholding module.
   GenericVector<ParagraphModel *>* paragraph_models_;
   BLOCK_LIST*       block_list_;      ///< The page layout.
   PAGE_RES*         page_res_;        ///< The page-level data.
