@@ -14,9 +14,11 @@ python setup.py install --user
 sudo apt-get install cdbs dh-buildinfo devscripts python-stdeb
 debuild -us -uc
 debuild -ai386 -us -uc
+
 ==cross-compile i386==
 sudo apt-get install pbuilder
 sudo pbuilder --login --save-after-login
+sudo pbuilder --build python-tesseract_0.9-0.5ubuntu2.dsc
 }}}
 
 =How to compile python-tesseract (for Ubuntu Oneiric)=
