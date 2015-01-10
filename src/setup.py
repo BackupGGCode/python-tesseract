@@ -272,9 +272,9 @@ class GenVariablesLinux:
 		if ipath:
 			return ipath
 		else:
+			print('Include directory <<%s>> was not found' % mlib)
 			return None
-		assert False, 'Include directory %s was not found' % mlib
-
+			
 	def libpath(self, mlib):
 		print("()"*100)
 		print(self.libs)

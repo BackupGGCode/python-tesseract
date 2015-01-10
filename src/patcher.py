@@ -1,4 +1,4 @@
-import os,collections
+import os,collections,sys
 class patcher:
 	def __init__(self,incName,incFile,keywords):
 
@@ -11,7 +11,7 @@ class patcher:
 	def getLines(self, fName,incName):
 		mPaths=["/usr","/usr/local","/opt","/opt/local"]
 		fullNames=[os.path.join(mPath,"include",incName,fName) for mPath in mPaths]
-		print fullNames
+		#print fullNames
 		for fullName in fullNames:
 			if not os.path.exists(fullName):
 				continue
@@ -39,6 +39,10 @@ class patcher:
 
 	def patching(self):
 		fMinName,lines,keywords=self.fMinName,self.lines,self.keywords
+		if not lines:
+			print("%s not existed"%self.fName)
+			print("Have you installed %s?"%self.incName)
+			sys.exit()
 		newLines=[]
 		COMMENT_ON=False
 
