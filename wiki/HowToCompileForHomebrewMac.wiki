@@ -54,12 +54,9 @@ or
 {{{
 svn checkout http://python-tesseract.googlecode.com/svn/trunk/src python-tesseract
 cd python-tesseract
-export ARCHFLAGS="-arch x86_64"
-export CFLAGS=-Qunused-arguments
-export CPPFLAGS=-Qunused-arguments
 python setup.py clean
 python setup.py build
-python setup.py install --user
+python setup.py install
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 python test.py
 }}}
