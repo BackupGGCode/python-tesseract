@@ -197,6 +197,9 @@ class jfunc():
 
 	def getTesseractVersion(self):
 		result=self.cmd("tesseract -v")
+		if not result:
+			print("Tesseract Not Installed!")
+			return None
 		for item in result.split("\n"):
 			subItems=item.split()
 			if len(subItems)!=2:
@@ -210,8 +213,12 @@ class jfunc():
 		return self.cmdRaw(cmdStr.split())
 
 	def cmdRaw(self,cmdList):
-		result=subprocess.check_output(cmdList,stderr=subprocess.STDOUT)
-		return result.decode('utf-8').strip()
+		try:
+			result=subprocess.check_output(cmdList,stderr=subprocess.STDOUT)
+		except: 
+			return
+		if result:
+			return result.decode('utf-8').strip()
 
 j=jfunc()
 osname=j.osname
