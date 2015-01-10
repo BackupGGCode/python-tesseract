@@ -12,9 +12,8 @@ python setup.py install --user
 
 ==to make deb==
 sudo apt-get install cdbs dh-buildinfo devscripts python-stdeb
-#debuild -us -uc
-debian/rules
-
+debuild -us -uc
+debuild -ai386 -us -uc
 }}}
 
 =How to compile python-tesseract (for Ubuntu Oneiric)=
