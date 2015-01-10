@@ -73,7 +73,6 @@ class TessResultRenderer;
 class Tesseract;
 class Trie;
 class Wordrec;
-//
 //typedef int (Dict::*DictFunc)(void* void_dawg_args,
 //                              UNICHAR_ID unichar_id, bool word_end) const;
 //typedef double (Dict::*ProbabilityInContextFunc)(const char* lang,
@@ -361,14 +360,14 @@ class TESS_API TessBaseAPI {
    * can be recognized with the same image.
    */
   void SetRectangle(int left, int top, int width, int height);
-//
-//  /**
-//   * In extreme cases only, usually with a subclass of Thresholder, it
-//   * is possible to provide a different Thresholder. The Thresholder may
-//   * be preloaded with an image, settings etc, or they may be set after.
-//   * Note that Tesseract takes ownership of the Thresholder and will
-//   * delete it when it it is replaced or the API is destructed.
-//   */
+
+  /**
+   * In extreme cases only, usually with a subclass of Thresholder, it
+   * is possible to provide a different Thresholder. The Thresholder may
+   * be preloaded with an image, settings etc, or they may be set after.
+   * Note that Tesseract takes ownership of the Thresholder and will
+   * delete it when it it is replaced or the API is destructed.
+   */;
 //  void SetThresholder(ImageThresholder* thresholder) {
 //    if (thresholder_ != NULL)
 //      delete thresholder_;
@@ -478,16 +477,16 @@ class TESS_API TessBaseAPI {
 
   /**
    * Runs page layout analysis in the mode set by SetPageSegMode.
-   * May optionally be called prior to Recognize to get access to just
-   * the page layout results. Returns an iterator to the results.
-   * Returns NULL on error.
-   * The returned iterator must be deleted after use.
-   * WARNING! This class points to data held within the TessBaseAPI class, and
-   * therefore can only be used while the TessBaseAPI class still exists and
-   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
-   * DetectOS, or anything else that changes the internal PAGE_RES.
-   */
-  PageIterator* AnalyseLayout();
+   * May optionally be called prior to Recognize to get access to just;
+//   * the page layout results. Returns an iterator to the results.
+//   * Returns NULL on error.
+//   * The returned iterator must be deleted after use.
+//   * WARNING! This class points to data held within the TessBaseAPI class, and
+//   * therefore can only be used while the TessBaseAPI class still exists and
+//   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
+//   * DetectOS, or anything else that changes the internal PAGE_RES.
+//   */
+//  PageIterator* AnalyseLayout();
 
   /**
    * Recognize the image from SetAndThresholdImage, generating Tesseract
@@ -548,25 +547,25 @@ class TESS_API TessBaseAPI {
                    const char* retry_config, int timeout_millisec,
                    TessResultRenderer* renderer);
 
-  /**
-   * Get a reading-order iterator to the results of LayoutAnalysis and/or
-   * Recognize. The returned iterator must be deleted after use.
-   * WARNING! This class points to data held within the TessBaseAPI class, and
-   * therefore can only be used while the TessBaseAPI class still exists and
-   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
-   * DetectOS, or anything else that changes the internal PAGE_RES.
-   */
-  ResultIterator* GetIterator();
+  /**;
+//   * Get a reading-order iterator to the results of LayoutAnalysis and/or
+//   * Recognize. The returned iterator must be deleted after use.
+//   * WARNING! This class points to data held within the TessBaseAPI class, and
+//   * therefore can only be used while the TessBaseAPI class still exists and
+//   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
+//   * DetectOS, or anything else that changes the internal PAGE_RES.
+//   */
+//  ResultIterator* GetIterator();
 
-  /**
-   * Get a mutable iterator to the results of LayoutAnalysis and/or Recognize.
-   * The returned iterator must be deleted after use.
-   * WARNING! This class points to data held within the TessBaseAPI class, and
-   * therefore can only be used while the TessBaseAPI class still exists and
-   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
-   * DetectOS, or anything else that changes the internal PAGE_RES.
-   */
-  MutableIterator* GetMutableIterator();
+  /**;
+//   * Get a mutable iterator to the results of LayoutAnalysis and/or Recognize.
+//   * The returned iterator must be deleted after use.
+//   * WARNING! This class points to data held within the TessBaseAPI class, and
+//   * therefore can only be used while the TessBaseAPI class still exists and
+//   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
+//   * DetectOS, or anything else that changes the internal PAGE_RES.
+//   */
+//  MutableIterator* GetMutableIterator();
 
   /**
    * The recognized text is returned as a char* which is coded
@@ -651,10 +650,8 @@ class TESS_API TessBaseAPI {
   int IsValidWord(const char *word);
 
   bool GetTextDirection(int* out_offset, float* out_slope);
-//
 //  /** Sets Dict::letter_is_okay_ function to point to the given function. */
 //  void SetDictFunc(DictFunc f);
-//
 //  /** Sets Dict::probability_in_context_ function to point to the given
 //   * function.
 //   */
@@ -825,7 +822,7 @@ class TESS_API TessBaseAPI {
  protected:
   Tesseract*        tesseract_;       ///< The underlying data object.
   Tesseract*        osd_tesseract_;   ///< For orientation & script detection.
-  EquationDetect*   equ_detect_;      ///<The equation detector.
+  EquationDetect*   equ_detect_;      ///<The equation detector.;
 //  ImageThresholder* thresholder_;     ///< Image thresholding module.
   GenericVector<ParagraphModel *>* paragraph_models_;
   BLOCK_LIST*       block_list_;      ///< The page layout.

@@ -46,52 +46,43 @@
 }
 
 %{
-
 #define TESS_API
 #define TESS_LOCAL
 #define LEPT_DLL
 #define TESS_CAPI_INCLUDE_BASEAPI
 #include "config.h"
-//#include "pix.h"
-#include "allheaders.h"
-#include "publictypes.h"
-#include "thresholder.h"
-#include "capi.h"
-//#include pageiterator.h
-#include "ltrresultiterator.h"
-#include "resultiterator.h"
-#include "baseapi.h"
-#include "unichar.h"
-#include "renderer.h"
-
-
-//%ignore LEPT_DLL extern void setPixMemoryManager ( void * (  ( *allocator ) ( size_t ) ), void  (  ( *deallocator ) ( void * ) ) );
-
-//#include "cv_original.h"
-#include "main.h"
 char* retParser(const char* a);
-
 %}
-//%ignore LEPT_DLL extern void setPixMemoryManager ( void * (  ( *allocator ) ( size_t ) ), void  (  ( *deallocator ) ( void * ) ) );
-
-
 #define TESS_API
 #define TESS_LOCAL
 #define LEPT_DLL
 #define TESS_CAPI_INCLUDE_BASEAPI
 %include "config.h"
-%include "pix.h"
+
+%{
+#include "allheaders.h"
+#include "pix.h"
+#include "publictypes.h"
+#include "baseapi.h"
+#include "capi.h"
+#include "pageiterator.h"
+#include "ltrresultiterator.h"
+#include "thresholder.h"
+#include "resultiterator.h"
+#include "renderer.h"
+#include "main.h"
+
+%}
+
+
 %include "allheaders_mini.h"
-//%include "allheaders.h"
-%include "publictypes.h"
-//%include "baseapi.h"
+%include "pix.h"
+%include "publictypes_mini.h"
 %include "baseapi_mini.h"
-//%include "baseapi.h"
-%include "capi.h"
-//%include "capi_mini.h"
-%include "thresholder.h"
+%include "capi_mini.h"
 %include "pageiterator.h"
-%include "ltrresultiterator.h"
+%include "ltrresultiterator_mini.h"
+%include "thresholder.h"
 %include "resultiterator.h"
 %include "renderer.h"
 %include "main.h"
