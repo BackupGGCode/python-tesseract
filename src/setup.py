@@ -130,13 +130,13 @@ def idefine(fp,name):
 
 class CustomBuild(build):
     def run(self):
-        self.run_command('build_ext')  # must build twice  <-- swig bug 
+        self.run_command('build_ext')  # must build twice  <-- swig bug
         build.run(self)
 
 
 class CustomInstall(install):
     def run(self):
-        self.run_command('build_ext') 
+        self.run_command('build_ext')
         self.do_egg_install()
 
 class CleanCommand(_clean):
@@ -199,7 +199,7 @@ class GenVariablesLinux:
 				self.setCVLibraries()
 				self.libraries=["opencv_core248"]+self.libraries
 			self.setPaths()
-			
+
 		else:
 			if USE_CV and self.isOpenCVInstalled() :
 				self.setCVLibraries()
@@ -367,13 +367,13 @@ class GenVariablesLinux:
 
 	def do(self):
 		#extra_compile_args=["-Wall", "-O0", '-funroll-loops','-g']
-		
+
 		if osname=="mingw":
 			self.extra_link_args.append("-L%s"%self.mingwLibPath)
 			#self.extra_link_args+=["-static-libgcc","-nostdlib"]
 			if "64" in sys.version:
 				self.extra_compile_args.append("-D MS_WIN64")
-			
+
 
 		tesseract_module = Extension('_tesseract',
 				sources=self.sources,
@@ -557,7 +557,7 @@ def main():
 		USE_CV=True
 	else:
 		USE_CV=False
-	
+
 
 	fp_config_h.write("#pragma once\n")
 	writeIncludeLines(fp_main_h,IncludeLines)
@@ -589,15 +589,15 @@ def main():
 
 	cmdclass={
 			'clean': CleanCommand,
-			'uninstall' : UninstallCommand,		
+			'uninstall' : UninstallCommand,
 			 }
-	if len(sys.argv) < 2 or ("bdist" not in sys.argv[1] and "debuild" not in sys.argv[0])   :		
+	if len(sys.argv) < 2 or ("bdist" not in sys.argv[1] and "debuild" not in sys.argv[0])   :
 			print("^"*100)
 			print(sys.argv)
 			#cmdclass['build']=CustomBuild					#cater for the swig bug
 			#cmdclass['install']=CustomInstall				#need a smarter method
-			
-	
+
+
 	setup (name = PACKAGE,
 			version = VERSION,
 			author	  = "FreeToGo Nowhere",
@@ -633,7 +633,7 @@ def main():
 
 
 def check_and_run():
-		
+
 	MIN_TESS_VERSION="3.03"
 	TESS_LINK="https://bitbucket.org/3togo/python-tesseract/downloads/tesseract-3.03-rc1.tar.gz"
 	your_tess_version=j.getTesseractVersion()
@@ -644,10 +644,11 @@ def check_and_run():
 		print("If so, you could download from the source program from the link as follow:")
 		print(TESS_LINK)
 		return
+	import patcher
+	patcher.run()
 
 
 
-	
 
 
 if __name__ == "__main__":
