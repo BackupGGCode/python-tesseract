@@ -12,7 +12,8 @@ python setup.py install --user
 
 ==to make deb==
 sudo apt-get install cdbs dh-buildinfo devscripts python-stdeb
-debuild -us -uc
+#debuild -us -uc
+debian/rules
 
 }}}
 
