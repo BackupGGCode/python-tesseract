@@ -49,6 +49,7 @@ temp.txt
 tesseract.i
 tesseract.i.bak
 tesseract.i.good
+tesseract.i.template
 tesseract.i.verygood
 tesseract.py
 test.py
@@ -81,6 +82,12 @@ debian/oldRules
 debian/rules
 debian/source/format
 debian/source.bad/format.bad
+dist/python_tesseract-0.8-py2.7-win-amd64.egg
+dist/python_tesseract-0.9-py2.7-linux-x86_64.egg
+dist/python_tesseract-0.9-py2.7-macosx-10.10-x86_64.egg
+dist/python_tesseract-0.9-py2.7-macosx-10.9-x86_64.egg
+dist/python_tesseract-0.9-py2.7-macosx-x86_64.egg
+dist/python_tesseract-0.9-py2.7-win-amd64.egg
 obsolete/baseapi_mini.h1
 obsolete/baseapi_mini.h2
 obsolete/buildDeb
