@@ -17,6 +17,7 @@ debuild -ai386 -us -uc
 
 ==cross-compile i386==
 sudo apt-get install pbuilder
+sudo pbuilder --create --architecture i386
 sudo pbuilder --login --save-after-login
 sudo pbuilder --build python-tesseract_0.9-0.5ubuntu2.dsc
 }}}
