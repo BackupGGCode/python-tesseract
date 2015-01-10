@@ -9,7 +9,7 @@ X-Python3-Version: >=3.4
 Homepage: http://code.google.com/p/python-tesseract/
 
 Package: python-tesseract
-Architecture: i386
+Architecture: any
 Depends:
  ${misc:Depends},
  ${python:Depends},
@@ -22,7 +22,7 @@ Description: Tesseract for Python
  OCR processing. 
 
 Package: python3-tesseract
-Architecture: i386
+Architecture: any
 Depends:
  ${misc:Depends},
  ${python3:Depends},

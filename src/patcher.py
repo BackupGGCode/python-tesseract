@@ -40,15 +40,15 @@ class patcher:
 	def patching(self):
 		fMinName,lines,keywords=self.fMinName,self.lines,self.keywords
 		if not lines:
-			print("%s not existed"%self.fName)
-			print("Have you installed %s?"%self.incName)
+			print(("%s not existed"%self.fName))
+			print(("Have you installed %s?"%self.incName))
 			sys.exit()
 		newLines=[]
 		COMMENT_ON=False
 
 		for i,line in enumerate(lines):
 			ret=self.lineParser(line,keywords)
-			if isinstance(ret,basestring):
+			if isinstance(ret,str):
 				line=ret
 				KEYWORD_FOUND=None
 			else:
@@ -81,7 +81,7 @@ class patcher:
 		fp.close()
 
 def patchAll(patchDict):
-	for key,value in patchDict.items():
+	for key,value in list(patchDict.items()):
 		if not value:
 			continue
 		incName,incFile=key.split(":")
@@ -91,7 +91,7 @@ def genSwigI(patchDict):
 	lines=open("tesseract.i.template").readlines()
 	a=[]
 	b=[]
-	for key,value in patchDict.items():
+	for key,value in list(patchDict.items()):
 		incName,incFile=key.split(":")
 		a.append('#include "%s"\n'%incFile)
 		if value:
