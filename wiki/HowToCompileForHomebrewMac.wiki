@@ -43,6 +43,10 @@ Type "help", "copyright", "credits" or "license" for more information.
 }}}
 
 4.
+==uninstall python-tesseract==
+{{{
+sudo rm -Rf /usr/local/lib/python2.7/site-packages/*tess* 
+}}}
 ==Install python-tesseract==
 Either
 {{{
