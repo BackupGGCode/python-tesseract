@@ -10,7 +10,8 @@ Restart Terminal and you will be able to use Make.
 {{{
 brew -v update && brew -v upgrade
 brew rm opencv python    #optional
-brew install python libpng freetype pkgconfig brew install wget axel swig subversion
+brew install python libpng freetype pkgconfig
+brew install wget axel swig subversion
 brew install leptonica tesseract  
 brew install opencv
 #brew tap homebrew/science                       #needed for the time being only (30 June 2013)
