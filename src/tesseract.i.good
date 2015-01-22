@@ -60,20 +60,18 @@ char* retParser(const char* a);
 %include "config.h"
 
 %{
-#include "allheaders.h"
+#include "ltrresultiterator.h"
 #include "publictypes.h"
-#include "thresholder.h"
-#include "capi.h"
 #include "baseapi.h"
-#include "unichar.h"
+#include "allheaders.h"
 #include "main.h"
+#include "main.h"
+
 %}
 
-//%include "pix.h"
-%include "allheaders_mini.h"
+
+%include "ltrresultiterator_mini.h"
 %include "publictypes_mini.h"
 %include "baseapi_mini.h"
-%include "capi_mini.h"
-%include "thresholder.h"
-%include "main.h"
+%include "allheaders_mini.h"
 
