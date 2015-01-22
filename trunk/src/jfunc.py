@@ -23,7 +23,7 @@ colorkeys=list(colors.keys())
 
 
 
-	
+
 class jfunc():
 	def __init__(self):
 		self.mingwPaths=self.getMingwPaths()
@@ -31,13 +31,13 @@ class jfunc():
 		self.python_archit=self.getPythonArchit()
 		self.osname=self.getOsName()
 		self.pythonBinPaths=self.getPythonPathForWindows()
-		
+
 		#print(self.osname)
 		self.defineSitePackagesLocations()
-			
+
 	def getPythonArchit(self):
 		return 8*struct.calcsize("P")
-		
+
 	def getPythonPathForWindows(self):
 		pythonBinPaths={}
 		pythonPaths=glob.glob("c:\python*")
@@ -48,7 +48,7 @@ class jfunc():
 			archit=int(self.cmdRaw(cmdList))
 			pythonBinPaths[archit]=pythonPath
 		return pythonBinPaths
-		
+
 	def getMingwPaths(self):
 		mingwPaths={}
 		mingwPaths[32]=[]
@@ -60,7 +60,7 @@ class jfunc():
 			elif "mingw64" in mdir:
 				mingwPaths[64].append(mdir)
 		return mingwPaths
-		
+
 	def getPythonVersion(self):
 		python_version=self.cmd('python --version')
 		return "python"+".".join(python_version.split(".")[:-1])
@@ -72,7 +72,7 @@ class jfunc():
 			doer(mfile)
 	def remove(self,mfile):
 		self.listDoer(self.removeOneFile,mfile)
-		
+
 	def removeOneFile(self, mfile):
 		try:
 			os.remove(mfile)
@@ -80,7 +80,7 @@ class jfunc():
 			print("Cannot Remove: %s"%mfile)
 			if not os.path.exists(mfile):
 				print("File not existed")
-				
+
 	def type(self,a):
 		return repr(type(a)).split(" ")[-1][1:-2].upper()
 
@@ -134,7 +134,7 @@ class jfunc():
 				mpath=os.path.join(self.pythonBinPaths[archit] ,"Lib","site-packages")
 				print("mpath:",mpath)
 				self.sitepackagesLocations.append(mpath)
-				
+
 		else:
 			self.sitepackagaesLocations=[]
 
@@ -147,7 +147,7 @@ class jfunc():
 				osname="mingw"
 		return osname
 
-	
+
 	def isMinGW(self):
 		cmdStr=self.mingwPaths[self.python_archit][-1]+"/gcc --version"
 		print(cmdStr)
@@ -195,6 +195,15 @@ class jfunc():
 		self.runCmd4Files(pwd,rmFileCmd,mfiles)
 		self.puts("*****-----***********")
 
+	def rmFiles(self,mFiles,PROTECTED_FILES=[]):
+		mFiles2=[]
+		for mFile in mFiles:
+			mFiles2+=glob.glob(mFile)
+		mFiles2=sorted(list(set(mFiles2).difference(PROTECTED_FILES)))
+		for mFile in mFiles2:
+			#print(mFile)
+			os.remove(mFile)
+
 	def getTesseractVersion(self):
 		result=self.cmd("tesseract -v")
 		if not result:
@@ -215,7 +224,7 @@ class jfunc():
 	def cmdRaw(self,cmdList):
 		try:
 			result=subprocess.check_output(cmdList,stderr=subprocess.STDOUT)
-		except: 
+		except:
 			return
 		if result:
 			return result.decode('utf-8').strip()
@@ -230,7 +239,7 @@ def puts(*argv,**kwargs):
 	j.puts(*argv,**kwargs)
 
 
-	
+
 if __name__ == "__main__":
 	#puts("os is %s"%osname,11)
 	#puts("Warining Level is %s"%8,8)
@@ -238,7 +247,9 @@ if __name__ == "__main__":
 	#puts(1.21,3,"apple",[1,2,3],192)
 	#puts(1.21,3,"apple",[1,2,3],192,END=" ")
 	#puts(1.21,3,"apple",[1,2,3],192,START="*"*10,END="%s,\n"%("^"*10))
-	print(j.osname)
-	j.getPythonPathForWindows()
+	#print(j.osname)
+	#j.getPythonPathForWindows()
 	#print(j.python_version)
-	print(j.pythonBinPaths)	
+	#print(j.pythonBinPaths)
+	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz* *.pyc *.h".split(" ")
+	j.rmFiles(rmFiles,PROTECTED_FILES=["fmemopen.h"])
