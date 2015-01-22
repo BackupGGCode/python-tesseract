@@ -1,5 +1,20 @@
 #!/usr/bin/env python
 from __future__ import print_function
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+# create a file handler
+#handler = logging.FileHandler('hello.log')
+handler = logging.StreamHandler()
+handler.setLevel(logging.INFO)
+# create a logging format
+formatter =logging.Formatter("<<%(module)s>>:%(lineno)s %(funcName)s %(message)s")
+handler.setFormatter(formatter)
+# add the handlers to the logger
+
+logger.addHandler(handler)
+pp=logger.info
 """
 setup.py file for SWIG
 written by FreeToGo@gmail.com
@@ -76,8 +91,7 @@ def listFiles(mdir):
 	list_files=[]
 	for mfile in files:
 		if not USE_CV and "opencv" in mfile:
-			print(mfile, end=' ')
-			print("&"*200)
+			pp(mfile, end=' ')
 			continue
 		list_files.append(os.path.join(mdir,mfile))
 	return list_files
@@ -99,7 +113,7 @@ def my_clean():
 	pwd=os.path.abspath(os.path.dirname(sys.argv[0]))
 	print(pwd)
 	rmDirs="build dist deb_dist tesseract.egg-info python_tesseract.egg-info".split(" ")
-	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz* *.pyc".split(" ")
+	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz* *.pyc *.h".split(" ")
 	print("remove Dirs")
 	j.runRm4Dirs(pwd,rmDirs)
 	print("remove Files")
@@ -174,7 +188,7 @@ class UninstallCommand(_clean):
 	def run(self):
 		assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 		my_uninstall()
-		print("*"*100)
+		#print("*"*100)
 			#_clean.run(self)
 
 
@@ -241,8 +255,8 @@ class GenVariablesLinux:
 	def setIncls(self):
 		for incl in self.clang_incls:
 			mincl=self.inclpath(incl)
-			print("!"*500)
-			print("mincl=%s\n"%repr(mincl))
+			#print("!"*500)
+			pp("mincl=%s\n"%repr(mincl))
 			if mincl:
 				self.include_dirs.append(mincl)
 
@@ -272,13 +286,13 @@ class GenVariablesLinux:
 		if ipath:
 			return ipath
 		else:
-			print('Include directory <<%s>> was not found' % mlib)
+			pp('Include directory <<%s>> was not found' % mlib)
 			return None
 			
 	def libpath(self, mlib):
-		print("()"*100)
-		print(self.libs)
-		print("(x)"*100)
+		#print("()"*100)
+		pp(self.libs)
+		#print("(x)"*100)
 		if hasattr(self,"libPath"):
 			print(self.libPath)
 
@@ -292,9 +306,9 @@ class GenVariablesLinux:
 		if not USE_CV:
 			return 0
 		hasOpenCV = 0
-		print("$"*200)
+		#print("$"*200)
 		if self.inclpath("opencv2/core/core_c.h"):
-			print("%"*200)
+			#print("%"*200)
 			self.idefine(self.fp_config_h,"opencv2")
 			self.fp_config_h.write("#include <opencv2/core/core_c.h>\n")
 			self.clang_incls.append('opencv2')
@@ -308,8 +322,8 @@ class GenVariablesLinux:
 			#self.clang_incls.append('opencv')
 			#writeIncludeLines(self.fp_main_h,cvIncludeLines)
 			#hasOpenCV = 1
-		if hasOpenCV:
-			print("*"*200)
+		#if hasOpenCV:
+			#print("*"*200)
 		return hasOpenCV
 
 	def setCVLibraries(self):
@@ -362,8 +376,8 @@ class GenVariablesLinux:
 				self.libraries.append('opencv_ml')
 				self.libraries.append('opencv_legacy')
 
-		print("===========%s==========="%self.libraries)
-		print(self.include_dirs)
+		pp("self.libraries=%s"%self.libraries)
+		pp("self.include_dirs=%s"%self.include_dirs)
 
 	def do(self):
 		#extra_compile_args=["-Wall", "-O0", '-funroll-loops','-g']
@@ -592,8 +606,8 @@ def main():
 			'uninstall' : UninstallCommand,
 			 }
 	if len(sys.argv) < 2 or ("bdist" not in sys.argv[1] and "debuild" not in sys.argv[0])   :
-			print("^"*100)
-			print(sys.argv)
+			#print("^"*100)
+			pp(sys.argv)
 			#cmdclass['build']=CustomBuild					#cater for the swig bug
 			#cmdclass['install']=CustomInstall				#need a smarter method
 

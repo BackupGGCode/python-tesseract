@@ -11,7 +11,7 @@ class patcher:
 	def getLines(self, fName,incName):
 		mPaths=["/usr","/usr/local","/opt","/opt/local","."]
 		fullNames=[os.path.join(mPath,"include",incName,fName) for mPath in mPaths]
-		print "."*30,fullNames
+		#print "."*30,fullNames
 		for fullName in fullNames:
 			if not os.path.exists(fullName):
 				continue
@@ -90,10 +90,10 @@ def patchAll(patchDict):
 		#	newPatchDict[key]=value
 		#continue
 		incName,incFile=key.split(":")
-		print "*"*4,key,value
+		#print "*"*4,key,value
 		pat=patcher(incName,incFile,value)
 		if  pat.patching():
-			print "?"*4,key,value
+			#print "?"*4,key,value
 			newPatchDict[key]=value
 	return newPatchDict
 	
@@ -132,10 +132,10 @@ def run(tess_version):
 			("tesseract:renderer.h",None),
 			#(":main.h",None),
 			])
-	if tess_version<"3.1":
-		#patchDict["tesseract:publictypes.h"]+=["PageIterator","PageIteratorLevel"]
-		patchDict["tesseract:baseapi.h"]+=["PageIterator","GetLastInitLanguage","TruthCallback"]
-		patchDict["tesseract:ltrresultiterator.h"].append("PageIterator")
+	if tess_version<"3.03":
+		patchDict["tesseract:publictypes.h"]+=["PageIterator"]
+		patchDict["tesseract:baseapi.h"]+=["PageIterator"]
+		patchDict["tesseract:ltrresultiterator.h"]+=["PageIterator"]
 	newPatchDict=patchAll(patchDict)
 	#print newPatchDict
 	#print "*"*50
