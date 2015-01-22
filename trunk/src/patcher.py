@@ -123,7 +123,7 @@ def run(tess_version):
 			("leptonica:allheaders.h",["setPixMemoryManager"]),
 			("leptonica:pix.h",None),
 			("tesseract:publictypes.h",["char* kPolyBlockNames"]),
-			("tesseract:baseapi.h",["Dict", "ImageThresholder","iterator"]),
+			("tesseract:baseapi.h",["Dict", "ImageThresholder"]),
 			("tesseract:capi.h",["TessBaseAPIInit(","TessBaseAPISetFillLatticeFunc"]),
 			("tesseract:pageiterator.h",None),
 			("tesseract:ltrresultiterator.h",["ChoiceIterator"]),
