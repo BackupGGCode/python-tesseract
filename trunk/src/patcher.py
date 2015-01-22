@@ -9,9 +9,9 @@ class patcher:
 		self.lines=self.getLines(self.fName,incName)
 		#self.patching()
 	def getLines(self, fName,incName):
-		mPaths=["/usr","/usr/local","/opt","/opt/local"]
+		mPaths=["/usr","/usr/local","/opt","/opt/local","."]
 		fullNames=[os.path.join(mPath,"include",incName,fName) for mPath in mPaths]
-		#print fullNames
+		print "."*30,fullNames
 		for fullName in fullNames:
 			if not os.path.exists(fullName):
 				continue
@@ -43,6 +43,8 @@ class patcher:
 			print(("%s not existed"%self.fName))
 			print(("Have you installed %s?"%self.incName))
 			return False
+		if not self.keywords:
+			return True
 		newLines=[]
 		COMMENT_ON=False
 
@@ -84,8 +86,9 @@ class patcher:
 def patchAll(patchDict):
 	newPatchDict={}
 	for key,value in list(patchDict.items()):
-		if not value:
-			continue
+		#if not value:
+		#	newPatchDict[key]=value
+		#continue
 		incName,incFile=key.split(":")
 		print "*"*4,key,value
 		pat=patcher(incName,incFile,value)
@@ -105,6 +108,8 @@ def genSwigI(patchDict):
 			b.append('%%include "%s_mini.h"\n'%incFile[:-2])
 		else:
 			b.append('%%include "%s"\n'%incFile)
+	a.append('#include "main.h"')
+	b.append('%include "main.h"')
 	lines+=['\n%{\n']+a+['\n%}\n\n']
 	lines+=['\n']+b+['\n']
 	fp=open("tesseract.i","w")
@@ -125,11 +130,11 @@ def run(tess_version):
 			("tesseract:thresholder.h",None),
 			("tesseract:resultiterator.h",None),
 			("tesseract:renderer.h",None),
-			(":main.h",None),
+			#(":main.h",None),
 			])
-	if tess_version<"3.03":
-		patchDict["tesseract:publictypes.h"].append("PageIterator")
-		patchDict["tesseract:baseapi.h"]+=["PageIterator","GetLastInitLanguage"]
+	if tess_version<"3.1":
+		#patchDict["tesseract:publictypes.h"]+=["PageIterator","PageIteratorLevel"]
+		patchDict["tesseract:baseapi.h"]+=["PageIterator","GetLastInitLanguage","TruthCallback"]
 		patchDict["tesseract:ltrresultiterator.h"].append("PageIterator")
 	newPatchDict=patchAll(patchDict)
 	#print newPatchDict
