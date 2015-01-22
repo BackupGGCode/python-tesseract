@@ -63,6 +63,7 @@ python setup.py clean
 python setup.py build
 python setup.py install
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+cd test-slim
 python test.py
 }}}
 
