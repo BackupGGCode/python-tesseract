@@ -9,9 +9,9 @@ class patcher:
 		self.lines=self.getLines(self.fName,incName)
 		#self.patching()
 	def getLines(self, fName,incName):
-		mPaths=["/usr","/usr/local","/opt","/opt/local","."]
+		mPaths=["/usr","/usr/local","/opt","/opt/local"]
 		fullNames=[os.path.join(mPath,"include",incName,fName) for mPath in mPaths]
-		#print "."*30,fullNames
+		#print fullNames
 		for fullName in fullNames:
 			if not os.path.exists(fullName):
 				continue
@@ -43,7 +43,7 @@ class patcher:
 			print(("%s not existed"%self.fName))
 			print(("Have you installed %s?"%self.incName))
 			return False
-		if not self.keywords:
+		if self.keywords is None:
 			return True
 		newLines=[]
 		COMMENT_ON=False
@@ -87,13 +87,12 @@ def patchAll(patchDict):
 	newPatchDict={}
 	for key,value in list(patchDict.items()):
 		#if not value:
-		#	newPatchDict[key]=value
-		#continue
+		#	continue
 		incName,incFile=key.split(":")
-		#print "*"*4,key,value
+		print "*"*4,key,value
 		pat=patcher(incName,incFile,value)
 		if  pat.patching():
-			#print "?"*4,key,value
+			print "?"*4,key,value
 			newPatchDict[key]=value
 	return newPatchDict
 	
@@ -108,8 +107,8 @@ def genSwigI(patchDict):
 			b.append('%%include "%s_mini.h"\n'%incFile[:-2])
 		else:
 			b.append('%%include "%s"\n'%incFile)
-	a.append('#include "main.h"')
-	b.append('%include "main.h"')
+	a.append('#include "%s"\n'%"main.h")
+	b.append('%%include "%s"\n'%"main.h")
 	lines+=['\n%{\n']+a+['\n%}\n\n']
 	lines+=['\n']+b+['\n']
 	fp=open("tesseract.i","w")
@@ -123,7 +122,7 @@ def run(tess_version):
 			("leptonica:allheaders.h",["setPixMemoryManager"]),
 			("leptonica:pix.h",None),
 			("tesseract:publictypes.h",["char* kPolyBlockNames"]),
-			("tesseract:baseapi.h",["Dict", "ImageThresholder"]),
+			("tesseract:baseapi.h",["Dict", "ImageThresholder","iterator"]),
 			("tesseract:capi.h",["TessBaseAPIInit(","TessBaseAPISetFillLatticeFunc"]),
 			("tesseract:pageiterator.h",None),
 			("tesseract:ltrresultiterator.h",["ChoiceIterator"]),
@@ -133,9 +132,11 @@ def run(tess_version):
 			#(":main.h",None),
 			])
 	if tess_version<"3.03":
-		patchDict["tesseract:publictypes.h"]+=["PageIterator"]
-		patchDict["tesseract:baseapi.h"]+=["PageIterator","Iterator"]
-		patchDict["tesseract:ltrresultiterator.h"]+=["PageIterator"]
+		patchDict["tesseract:publictypes.h"].append("PageIterator")
+		patchDict["tesseract:baseapi.h"]+=["PageIterator","GetLastInitLanguage"]
+		patchDict["tesseract:ltrresultiterator.h"].append("PageIterator")
+		del patchDict["tesseract:pageiterator.h"]
+		del patchDict["tesseract:resultiterator.h"]
 	newPatchDict=patchAll(patchDict)
 	#print newPatchDict
 	#print "*"*50
