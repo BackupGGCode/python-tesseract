@@ -114,10 +114,12 @@ def my_clean():
 	print(pwd)
 	rmDirs="build dist deb_dist tesseract.egg-info python_tesseract.egg-info".split(" ")
 	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz* *.pyc *.h".split(" ")
+
 	print("remove Dirs")
 	j.runRm4Dirs(pwd,rmDirs)
 	print("remove Files")
-	j.runRm4Files(pwd,rmFiles)
+	#j.runRm4Files(pwd,rmFiles)
+	j.rmFiles(rmFiles,PROTECTED_FILES=["fmemopen.h"])
 	print("[my_clean]Done")
 	#old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
 	#for package in old_packages:
@@ -288,7 +290,7 @@ class GenVariablesLinux:
 		else:
 			pp('Include directory <<%s>> was not found' % mlib)
 			return None
-			
+
 	def libpath(self, mlib):
 		#print("()"*100)
 		pp(self.libs)
@@ -659,7 +661,7 @@ def check_and_run():
 		print("If so, you could download from the source program from the link as follow:")
 		print(TESS_LINK)
 		return
-	
+
 
 
 
