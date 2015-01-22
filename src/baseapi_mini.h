@@ -65,7 +65,7 @@ class CubeRecoContext;
 class Dawg;
 //class Dict;
 class EquationDetect;
-//class PageIterator;
+class PageIterator;
 class LTRResultIterator;
 class ResultIterator;
 class MutableIterator;
@@ -86,8 +86,8 @@ typedef void (Wordrec::*FillLatticeFunc)(const MATRIX &ratings,
                                          const WERD_CHOICE_LIST &best_choices,
                                          const UNICHARSET &unicharset,
                                          BlamerBundle *blamer_bundle);
-//typedef TessCallback4<const UNICHARSET &, int, PageIterator *, Pix *>
-//    TruthCallback;
+typedef TessCallback4<const UNICHARSET &, int, PageIterator *, Pix *>
+    TruthCallback;
 
 /**
  * Base class for all tesseract APIs.
@@ -448,17 +448,17 @@ class TESS_API TessBaseAPI {
    * If raw_image is true, then portions of the original image are extracted
    * instead of the thresholded image and padded with raw_padding.
    * If text_only is true, then only text components are returned.
-   */;
-//  Boxa* GetComponentImages(const PageIteratorLevel level,
-//                           const bool text_only, const bool raw_image,
-//                           const int raw_padding,
-//                           Pixa** pixa, int** blockids, int** paraids);
-  // Helper function to get binary images with no padding (most common usage).;
-//  Boxa* GetComponentImages(const PageIteratorLevel level,
-//                           const bool text_only,
-//                           Pixa** pixa, int** blockids) {
-//    return GetComponentImages(level, text_only, false, 0, pixa, blockids, NULL);
-//  }
+   */
+  Boxa* GetComponentImages(const PageIteratorLevel level,
+                           const bool text_only, const bool raw_image,
+                           const int raw_padding,
+                           Pixa** pixa, int** blockids, int** paraids);
+  // Helper function to get binary images with no padding (most common usage).
+  Boxa* GetComponentImages(const PageIteratorLevel level,
+                           const bool text_only,
+                           Pixa** pixa, int** blockids) {
+    return GetComponentImages(level, text_only, false, 0, pixa, blockids, NULL);
+  }
 
   /**
    * Returns the scale factor of the thresholded image that would be returned by
@@ -477,16 +477,16 @@ class TESS_API TessBaseAPI {
 
   /**
    * Runs page layout analysis in the mode set by SetPageSegMode.
-   * May optionally be called prior to Recognize to get access to just;
-//   * the page layout results. Returns an iterator to the results.
-//   * Returns NULL on error.
-//   * The returned iterator must be deleted after use.
-//   * WARNING! This class points to data held within the TessBaseAPI class, and
-//   * therefore can only be used while the TessBaseAPI class still exists and
-//   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
-//   * DetectOS, or anything else that changes the internal PAGE_RES.
-//   */
-//  PageIterator* AnalyseLayout();
+   * May optionally be called prior to Recognize to get access to just
+   * the page layout results. Returns an iterator to the results.
+   * Returns NULL on error.
+   * The returned iterator must be deleted after use.
+   * WARNING! This class points to data held within the TessBaseAPI class, and
+   * therefore can only be used while the TessBaseAPI class still exists and
+   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
+   * DetectOS, or anything else that changes the internal PAGE_RES.
+   */
+  PageIterator* AnalyseLayout();
 
   /**
    * Recognize the image from SetAndThresholdImage, generating Tesseract
@@ -547,25 +547,25 @@ class TESS_API TessBaseAPI {
                    const char* retry_config, int timeout_millisec,
                    TessResultRenderer* renderer);
 
-  /**;
-//   * Get a reading-order iterator to the results of LayoutAnalysis and/or
-//   * Recognize. The returned iterator must be deleted after use.
-//   * WARNING! This class points to data held within the TessBaseAPI class, and
-//   * therefore can only be used while the TessBaseAPI class still exists and
-//   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
-//   * DetectOS, or anything else that changes the internal PAGE_RES.
-//   */
-//  ResultIterator* GetIterator();
+  /**
+   * Get a reading-order iterator to the results of LayoutAnalysis and/or
+   * Recognize. The returned iterator must be deleted after use.
+   * WARNING! This class points to data held within the TessBaseAPI class, and
+   * therefore can only be used while the TessBaseAPI class still exists and
+   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
+   * DetectOS, or anything else that changes the internal PAGE_RES.
+   */
+  ResultIterator* GetIterator();
 
-  /**;
-//   * Get a mutable iterator to the results of LayoutAnalysis and/or Recognize.
-//   * The returned iterator must be deleted after use.
-//   * WARNING! This class points to data held within the TessBaseAPI class, and
-//   * therefore can only be used while the TessBaseAPI class still exists and
-//   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
-//   * DetectOS, or anything else that changes the internal PAGE_RES.
-//   */
-//  MutableIterator* GetMutableIterator();
+  /**
+   * Get a mutable iterator to the results of LayoutAnalysis and/or Recognize.
+   * The returned iterator must be deleted after use.
+   * WARNING! This class points to data held within the TessBaseAPI class, and
+   * therefore can only be used while the TessBaseAPI class still exists and
+   * has not been subjected to a call of Init, SetImage, Recognize, Clear, End
+   * DetectOS, or anything else that changes the internal PAGE_RES.
+   */
+  MutableIterator* GetMutableIterator();
 
   /**
    * The recognized text is returned as a char* which is coded
@@ -717,8 +717,8 @@ class TESS_API TessBaseAPI {
   OcrEngineMode const oem() const {
     return last_oem_requested_;
   }
-;
-//  void InitTruthCallback(TruthCallback *cb) { truth_cb_ = cb; }
+
+  void InitTruthCallback(TruthCallback *cb) { truth_cb_ = cb; }
 
   /** Return a pointer to underlying CubeRecoContext object if present. */
   CubeRecoContext *GetCubeRecoContext() const;
@@ -833,8 +833,8 @@ class TESS_API TessBaseAPI {
   STRING*           datapath_;        ///< Current location of tessdata.
   STRING*           language_;        ///< Last initialized language.
   OcrEngineMode last_oem_requested_;  ///< Last ocr language mode requested.
-  bool          recognition_done_;   ///< page_res_ contains recognition data.;
-//  TruthCallback *truth_cb_;           /// fxn for setting truth_* in WERD_RES
+  bool          recognition_done_;   ///< page_res_ contains recognition data.
+  TruthCallback *truth_cb_;           /// fxn for setting truth_* in WERD_RES
 
   /**
    * @defgroup ThresholderParams Thresholder Parameters
