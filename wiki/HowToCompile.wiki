@@ -52,8 +52,7 @@ python setup.py build
 sudo python setup.py install
 
 ==to make deb==
-sudo apt-get install cdbs dh-buildinfo
-./buildDeb
+sudo python setup.py --command-packages=stdeb.command sdist_dsc debianize bdist_deb 
 
 }}}
 
