@@ -7,7 +7,7 @@ class patcher:
 		self.incName=incName
 		self.keywords=keywords
 		self.lines=self.getLines(self.fName,incName)
-		self.patching()
+		#self.patching()
 	def getLines(self, fName,incName):
 		mPaths=["/usr","/usr/local","/opt","/opt/local"]
 		fullNames=[os.path.join(mPath,"include",incName,fName) for mPath in mPaths]
@@ -42,7 +42,7 @@ class patcher:
 		if not lines:
 			print(("%s not existed"%self.fName))
 			print(("Have you installed %s?"%self.incName))
-			sys.exit()
+			return False
 		newLines=[]
 		COMMENT_ON=False
 
@@ -79,14 +79,21 @@ class patcher:
 		fp=open(fMinName,"w")
 		fp.write("%s\n%s"%(header,";".join(newLines)))
 		fp.close()
+		return True
 
 def patchAll(patchDict):
+	newPatchDict={}
 	for key,value in list(patchDict.items()):
 		if not value:
 			continue
 		incName,incFile=key.split(":")
-		patcher(incName,incFile,value)
-
+		print "*"*4,key,value
+		pat=patcher(incName,incFile,value)
+		if  pat.patching():
+			print "?"*4,key,value
+			newPatchDict[key]=value
+	return newPatchDict
+	
 def genSwigI(patchDict):
 	lines=open("tesseract.i.template").readlines()
 	a=[]
@@ -105,7 +112,7 @@ def genSwigI(patchDict):
 	fp.close()
 
 
-def run():
+def run(tess_version):
 	patchDict=collections.OrderedDict([
 			#(":config.h",None),
 			("leptonica:allheaders.h",["setPixMemoryManager"]),
@@ -120,9 +127,15 @@ def run():
 			("tesseract:renderer.h",None),
 			(":main.h",None),
 			])
-	patchAll(patchDict)
-	genSwigI(patchDict)
+	if tess_version<"3.03":
+		patchDict["tesseract:publictypes.h"].append("PageIterator")
+		patchDict["tesseract:baseapi.h"].append("PageIterator")
+		patchDict["tesseract:ltrresultiterator.h"].append("PageIterator")
+	newPatchDict=patchAll(patchDict)
+	#print newPatchDict
+	#print "*"*50
+	genSwigI(newPatchDict)
 
 
 if __name__=="__main__":
-	run()
+	run("3.02")

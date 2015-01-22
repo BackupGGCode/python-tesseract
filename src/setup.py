@@ -633,10 +633,11 @@ def main():
 
 
 def check_and_run():
-
 	MIN_TESS_VERSION="3.03"
 	TESS_LINK="https://bitbucket.org/3togo/python-tesseract/downloads/tesseract-3.03-rc1.tar.gz"
 	your_tess_version=j.getTesseractVersion()
+	import patcher
+	patcher.run(your_tess_version)
 	if  your_tess_version< MIN_TESS_VERSION:
 		print("Tesseract version installed is %s"%your_tess_version)
 		print("However, the minimal version needed is %s"%MIN_TESS_VERSION)
@@ -644,9 +645,7 @@ def check_and_run():
 		print("If so, you could download from the source program from the link as follow:")
 		print(TESS_LINK)
 		return
-	import patcher
-	patcher.run()
-
+	
 
 
 
@@ -655,5 +654,7 @@ if __name__ == "__main__":
 	#j=jfunc.jfunc()
 	#print(j.getOsName())
 	if osname  not in  [ "windows", "mingw"]:
+		print(osname)
+		print("patching now")
 		check_and_run()
 	main()
