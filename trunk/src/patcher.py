@@ -134,7 +134,7 @@ def run(tess_version):
 			])
 	if tess_version<"3.03":
 		patchDict["tesseract:publictypes.h"]+=["PageIterator"]
-		patchDict["tesseract:baseapi.h"]+=["PageIterator"]
+		patchDict["tesseract:baseapi.h"]+=["PageIterator","PageIteratorLevel"]
 		patchDict["tesseract:ltrresultiterator.h"]+=["PageIterator"]
 	newPatchDict=patchAll(patchDict)
 	#print newPatchDict
