@@ -15,7 +15,7 @@ const char *p_enc="utf-8";
 */
 #include "allheaders.h"
 #include "baseapi.h"
-#include "img.h"
+//#include "img.h"
 #include "strngs.h"
 
 #include "main.h"
