@@ -13,7 +13,7 @@ python setup.py install --user
 ==to make deb==
 sudo apt-get install cdbs dh-buildinfo devscripts python-stdeb
 debuild binary
-debuild -us -uc
+debuild -i -us -uc -b
 debuild -ai386 -us -uc
 
 ==cross-compile i386==
