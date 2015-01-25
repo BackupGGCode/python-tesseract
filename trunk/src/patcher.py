@@ -1,9 +1,17 @@
-import os,collections,sys
+import os,collections,sys,platform
+def isPython3():
+	if sys.version_info > (3,0):
+		return True
+	else:
+		return False
+PYTHON3=isPython3()
+		
 class patcher:
 	def __init__(self,incName,incFile,keywords):
 
 		self.fName=incFile
-		self.fMinName="%s_mini.h"%incFile[:-2]
+		#self.fMinName="%s_mini.h"%incFile[:-2]
+		self.fMinName=incFile
 		self.incName=incName
 		self.keywords=keywords
 		self.lines=self.getLines(self.fName,incName)
@@ -59,6 +67,7 @@ class patcher:
 				if len(headStr.strip())!=0 :
 					newLines.append(headStr)
 				KEYWORD_FOUND=True
+				line="//"+line
 
 			if ( COMMENT_ON or KEYWORD_FOUND) :
 				if "{" in line:
@@ -89,24 +98,33 @@ def patchAll(patchDict):
 		#if not value:
 		#	continue
 		incName,incFile=key.split(":")
-		print "*"*4,key,value
+		print("*"*4,key,value)
 		pat=patcher(incName,incFile,value)
 		if  pat.patching():
-			print "?"*4,key,value
+			print("?"*4,key,value)
 			newPatchDict[key]=value
 	return newPatchDict
 	
 def genSwigI(patchDict):
 	lines=open("tesseract.i.template").readlines()
-	a=[]
-	b=[]
+	defines=[	"#define TESS_API\n",
+				"#define TESS_LOCAL\n",
+				"#define LEPT_DLL\n"]
+	if not PYTHON3:
+		defines.append("#define TESS_CAPI_INCLUDE_BASEAPI\n")
+	a=list(defines)
+	b=list(defines)
 	for key,value in list(patchDict.items()):
 		incName,incFile=key.split(":")
-		a.append('#include "%s"\n'%incFile)
+		
 		if value:
-			b.append('%%include "%s_mini.h"\n'%incFile[:-2])
+			#b.append('%%include "%s_mini.h"\n'%incFile[:-2])
+			#a.append('#include "%s_mini.h"\n'%incFile[:-2])
+			b.append('%%include "%s"\n'%incFile)
+			a.append('#include "%s"\n'%incFile)
 		else:
 			b.append('%%include "%s"\n'%incFile)
+			a.append('#include "%s"\n'%incFile)
 	a.append('#include "%s"\n'%"main.h")
 	b.append('%%include "%s"\n'%"main.h")
 	lines+=['\n%{\n']+a+['\n%}\n\n']
@@ -117,12 +135,14 @@ def genSwigI(patchDict):
 
 
 def run(tess_version):
-	patchDict=collections.OrderedDict([
+	
+	if not PYTHON3:
+		patchDict=collections.OrderedDict([
 			#(":config.h",None),
 			("leptonica:allheaders.h",["setPixMemoryManager"]),
 			("leptonica:pix.h",None),
 			("tesseract:publictypes.h",["char* kPolyBlockNames"]),
-			("tesseract:baseapi.h",["Dict", "ImageThresholder","iterator"]),
+			("tesseract:baseapi.h",["Dict", "ImageThresholder","GetUTF8Text"]),
 			("tesseract:capi.h",["TessBaseAPIInit(","TessBaseAPISetFillLatticeFunc"]),
 			("tesseract:pageiterator.h",None),
 			("tesseract:ltrresultiterator.h",["ChoiceIterator"]),
@@ -131,12 +151,28 @@ def run(tess_version):
 			("tesseract:renderer.h",None),
 			#(":main.h",None),
 			])
-	if tess_version<"3.03":
-		patchDict["tesseract:publictypes.h"].append("PageIterator")
-		patchDict["tesseract:baseapi.h"]+=["PageIterator","GetLastInitLanguage"]
-		patchDict["tesseract:ltrresultiterator.h"].append("PageIterator")
-		del patchDict["tesseract:pageiterator.h"]
-		del patchDict["tesseract:resultiterator.h"]
+		if tess_version<"3.03":
+			patchDict["tesseract:publictypes.h"].append("PageIterator")
+			patchDict["tesseract:baseapi.h"]+=["iterator","PageIterator","GetLastInitLanguage"]
+			patchDict["tesseract:ltrresultiterator.h"].append("PageIterator")
+			del patchDict["tesseract:pageiterator.h"]
+			del patchDict["tesseract:resultiterator.h"]
+	else:
+		patchDict=collections.OrderedDict([
+			#(":config.h",None),
+			#("leptonica:allheaders.h",["setPixMemoryManager"]),
+			#("leptonica:pix.h",None),
+			("tesseract:publictypes.h",["char* kPolyBlockNames","OcrEngineMode","PageIterator"]),
+			("tesseract:baseapi.h",["Dict", "ImageThresholder","iterator"]),
+			#("tesseract:capi.h",["TessBaseAPIInit(","TessBaseAPISetFillLatticeFunc"]),
+			("tesseract:pageiterator.h",["PageIteratorLevel"]),
+			("tesseract:ltrresultiterator.h",["ChoiceIterator","PageIterator"]),
+			#("tesseract:thresholder.h",None),
+			("tesseract:resultiterator.h",["PageIteratorLevel"]),
+			#("tesseract:renderer.h",None),
+			#(":main.h",None),
+			])
+
 	newPatchDict=patchAll(patchDict)
 	#print newPatchDict
 	#print "*"*50

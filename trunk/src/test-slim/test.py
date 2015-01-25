@@ -13,35 +13,21 @@ api.SetOutputName("outputName");
 #api.Init(".","eng")
 api.Init(".","eng",tesseract.OEM_DEFAULT)
 api.SetPageSegMode(tesseract.PSM_AUTO)
-print("Test api.ProcessPages")
+print("1.Test api.ProcessPages")
 mImgFile = "eurotext.jpg"
 result=api.ProcessPages(mImgFile, None, 0)
 print(("result(api.ProcessPages)=",result))
 
-print("Test ProcessPagesWrapper")
+print("2.Test ProcessPagesWrapper")
 result = tesseract.ProcessPagesWrapper(mImgFile,api)
 print(("result(ProcessPagesWrapper)=",result))
 
-print("Test ProcessPagesFileStream")
+print("3.Test ProcessPagesFileStream")
 result = tesseract.ProcessPagesFileStream(mImgFile,api)
 print(("result(ProcessPagesFileStream)=",result))
 
-#print "Test ProcessPagesRaw2"
-#result = tesseract.ProcessPagesRaw2(mImgFile,api)
-#print "result(ProcessPagesRaw2)",result
 
-#print("Test ProcessPagesBuffer")
-#f=open(mImgFile,"rb")
-#mBuffer=f.read()
-#f.close()
-#print(type(mBuffer))
-#result = tesseract.ProcessPagesBuffer(mBuffer,len(mBuffer),api)
-#mBuffer=None
-#print("result(ProcessPagesBuffer)=",result)
-
-
-
-print("Test ProcessPagesRaw")
+print("4.Test ProcessPagesRaw")
 result = tesseract.ProcessPagesRaw(mImgFile,api)
 print(("result(ProcessPagesRaw)",result))
 
@@ -51,5 +37,6 @@ n = gc.collect()
 print(('Unreachable objects:', n))
 print('Remaining Garbage:')
 pprint.pprint(gc.garbage)
-print()
+print('Endding')
+result=None
 api.End()
