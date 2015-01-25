@@ -46,38 +46,44 @@
 }
 
 %{
-#define TESS_API
-#define TESS_LOCAL
-#define LEPT_DLL
-#define TESS_CAPI_INCLUDE_BASEAPI
 #include "config.h"
 char* retParser(const char* a);
 %}
+%include "config.h"
+
+%{
 #define TESS_API
 #define TESS_LOCAL
 #define LEPT_DLL
 #define TESS_CAPI_INCLUDE_BASEAPI
-%include "config.h"
-
-%{
-#include "publictypes.h"
-#include "baseapi.h"
-#include "ltrresultiterator.h"
-#include "allheaders.h"
-#include "capi.h"
-#include "thresholder.h"
+#include "allheaders_mini.h"
 #include "pix.h"
+#include "publictypes_mini.h"
+#include "baseapi_mini.h"
+#include "capi_mini.h"
+#include "pageiterator.h"
+#include "ltrresultiterator_mini.h"
+#include "thresholder.h"
+#include "resultiterator.h"
+#include "renderer.h"
 #include "main.h"
 
 %}
 
 
+#define TESS_API
+#define TESS_LOCAL
+#define LEPT_DLL
+#define TESS_CAPI_INCLUDE_BASEAPI
+%include "allheaders_mini.h"
+%include "pix.h"
 %include "publictypes_mini.h"
 %include "baseapi_mini.h"
-%include "ltrresultiterator_mini.h"
-%include "allheaders_mini.h"
 %include "capi_mini.h"
+%include "pageiterator.h"
+%include "ltrresultiterator_mini.h"
 %include "thresholder.h"
-%include "pix.h"
+%include "resultiterator.h"
+%include "renderer.h"
 %include "main.h"
 

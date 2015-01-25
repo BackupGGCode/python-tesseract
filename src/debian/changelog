@@ -1,9 +1,10 @@
-python-tesseract (0.9-0.5ubuntu2) UNRELEASED; urgency=medium
+python-tesseract (0.9-0.5ubuntu3) UNRELEASED; urgency=medium
 
+  [ eli ]
   * i386
-  * 
+  * attempt to make it compatible both to Precise and Trusty 
 
- -- eli <eli@eli-virtual-machine>  Sat, 10 Jan 2015 23:17:51 +0800
+ -- root <root@eli-virtual-machine>  Sat, 24 Jan 2015 03:15:47 +0800
 
 python-tesseract (0.9-0.4ubuntu0) UNRELEASED; urgency=medium
 

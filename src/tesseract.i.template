@@ -46,15 +46,7 @@
 }
 
 %{
-#define TESS_API
-#define TESS_LOCAL
-#define LEPT_DLL
-#define TESS_CAPI_INCLUDE_BASEAPI
 #include "config.h"
 char* retParser(const char* a);
 %}
-#define TESS_API
-#define TESS_LOCAL
-#define LEPT_DLL
-#define TESS_CAPI_INCLUDE_BASEAPI
 %include "config.h"

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from __future__ import print_function
-import logging
+import logging, sys
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -21,7 +21,9 @@ written by FreeToGo@gmail.com
 """
 PACKAGE="python-tesseract"
 #VERSION=os.getcwd().split("-")[-1]
-VERSION="0.9"
+VERSION="0.9.1"
+PYTHON3=True if sys.version_info >= (3,0) else False
+
 from setuptools import setup, Extension, Command, find_packages
 from distutils.command.build import build
 from setuptools.command.install import install
@@ -54,8 +56,9 @@ IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
 cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
 			#	"void SetImage(PyObject* o, tesseract::TessBaseAPI* api);",
 			#	"void SetMat(PyObject* o, tesseract::TessBaseAPI* api);",
-				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);",
-				"char* GetUTF8Text(tesseract::TessBaseAPI* api);"]
+				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);"
+			#	"char* GetUTF8Text(tesseract::TessBaseAPI* api);"
+			]
 from distutils.sysconfig import get_config_vars
 def removeFlag(flagName,mflag):
 	(opt,) = get_config_vars(mflag)
@@ -390,6 +393,12 @@ class GenVariablesLinux:
 			if "64" in sys.version:
 				self.extra_compile_args.append("-D MS_WIN64")
 
+		swig_opts=[				"-c++",
+								"-I"+self.inclpath('tesseract'),
+								"-I"+self.inclpath('leptonica'),
+								"-I"+self.inclpath('opencv2')]
+		if PYTHON3:
+			swig_opts=["-py3"]+swig_opts
 
 		tesseract_module = Extension('_tesseract',
 				sources=self.sources,
@@ -397,12 +406,8 @@ class GenVariablesLinux:
 				#extra_compile_args = ["-Wall", "-Wextra", "-O0", '-funroll-loops','-g'],
 				extra_compile_args = self.extra_compile_args,
 				extra_link_args = self.extra_link_args,
-				swig_opts=[
-								"-c++",
-								"-I"+self.inclpath('tesseract'),
-								"-I"+self.inclpath('leptonica'),
-								"-I"+self.inclpath('opencv2')],
-				include_dirs=self.include_dirs,
+								include_dirs=self.include_dirs,
+				swig_opts=swig_opts,
 				#library_dirs=library_dirs,
 				libraries=self.libraries,
 				)
@@ -652,8 +657,8 @@ def check_and_run():
 	MIN_TESS_VERSION="3.03"
 	TESS_LINK="https://bitbucket.org/3togo/python-tesseract/downloads/tesseract-3.03-rc1.tar.gz"
 	your_tess_version=j.getTesseractVersion()
-	import patcher
-	patcher.run(your_tess_version)
+	import patchEngine
+	patchEngine.run(your_tess_version)
 	if  your_tess_version< MIN_TESS_VERSION:
 		print("Tesseract version installed is %s"%your_tess_version)
 		print("However, the minimal version needed is %s"%MIN_TESS_VERSION)
