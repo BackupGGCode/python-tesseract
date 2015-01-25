@@ -9,7 +9,9 @@ python config.py
 python setup.py clean
 python setup.py build
 python setup.py install --user
-
+cd test-slim
+export PYTHONPATH=$PYTHONPATH:$HOME/.local/lib/python2.7/site-packages
+python test.py
 ==to make deb==
 sudo apt-get install cdbs dh-buildinfo devscripts python-stdeb
 dch -i
