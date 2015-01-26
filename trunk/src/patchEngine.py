@@ -91,10 +91,15 @@ def genSwigI(patchDict):
 		incName,incFile=key.split(":")
 		
 		if value:
+			#if PYTHON3 and incFile[:-2] in ["capi"]:
+				#a.append('#include "%s_mini.h"\n'%incFile[:-2])
+				#b.append('%%include "%s_mini.h"\n'%incFile[:-2])
+			#else:
 			b.append('%%include "%s_mini.h"\n'%incFile[:-2])
+			a.append('#include "%s"\n'%incFile)
 			#a.append('#include "%s_mini.h"\n'%incFile[:-2])
 			#b.append('%%include "%s"\n'%incFile)
-			a.append('#include "%s"\n'%incFile)
+			
 		else:
 			b.append('%%include "%s"\n'%incFile)
 			a.append('#include "%s"\n'%incFile)
@@ -114,9 +119,9 @@ def run(tess_version):
 			#(":config.h",None),
 			("leptonica:allheaders.h",["setPixMemoryManager"]),
 			("leptonica:pix.h",None),
-			("tesseract:publictypes.h",["char* kPolyBlockNames"v]),
+			("tesseract:publictypes.h",["char* kPolyBlockNames"]),
 			("tesseract:baseapi.h",["Dict", "ImageThresholder","ProbabilityInContextFunc","GetUTF8Text"]),
-			#("tesseract:capi.h",["TessBaseAPIInit","TessBaseAPISetFillLatticeFunc","OEM_"]),
+			#("tesseract:capi.h",["TessBaseAPIInit","TessBaseAPISetFillLatticeFunc","OEM_","TEXTLINE","PSM_","RIL_","PT_","ORIENTATION_","WRITING_"]),
 			("tesseract:pageiterator.h",None),
 			("tesseract:ltrresultiterator.h",["ChoiceIterator"]),
 			("tesseract:thresholder.h",None),
