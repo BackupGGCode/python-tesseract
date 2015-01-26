@@ -15,6 +15,7 @@ handler.setFormatter(formatter)
 
 logger.addHandler(handler)
 pp=logger.info
+
 """
 setup.py file for SWIG
 written by FreeToGo@gmail.com
