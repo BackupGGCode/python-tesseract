@@ -53,8 +53,10 @@ IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
 			"char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api);",
 #			"char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api);"]
-
-cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
+if PYTHON3:
+	cvIncludeLines=[]
+else:	
+	cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
 			#	"void SetImage(PyObject* o, tesseract::TessBaseAPI* api);",
 			#	"void SetMat(PyObject* o, tesseract::TessBaseAPI* api);",
 				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);"
