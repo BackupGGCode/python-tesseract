@@ -92,9 +92,9 @@ def genSwigI(patchDict):
 		
 		if value:
 			b.append('%%include "%s_mini.h"\n'%incFile[:-2])
-			a.append('#include "%s_mini.h"\n'%incFile[:-2])
+			#a.append('#include "%s_mini.h"\n'%incFile[:-2])
 			#b.append('%%include "%s"\n'%incFile)
-			#a.append('#include "%s"\n'%incFile)
+			a.append('#include "%s"\n'%incFile)
 		else:
 			b.append('%%include "%s"\n'%incFile)
 			a.append('#include "%s"\n'%incFile)
