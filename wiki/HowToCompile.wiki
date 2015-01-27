@@ -17,7 +17,7 @@ sudo apt-get install cdbs dh-buildinfo devscripts python-stdeb
 dch -i
 debuild binary
 debuild -i -us -uc -b
-debuild -ai386 -us -uc
+debuild -ai386 -us -uc -b
 
 ==cross-compile i386==
 sudo apt-get install pbuilder
