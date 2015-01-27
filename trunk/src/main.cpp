@@ -1,5 +1,12 @@
 //#include "mfcpch.h"
 // #define USE_VLD //Uncomment for Visual Leak Detector.
+#ifndef PyString_Check
+    #define PyString_Check PyBytes_Check
+#endif
+#ifndef PyString_AsString
+    #define PyString_AsString PyBytes_AsString
+#endif
+
 #if (defined _MSC_VER && defined USE_VLD)
 #include "mfcpch.h"
 #include <vld.h>
@@ -216,7 +223,7 @@ char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api) {
 	return retStr;
  }
 */
-#if defined(__python2__)
+//#if defined(__python2__)
 #if defined(__opencv__) || defined(__opencv2__)
 //#ifdef __opencv2__
  /* from PyBLOB project
@@ -346,4 +353,4 @@ bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api
 }
 
 #endif
-#endif
+//#endif
