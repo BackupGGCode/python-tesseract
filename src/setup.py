@@ -61,6 +61,16 @@ cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
 				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);"
 			#	"char* GetUTF8Text(tesseract::TessBaseAPI* api);"
 			]
+if PYTHON3:			
+	cvIncludeLines+=["""		
+#ifndef PyString_Check
+    #define PyString_Check PyBytes_Check
+#endif
+#ifndef PyString_AsString
+    #define PyString_AsString PyBytes_AsString
+#endif
+"""]
+
 from distutils.sysconfig import get_config_vars
 def removeFlag(flagName,mflag):
 	(opt,) = get_config_vars(mflag)

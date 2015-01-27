@@ -1,11 +1,5 @@
 //#include "mfcpch.h"
 // #define USE_VLD //Uncomment for Visual Leak Detector.
-#ifndef PyString_Check
-    #define PyString_Check PyBytes_Check
-#endif
-#ifndef PyString_AsString
-    #define PyString_AsString PyBytes_AsString
-#endif
 
 #if (defined _MSC_VER && defined USE_VLD)
 #include "mfcpch.h"
