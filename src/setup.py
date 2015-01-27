@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 from __future__ import print_function
 import logging, sys
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 # create a file handler
@@ -53,10 +52,10 @@ IncludeLines=["#include \"config.h\"","bool isLibTiff();","bool isLibLept();",
 			"char* ProcessPagesBuffer(char* buffer, int fileLen, tesseract::TessBaseAPI* api);",
 #			"char* ProcessPagesRaw2(const char* image,tesseract::TessBaseAPI* api);",
 			"char* ProcessPagesRaw(const char* image,tesseract::TessBaseAPI* api);"]
-if PYTHON3:
-	cvIncludeLines=[]
-else:	
-	cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
+#if PYTHON3:
+#	cvIncludeLines=[]
+#else:	
+cvIncludeLines=["void SetCvImage(PyObject* o, tesseract::TessBaseAPI* api);",
 			#	"void SetImage(PyObject* o, tesseract::TessBaseAPI* api);",
 			#	"void SetMat(PyObject* o, tesseract::TessBaseAPI* api);",
 				"bool SetVariable(const char* var, const char* value, tesseract::TessBaseAPI* api);"
@@ -119,7 +118,7 @@ def my_clean():
 	pwd=os.path.abspath(os.path.dirname(sys.argv[0]))
 	print(pwd)
 	rmDirs="build dist deb_dist tesseract.egg-info python_tesseract.egg-info".split(" ")
-	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz* *.pyc *.h".split(" ")
+	rmFiles="main.h config.h tesseract.py *wrap.cpp setuptools* *tar.gz* *.pyc *.h *.so".split(" ")
 
 	print("remove Dirs")
 	j.runRm4Dirs(pwd,rmDirs)
