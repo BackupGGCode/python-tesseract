@@ -29,7 +29,7 @@ from distutils.command.build import build
 from setuptools.command.install import install
 from setuptools.command.build_ext import build_ext
 
-import sys,os,platform,glob,subprocess,sys,distutils
+import sys,os,platform,glob,subprocess,sys,distutils,shutil
 import os
 try:
 	import jfunc
@@ -139,6 +139,21 @@ def my_clean():
 	#old_packages=glob.glob('%s_%s*'%(PACKAGE,VERSION))
 	#for package in old_packages:
 		#os.system(package)
+	if os.getuid()==0 :   #is-admin
+		dirs=[f for f in sys.path if f.endswith('packages')]
+		files=["*tesseract*"]
+		for mdir in dirs:
+			#pp("mdir=%s"%mdir)
+			mfiles=glob.glob(os.path.join(mdir,"*tesseract*"))
+			for mfile in mfiles:
+				if os.path.isfile(mfile): 
+					pp("packages files to be deleted=%s"%repr(mfile))
+					os.remove(mfile)
+				elif os.path.isdir(mfile):
+					pp("packages dirs to be deleted=%s"%repr(mfile))
+					shutil.rmtree(mfile)
+				else:
+					pp("what's that=%s"%repr(mfile))
 
 def my_uninstall():
 	rmPaths=[]
