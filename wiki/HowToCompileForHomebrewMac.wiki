@@ -53,8 +53,8 @@ Either
 {{{
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 #sudo easy_install https://bitbucket.org/3togo/python-tesseract/downloads/python-tesseract_0.8-3.0-py2.7_macosx-10.9-intel.egg
-sudo easy_install https://bitbucket.org/3togo/python-tesseract/downloads/python_tesseract-0.9.1-py2.7-macosx-10.10-x86_64.egg
-
+easy_install https://bitbucket.org/3togo/python-tesseract/downloads/python_tesseract-0.9.1-py2.7-macosx-10.10-x86_64.egg
+#### for homebrew<--- no need to use "sudo"
 }}}
 or 
 {{{
