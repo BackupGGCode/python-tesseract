@@ -65,8 +65,8 @@ char* retParser(const char* a);
 #include "ltrresultiterator.h"
 #include "thresholder.h"
 #include "resultiterator.h"
-#include "renderer.h"
 #include "main.h"
+using tesseract::ResultIterator;
 
 %}
 
@@ -84,6 +84,6 @@ char* retParser(const char* a);
 %include "ltrresultiterator_mini.h"
 %include "thresholder.h"
 %include "resultiterator.h"
-%include "renderer.h"
 %include "main.h"
+using tesseract::ResultIterator;
 

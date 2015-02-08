@@ -1,5 +1,7 @@
 import collections,os,sys
 PYTHON3=True if sys.version_info >= (3,0) else False
+import jfunc
+pp=jfunc.pp
 
 def isKeywordsInStr(keywords,mstr):
 	if keywords is None:
@@ -10,6 +12,8 @@ def isKeywordsInStr(keywords,mstr):
 	return False
 		
 def commentingLines(lines,keywords):
+	if lines is None:
+		return
 	COMMENTING=0
 	numOfOpenBracket=0
 	lines2=[]
@@ -77,8 +81,11 @@ def getLines(mdir,mfile):
 			continue
 		lines=open(fullName).readlines()
 		return lines
+	pp("File does not exist"%repr(fullNames))
+	sys.exit()
 
 def genSwigI(patchDict):
+	
 	lines=open("tesseract.i.template").readlines()
 	defines=[	"#define TESS_API\n",
 				"#define TESS_LOCAL\n",
@@ -87,6 +94,8 @@ def genSwigI(patchDict):
 		defines.append("#define TESS_CAPI_INCLUDE_BASEAPI\n")
 	a=list(defines)
 	b=list(defines)
+	#b.append('#define ResultIterator tesseract::ResultIterator\n')
+	
 	for key,value in list(patchDict.items()):
 		incName,incFile=key.split(":")
 		
@@ -105,6 +114,8 @@ def genSwigI(patchDict):
 			a.append('#include "%s"\n'%incFile)
 	a.append('#include "%s"\n'%"main.h")
 	b.append('%%include "%s"\n'%"main.h")
+	b.append('using tesseract::ResultIterator;\n')
+	a.append('using tesseract::ResultIterator;\n')
 	lines+=['\n%{\n']+a+['\n%}\n\n']
 	lines+=['\n']+b+['\n']
 	fp=open("tesseract.i","w")
@@ -145,24 +156,31 @@ def run(tess_version):
 			#(":main.h",None),
 			])
 		if tess_version<"3.03":
-			patchDict["tesseract:publictypes.h"].append("PageIterator")
+			#patchDict["tesseract:publictypes.h"].append("PageIterator")
 			patchDict["tesseract:baseapi.h"]+=["iterator","PageIterator","GetLastInitLanguage"]
 			patchDict["tesseract:ltrresultiterator.h"].append("PageIterator")
-			del patchDict["tesseract:pageiterator.h"]
-			del patchDict["tesseract:resultiterator.h"]
+			#del patchDict["tesseract:pageiterator.h"]
+			#del patchDict["tesseract:resultiterator.h"]
+			del patchDict["tesseract:renderer.h"]
 			
 	for mfile, commentedKeys in list(patchDict.items()):
-		print(mfile, commentedKeys)
+		pp("Begin [%s]%s"%(mfile,commentedKeys))
 		mdir,mfile=mfile.split(":")
 		lines=getLines(mdir,mfile)
 		#print lines
+		if lines is None:
+			print mdir,mfile
+			sys.exit()
 		lines=commentingLines(lines,commentedKeys)
 			
 		#fp=open(mfile,"w")
 		fp=open("%s_mini.h"%mfile[:-2],"w")
 		fp.write("".join(lines))
 		fp.close()
+		pp("End [%s]%s"%(mfile,commentedKeys))
+	pp("Generate Swig I")
 	genSwigI(patchDict)
+	pp("Done")
 	
 if __name__=="__main__":
 	run("3.0.2")

@@ -20,9 +20,13 @@ colors={'LIST':'\033[95m',
 		'ENDC' : '\033[0m',
 		}
 colorkeys=list(colors.keys())
-
-
-
+import logging
+#FORMAT = "[%(filename)s:%(lineno)s - %(funcName)20s() ] %(message)s"
+FORMAT = "[%(filename)s:%(lineno)s - %(funcName)s() ] %(message)s"
+logging.basicConfig(level=logging.INFO,format=FORMAT)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+pp=logger.info
 
 class jfunc():
 	def __init__(self):
