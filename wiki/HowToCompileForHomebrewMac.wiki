@@ -53,7 +53,8 @@ Either
 {{{
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 #sudo easy_install https://bitbucket.org/3togo/python-tesseract/downloads/python-tesseract_0.8-3.0-py2.7_macosx-10.9-intel.egg
-sudo easy_install https://python-tesseract.googlecode.com/svn/trunk/src/dist/python_tesseract-0.9-py2.7-macosx-10.10-x86_64.egg
+sudo easy_install https://bitbucket.org/3togo/python-tesseract/downloads/python_tesseract-0.9.1-py2.7-macosx-10.10-x86_64.egg
+
 }}}
 or 
 {{{
