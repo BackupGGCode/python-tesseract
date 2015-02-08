@@ -690,4 +690,5 @@ if __name__ == "__main__":
 		print(osname)
 		print("patching now")
 		check_and_run()
+	print("running main.....")
 	main()
