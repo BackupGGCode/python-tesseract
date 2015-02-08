@@ -1,4 +1,5 @@
 #summary LIst of Functions that were not swigged.
+#labels Featured
 
 = Introduction =
 
