@@ -81,7 +81,7 @@ def getLines(mdir,mfile):
 			continue
 		lines=open(fullName).readlines()
 		return lines
-	pp("File does not exist"%repr(fullNames))
+	pp("File does not exist:%s"%repr(fullNames))
 	sys.exit()
 
 def genSwigI(patchDict):
@@ -114,8 +114,13 @@ def genSwigI(patchDict):
 			a.append('#include "%s"\n'%incFile)
 	a.append('#include "%s"\n'%"main.h")
 	b.append('%%include "%s"\n'%"main.h")
-	b.append('using tesseract::ResultIterator;\n')
-	a.append('using tesseract::ResultIterator;\n')
+	usings=["ResultIterator", "PageIteratorLevel"]
+	for item in usings:
+		mstr="using tesseract::%s;\n"%item
+		a.append(mstr)
+		b.append(mstr)
+	#b.append('using tesseract::ResultIterator;\n')
+	#a.append('using tesseract::ResultIterator;\n')
 	lines+=['\n%{\n']+a+['\n%}\n\n']
 	lines+=['\n']+b+['\n']
 	fp=open("tesseract.i","w")
@@ -140,6 +145,14 @@ def run(tess_version):
 			("tesseract:renderer.h",None),
 			#(":main.h",None),
 			])
+		if tess_version<"3.03":
+			print("tess_version=%s"%tess_version)
+			patchDict["tesseract:publictypes.h"].append("PageIterator")
+			patchDict["tesseract:baseapi.h"]+=["iterator","PageIterator","GetLastInitLanguage"]
+			#patchDict["tesseract:ltrresultiterator.h"].append("tesseract:PageIterator")
+			del patchDict["tesseract:pageiterator.h"]
+			#del patchDict["tesseract:resultiterator.h"]
+			del patchDict["tesseract:renderer.h"]
 	else:
 		patchDict=collections.OrderedDict([
 			#(":config.h",None),
@@ -156,9 +169,10 @@ def run(tess_version):
 			#(":main.h",None),
 			])
 		if tess_version<"3.03":
-			#patchDict["tesseract:publictypes.h"].append("PageIterator")
+			print("tess_version=%s"%tess_version)
+			patchDict["tesseract:publictypes.h"].append("PageIterator")
 			patchDict["tesseract:baseapi.h"]+=["iterator","PageIterator","GetLastInitLanguage"]
-			patchDict["tesseract:ltrresultiterator.h"].append("PageIterator")
+			#patchDict["tesseract:ltrresultiterator.h"].append("tesseract:PageIterator")
 			#del patchDict["tesseract:pageiterator.h"]
 			#del patchDict["tesseract:resultiterator.h"]
 			del patchDict["tesseract:renderer.h"]
@@ -169,7 +183,7 @@ def run(tess_version):
 		lines=getLines(mdir,mfile)
 		#print lines
 		if lines is None:
-			print mdir,mfile
+			print(mdir,mfile)
 			sys.exit()
 		lines=commentingLines(lines,commentedKeys)
 			
