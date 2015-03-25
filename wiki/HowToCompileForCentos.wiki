@@ -22,8 +22,9 @@ make
 make install
 
 cd ..
-svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
-cd tesseract-ocr/
+#svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
+wget https://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.02.02.tar.gz
+tar zxvf esseract-ocr-3.02.02.tar.gzcd tesseract-ocr/
 ./autogen.sh
 ./configure --prefix=/usr
 make
