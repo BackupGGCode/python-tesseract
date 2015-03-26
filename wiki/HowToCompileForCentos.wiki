@@ -6,7 +6,7 @@ yum groupinstall "Development Tools" -y
 yum -y install wget cmake 
 yum -y install libjpeg-devel libpng-devel libtiff-devel zlib-devel
 yum -y install gcc gcc-c++ make numpy
-wget http://www.leptonica.com/source/leptonica-1.70.tar.gz
+wget http://www.leptonica.com/source/leptonica-1.71.tar.gz
 tar zxvf leptonica-1.70.tar.gz
 cd leptonica-1.70
 ./configure --prefix=/usr
@@ -23,9 +23,12 @@ make install
 
 cd ..
 #svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
-wget https://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.02.02.tar.gz
-tar zxvf esseract-ocr-3.02.02.tar.gzcd tesseract-ocr/
-./autogen.sh
+#wget https://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.02.02.tar.gz
+#tar zxvf tesseract-ocr-3.02.02.tar.gzcd tesseract-ocr/
+wget https://tesseract-ocr.googlecode.com/archive/3.03-rc1.tar.gz
+tar zxvf tesseract-ocr-3.03-rc1.tar.gz.
+cd tesseract-ocr
+/autogen.sh
 ./configure --prefix=/usr
 make
 make install
