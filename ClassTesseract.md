@@ -1,0 +1,1 @@
+![http://python-tesseract.googlecode.com/files/classtesseract_1_1_tess_base_a_p_i__coll__graph.png](http://python-tesseract.googlecode.com/files/classtesseract_1_1_tess_base_a_p_i__coll__graph.png)
